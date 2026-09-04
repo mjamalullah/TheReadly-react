@@ -1,0 +1,93 @@
+export const tutorsData = [
+  {
+    id: "tutor-sohail-urdu",
+    name: "Sohail Anjum",
+    role: "Cambridge Urdu Specialist",
+    qualifications: "Master in Urdu",
+    level: "O-Level • IGCSE",
+    category: "languages",
+    experience: "15+ Years in O-Level (First & Second Language) and IGCSE",
+    bio: "Distinguished Cambridge Urdu specialist with 15+ years of dedicated teaching experience in Cambridge O-Level (as First Language & Second Language) and IGCSE. Renowned for structured essay composition, comprehension analysis, precis writing, and Cambridge examiner mark-scheme precision.",
+    subjects: ["O-Level Urdu First Language (3247)", "O-Level Urdu Second Language (3248)", "Cambridge IGCSE Urdu (0539)", "Urdu Essay Composition & Translation"],
+    achievements: "15+ years of verified distinction results, mentoring hundreds of students to straight A* grades across international centers.",
+    image: "images/teachers/sohail-anjum.jpg"
+  },
+  {
+    id: "tutor-sarah-maths",
+    name: "Dr. Sarah Ahmed",
+    role: "Mathematics Specialist",
+    qualifications: "MSc Mathematics • Cambridge Distinction Coach",
+    level: "O-Level • A-Level",
+    category: "maths",
+    experience: "10+ Years Experience",
+    bio: "Specializes in Pure Mathematics (9709 P1 & P3) and Mechanics vectors. Known for breaking down complex differential equations and vector geometry into intuitive step-by-step algorithms.",
+    subjects: ["A-Level Mathematics (9709)", "O-Level Mathematics (4024)", "Additional Mathematics (4037)", "Edexcel Pure P1-P4"],
+    achievements: "Over 300+ students guided to straight A* distinctions across Cambridge exam centers.",
+    image: "images/teachers/sarah-ahmed.jpg"
+  },
+  {
+    id: "tutor-hamza-physics",
+    name: "Mr. Hamza Khan",
+    role: "Physics Specialist",
+    qualifications: "MPhil Physics • Practical ATP Lead",
+    level: "O-Level • A-Level",
+    category: "sciences",
+    experience: "8+ Years Experience",
+    bio: "Experienced educator focusing on first-principles kinematics, quantum physics, and electromagnetic induction. Expert in Paper 4 theory derivations and Paper 5 experiment design.",
+    subjects: ["A-Level Physics (9702)", "O-Level Physics (5054)", "IGCSE Physics (0625)", "Paper 5 Planning"],
+    achievements: "Specialized laboratory simulation worksheets credited with 94% distinctions in Paper 4 & 5.",
+    image: "images/teachers/hamza-khan.jpg"
+  },
+  {
+    id: "tutor-farhan-chem",
+    name: "Dr. Farhan Siddiqui",
+    role: "Chemistry Specialist",
+    qualifications: "PhD Chemistry • Medical Entrance Mentor",
+    level: "O-Level • A-Level",
+    category: "sciences",
+    experience: "12+ Years Experience",
+    bio: "Teaches organic reaction pathways, equilibrium kinetics, and stoichiometry calculations with absolute clarity. Guides pre-medical students toward straight A*s.",
+    subjects: ["A-Level Chemistry (9701)", "O-Level Chemistry (5070)", "IGCSE Chemistry (0620)", "Organic Synthesis"],
+    achievements: "Authored specialized reaction mechanism roadmaps adopted by international students worldwide.",
+    image: "images/teachers/farhan-siddiqui.jpg"
+  },
+  {
+    id: "tutor-daniyal-cs",
+    name: "Mr. Daniyal Qureshi",
+    role: "Computer Science Specialist",
+    qualifications: "MS Software Engineering • Senior Engineer",
+    level: "O-Level • A-Level",
+    category: "technology",
+    experience: "8+ Years Experience",
+    bio: "Teaches live screen Python programming, OOP design patterns, and pseudocode algorithms for A-Level Paper 4 and O-Level Computer Science (2210/9618).",
+    subjects: ["A-Level Computer Science (9618)", "O-Level CS (2210)", "IGCSE CS (0478)", "Python Paper 4 Live Coding"],
+    achievements: "Full hands-on screen-sharing labs with zero-loss debugging methodologies.",
+    image: "images/teachers/daniyal-qureshi.jpg"
+  },
+  {
+    id: "tutor-mahnoor-econ",
+    name: "Ms. Mahnoor Tariq",
+    role: "Economics Specialist",
+    qualifications: "BSc Economics (LSE) • Certified Examiner",
+    level: "O-Level • A-Level",
+    category: "commerce",
+    experience: "9+ Years Experience",
+    bio: "Expert in macroeconomic fiscal models, monetary policy diagrams, and the BLT (Because-Leading-To) method for 20-mark Cambridge evaluation essays.",
+    subjects: ["A-Level Economics (9708)", "O-Level Economics (2281)", "Business Studies (7115)", "Micro/Macro Policy"],
+    achievements: "Trained hundreds of students who achieved Cambridge Top in Region and Top in Country in Economics.",
+    image: "images/teachers/mahnoor-tariq.jpg"
+  },
+  {
+    id: "tutor-ayesha-english",
+    name: "Ms. Ayesha Malik",
+    role: "English Language Specialist",
+    qualifications: "MA English • Cambridge Certified",
+    level: "O-Level • IGCSE",
+    category: "humanities",
+    experience: "9+ Years Experience",
+    bio: "Specialist in critical reading comprehension, 10-point summary formulas, and advanced narrative & discursive essay writing for CAIE 1123 and IGCSE 0500.",
+    subjects: ["English Language (1123)", "Cambridge IGCSE English (0500)", "Creative Writing", "Directed Essays"],
+    achievements: "Master of 10-point summary structure; students consistently score 28+/30 on Directed Writing.",
+    image: "images/teachers/ayesha-malik.jpg"
+  }
+];

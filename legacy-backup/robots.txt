@@ -1,0 +1,10 @@
+# ==============================================================================
+# The Readly Institute — robots.txt
+# https://thereadlyinstitute.com/
+# ==============================================================================
+
+User-agent: *
+Allow: /
+
+# Sitemap
+Sitemap: https://thereadlyinstitute.com/sitemap.xml
