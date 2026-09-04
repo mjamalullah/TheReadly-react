@@ -927,8 +927,10 @@ export const Home = () => {
                 {/* Scorecard Header */}
                 <div className="flex items-center justify-between border-b border-slate-100 pb-4">
                   <div className="flex items-center gap-3">
-                    <div className="w-11 h-11 rounded-xl bg-gradient-to-br from-[#0B4635] to-[#047857] text-white shadow-md flex items-center justify-center font-extrabold text-lg font-heading">
-                      A*
+                    <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-[#0B4635] to-[#047857] shadow-md flex items-center justify-center shrink-0 border border-emerald-500/30">
+                      <span className="font-black text-xl tracking-tight leading-none select-none" style={{ color: '#ffffff' }}>
+                        A*
+                      </span>
                     </div>
                     <div>
                       <h4 className="text-sm font-bold text-[#0B4635] font-heading">Diagnostic Assessment Tracker</h4>
@@ -979,15 +981,15 @@ export const Home = () => {
                 {/* 3 Metric Badges */}
                 <div className="grid grid-cols-3 gap-2.5 pt-2 text-center text-xs">
                   <div className="p-3 rounded-xl bg-[#ECFDF5] border border-[#A7F3D0] shadow-2xs">
-                    <span className="text-base sm:text-lg font-extrabold text-[#059669] block font-heading">98.4%</span>
+                    <span className="text-base sm:text-lg font-extrabold block font-heading" style={{ color: '#059669' }}>98.4%</span>
                     <span className="text-[10px] text-slate-600 font-semibold">A* / A Pass</span>
                   </div>
                   <div className="p-3 rounded-xl bg-slate-50 border border-slate-200 shadow-2xs">
-                    <span className="text-base sm:text-lg font-extrabold text-[#0B4635] block font-heading">1-on-1</span>
+                    <span className="text-base sm:text-lg font-extrabold block font-heading" style={{ color: '#0B4635' }}>1-on-1</span>
                     <span className="text-[10px] text-slate-600 font-semibold">Focused Pacing</span>
                   </div>
                   <div className="p-3 rounded-xl bg-[#FAF6EE] border border-[#E8DCBF] shadow-2xs">
-                    <span className="text-base sm:text-lg font-extrabold text-[#B45309] block font-heading">100%</span>
+                    <span className="text-base sm:text-lg font-extrabold block font-heading" style={{ color: '#B45309' }}>100%</span>
                     <span className="text-[10px] text-slate-600 font-semibold">Free Demo</span>
                   </div>
                 </div>
