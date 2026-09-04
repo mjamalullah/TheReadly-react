@@ -827,77 +827,176 @@ export const Home = () => {
         </div>
       </section>
 
-      {/* ================= 5. MASTER MATHEMATICS SECTION WITH .btn-outline-white ================= */}
-      <section className="py-12 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
-        <div className="card-base p-8 sm:p-12 bg-gradient-to-br from-[#0A192F] to-[#0E2A47] text-white border-slate-800 shadow-xl rounded-2xl relative overflow-hidden">
-          <div className="grid lg:grid-cols-12 gap-8 items-center">
+      {/* ================= 5. THE DISTINCTION ENGINE SECTION (Replaces single-subject Maths) ================= */}
+      <section className="py-12 sm:py-16 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
+        <div className="card-base p-6 sm:p-10 lg:p-12 bg-gradient-to-br from-[#063326] via-[#0B4635] to-[#04281E] text-white border border-emerald-700/50 shadow-2xl rounded-3xl relative overflow-hidden">
+          
+          {/* Subtle Decorative Gradient Glows */}
+          <div className="absolute top-0 right-0 w-96 h-96 bg-emerald-500/10 rounded-full blur-3xl pointer-events-none -mr-20 -mt-20"></div>
+          <div className="absolute bottom-0 left-0 w-80 h-80 bg-teal-500/10 rounded-full blur-3xl pointer-events-none -ml-20 -mb-20"></div>
+
+          <div className="grid lg:grid-cols-12 gap-8 lg:gap-12 items-center relative z-10">
             
-            <div className="lg:col-span-7 space-y-5">
-              <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-bold bg-[#FAF6EE] text-[#8C6619] border border-[#E8DCBF]">
-                <Calculator className="w-3.5 h-3.5" /> Featured Academic Masterclass
+            {/* Left Content Column */}
+            <div className="lg:col-span-7 space-y-6 text-center md:text-left flex flex-col items-center md:items-start">
+              
+              <span className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full text-xs font-bold bg-white/10 text-emerald-300 border border-emerald-400/30 backdrop-blur-xs">
+                <Sparkles className="w-3.5 h-3.5 text-emerald-400" />
+                <span>The Readly Distinction Engine</span>
               </span>
-              <h2 className="text-3xl sm:text-4xl font-extrabold text-white font-heading">
-                Master Mathematics With Confidence
-              </h2>
-              <p className="text-slate-300 text-sm sm:text-base leading-relaxed">
-                From O-Level 4024 to A-Level Pure Mathematics (9709 P1 & P3) and Mechanics. We deconstruct abstract calculus, vectors, and algebra into intuitive, first-principle problem solving.
-              </p>
 
-              <div className="grid sm:grid-cols-2 gap-3 text-xs text-slate-200 pt-2">
-                <div className="flex items-center gap-2">
-                  <CheckCircle2 className="w-4 h-4 text-emerald-400" />
-                  <span>Concept-based learning</span>
-                </div>
-                <div className="flex items-center gap-2">
-                  <CheckCircle2 className="w-4 h-4 text-emerald-400" />
-                  <span>Expert instruction</span>
-                </div>
-                <div className="flex items-center gap-2">
-                  <CheckCircle2 className="w-4 h-4 text-emerald-400" />
-                  <span>15-Year past paper practice</span>
-                </div>
-                <div className="flex items-center gap-2">
-                  <CheckCircle2 className="w-4 h-4 text-emerald-400" />
-                  <span>Exam strategies & mark schemes</span>
-                </div>
+              <div className="space-y-2">
+                <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-extrabold text-white font-heading tracking-tight leading-tight">
+                  How We Turn Syllabus Doubts Into{' '}
+                  <span className="text-emerald-400">Straight A* Distinctions</span>
+                </h2>
+                <p className="text-slate-200 text-xs sm:text-sm md:text-base leading-relaxed max-w-2xl">
+                  We don't believe in crowded classrooms or passive video watching. Every student follows an individualized diagnostic roadmap combining concept breakdown, 15-year past paper mastery, and Cambridge examiner mark-scheme precision.
+                </p>
               </div>
 
-              <div className="pt-3 flex flex-wrap gap-3">
-                <Link to="/subjects" className="btn btn-teal">
-                  <span>Explore Mathematics</span>
-                  <ArrowRight className="w-4 h-4" />
-                </Link>
+              {/* 4 Pillars Grid */}
+              <div className="grid sm:grid-cols-2 gap-3.5 w-full text-left pt-2">
+                
+                <div className="p-4 rounded-xl bg-white/5 border border-white/10 backdrop-blur-xs space-y-1 hover:border-emerald-400/40 hover:bg-white/10 transition-all">
+                  <div className="flex items-center gap-2 text-emerald-300 text-xs font-bold uppercase tracking-wider">
+                    <CheckCircle2 className="w-4 h-4 text-emerald-400 shrink-0" />
+                    <span>1-on-1 Diagnostic Intake</span>
+                  </div>
+                  <p className="text-slate-300 text-xs leading-relaxed">
+                    A 30-min evaluation to identify prerequisite gaps before lessons begin.
+                  </p>
+                </div>
+
+                <div className="p-4 rounded-xl bg-white/5 border border-white/10 backdrop-blur-xs space-y-1 hover:border-emerald-400/40 hover:bg-white/10 transition-all">
+                  <div className="flex items-center gap-2 text-emerald-300 text-xs font-bold uppercase tracking-wider">
+                    <CheckCircle2 className="w-4 h-4 text-emerald-400 shrink-0" />
+                    <span>15-Yr Topical Past Papers</span>
+                  </div>
+                  <p className="text-slate-300 text-xs leading-relaxed">
+                    Classified question banks drilled with official CAIE mark-scheme keywords.
+                  </p>
+                </div>
+
+                <div className="p-4 rounded-xl bg-white/5 border border-white/10 backdrop-blur-xs space-y-1 hover:border-emerald-400/40 hover:bg-white/10 transition-all">
+                  <div className="flex items-center gap-2 text-emerald-300 text-xs font-bold uppercase tracking-wider">
+                    <CheckCircle2 className="w-4 h-4 text-emerald-400 shrink-0" />
+                    <span>Timed Mocks & Grade Curves</span>
+                  </div>
+                  <p className="text-slate-300 text-xs leading-relaxed">
+                    Full timed simulations calibrated to real historical grade thresholds.
+                  </p>
+                </div>
+
+                <div className="p-4 rounded-xl bg-white/5 border border-white/10 backdrop-blur-xs space-y-1 hover:border-emerald-400/40 hover:bg-white/10 transition-all">
+                  <div className="flex items-center gap-2 text-emerald-300 text-xs font-bold uppercase tracking-wider">
+                    <CheckCircle2 className="w-4 h-4 text-emerald-400 shrink-0" />
+                    <span>WhatsApp Parent Audits</span>
+                  </div>
+                  <p className="text-slate-300 text-xs leading-relaxed">
+                    Bi-weekly reports on attendance, homework completion, and mock scores.
+                  </p>
+                </div>
+
+              </div>
+
+              {/* Action Buttons (Tap-friendly on mobile) */}
+              <div className="w-full flex flex-col sm:flex-row items-stretch sm:items-center justify-center md:justify-start gap-3 pt-3">
                 <button
-                  onClick={() => openBookingModal({ subject: 'Mathematics (4024 / 9709)' })}
-                  className="btn btn-outline-white"
+                  onClick={() => openBookingModal()}
+                  className="btn btn-teal font-bold text-xs sm:text-sm px-6 py-3.5 shadow-lg hover:shadow-emerald-500/20 transition-all flex items-center justify-center gap-2 w-full sm:w-auto min-h-[44px] cursor-pointer"
                 >
-                  <span>Book a Free Trial Class</span>
-                  <Calendar className="w-4 h-4" />
+                  <Calendar className="w-4 h-4 shrink-0" />
+                  <span>Schedule Free Diagnostic Session</span>
                 </button>
+                <Link
+                  to="/subjects"
+                  className="btn btn-outline-white font-bold text-xs sm:text-sm px-6 py-3.5 flex items-center justify-center gap-2 w-full sm:w-auto min-h-[44px] hover:border-emerald-300"
+                >
+                  <span>Explore All 50+ Subjects</span>
+                  <ArrowRight className="w-4 h-4 shrink-0" />
+                </Link>
               </div>
+
             </div>
 
+            {/* Right Interactive Dashboard Preview */}
             <div className="lg:col-span-5">
-              <div className="p-6 rounded-xl bg-slate-900/80 border border-slate-700/80 space-y-4">
-                <h4 className="text-xs font-bold text-amber-400 uppercase tracking-wider">Course Syllabus Blueprint</h4>
-                <div className="space-y-2 text-xs">
-                  <div className="flex justify-between p-2 rounded bg-slate-800/60">
-                    <span>Pure Maths 1 (P1)</span>
-                    <span className="text-[#C59B4B] font-mono">Quadratic & Calculus</span>
+              <div className="p-6 sm:p-7 rounded-2xl bg-white/10 backdrop-blur-md border border-white/15 shadow-xl space-y-5">
+                
+                {/* Scorecard Header */}
+                <div className="flex items-center justify-between border-b border-white/15 pb-4">
+                  <div className="flex items-center gap-3">
+                    <div className="w-10 h-10 rounded-xl bg-emerald-500/20 border border-emerald-400/30 flex items-center justify-center text-emerald-300 font-bold text-base">
+                      A*
+                    </div>
+                    <div>
+                      <h4 className="text-sm font-bold text-white font-heading">Diagnostic Assessment Tracker</h4>
+                      <p className="text-[11px] text-emerald-300/90 font-medium">Cambridge & Edexcel Distinction Target</p>
+                    </div>
                   </div>
-                  <div className="flex justify-between p-2 rounded bg-slate-800/60">
-                    <span>Pure Maths 3 (P3)</span>
-                    <span className="text-[#C59B4B] font-mono">Differential Equations</span>
+                  <span className="px-2.5 py-1 rounded-full text-[10px] font-bold bg-emerald-400/20 text-emerald-300 border border-emerald-400/30">
+                    Live Status
+                  </span>
+                </div>
+
+                {/* Progress Gauges */}
+                <div className="space-y-3 text-xs">
+                  
+                  <div className="space-y-1">
+                    <div className="flex justify-between text-[11px] font-medium text-slate-200">
+                      <span>Concept Foundations (P1 / P2)</span>
+                      <span className="text-emerald-300 font-bold">100% Mastered</span>
+                    </div>
+                    <div className="w-full bg-white/10 rounded-full h-2 overflow-hidden">
+                      <div className="bg-gradient-to-r from-emerald-400 to-teal-300 h-2 rounded-full w-full"></div>
+                    </div>
                   </div>
-                  <div className="flex justify-between p-2 rounded bg-slate-800/60">
-                    <span>Mechanics (M1)</span>
-                    <span className="text-[#C59B4B] font-mono">Newtonian Dynamics</span>
+
+                  <div className="space-y-1">
+                    <div className="flex justify-between text-[11px] font-medium text-slate-200">
+                      <span>Topical Past Paper Drills (15 Yrs)</span>
+                      <span className="text-emerald-300 font-bold">94% Completed</span>
+                    </div>
+                    <div className="w-full bg-white/10 rounded-full h-2 overflow-hidden">
+                      <div className="bg-gradient-to-r from-emerald-400 to-teal-300 h-2 rounded-full w-[94%]"></div>
+                    </div>
                   </div>
-                  <div className="flex justify-between p-2 rounded bg-slate-800/60">
-                    <span>Probability & Stats (S1)</span>
-                    <span className="text-[#C59B4B] font-mono">Normal Distribution</span>
+
+                  <div className="space-y-1">
+                    <div className="flex justify-between text-[11px] font-medium text-slate-200">
+                      <span>Examiner Mark-Scheme Calibration</span>
+                      <span className="text-emerald-300 font-bold">98% Accuracy</span>
+                    </div>
+                    <div className="w-full bg-white/10 rounded-full h-2 overflow-hidden">
+                      <div className="bg-gradient-to-r from-emerald-400 to-teal-300 h-2 rounded-full w-[98%]"></div>
+                    </div>
+                  </div>
+
+                </div>
+
+                {/* 3 Metric Badges */}
+                <div className="grid grid-cols-3 gap-2.5 pt-2 text-center text-xs">
+                  <div className="p-2.5 rounded-xl bg-white/5 border border-white/10">
+                    <span className="text-base font-extrabold text-emerald-300 block font-heading">98.4%</span>
+                    <span className="text-[10px] text-slate-300 font-medium">A* / A Pass</span>
+                  </div>
+                  <div className="p-2.5 rounded-xl bg-white/5 border border-white/10">
+                    <span className="text-base font-extrabold text-white block font-heading">1-on-1</span>
+                    <span className="text-[10px] text-slate-300 font-medium">Focused Pacing</span>
+                  </div>
+                  <div className="p-2.5 rounded-xl bg-white/5 border border-white/10">
+                    <span className="text-base font-extrabold text-emerald-300 block font-heading">100%</span>
+                    <span className="text-[10px] text-slate-300 font-medium">Free Demo</span>
                   </div>
                 </div>
+
+                {/* Micro Guarantee Note */}
+                <div className="p-3 rounded-xl bg-white/5 border border-white/10 text-[11px] text-slate-300 flex items-center gap-2">
+                  <ShieldCheck className="w-4 h-4 text-emerald-400 shrink-0" />
+                  <span>Zero upfront payment required. Experience our teaching before deciding.</span>
+                </div>
+
               </div>
             </div>
 
