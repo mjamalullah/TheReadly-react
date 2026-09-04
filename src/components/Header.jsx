@@ -25,11 +25,11 @@ export const Header = () => {
         <div className="flex items-center justify-between h-20">
           
           {/* Logo */}
-          <Link to="/" className="flex items-center gap-3 group">
+          <Link to="/" className="flex items-center gap-3 group shrink-0">
             <img
               src="/images/logo.png"
               alt="The Readly Institute Logo"
-              className="h-12 w-auto object-contain transition-transform group-hover:scale-105"
+              className="h-12 sm:h-[52px] md:h-14 w-auto object-contain transition-transform duration-200 group-hover:scale-[1.03]"
             />
           </Link>
 
