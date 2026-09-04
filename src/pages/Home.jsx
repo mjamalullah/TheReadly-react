@@ -164,6 +164,7 @@ export const Home = () => {
   const [selectedCategory, setSelectedCategory] = useState('all');
   const [selectedTutorCategory, setSelectedTutorCategory] = useState('all');
   const [showAllSubjects, setShowAllSubjects] = useState(false);
+  const [showAllTeachers, setShowAllTeachers] = useState(false);
 
   // FAQ Accordion State
   const [openFaq, setOpenFaq] = useState(0);
@@ -220,11 +221,22 @@ export const Home = () => {
 
   const displayedSubjects = showAllSubjects ? allFilteredSubjects : allFilteredSubjects.slice(0, 4);
 
-  // Filtered Tutors for Faculty Section
+  // Filtered & Sorted Tutors for Faculty Section (Top rated first with 4-item initial limit)
   const filteredTutors = tutorsData.filter(tutor => {
     if (selectedTutorCategory === 'all') return true;
     return tutor.category === selectedTutorCategory;
   });
+
+  const sortedTutors = [...filteredTutors].sort((a, b) => {
+    const ratingA = a.rating || 5.0;
+    const ratingB = b.rating || 5.0;
+    if (ratingB !== ratingA) return ratingB - ratingA;
+    const reviewsA = parseInt(a.reviewsCount) || 0;
+    const reviewsB = parseInt(b.reviewsCount) || 0;
+    return reviewsB - reviewsA;
+  });
+
+  const displayedTutors = showAllTeachers ? sortedTutors : sortedTutors.slice(0, 4);
 
   const handleQuickSubmit = (e) => {
     e.preventDefault();
@@ -1244,7 +1256,10 @@ export const Home = () => {
           ].map(cat => (
             <button
               key={cat.id}
-              onClick={() => setSelectedTutorCategory(cat.id)}
+              onClick={() => {
+                setSelectedTutorCategory(cat.id);
+                setShowAllTeachers(false);
+              }}
               className={`tutor-pill px-3.5 py-1.5 rounded text-xs font-bold transition-all cursor-pointer ${
                 selectedTutorCategory === cat.id
                   ? 'active bg-[#ECFDF5] text-[#059669] border border-[#A7F3D0]'
@@ -1256,18 +1271,18 @@ export const Home = () => {
           ))}
         </div>
 
-        {/* Teachers Grid */}
-        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
-          {filteredTutors.map(tutor => (
+        {/* Teachers Grid (4 columns on desktop, 4-item initial limit) */}
+        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
+          {displayedTutors.map(tutor => (
             <div
               key={tutor.id}
               id={`tutorCard-${tutor.id}`}
-              className="academic-card academic-card-hover p-6 flex flex-col justify-between relative bg-white"
+              className="academic-card academic-card-hover p-5 sm:p-5.5 flex flex-col justify-between relative bg-white rounded-2xl border border-slate-200 shadow-xs hover:border-[#059669] hover:shadow-lg transition-all animate-card-entry"
             >
               <div>
                 {/* Header with Mentor Photo, Name & Level */}
-                <div className="flex items-start gap-3.5 mb-4">
-                  <div className="w-14 h-14 rounded-xl overflow-hidden shadow-md border-2 border-slate-200 shrink-0 bg-[#ECFDF5]">
+                <div className="flex items-start gap-3 mb-3.5">
+                  <div className="w-13 h-13 rounded-xl overflow-hidden shadow-sm border border-slate-200 shrink-0 bg-[#ECFDF5]">
                     <img
                       src={tutor.image}
                       alt={tutor.name}
@@ -1277,50 +1292,64 @@ export const Home = () => {
                   </div>
                   <div className="min-w-0 flex-1">
                     <div className="flex items-center justify-between gap-1">
-                      <h3 className="text-base font-bold text-slate-900 font-heading truncate">{tutor.name}</h3>
-                      <span className="text-[10px] font-bold text-slate-500 bg-slate-100 px-2 py-0.5 rounded shrink-0">
+                      <h3 className="text-sm sm:text-base font-bold text-slate-900 font-heading truncate">{tutor.name}</h3>
+                      <span className="text-[10px] font-bold text-slate-500 bg-slate-100 px-1.5 py-0.5 rounded shrink-0">
                         {tutor.level}
                       </span>
                     </div>
-                    <p className="text-xs font-bold text-[#059669] truncate">{tutor.role}</p>
-                    <span className="text-[10px] font-semibold text-emerald-800 bg-emerald-50 border border-emerald-200 px-1.5 py-0.5 rounded inline-block mt-1">
-                      {tutor.experience}
-                    </span>
+                    <p className="text-xs font-bold text-[#059669] truncate mt-0.5">{tutor.role}</p>
+                    
+                    {/* Rating Badge with Gold Star */}
+                    <div className="flex items-center flex-wrap gap-1.5 mt-1.5">
+                      <span className="inline-flex items-center gap-1 px-2 py-0.5 rounded text-[11px] font-bold bg-[#FEF9EE] text-[#B45309] border border-[#E8DCBF]">
+                        <Star className="w-3 h-3 fill-amber-400 text-amber-500" />
+                        <span>{tutor.rating ? tutor.rating.toFixed(1) : '5.0'}</span>
+                        <span className="text-slate-500 font-medium text-[10px]">({tutor.reviewsCount || '150+'})</span>
+                      </span>
+                      <span className="text-[10px] font-semibold text-emerald-800 bg-emerald-50 border border-emerald-200 px-1.5 py-0.5 rounded">
+                        {tutor.experience}
+                      </span>
+                    </div>
                   </div>
                 </div>
 
                 {/* Qualification & Credentials */}
-                <p className="text-[11px] font-medium text-slate-500 mb-2.5">
+                <p className="text-[11px] font-medium text-slate-500 mb-2 truncate">
                   {tutor.qualifications}
                 </p>
 
                 {/* Short Bio */}
-                <p className="text-xs text-slate-600 leading-relaxed mb-4 line-clamp-3">
+                <p className="text-xs text-slate-600 leading-relaxed mb-3 line-clamp-3">
                   {tutor.bio}
                 </p>
 
                 {/* Subjects Tags */}
-                <div className="flex flex-wrap gap-1 mb-4">
-                  {tutor.subjects?.map((s, idx) => (
+                <div className="flex flex-wrap gap-1 mb-3">
+                  {tutor.subjects?.slice(0, 3).map((s, idx) => (
                     <span key={idx} className="px-2 py-0.5 rounded text-[10px] bg-slate-50 border border-slate-200 text-slate-700">
                       {s}
                     </span>
                   ))}
+                  {tutor.subjects?.length > 3 && (
+                    <span className="px-1.5 py-0.5 rounded text-[10px] bg-emerald-50 border border-emerald-200 text-emerald-700 font-semibold">
+                      +{tutor.subjects.length - 3} more
+                    </span>
+                  )}
                 </div>
               </div>
 
               {/* Select Action */}
-              <div className="pt-3 border-t border-slate-100 flex items-center justify-between">
+              <div className="pt-3 border-t border-slate-100 flex items-center justify-between gap-2">
                 <button
                   onClick={() => openTeacherModal(tutor)}
-                  className="btn-secondary-academic py-1.5 px-3 text-xs font-semibold flex items-center gap-1.5"
+                  className="btn-secondary-academic py-1.5 px-2.5 text-xs font-semibold flex items-center gap-1 rounded-lg"
                 >
                   <User className="w-3.5 h-3.5" />
                   <span>Profile</span>
                 </button>
                 <button
                   onClick={() => openBookingModal({ teacher: tutor.name, subject: tutor.subjects?.[0] || '' })}
-                  className="btn-teal-academic py-1.5 px-3 text-xs font-bold flex items-center gap-1.5"
+                  className="btn-teal-academic py-1.5 px-3 text-xs font-bold flex items-center gap-1 rounded-lg shadow-2xs"
                 >
                   <span>Select Mentor</span>
                   <ArrowRight className="w-3.5 h-3.5" />
@@ -1330,7 +1359,24 @@ export const Home = () => {
           ))}
         </div>
 
-        <div className="mt-10 text-center">
+        {/* Toggle / Expand Mechanism (Show All / Show Less) */}
+        {sortedTutors.length > 4 && (
+          <div className="flex justify-center pt-8">
+            <button
+              onClick={() => setShowAllTeachers(prev => !prev)}
+              className="inline-flex items-center gap-2 px-6 py-3 rounded-xl text-xs font-bold bg-white text-[#0B4635] border-2 border-emerald-100 hover:border-[#059669] hover:bg-[#ECFDF5] shadow-xs hover:shadow-md transition-all duration-300 cursor-pointer min-h-[44px] group"
+            >
+              <span>{showAllTeachers ? 'Show Less' : `View All Faculty Mentors (${sortedTutors.length})`}</span>
+              {showAllTeachers ? (
+                <ChevronUp className="w-4 h-4 text-[#059669] transition-transform group-hover:-translate-y-0.5" />
+              ) : (
+                <ChevronDown className="w-4 h-4 text-[#059669] transition-transform group-hover:translate-y-0.5" />
+              )}
+            </button>
+          </div>
+        )}
+
+        <div className="mt-8 text-center">
           <Link to="/teachers" className="inline-flex items-center gap-1.5 text-xs font-bold text-[#059669] hover:underline">
             <span>Explore All Faculty Bios & Distinctions</span>
             <ArrowRight className="w-3.5 h-3.5" />
