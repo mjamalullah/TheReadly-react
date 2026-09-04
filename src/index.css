@@ -126,11 +126,15 @@ p {
   color: #ffffff !important;
 }
 
-.site-footer a, .site-footer p, .site-footer span {
-  color: #94A3B8 !important;
+.site-footer a, footer a {
+  color: #CBD5E1 !important;
 }
 
-.site-footer a:hover {
+.site-footer p, footer p {
+  color: #E2E8F0 !important;
+}
+
+.site-footer a:hover, footer a:hover {
   color: #ffffff !important;
 }
 

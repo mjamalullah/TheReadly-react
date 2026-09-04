@@ -5,7 +5,7 @@ import { Phone, Mail, Clock, MapPin, ExternalLink, ShieldCheck } from 'lucide-re
 
 export const Footer = () => {
   return (
-    <footer className="bg-[#063326] text-white border-t border-[#0B4635] pt-16 pb-12">
+    <footer className="site-footer bg-[#063326] text-white border-t border-[#0B4635] pt-16 pb-12">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Main Grid */}
@@ -20,12 +20,12 @@ export const Footer = () => {
                 className="h-12 w-auto object-contain"
               />
             </Link>
-            <p className="text-xs text-slate-300 leading-relaxed">
+            <p className="text-xs leading-relaxed" style={{ color: '#E2E8F0' }}>
               Premier live online academy for Cambridge Assessment International Education (O-Level, IGCSE & A-Level), Pearson Edexcel, and Industry IT Certifications. Mentoring students across Pakistan, UAE, Saudi Arabia, the UK, and overseas to straight A* academic distinctions.
             </p>
             <div className="flex items-center gap-2 text-xs text-emerald-400 font-semibold">
               <ShieldCheck className="w-4 h-4 text-emerald-400" />
-              <span>Registered Academic Preparation Provider</span>
+              <span style={{ color: '#A7F3D0' }}>Registered Academic Preparation Provider</span>
             </div>
           </div>
 
@@ -34,7 +34,7 @@ export const Footer = () => {
             <h4 className="text-xs font-bold uppercase tracking-wider text-emerald-400 font-heading">
               Academic Curriculums
             </h4>
-            <ul className="space-y-2 text-xs text-slate-300">
+            <ul className="space-y-2 text-xs" style={{ color: '#CBD5E1' }}>
               <li>
                 <Link to="/programs" className="hover:text-white transition-colors">Cambridge O-Level (CAIE)</Link>
               </li>
@@ -61,7 +61,7 @@ export const Footer = () => {
             <h4 className="text-xs font-bold uppercase tracking-wider text-emerald-400 font-heading">
               Quick Links
             </h4>
-            <ul className="space-y-2 text-xs text-slate-300">
+            <ul className="space-y-2 text-xs" style={{ color: '#CBD5E1' }}>
               <li>
                 <Link to="/subjects" className="hover:text-white transition-colors">Subject Catalog</Link>
               </li>
@@ -88,11 +88,11 @@ export const Footer = () => {
             <h4 className="text-xs font-bold uppercase tracking-wider text-emerald-400 font-heading">
               Admissions Direct Desk
             </h4>
-            <ul className="space-y-3 text-xs text-slate-300">
+            <ul className="space-y-3 text-xs" style={{ color: '#CBD5E1' }}>
               <li className="flex items-start gap-2.5">
                 <Phone className="w-4 h-4 text-emerald-400 shrink-0 mt-0.5" />
                 <div>
-                  <span className="block text-[11px] text-slate-400">WhatsApp & Direct Calls:</span>
+                  <span className="block text-[11px]" style={{ color: '#94A3B8' }}>WhatsApp & Direct Calls:</span>
                   <a
                     href={`https://wa.me/${READLY_CONFIG.whatsappNumber}?text=${encodeURIComponent('Hi The Readly Institute, I would like to inquire about admissions.')}`}
                     target="_blank"
@@ -106,7 +106,7 @@ export const Footer = () => {
               <li className="flex items-start gap-2.5">
                 <Mail className="w-4 h-4 text-emerald-400 shrink-0 mt-0.5" />
                 <div>
-                  <span className="block text-[11px] text-slate-400">Official Inquiries:</span>
+                  <span className="block text-[11px]" style={{ color: '#94A3B8' }}>Official Inquiries:</span>
                   <a
                     href={`mailto:${READLY_CONFIG.officialEmail}`}
                     className="font-bold text-white hover:text-emerald-400 transition-colors"
@@ -118,8 +118,8 @@ export const Footer = () => {
               <li className="flex items-start gap-2.5">
                 <Clock className="w-4 h-4 text-emerald-400 shrink-0 mt-0.5" />
                 <div>
-                  <span className="block text-[11px] text-slate-400">Operational Hours:</span>
-                  <span className="text-slate-200">{READLY_CONFIG.hours}</span>
+                  <span className="block text-[11px]" style={{ color: '#94A3B8' }}>Operational Hours:</span>
+                  <span style={{ color: '#E2E8F0' }}>{READLY_CONFIG.hours}</span>
                 </div>
               </li>
             </ul>
@@ -128,12 +128,17 @@ export const Footer = () => {
         </div>
 
         {/* Cambridge Disclaimer & Copyright */}
-        <div className="pt-8 flex flex-col md:flex-row items-center justify-between gap-4 text-xs text-slate-400">
-          <p className="text-center md:text-left leading-relaxed max-w-2xl">
-            Cambridge Assessment International Education (CAIE) and Pearson Edexcel are registered trademarks of their respective examination authorities. The Readly Institute is an independent online tutoring institution providing supplemental exam preparation.
-          </p>
+        <div className="pt-8 flex flex-col md:flex-row items-center justify-between gap-6 text-xs">
+          <div className="flex items-start gap-3 max-w-3xl text-center md:text-left">
+            <ShieldCheck className="w-5 h-5 text-emerald-400 shrink-0 mt-0.5 hidden sm:block" />
+            <p className="leading-relaxed text-xs sm:text-[13px] font-medium" style={{ color: '#D1FAE5' }}>
+              <span className="font-bold text-white">Academic Notice:</span> Cambridge Assessment International Education (CAIE) and Pearson Edexcel are registered trademarks of their respective examination authorities. The Readly Institute is an independent online tutoring institution providing supplemental exam preparation.
+            </p>
+          </div>
           <div className="flex items-center gap-6 shrink-0">
-            <span>&copy; {new Date().getFullYear()} The Readly Institute. All rights reserved.</span>
+            <span className="text-xs sm:text-[13px] font-semibold tracking-wide" style={{ color: '#FFFFFF' }}>
+              &copy; {new Date().getFullYear()} The Readly Institute. All rights reserved.
+            </span>
           </div>
         </div>
 
