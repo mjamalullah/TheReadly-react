@@ -1102,8 +1102,10 @@ export const Home = () => {
             <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-emerald-500 to-teal-400 opacity-0 group-hover:opacity-100 transition-opacity"></div>
             <div>
               <div className="flex items-center justify-between mb-4">
-                <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-[#059669] to-[#047857] text-white font-heading font-extrabold flex items-center justify-center text-base shadow-md group-hover:scale-105 transition-transform">
-                  01
+                <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-[#059669] to-[#047857] shadow-md flex items-center justify-center text-base shrink-0 group-hover:scale-105 transition-transform">
+                  <span className="text-white !text-white font-black text-lg select-none leading-none" style={{ color: '#ffffff' }}>
+                    01
+                  </span>
                 </div>
                 <span className="px-2.5 py-1 rounded-full text-[11px] font-bold uppercase tracking-wider bg-emerald-50 text-[#059669] border border-emerald-100">
                   Step 1 • Trial
@@ -1127,8 +1129,10 @@ export const Home = () => {
             <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-emerald-500 to-teal-400 opacity-0 group-hover:opacity-100 transition-opacity"></div>
             <div>
               <div className="flex items-center justify-between mb-4">
-                <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-[#0B4635] to-[#063326] text-white font-heading font-extrabold flex items-center justify-center text-base shadow-md group-hover:scale-105 transition-transform">
-                  02
+                <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-[#0B4635] to-[#063326] shadow-md flex items-center justify-center text-base shrink-0 group-hover:scale-105 transition-transform">
+                  <span className="text-white !text-white font-black text-lg select-none leading-none" style={{ color: '#ffffff' }}>
+                    02
+                  </span>
                 </div>
                 <span className="px-2.5 py-1 rounded-full text-[11px] font-bold uppercase tracking-wider bg-slate-100 text-slate-700 border border-slate-200">
                   Step 2 • Pairing
@@ -1152,8 +1156,10 @@ export const Home = () => {
             <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-emerald-500 to-teal-400 opacity-0 group-hover:opacity-100 transition-opacity"></div>
             <div>
               <div className="flex items-center justify-between mb-4">
-                <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-[#059669] to-[#047857] text-white font-heading font-extrabold flex items-center justify-center text-base shadow-md group-hover:scale-105 transition-transform">
-                  03
+                <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-[#059669] to-[#047857] shadow-md flex items-center justify-center text-base shrink-0 group-hover:scale-105 transition-transform">
+                  <span className="text-white !text-white font-black text-lg select-none leading-none" style={{ color: '#ffffff' }}>
+                    03
+                  </span>
                 </div>
                 <span className="px-2.5 py-1 rounded-full text-[11px] font-bold uppercase tracking-wider bg-emerald-50 text-[#059669] border border-emerald-100">
                   Step 3 • Classes
@@ -1177,8 +1183,10 @@ export const Home = () => {
             <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-amber-500 to-emerald-500 opacity-0 group-hover:opacity-100 transition-opacity"></div>
             <div>
               <div className="flex items-center justify-between mb-4">
-                <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-[#C59B4B] to-[#9A7228] text-white font-heading font-extrabold flex items-center justify-center text-base shadow-md group-hover:scale-105 transition-transform">
-                  04
+                <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-[#C59B4B] to-[#9A7228] shadow-md flex items-center justify-center text-base shrink-0 group-hover:scale-105 transition-transform">
+                  <span className="text-white !text-white font-black text-lg select-none leading-none" style={{ color: '#ffffff' }}>
+                    04
+                  </span>
                 </div>
                 <span className="px-2.5 py-1 rounded-full text-[11px] font-bold uppercase tracking-wider bg-amber-50 text-amber-800 border border-amber-200">
                   Step 4 • A* Goal

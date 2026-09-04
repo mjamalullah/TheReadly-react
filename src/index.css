@@ -121,7 +121,8 @@ p {
 .btn-primary *, .btn-teal *, .btn-navy *, .btn-whatsapp *,
 .dashboard-header-bar *, .bg-slate-900 *,
 .site-footer .footer-heading,
-.stats-section, .stats-section * {
+.stats-section, .stats-section *,
+.text-white {
   color: #ffffff !important;
 }
 
