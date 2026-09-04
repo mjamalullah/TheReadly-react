@@ -10,8 +10,11 @@ import {
   ArrowRight,
   Calculator,
   Calendar,
+  CalendarCheck,
   CheckCircle2,
   ChevronDown,
+  ChevronLeft,
+  ChevronRight,
   Clock,
   ExternalLink,
   GraduationCap,
@@ -26,129 +29,127 @@ import {
   BookOpen,
   Laptop,
   TrendingUp,
-  FileText
+  FileText,
+  Atom,
+  Globe
 } from 'lucide-react';
 
 const heroSlides = [
   {
-    badge: "Accredited CAIE & Edexcel Online Academy",
-    title: "Achieve Cambridge A* Distinctions With Specialized 1-on-1 Faculty Mentorship",
-    description: "Personalized online tutoring for Cambridge O-Level, IGCSE & A-Level. Master mark-scheme precision, 15-year topical past papers, and conceptual problem-solving from the comfort of home.",
-    primaryBtn: "Book a Free Trial Session",
-    secondaryBtn: "Explore Programs",
-    stat: "98.4% Distinction Rate",
-    cardHeading: "Cambridge Distinction Pathway",
-    cardSession: "Session 2026–2027",
-    cardIcon: GraduationCap,
-    cardBadgeColor: "bg-emerald-50 text-[#059669]",
-    cardIconBg: "bg-emerald-100 text-[#059669]",
-    cardBtnText: "Book 1-on-1 Free Trial Class",
-    highlights: [
-      {
-        badge: "Urdu",
-        badgeBg: "bg-[#059669] text-white",
-        name: "Sohail Anjum",
-        detail: "15+ Years Cambridge Lead",
-        tag: "CAIE Distinction",
-        tagBg: "bg-emerald-100 text-emerald-800"
-      },
-      {
-        badge: "Math",
-        badgeBg: "bg-[#0B4635] text-white",
-        name: "Dr. Sarah Ahmed",
-        detail: "Pure Mathematics & Mechanics",
-        tag: "9709 P1/P3",
-        tagBg: "bg-emerald-100 text-emerald-800"
-      },
-      {
-        badge: "Physics",
-        badgeBg: "bg-[#059669] text-white",
-        name: "Mr. Hamza Khan",
-        detail: "Conceptual Mechanics & Past Papers",
-        tag: "5054 / 9702",
-        tagBg: "bg-emerald-100 text-emerald-800"
-      }
-    ]
+    badge: "Cambridge O-Level & A-Level Online",
+    badgeIcon: GraduationCap,
+    titleMain: "Learn Today.",
+    titleHighlight: "Excel Tomorrow.",
+    subtitle: "Build Strong Foundations",
+    description: "Personalized online learning designed around every student's academic goals. Expert-led instruction to master Cambridge O-Level, IGCSE, and A-Level subjects with confidence.",
+    primaryBtn: { text: "Book a Free Demo", icon: Calendar, action: "modal" },
+    secondaryBtn: { text: "Explore Subjects", icon: ArrowRight, to: "/subjects" },
+    dialog: {
+      type: "session",
+      headerTitle: "Academic Class Portal • Active Session",
+      headerTag: "Grade A* Target",
+      subjectCode: "A-Level Physics (9702)",
+      subjectTopic: "Thermodynamics & Waves • Mr. Hamza Khan",
+      subjectTag: "In Session",
+      progressLabel: "15-Year Topical Question Coverage",
+      progressPercent: 88,
+      stats: [
+        { label: "Batch Size", value: "Max 8" },
+        { label: "Timed Practice", value: "18 Mocks", highlight: true },
+        { label: "Doubt Portal", value: "24/7" }
+      ]
+    }
   },
   {
-    badge: "Master Syllabus Prerequisites & Core Exam Papers",
-    title: "Structured O-Level & IGCSE Preparation for Peak Exam Confidence",
-    description: "Small batches (max 6 students) and intensive 1-on-1 coaching in Urdu, Mathematics, Physics, Chemistry, Biology, and Computer Science. Learn from proven CAIE examiners and top mentors.",
-    primaryBtn: "Schedule Diagnostic Trial",
-    secondaryBtn: "View Faculty Mentors",
-    stat: "15+ Years CAIE Experience",
-    cardHeading: "O-Level & IGCSE Exam Accelerator",
-    cardSession: "May/June 2026 Series",
-    cardIcon: BookOpen,
-    cardBadgeColor: "bg-teal-50 text-teal-800",
-    cardIconBg: "bg-teal-100 text-teal-800",
-    cardBtnText: "Schedule Free Exam Diagnostic",
-    highlights: [
-      {
-        badge: "Urdu",
-        badgeBg: "bg-[#059669] text-white",
-        name: "Sohail Anjum",
-        detail: "Cambridge First & Second Language",
-        tag: "3247 / 3248",
-        tagBg: "bg-teal-100 text-teal-800"
-      },
-      {
-        badge: "Chem",
-        badgeBg: "bg-[#0B4635] text-white",
-        name: "Dr. Farhan Siddiqui",
-        detail: "Examiner Mark-Scheme & Past Papers",
-        tag: "5070 / 9701",
-        tagBg: "bg-teal-100 text-teal-800"
-      },
-      {
-        badge: "CS",
-        badgeBg: "bg-[#059669] text-white",
-        name: "Mr. Daniyal Qureshi",
-        detail: "Pseudocode, Logic & Python Coding",
-        tag: "2210 / 0478",
-        tagBg: "bg-teal-100 text-teal-800"
-      }
-    ]
+    badge: "Structured Syllabus & Past Papers",
+    badgeIcon: CheckCircle2,
+    titleMain: "Master Your",
+    titleHighlight: "Cambridge Subjects.",
+    subtitle: "Structured Lessons & Expert Instruction",
+    description: "Structured lessons, expert teachers and exam-focused preparation. Learn syllabus mark schemes, examiner report keywords, and step-by-step problem derivations.",
+    primaryBtn: { text: "Explore All Programs", icon: BookOpen, to: "/programs" },
+    secondaryBtn: { text: "Book a Free Demo", icon: Calendar, action: "modal" },
+    dialog: {
+      type: "diagnostics",
+      headerTitle: "Curriculum Diagnostics",
+      headerTag: "CAIE & Edexcel",
+      blocks: [
+        {
+          title: "Mathematics & Pure Calculus",
+          desc: "Full step-by-step derivation videos, past paper solution sheets, and weekly timed mocks.",
+          theme: "teal"
+        },
+        {
+          title: "Sciences (Physics, Chem, Bio)",
+          desc: "Paper 4 ATP analysis, magnification calculations, and chemical reaction pathways.",
+          theme: "teal"
+        },
+        {
+          title: "Economics & Business Studies",
+          desc: "20-mark evaluation essay frameworks (BLT method) and macroeconomic policy diagrams.",
+          theme: "amber"
+        }
+      ]
+    }
   },
   {
-    badge: "High-Demand Future Skills & Industry Certifications",
-    title: "Industry-Aligned IT & Professional Certifications for Career Edge",
-    description: "Launch your technical career with Digital Marketing, CSIS Information Security, Modern Full-Stack Web Development, and Python with AI Analytics. Practical hands-on portfolio projects.",
-    primaryBtn: "Explore IT Courses",
-    secondaryBtn: "Meet Tech Faculty",
-    stat: "100% Practical Portfolio",
-    cardHeading: "Career IT & Tech Certifications",
-    cardSession: "Enrolling Now",
-    cardIcon: Laptop,
-    cardBadgeColor: "bg-amber-50 text-amber-900",
-    cardIconBg: "bg-amber-100 text-amber-900",
-    cardBtnText: "Claim Free Tech Career Consultation",
-    highlights: [
-      {
-        badge: "Marketing",
-        badgeBg: "bg-[#C59B4B] text-slate-950",
-        name: "Digital Marketing & SEO",
-        detail: "Meta Ads, Google Ads & Growth Strategy",
-        tag: "PRO Certified",
-        tagBg: "bg-amber-100 text-amber-900"
-      },
-      {
-        badge: "Security",
-        badgeBg: "bg-[#0B4635] text-white",
-        name: "CSIS Cyber Defense",
-        detail: "Ethical Hacking & Network Defense",
-        tag: "Certified",
-        tagBg: "bg-emerald-100 text-emerald-800"
-      },
-      {
-        badge: "FullStack",
-        badgeBg: "bg-[#059669] text-white",
-        name: "Python AI & Web Dev",
-        detail: "Modern React, Node.js & Machine Learning",
-        tag: "Hands-on Lab",
-        tagBg: "bg-teal-100 text-teal-800"
-      }
-    ]
+    badge: "Rigorous Exam Rehearsals",
+    badgeIcon: Award,
+    titleMain: "Prepare With",
+    titleHighlight: "Total Confidence.",
+    subtitle: "Knowledge, Skills & High Performance",
+    description: "Develop the knowledge, analytical skills and exam confidence needed for outstanding grades. Timed mock examinations evaluated under authentic Cambridge grading rubrics.",
+    primaryBtn: { text: "Schedule Diagnostic Demo", icon: CalendarCheck, action: "modal" },
+    secondaryBtn: { text: "How It Works", icon: ArrowRight, to: "/how-it-works" },
+    dialog: {
+      type: "mock",
+      headerTitle: "Mock Exam Audit Card",
+      headerTag: "Verified Rubric",
+      examTitle: "Student Mock Performance",
+      examSeries: "Cambridge Oct/Nov Series Mock #4",
+      score: "94 / 100",
+      rubrics: [
+        "Examiner keyword accuracy: 96%",
+        "Time management per question: Optimal",
+        "Formula derivations: Zero penalties"
+      ],
+      recommendation: "Ready for official series registration with predicted A* profile."
+    }
+  },
+  {
+    badge: "International Online Academy",
+    badgeIcon: Globe,
+    titleMain: "Your Future",
+    titleHighlight: "Starts Here.",
+    subtitle: "Learn from Experienced Educators from Home",
+    description: "Connect with world distinction mentors from the comfort of your home. Small cohorts, individualized attention, and parent feedback loops.",
+    primaryBtn: { text: "Start with a Free Demo", icon: Sparkles, action: "modal" },
+    secondaryBtn: { text: "Meet Our Faculty", icon: Users, to: "/teachers" },
+    dialog: {
+      type: "features",
+      headerTitle: "Global Academic Community",
+      headerTag: "24/7 Access",
+      items: [
+        {
+          badge: "UK",
+          badgeBg: "bg-[#059669] text-white",
+          title: "Cambridge Assessment Standards",
+          desc: "Official syllabuses 2026/2027"
+        },
+        {
+          badge: "HD",
+          badgeBg: "bg-[#047857] text-white",
+          title: "Recorded Lecture Vault",
+          desc: "Rewatch any lesson anytime before exams"
+        },
+        {
+          badge: "1:1",
+          badgeBg: "bg-amber-500 text-white",
+          title: "Dedicated Mentor Support",
+          desc: "Weekly progress reviews with parents"
+        }
+      ]
+    }
   }
 ];
 
@@ -274,119 +275,247 @@ export const Home = () => {
   return (
     <div className="space-y-16 sm:space-y-24">
 
-      {/* ================= 1. HERO SLIDER SECTION (3s Auto Rotator) ================= */}
+      {/* ================= 1. HERO SLIDER SECTION (3.5s Auto Rotator with Dialog Box) ================= */}
       <section className="relative overflow-hidden pt-8 pb-16 md:pt-14 md:pb-24 bg-gradient-to-b from-slate-50 via-white to-slate-50 border-b border-slate-200/80">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
           
+          {/* Slider Prev & Next Arrow Controls */}
+          <button
+            onClick={() => setCurrentSlide(prev => (prev - 1 + heroSlides.length) % heroSlides.length)}
+            aria-label="Previous slide"
+            className="hidden md:flex absolute -left-3 lg:-left-5 top-1/2 -translate-y-1/2 z-20 w-10 h-10 rounded-full bg-white shadow-md border border-slate-200 items-center justify-center text-slate-700 hover:text-[#059669] hover:border-[#059669] transition-all hover:scale-105 cursor-pointer"
+          >
+            <ChevronLeft className="w-5 h-5" />
+          </button>
+          <button
+            onClick={() => setCurrentSlide(prev => (prev + 1) % heroSlides.length)}
+            aria-label="Next slide"
+            className="hidden md:flex absolute -right-3 lg:-right-5 top-1/2 -translate-y-1/2 z-20 w-10 h-10 rounded-full bg-white shadow-md border border-slate-200 items-center justify-center text-slate-700 hover:text-[#059669] hover:border-[#059669] transition-all hover:scale-105 cursor-pointer"
+          >
+            <ChevronRight className="w-5 h-5" />
+          </button>
+
           <div className="grid lg:grid-cols-12 gap-12 items-center">
             
             {/* Left Content (Dynamic Slider) */}
-            <div className="lg:col-span-7 space-y-6">
+            <div className="lg:col-span-7 space-y-5">
               
               <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full text-xs font-bold bg-[#ECFDF5] text-[#059669] border border-[#A7F3D0]">
-                <Sparkles className="w-3.5 h-3.5" />
+                {React.createElement(heroSlides[currentSlide].badgeIcon, { className: "w-3.5 h-3.5" })}
                 <span>{heroSlides[currentSlide].badge}</span>
               </div>
 
-              <h1 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-[#0B4635] font-heading tracking-tight leading-[1.15] min-h-[120px] sm:min-h-[140px] flex items-center">
-                {heroSlides[currentSlide].title}
-              </h1>
+              <div className="space-y-1.5">
+                <h1 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-[#0B4635] font-heading tracking-tight leading-[1.15]">
+                  {heroSlides[currentSlide].titleMain}{' '}
+                  <span className="text-[#059669]">{heroSlides[currentSlide].titleHighlight}</span>
+                </h1>
+                <h2 className="text-lg sm:text-xl font-bold text-slate-800">
+                  {heroSlides[currentSlide].subtitle}
+                </h2>
+              </div>
 
-              <p className="text-slate-600 text-sm sm:text-base leading-relaxed max-w-2xl min-h-[70px]">
+              <p className="text-slate-600 text-sm sm:text-base leading-relaxed max-w-2xl min-h-[60px]">
                 {heroSlides[currentSlide].description}
               </p>
 
               {/* Action Buttons */}
               <div className="flex flex-wrap items-center gap-3 pt-2">
-                <button
-                  onClick={() => openBookingModal()}
-                  className="btn btn-teal font-bold text-xs sm:text-sm px-6 py-3 shadow-md hover:shadow-lg transition-all"
-                >
-                  <span>{heroSlides[currentSlide].primaryBtn}</span>
-                  <ArrowRight className="w-4 h-4" />
-                </button>
+                {heroSlides[currentSlide].primaryBtn.action === 'modal' ? (
+                  <button
+                    onClick={() => openBookingModal()}
+                    className="btn btn-teal font-bold text-xs sm:text-sm px-6 py-3 shadow-md hover:shadow-lg transition-all flex items-center gap-2 cursor-pointer"
+                  >
+                    <span>{heroSlides[currentSlide].primaryBtn.text}</span>
+                    {React.createElement(heroSlides[currentSlide].primaryBtn.icon, { className: "w-4 h-4" })}
+                  </button>
+                ) : (
+                  <Link
+                    to={heroSlides[currentSlide].primaryBtn.to}
+                    className="btn btn-teal font-bold text-xs sm:text-sm px-6 py-3 shadow-md hover:shadow-lg transition-all flex items-center gap-2"
+                  >
+                    <span>{heroSlides[currentSlide].primaryBtn.text}</span>
+                    {React.createElement(heroSlides[currentSlide].primaryBtn.icon, { className: "w-4 h-4" })}
+                  </Link>
+                )}
 
-                <Link
-                  to="/programs"
-                  className="btn btn-secondary font-bold text-xs sm:text-sm px-5 py-3 border border-slate-300 hover:border-[#059669]"
-                >
-                  <span>{heroSlides[currentSlide].secondaryBtn}</span>
-                </Link>
+                {heroSlides[currentSlide].secondaryBtn.action === 'modal' ? (
+                  <button
+                    onClick={() => openBookingModal()}
+                    className="btn btn-secondary font-bold text-xs sm:text-sm px-5 py-3 border border-slate-300 hover:border-[#059669] flex items-center gap-2 cursor-pointer"
+                  >
+                    <span>{heroSlides[currentSlide].secondaryBtn.text}</span>
+                    {React.createElement(heroSlides[currentSlide].secondaryBtn.icon, { className: "w-4 h-4" })}
+                  </button>
+                ) : (
+                  <Link
+                    to={heroSlides[currentSlide].secondaryBtn.to}
+                    className="btn btn-secondary font-bold text-xs sm:text-sm px-5 py-3 border border-slate-300 hover:border-[#059669] flex items-center gap-2"
+                  >
+                    <span>{heroSlides[currentSlide].secondaryBtn.text}</span>
+                    {React.createElement(heroSlides[currentSlide].secondaryBtn.icon, { className: "w-4 h-4" })}
+                  </Link>
+                )}
               </div>
 
               {/* Slide Indicators */}
-              <div className="flex items-center gap-2 pt-4">
+              <div className="flex items-center gap-2 pt-3">
                 {heroSlides.map((_, idx) => (
                   <button
                     key={idx}
                     onClick={() => setCurrentSlide(idx)}
                     aria-label={`Slide ${idx + 1}`}
-                    className={`h-2 rounded-full transition-all duration-300 ${
-                      currentSlide === idx ? 'w-8 bg-[#059669]' : 'w-2 bg-slate-300 hover:bg-slate-400'
+                    className={`h-2.5 rounded-full transition-all duration-300 cursor-pointer ${
+                      currentSlide === idx ? 'w-8 bg-[#059669]' : 'w-2.5 bg-slate-300 hover:bg-slate-400'
                     }`}
                   />
                 ))}
-                <span className="text-[11px] text-slate-600 font-semibold ml-2">
+                <span className="text-[11px] text-slate-500 font-semibold ml-2">
                   Slide {currentSlide + 1} of {heroSlides.length}
                 </span>
               </div>
 
             </div>
 
-            {/* Right Card / Visual Showcase */}
+            {/* Right Academic Dialog Box / macOS Preview Window */}
             <div className="lg:col-span-5">
-              <div className="card-base p-6 sm:p-8 bg-white border border-slate-200 shadow-xl rounded-2xl relative overflow-hidden">
-                <div className="absolute top-0 right-0 w-32 h-32 bg-emerald-50 rounded-full blur-2xl -mr-10 -mt-10"></div>
+              <div className="dashboard-preview-window">
                 
-                <div className="relative space-y-4">
-                  {/* Card Header synchronized with active slide (No "Live" text) */}
-                  <div className="flex items-center justify-between pb-3 border-b border-slate-100 transition-all duration-300">
-                    <div className="flex items-center gap-2.5">
-                      <div className={`w-7 h-7 rounded-lg flex items-center justify-center ${heroSlides[currentSlide].cardIconBg} transition-colors duration-300`}>
-                        {React.createElement(heroSlides[currentSlide].cardIcon, { className: "w-4 h-4" })}
-                      </div>
-                      <span className="text-xs sm:text-sm font-bold text-slate-900 transition-all duration-300">
-                        {heroSlides[currentSlide].cardHeading}
-                      </span>
-                    </div>
-                    <span className={`text-[10px] font-bold uppercase tracking-wider px-2.5 py-1 rounded-full ${heroSlides[currentSlide].cardBadgeColor} transition-colors duration-300`}>
-                      {heroSlides[currentSlide].cardSession}
+                {/* macOS Style Header Bar */}
+                <div className="dashboard-header-bar">
+                  <div className="flex items-center gap-2">
+                    <span className="w-2.5 h-2.5 rounded-full bg-rose-400"></span>
+                    <span className="w-2.5 h-2.5 rounded-full bg-amber-400"></span>
+                    <span className="w-2.5 h-2.5 rounded-full bg-emerald-400"></span>
+                    <span className="text-xs font-mono font-medium text-slate-200 ml-2">
+                      {heroSlides[currentSlide].dialog.headerTitle}
                     </span>
                   </div>
+                  <span className="text-[10px] font-bold bg-[#064E3B] text-emerald-200 px-2.5 py-0.5 rounded border border-emerald-500/30">
+                    {heroSlides[currentSlide].dialog.headerTag}
+                  </span>
+                </div>
 
-                  {/* Dynamic Highlights tailored to active slide */}
-                  <div className="space-y-3">
-                    {heroSlides[currentSlide].highlights.map((item, idx) => (
-                      <div
-                        key={idx}
-                        className="p-3 rounded-xl bg-slate-50/90 border border-slate-100 flex items-center justify-between transition-all duration-300 hover:bg-slate-100/80"
-                      >
-                        <div className="flex items-center gap-3">
-                          <div className={`w-9 h-9 rounded-lg ${item.badgeBg} flex items-center justify-center font-bold font-heading text-[11px]`}>
-                            {item.badge}
-                          </div>
-                          <div>
-                            <h4 className="text-xs font-bold text-slate-900">{item.name}</h4>
-                            <p className="text-[11px] text-slate-500">{item.detail}</p>
-                          </div>
+                {/* Dialog Body - Slide 1: Academic Class Portal */}
+                {heroSlides[currentSlide].dialog.type === 'session' && (
+                  <div className="p-6 space-y-4 bg-white">
+                    <div className="p-4 rounded-xl bg-[#ECFDF5] border border-[#A7F3D0] flex items-center justify-between">
+                      <div className="flex items-center gap-3">
+                        <div className="w-10 h-10 rounded-lg bg-[#D1FAE5] text-[#059669] flex items-center justify-center font-bold">
+                          <Atom className="w-5 h-5" />
                         </div>
-                        <span className={`text-[10px] font-bold px-2 py-1 rounded ${item.tagBg}`}>
-                          {item.tag}
-                        </span>
+                        <div>
+                          <span className="text-[10px] font-bold text-[#059669] uppercase tracking-wider block">Class Session</span>
+                          <h4 className="text-sm font-bold text-slate-900">{heroSlides[currentSlide].dialog.subjectCode}</h4>
+                          <p className="text-xs text-slate-500">{heroSlides[currentSlide].dialog.subjectTopic}</p>
+                        </div>
+                      </div>
+                      <span className="px-2.5 py-1 text-[11px] font-bold text-[#047857] bg-[#D1FAE5] border border-[#A7F3D0] rounded-md">
+                        {heroSlides[currentSlide].dialog.subjectTag}
+                      </span>
+                    </div>
+
+                    <div className="space-y-2">
+                      <div className="flex justify-between text-xs font-semibold text-slate-700">
+                        <span>{heroSlides[currentSlide].dialog.progressLabel}</span>
+                        <span className="text-[#059669] font-bold">{heroSlides[currentSlide].dialog.progressPercent}% Mastered</span>
+                      </div>
+                      <div className="w-full bg-slate-100 rounded-full h-2.5 overflow-hidden">
+                        <div
+                          className="bg-[#059669] h-2.5 rounded-full transition-all duration-700"
+                          style={{ width: `${heroSlides[currentSlide].dialog.progressPercent}%` }}
+                        ></div>
+                      </div>
+                    </div>
+
+                    <div className="grid grid-cols-3 gap-2.5 pt-2 text-center text-xs">
+                      {heroSlides[currentSlide].dialog.stats.map((st, i) => (
+                        <div
+                          key={i}
+                          className={`p-2.5 rounded-lg border ${
+                            st.highlight
+                              ? 'bg-[#ECFDF5] border-[#A7F3D0]'
+                              : 'bg-slate-50 border-slate-200/80'
+                          }`}
+                        >
+                          <span className={`font-bold block text-xs sm:text-sm ${st.highlight ? 'text-[#059669]' : 'text-slate-900'}`}>
+                            {st.value}
+                          </span>
+                          <span className="text-[10px] text-slate-500">{st.label}</span>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                )}
+
+                {/* Dialog Body - Slide 2: Curriculum Diagnostics */}
+                {heroSlides[currentSlide].dialog.type === 'diagnostics' && (
+                  <div className="p-6 space-y-3.5 bg-white">
+                    {heroSlides[currentSlide].dialog.blocks.map((bl, i) => (
+                      <div
+                        key={i}
+                        className={`p-3.5 rounded-xl border ${
+                          bl.theme === 'amber'
+                            ? 'bg-amber-50/70 border-amber-200'
+                            : 'bg-[#ECFDF5] border-[#A7F3D0]'
+                        }`}
+                      >
+                        <h4 className={`text-xs font-bold uppercase ${bl.theme === 'amber' ? 'text-amber-900' : 'text-[#0B4635]'}`}>
+                          {bl.title}
+                        </h4>
+                        <p className="text-xs text-slate-600 mt-1 leading-relaxed">{bl.desc}</p>
                       </div>
                     ))}
                   </div>
+                )}
 
-                  <div className="pt-2">
-                    <button
-                      onClick={() => openBookingModal()}
-                      className="btn btn-teal w-full text-xs font-bold py-2.5 justify-center shadow-xs"
-                    >
-                      <span>{heroSlides[currentSlide].cardBtnText}</span>
-                    </button>
+                {/* Dialog Body - Slide 3: Mock Exam Audit Card */}
+                {heroSlides[currentSlide].dialog.type === 'mock' && (
+                  <div className="p-6 space-y-4 bg-white">
+                    <div className="flex items-center justify-between border-b border-slate-100 pb-3">
+                      <div>
+                        <h4 className="text-sm font-bold text-slate-900">{heroSlides[currentSlide].dialog.examTitle}</h4>
+                        <p className="text-xs text-slate-500">{heroSlides[currentSlide].dialog.examSeries}</p>
+                      </div>
+                      <span className="text-xl font-extrabold text-[#059669] font-heading">
+                        {heroSlides[currentSlide].dialog.score}
+                      </span>
+                    </div>
+
+                    <ul className="space-y-2.5 text-xs text-slate-600">
+                      {heroSlides[currentSlide].dialog.rubrics.map((r, i) => (
+                        <li key={i} className="flex items-center gap-2.5">
+                          <CheckCircle2 className="w-4 h-4 text-[#059669] shrink-0" />
+                          <span>{r}</span>
+                        </li>
+                      ))}
+                    </ul>
+
+                    <div className="p-3 bg-[#ECFDF5] border border-[#A7F3D0] rounded-xl text-xs text-[#0B4635] flex items-start gap-2">
+                      <Sparkles className="w-4 h-4 text-[#059669] shrink-0 mt-0.5" />
+                      <div>
+                        <strong>Tutor Recommendation:</strong> {heroSlides[currentSlide].dialog.recommendation}
+                      </div>
+                    </div>
                   </div>
+                )}
 
-                </div>
+                {/* Dialog Body - Slide 4: Global Academic Community */}
+                {heroSlides[currentSlide].dialog.type === 'features' && (
+                  <div className="p-6 space-y-3 bg-white">
+                    {heroSlides[currentSlide].dialog.items.map((it, i) => (
+                      <div key={i} className="flex items-center gap-3 p-3 rounded-xl bg-slate-50 border border-slate-200/80">
+                        <div className={`w-9 h-9 rounded-full ${it.badgeBg} flex items-center justify-center font-bold text-xs shrink-0`}>
+                          {it.badge}
+                        </div>
+                        <div>
+                          <h4 className="text-xs font-bold text-slate-900">{it.title}</h4>
+                          <p className="text-[11px] text-slate-500">{it.desc}</p>
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                )}
 
               </div>
             </div>

@@ -389,6 +389,26 @@ a {
   transform: translateY(-2px);
 }
 
+/* ================= DASHBOARD PREVIEW UI (ACADEMIC DIALOG BOX) ================= */
+.dashboard-preview-window {
+  background: #ffffff;
+  border: 1px solid #E2E8F0;
+  border-radius: 1rem;
+  box-shadow: 0 20px 40px -15px rgba(11, 70, 53, 0.12);
+  overflow: hidden;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.dashboard-header-bar {
+  background: #0B1F3A;
+  color: #ffffff;
+  padding: 0.75rem 1.15rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
 .btn-sm {
   padding: 0.45rem 0.9rem;
   font-size: 0.8125rem;
