@@ -13,6 +13,7 @@ import {
   CalendarCheck,
   CheckCircle2,
   ChevronDown,
+  ChevronUp,
   ChevronLeft,
   ChevronRight,
   Clock,
@@ -162,6 +163,7 @@ export const Home = () => {
   const [selectedBoard, setSelectedBoard] = useState('all');
   const [selectedCategory, setSelectedCategory] = useState('all');
   const [selectedTutorCategory, setSelectedTutorCategory] = useState('all');
+  const [showAllSubjects, setShowAllSubjects] = useState(false);
 
   // FAQ Accordion State
   const [openFaq, setOpenFaq] = useState(0);
@@ -208,13 +210,15 @@ export const Home = () => {
     return sub.boardCategory === board;
   };
 
-  // Filtered Subjects for Home Page (Flagship / Main selection)
-  const filteredSubjects = subjectsData.filter(sub => {
+  // Filtered Subjects for Home Page (Flagship / Main selection with 4-item initial limit)
+  const allFilteredSubjects = subjectsData.filter(sub => {
     if (selectedBoard === 'all') {
       return sub.isMain;
     }
     return isMatchingBoard(sub, selectedBoard);
-  }).slice(0, 8);
+  });
+
+  const displayedSubjects = showAllSubjects ? allFilteredSubjects : allFilteredSubjects.slice(0, 4);
 
   // Filtered Tutors for Faculty Section
   const filteredTutors = tutorsData.filter(tutor => {
@@ -308,7 +312,7 @@ export const Home = () => {
     <div className="space-y-16 sm:space-y-24">
 
       {/* ================= 1. HERO SLIDER SECTION (3.5s Auto Rotator with Dialog Box) ================= */}
-      <section className="relative overflow-hidden pt-8 pb-16 md:pt-14 md:pb-24 bg-gradient-to-b from-slate-50 via-white to-slate-50 border-b border-slate-200/80">
+      <section className="relative overflow-hidden pt-6 pb-12 sm:pt-10 sm:pb-16 md:pt-14 md:pb-24 bg-gradient-to-b from-slate-50 via-white to-slate-50 border-b border-slate-200/80">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
           
           {/* Slider Prev & Next Arrow Controls */}
@@ -327,71 +331,103 @@ export const Home = () => {
             <ChevronRight className="w-5 h-5" />
           </button>
 
-          <div className="grid lg:grid-cols-12 gap-12 items-center">
+          <div className="grid lg:grid-cols-12 gap-8 sm:gap-10 lg:gap-12 items-center">
             
             {/* Left Content (Dynamic Slider) */}
-            <div className="lg:col-span-7 space-y-5">
+            <div className="lg:col-span-7 flex flex-col items-center md:items-start text-center md:text-left space-y-4 sm:space-y-5">
               
-              <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full text-xs font-bold bg-[#ECFDF5] text-[#059669] border border-[#A7F3D0]">
-                {React.createElement(heroSlides[currentSlide].badgeIcon, { className: "w-3.5 h-3.5" })}
-                <span>{heroSlides[currentSlide].badge}</span>
+              <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full text-xs font-bold bg-[#ECFDF5] text-[#059669] border border-[#A7F3D0] shadow-2xs">
+                {React.createElement(heroSlides[currentSlide].badgeIcon, { className: "w-3.5 h-3.5 shrink-0" })}
+                <span className="truncate max-w-[260px] sm:max-w-none">{heroSlides[currentSlide].badge}</span>
               </div>
 
-              <div className="space-y-1.5">
-                <h1 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-[#0B4635] font-heading tracking-tight leading-[1.15]">
+              <div className="space-y-1.5 sm:space-y-2 w-full">
+                <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-extrabold text-[#0B4635] font-heading tracking-tight leading-[1.2] sm:leading-[1.15]">
                   {heroSlides[currentSlide].titleMain}{' '}
                   <span className="text-[#059669]">{heroSlides[currentSlide].titleHighlight}</span>
                 </h1>
-                <h2 className="text-lg sm:text-xl font-bold text-slate-800">
+                <h2 className="text-base sm:text-lg md:text-xl font-bold text-slate-800">
                   {heroSlides[currentSlide].subtitle}
                 </h2>
               </div>
 
-              <p className="text-slate-600 text-sm sm:text-base leading-relaxed max-w-2xl min-h-[60px]">
+              <p className="text-slate-600 text-xs sm:text-sm md:text-base leading-relaxed max-w-xl md:max-w-2xl min-h-[50px] sm:min-h-[60px]">
                 {heroSlides[currentSlide].description}
               </p>
 
-              {/* Action Buttons */}
-              <div className="flex flex-wrap items-center gap-3 pt-2">
+              {/* Action Buttons (Mobile: Tap-Friendly & Centered Above/Near Fold) */}
+              <div className="w-full flex flex-col sm:flex-row items-stretch sm:items-center justify-center md:justify-start gap-2.5 sm:gap-3.5 pt-1 sm:pt-2">
                 {heroSlides[currentSlide].primaryBtn.action === 'modal' ? (
                   <button
                     onClick={() => openBookingModal()}
-                    className="btn btn-teal font-bold text-xs sm:text-sm px-6 py-3 shadow-md hover:shadow-lg transition-all flex items-center gap-2 cursor-pointer"
+                    className="btn btn-teal font-bold text-xs sm:text-sm px-6 py-3.5 shadow-md hover:shadow-lg transition-all flex items-center justify-center gap-2 w-full sm:w-auto min-h-[44px] cursor-pointer"
                   >
                     <span>{heroSlides[currentSlide].primaryBtn.text}</span>
-                    {React.createElement(heroSlides[currentSlide].primaryBtn.icon, { className: "w-4 h-4" })}
+                    {React.createElement(heroSlides[currentSlide].primaryBtn.icon, { className: "w-4 h-4 shrink-0" })}
                   </button>
                 ) : (
                   <Link
                     to={heroSlides[currentSlide].primaryBtn.to}
-                    className="btn btn-teal font-bold text-xs sm:text-sm px-6 py-3 shadow-md hover:shadow-lg transition-all flex items-center gap-2"
+                    className="btn btn-teal font-bold text-xs sm:text-sm px-6 py-3.5 shadow-md hover:shadow-lg transition-all flex items-center justify-center gap-2 w-full sm:w-auto min-h-[44px]"
                   >
                     <span>{heroSlides[currentSlide].primaryBtn.text}</span>
-                    {React.createElement(heroSlides[currentSlide].primaryBtn.icon, { className: "w-4 h-4" })}
+                    {React.createElement(heroSlides[currentSlide].primaryBtn.icon, { className: "w-4 h-4 shrink-0" })}
                   </Link>
                 )}
 
                 {heroSlides[currentSlide].secondaryBtn.action === 'modal' ? (
                   <button
                     onClick={() => openBookingModal()}
-                    className="btn btn-secondary font-bold text-xs sm:text-sm px-5 py-3 border border-slate-300 hover:border-[#059669] flex items-center gap-2 cursor-pointer"
+                    className="btn btn-secondary font-bold text-xs sm:text-sm px-5 py-3.5 border border-slate-300 hover:border-[#059669] flex items-center justify-center gap-2 w-full sm:w-auto min-h-[44px] cursor-pointer"
                   >
                     <span>{heroSlides[currentSlide].secondaryBtn.text}</span>
-                    {React.createElement(heroSlides[currentSlide].secondaryBtn.icon, { className: "w-4 h-4" })}
+                    {React.createElement(heroSlides[currentSlide].secondaryBtn.icon, { className: "w-4 h-4 shrink-0" })}
                   </button>
                 ) : (
                   <Link
                     to={heroSlides[currentSlide].secondaryBtn.to}
-                    className="btn btn-secondary font-bold text-xs sm:text-sm px-5 py-3 border border-slate-300 hover:border-[#059669] flex items-center gap-2"
+                    className="btn btn-secondary font-bold text-xs sm:text-sm px-5 py-3.5 border border-slate-300 hover:border-[#059669] flex items-center justify-center gap-2 w-full sm:w-auto min-h-[44px]"
                   >
                     <span>{heroSlides[currentSlide].secondaryBtn.text}</span>
-                    {React.createElement(heroSlides[currentSlide].secondaryBtn.icon, { className: "w-4 h-4" })}
+                    {React.createElement(heroSlides[currentSlide].secondaryBtn.icon, { className: "w-4 h-4 shrink-0" })}
                   </Link>
                 )}
               </div>
 
+              {/* Mobile-Optimized Alternative Display (< lg viewports) */}
+              <div className="w-full block lg:hidden pt-2">
+                <div className="p-4 rounded-2xl bg-white/95 border border-emerald-100 shadow-md shadow-emerald-950/5 space-y-3 text-left">
+                  <div className="flex items-center justify-between">
+                    <div className="flex items-center gap-2">
+                      <span className="w-2 h-2 rounded-full bg-[#059669] animate-pulse"></span>
+                      <span className="text-[11px] font-bold text-[#0B4635]">
+                        {heroSlides[currentSlide].dialog.headerTitle}
+                      </span>
+                    </div>
+                    <span className="text-[10px] font-bold bg-[#ECFDF5] text-[#059669] px-2 py-0.5 rounded-full border border-emerald-200">
+                      {heroSlides[currentSlide].dialog.headerTag}
+                    </span>
+                  </div>
+
+                  <div className="grid grid-cols-3 gap-2 text-center text-xs">
+                    <div className="p-2 rounded-lg bg-emerald-50/70 border border-emerald-100">
+                      <span className="font-extrabold text-[#059669] block text-xs">98%</span>
+                      <span className="text-[10px] text-slate-500 font-medium">Distinctions</span>
+                    </div>
+                    <div className="p-2 rounded-lg bg-slate-50 border border-slate-200/80">
+                      <span className="font-extrabold text-slate-800 block text-xs">1-on-1</span>
+                      <span className="text-[10px] text-slate-500 font-medium">Mentorship</span>
+                    </div>
+                    <div className="p-2 rounded-lg bg-amber-50/70 border border-amber-200/80">
+                      <span className="font-extrabold text-amber-800 block text-xs">Zero Fee</span>
+                      <span className="text-[10px] text-slate-500 font-medium">First Demo</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
               {/* Slide Indicators */}
-              <div className="flex items-center gap-2 pt-3">
+              <div className="flex items-center justify-center md:justify-start gap-2 pt-1 sm:pt-2 w-full">
                 {heroSlides.map((_, idx) => (
                   <button
                     key={idx}
@@ -409,8 +445,8 @@ export const Home = () => {
 
             </div>
 
-            {/* Right Academic Dialog Box / macOS Preview Window */}
-            <div className="lg:col-span-5">
+            {/* Right Academic Dialog Box / macOS Preview Window (Desktop only: hidden lg:block) */}
+            <div className="hidden lg:block lg:col-span-5">
               <div className="dashboard-preview-window">
                 
                 {/* macOS Style Header Bar */}
@@ -705,8 +741,11 @@ export const Home = () => {
           ].map(b => (
             <button
               key={b.id}
-              onClick={() => setSelectedBoard(b.id)}
-              className={`px-3.5 py-1.5 rounded-lg text-xs font-bold transition-colors ${
+              onClick={() => {
+                setSelectedBoard(b.id);
+                setShowAllSubjects(false);
+              }}
+              className={`px-3.5 py-1.5 rounded-lg text-xs font-bold transition-colors cursor-pointer ${
                 selectedBoard === b.id
                   ? 'bg-[#0B4635] text-white shadow-xs'
                   : 'bg-slate-100 text-slate-700 hover:bg-slate-200'
@@ -717,13 +756,13 @@ export const Home = () => {
           ))}
         </div>
 
-        {/* Subject Cards Grid */}
-        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
-          {filteredSubjects.map(sub => (
+        {/* Subject Cards Grid (Initial 4-item display with smooth expansion) */}
+        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-5 transition-all duration-500">
+          {displayedSubjects.map(sub => (
             <div
               key={sub.id}
               onClick={() => openSyllabusModal(sub)}
-              className="card-base p-5 bg-white border-slate-200 hover:border-emerald-500 hover:shadow-md transition-all cursor-pointer flex flex-col justify-between group"
+              className="card-base p-5 bg-white border-slate-200 hover:border-emerald-500 hover:shadow-md transition-all duration-300 cursor-pointer flex flex-col justify-between group animate-card-entry"
             >
               <div className="space-y-2">
                 <div className="flex items-center justify-between">
@@ -747,6 +786,23 @@ export const Home = () => {
             </div>
           ))}
         </div>
+
+        {/* Toggle / Expand Mechanism (Show All / Show Less) */}
+        {allFilteredSubjects.length > 4 && (
+          <div className="flex justify-center pt-2">
+            <button
+              onClick={() => setShowAllSubjects(prev => !prev)}
+              className="inline-flex items-center gap-2 px-6 py-3 rounded-xl text-xs font-bold bg-white text-[#0B4635] border-2 border-emerald-100 hover:border-[#059669] hover:bg-[#ECFDF5] shadow-xs hover:shadow-md transition-all duration-300 cursor-pointer min-h-[44px] group"
+            >
+              <span>{showAllSubjects ? 'Show Less' : `View All Subjects (${allFilteredSubjects.length})`}</span>
+              {showAllSubjects ? (
+                <ChevronUp className="w-4 h-4 text-[#059669] transition-transform group-hover:-translate-y-0.5" />
+              ) : (
+                <ChevronDown className="w-4 h-4 text-[#059669] transition-transform group-hover:translate-y-0.5" />
+              )}
+            </button>
+          </div>
+        )}
 
         {/* Explore All Subjects Action Banner */}
         <div className="mt-8 p-6 rounded-2xl bg-gradient-to-r from-[#ECFDF5] via-white to-[#FAF6EE] border border-[#A7F3D0] flex flex-col sm:flex-row items-center justify-between gap-5 shadow-xs">

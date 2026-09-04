@@ -1042,11 +1042,26 @@ a {
   color: #ffffff;
 }
 
-/* ================= RESPONSIVE ADJUSTMENTS ================= */
+/* ================= RESPONSIVE & ANIMATION ADJUSTMENTS ================= */
 @media (max-width: 1024px) {
   .nav-menu-desktop {
     display: none;
   }
+}
+
+@keyframes fadeInCard {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-card-entry {
+  animation: fadeInCard 0.35s cubic-bezier(0.16, 1, 0.3, 1) forwards;
 }
 
 @media (prefers-reduced-motion: reduce) {
