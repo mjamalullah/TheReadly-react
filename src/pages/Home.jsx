@@ -36,7 +36,39 @@ const heroSlides = [
     description: "Personalized online tutoring for Cambridge O-Level, IGCSE & A-Level. Master mark-scheme precision, 15-year topical past papers, and conceptual problem-solving from the comfort of home.",
     primaryBtn: "Book a Free Trial Session",
     secondaryBtn: "Explore Programs",
-    stat: "98.4% Distinction Rate"
+    stat: "98.4% Distinction Rate",
+    cardHeading: "Cambridge Distinction Pathway",
+    cardSession: "Session 2026–2027",
+    cardIcon: GraduationCap,
+    cardBadgeColor: "bg-emerald-50 text-[#059669]",
+    cardIconBg: "bg-emerald-100 text-[#059669]",
+    cardBtnText: "Book 1-on-1 Free Trial Class",
+    highlights: [
+      {
+        badge: "Urdu",
+        badgeBg: "bg-[#059669] text-white",
+        name: "Sohail Anjum",
+        detail: "15+ Years Cambridge Lead",
+        tag: "CAIE Distinction",
+        tagBg: "bg-emerald-100 text-emerald-800"
+      },
+      {
+        badge: "Math",
+        badgeBg: "bg-[#0B4635] text-white",
+        name: "Dr. Sarah Ahmed",
+        detail: "Pure Mathematics & Mechanics",
+        tag: "9709 P1/P3",
+        tagBg: "bg-emerald-100 text-emerald-800"
+      },
+      {
+        badge: "Physics",
+        badgeBg: "bg-[#059669] text-white",
+        name: "Mr. Hamza Khan",
+        detail: "Conceptual Mechanics & Past Papers",
+        tag: "5054 / 9702",
+        tagBg: "bg-emerald-100 text-emerald-800"
+      }
+    ]
   },
   {
     badge: "Master Syllabus Prerequisites & Core Exam Papers",
@@ -44,7 +76,39 @@ const heroSlides = [
     description: "Small batches (max 6 students) and intensive 1-on-1 coaching in Urdu, Mathematics, Physics, Chemistry, Biology, and Computer Science. Learn from proven CAIE examiners and top mentors.",
     primaryBtn: "Schedule Diagnostic Trial",
     secondaryBtn: "View Faculty Mentors",
-    stat: "15+ Years CAIE Experience"
+    stat: "15+ Years CAIE Experience",
+    cardHeading: "O-Level & IGCSE Exam Accelerator",
+    cardSession: "May/June 2026 Series",
+    cardIcon: BookOpen,
+    cardBadgeColor: "bg-teal-50 text-teal-800",
+    cardIconBg: "bg-teal-100 text-teal-800",
+    cardBtnText: "Schedule Free Exam Diagnostic",
+    highlights: [
+      {
+        badge: "Urdu",
+        badgeBg: "bg-[#059669] text-white",
+        name: "Sohail Anjum",
+        detail: "Cambridge First & Second Language",
+        tag: "3247 / 3248",
+        tagBg: "bg-teal-100 text-teal-800"
+      },
+      {
+        badge: "Chem",
+        badgeBg: "bg-[#0B4635] text-white",
+        name: "Dr. Farhan Siddiqui",
+        detail: "Examiner Mark-Scheme & Past Papers",
+        tag: "5070 / 9701",
+        tagBg: "bg-teal-100 text-teal-800"
+      },
+      {
+        badge: "CS",
+        badgeBg: "bg-[#059669] text-white",
+        name: "Mr. Daniyal Qureshi",
+        detail: "Pseudocode, Logic & Python Coding",
+        tag: "2210 / 0478",
+        tagBg: "bg-teal-100 text-teal-800"
+      }
+    ]
   },
   {
     badge: "High-Demand Future Skills & Industry Certifications",
@@ -52,7 +116,39 @@ const heroSlides = [
     description: "Launch your technical career with Digital Marketing, CSIS Information Security, Modern Full-Stack Web Development, and Python with AI Analytics. Practical hands-on portfolio projects.",
     primaryBtn: "Explore IT Courses",
     secondaryBtn: "Meet Tech Faculty",
-    stat: "100% Practical Portfolio"
+    stat: "100% Practical Portfolio",
+    cardHeading: "Career IT & Tech Certifications",
+    cardSession: "Enrolling Now",
+    cardIcon: Laptop,
+    cardBadgeColor: "bg-amber-50 text-amber-900",
+    cardIconBg: "bg-amber-100 text-amber-900",
+    cardBtnText: "Claim Free Tech Career Consultation",
+    highlights: [
+      {
+        badge: "Marketing",
+        badgeBg: "bg-[#C59B4B] text-slate-950",
+        name: "Digital Marketing & SEO",
+        detail: "Meta Ads, Google Ads & Growth Strategy",
+        tag: "PRO Certified",
+        tagBg: "bg-amber-100 text-amber-900"
+      },
+      {
+        badge: "Security",
+        badgeBg: "bg-[#0B4635] text-white",
+        name: "CSIS Cyber Defense",
+        detail: "Ethical Hacking & Network Defense",
+        tag: "Certified",
+        tagBg: "bg-emerald-100 text-emerald-800"
+      },
+      {
+        badge: "FullStack",
+        badgeBg: "bg-[#059669] text-white",
+        name: "Python AI & Web Dev",
+        detail: "Modern React, Node.js & Machine Learning",
+        tag: "Hands-on Lab",
+        tagBg: "bg-teal-100 text-teal-800"
+      }
+    ]
   }
 ];
 
@@ -243,55 +339,42 @@ export const Home = () => {
                 <div className="absolute top-0 right-0 w-32 h-32 bg-emerald-50 rounded-full blur-2xl -mr-10 -mt-10"></div>
                 
                 <div className="relative space-y-4">
-                  <div className="flex items-center justify-between pb-3 border-b border-slate-100">
-                    <div className="flex items-center gap-2">
-                      <div className="w-3 h-3 rounded-full bg-emerald-500 animate-ping"></div>
-                      <span className="text-xs font-bold text-slate-800">Live Diagnostic Intake Active</span>
+                  {/* Card Header synchronized with active slide (No "Live" text) */}
+                  <div className="flex items-center justify-between pb-3 border-b border-slate-100 transition-all duration-300">
+                    <div className="flex items-center gap-2.5">
+                      <div className={`w-7 h-7 rounded-lg flex items-center justify-center ${heroSlides[currentSlide].cardIconBg} transition-colors duration-300`}>
+                        {React.createElement(heroSlides[currentSlide].cardIcon, { className: "w-4 h-4" })}
+                      </div>
+                      <span className="text-xs sm:text-sm font-bold text-slate-900 transition-all duration-300">
+                        {heroSlides[currentSlide].cardHeading}
+                      </span>
                     </div>
-                    <span className="text-[10px] font-bold uppercase tracking-wider px-2 py-0.5 rounded bg-emerald-50 text-[#059669]">
-                      May/June 2026
+                    <span className={`text-[10px] font-bold uppercase tracking-wider px-2.5 py-1 rounded-full ${heroSlides[currentSlide].cardBadgeColor} transition-colors duration-300`}>
+                      {heroSlides[currentSlide].cardSession}
                     </span>
                   </div>
 
+                  {/* Dynamic Highlights tailored to active slide */}
                   <div className="space-y-3">
-                    <div className="p-3.5 rounded-xl bg-slate-50 border border-slate-100 flex items-center justify-between">
-                      <div className="flex items-center gap-3">
-                        <div className="w-10 h-10 rounded-lg bg-[#059669] text-white flex items-center justify-center font-bold font-heading text-sm">
-                          Urdu
+                    {heroSlides[currentSlide].highlights.map((item, idx) => (
+                      <div
+                        key={idx}
+                        className="p-3 rounded-xl bg-slate-50/90 border border-slate-100 flex items-center justify-between transition-all duration-300 hover:bg-slate-100/80"
+                      >
+                        <div className="flex items-center gap-3">
+                          <div className={`w-9 h-9 rounded-lg ${item.badgeBg} flex items-center justify-center font-bold font-heading text-[11px]`}>
+                            {item.badge}
+                          </div>
+                          <div>
+                            <h4 className="text-xs font-bold text-slate-900">{item.name}</h4>
+                            <p className="text-[11px] text-slate-500">{item.detail}</p>
+                          </div>
                         </div>
-                        <div>
-                          <h4 className="text-xs font-bold text-slate-900">Sohail Anjum</h4>
-                          <p className="text-[11px] text-slate-500">15+ Years Cambridge Lead</p>
-                        </div>
+                        <span className={`text-[10px] font-bold px-2 py-1 rounded ${item.tagBg}`}>
+                          {item.tag}
+                        </span>
                       </div>
-                      <span className="text-[10px] font-bold px-2 py-1 rounded bg-emerald-100 text-emerald-800">CAIE Distinction</span>
-                    </div>
-
-                    <div className="p-3.5 rounded-xl bg-slate-50 border border-slate-100 flex items-center justify-between">
-                      <div className="flex items-center gap-3">
-                        <div className="w-10 h-10 rounded-lg bg-[#0B4635] text-white flex items-center justify-center font-bold font-heading text-sm">
-                          Math
-                        </div>
-                        <div>
-                          <h4 className="text-xs font-bold text-slate-900">Dr. Sarah Ahmed</h4>
-                          <p className="text-[11px] text-slate-500">Pure Mathematics & Mechanics</p>
-                        </div>
-                      </div>
-                      <span className="text-[10px] font-bold px-2 py-1 rounded bg-emerald-100 text-emerald-800">9709 P1/P3</span>
-                    </div>
-
-                    <div className="p-3.5 rounded-xl bg-slate-50 border border-slate-100 flex items-center justify-between">
-                      <div className="flex items-center gap-3">
-                        <div className="w-10 h-10 rounded-lg bg-[#C59B4B] text-slate-950 flex items-center justify-center font-bold font-heading text-sm">
-                          IT
-                        </div>
-                        <div>
-                          <h4 className="text-xs font-bold text-slate-900">Digital Marketing & CSIS</h4>
-                          <p className="text-[11px] text-slate-500">Industry Performance Strategy</p>
-                        </div>
-                      </div>
-                      <span className="text-[10px] font-bold px-2 py-1 rounded bg-amber-100 text-amber-800">PRO Certified</span>
-                    </div>
+                    ))}
                   </div>
 
                   <div className="pt-2">
@@ -299,7 +382,7 @@ export const Home = () => {
                       onClick={() => openBookingModal()}
                       className="btn btn-teal w-full text-xs font-bold py-2.5 justify-center shadow-xs"
                     >
-                      <span>Claim Free 30-Min Diagnostic Paper</span>
+                      <span>{heroSlides[currentSlide].cardBtnText}</span>
                     </button>
                   </div>
 
