@@ -829,28 +829,28 @@ export const Home = () => {
 
       {/* ================= 5. THE DISTINCTION ENGINE SECTION (Replaces single-subject Maths) ================= */}
       <section className="py-12 sm:py-16 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
-        <div className="card-base p-6 sm:p-10 lg:p-12 bg-gradient-to-br from-[#063326] via-[#0B4635] to-[#04281E] text-white border border-emerald-700/50 shadow-2xl rounded-3xl relative overflow-hidden">
+        <div className="p-6 sm:p-10 lg:p-12 bg-gradient-to-br from-[#F4FBF7] via-white to-[#FAF6EE] border-2 border-[#A7F3D0] shadow-xl rounded-3xl relative overflow-hidden">
           
-          {/* Subtle Decorative Gradient Glows */}
-          <div className="absolute top-0 right-0 w-96 h-96 bg-emerald-500/10 rounded-full blur-3xl pointer-events-none -mr-20 -mt-20"></div>
-          <div className="absolute bottom-0 left-0 w-80 h-80 bg-teal-500/10 rounded-full blur-3xl pointer-events-none -ml-20 -mb-20"></div>
+          {/* Subtle Decorative Ambient Glows */}
+          <div className="absolute top-0 right-0 w-96 h-96 bg-emerald-500/5 rounded-full blur-3xl pointer-events-none -mr-20 -mt-20"></div>
+          <div className="absolute bottom-0 left-0 w-80 h-80 bg-amber-400/5 rounded-full blur-3xl pointer-events-none -ml-20 -mb-20"></div>
 
           <div className="grid lg:grid-cols-12 gap-8 lg:gap-12 items-center relative z-10">
             
             {/* Left Content Column */}
             <div className="lg:col-span-7 space-y-6 text-center md:text-left flex flex-col items-center md:items-start">
               
-              <span className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full text-xs font-bold bg-white/10 text-emerald-300 border border-emerald-400/30 backdrop-blur-xs">
-                <Sparkles className="w-3.5 h-3.5 text-emerald-400" />
+              <span className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full text-xs font-bold bg-[#ECFDF5] text-[#059669] border border-[#A7F3D0] shadow-2xs">
+                <Sparkles className="w-3.5 h-3.5 text-[#059669]" />
                 <span>The Readly Distinction Engine</span>
               </span>
 
               <div className="space-y-2">
-                <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-extrabold text-white font-heading tracking-tight leading-tight">
+                <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-extrabold text-[#0B4635] font-heading tracking-tight leading-tight">
                   How We Turn Syllabus Doubts Into{' '}
-                  <span className="text-emerald-400">Straight A* Distinctions</span>
+                  <span className="text-[#059669]">Straight A* Distinctions</span>
                 </h2>
-                <p className="text-slate-200 text-xs sm:text-sm md:text-base leading-relaxed max-w-2xl">
+                <p className="text-slate-600 text-xs sm:text-sm md:text-base leading-relaxed max-w-2xl">
                   We don't believe in crowded classrooms or passive video watching. Every student follows an individualized diagnostic roadmap combining concept breakdown, 15-year past paper mastery, and Cambridge examiner mark-scheme precision.
                 </p>
               </div>
@@ -858,42 +858,42 @@ export const Home = () => {
               {/* 4 Pillars Grid */}
               <div className="grid sm:grid-cols-2 gap-3.5 w-full text-left pt-2">
                 
-                <div className="p-4 rounded-xl bg-white/5 border border-white/10 backdrop-blur-xs space-y-1 hover:border-emerald-400/40 hover:bg-white/10 transition-all">
-                  <div className="flex items-center gap-2 text-emerald-300 text-xs font-bold uppercase tracking-wider">
-                    <CheckCircle2 className="w-4 h-4 text-emerald-400 shrink-0" />
+                <div className="p-4 rounded-xl bg-white border border-slate-200/90 shadow-2xs hover:border-[#059669] hover:shadow-md transition-all space-y-1.5 group">
+                  <div className="flex items-center gap-2 text-[#0B4635] text-xs font-bold uppercase tracking-wider group-hover:text-[#059669] transition-colors">
+                    <CheckCircle2 className="w-4 h-4 text-[#059669] shrink-0" />
                     <span>1-on-1 Diagnostic Intake</span>
                   </div>
-                  <p className="text-slate-300 text-xs leading-relaxed">
+                  <p className="text-slate-600 text-xs leading-relaxed">
                     A 30-min evaluation to identify prerequisite gaps before lessons begin.
                   </p>
                 </div>
 
-                <div className="p-4 rounded-xl bg-white/5 border border-white/10 backdrop-blur-xs space-y-1 hover:border-emerald-400/40 hover:bg-white/10 transition-all">
-                  <div className="flex items-center gap-2 text-emerald-300 text-xs font-bold uppercase tracking-wider">
-                    <CheckCircle2 className="w-4 h-4 text-emerald-400 shrink-0" />
+                <div className="p-4 rounded-xl bg-white border border-slate-200/90 shadow-2xs hover:border-[#059669] hover:shadow-md transition-all space-y-1.5 group">
+                  <div className="flex items-center gap-2 text-[#0B4635] text-xs font-bold uppercase tracking-wider group-hover:text-[#059669] transition-colors">
+                    <CheckCircle2 className="w-4 h-4 text-[#059669] shrink-0" />
                     <span>15-Yr Topical Past Papers</span>
                   </div>
-                  <p className="text-slate-300 text-xs leading-relaxed">
+                  <p className="text-slate-600 text-xs leading-relaxed">
                     Classified question banks drilled with official CAIE mark-scheme keywords.
                   </p>
                 </div>
 
-                <div className="p-4 rounded-xl bg-white/5 border border-white/10 backdrop-blur-xs space-y-1 hover:border-emerald-400/40 hover:bg-white/10 transition-all">
-                  <div className="flex items-center gap-2 text-emerald-300 text-xs font-bold uppercase tracking-wider">
-                    <CheckCircle2 className="w-4 h-4 text-emerald-400 shrink-0" />
+                <div className="p-4 rounded-xl bg-white border border-slate-200/90 shadow-2xs hover:border-[#059669] hover:shadow-md transition-all space-y-1.5 group">
+                  <div className="flex items-center gap-2 text-[#0B4635] text-xs font-bold uppercase tracking-wider group-hover:text-[#059669] transition-colors">
+                    <CheckCircle2 className="w-4 h-4 text-[#059669] shrink-0" />
                     <span>Timed Mocks & Grade Curves</span>
                   </div>
-                  <p className="text-slate-300 text-xs leading-relaxed">
+                  <p className="text-slate-600 text-xs leading-relaxed">
                     Full timed simulations calibrated to real historical grade thresholds.
                   </p>
                 </div>
 
-                <div className="p-4 rounded-xl bg-white/5 border border-white/10 backdrop-blur-xs space-y-1 hover:border-emerald-400/40 hover:bg-white/10 transition-all">
-                  <div className="flex items-center gap-2 text-emerald-300 text-xs font-bold uppercase tracking-wider">
-                    <CheckCircle2 className="w-4 h-4 text-emerald-400 shrink-0" />
+                <div className="p-4 rounded-xl bg-white border border-slate-200/90 shadow-2xs hover:border-[#059669] hover:shadow-md transition-all space-y-1.5 group">
+                  <div className="flex items-center gap-2 text-[#0B4635] text-xs font-bold uppercase tracking-wider group-hover:text-[#059669] transition-colors">
+                    <CheckCircle2 className="w-4 h-4 text-[#059669] shrink-0" />
                     <span>WhatsApp Parent Audits</span>
                   </div>
-                  <p className="text-slate-300 text-xs leading-relaxed">
+                  <p className="text-slate-600 text-xs leading-relaxed">
                     Bi-weekly reports on attendance, homework completion, and mock scores.
                   </p>
                 </div>
@@ -904,14 +904,14 @@ export const Home = () => {
               <div className="w-full flex flex-col sm:flex-row items-stretch sm:items-center justify-center md:justify-start gap-3 pt-3">
                 <button
                   onClick={() => openBookingModal()}
-                  className="btn btn-teal font-bold text-xs sm:text-sm px-6 py-3.5 shadow-lg hover:shadow-emerald-500/20 transition-all flex items-center justify-center gap-2 w-full sm:w-auto min-h-[44px] cursor-pointer"
+                  className="btn btn-teal font-bold text-xs sm:text-sm px-6 py-3.5 shadow-md hover:shadow-emerald-500/20 transition-all flex items-center justify-center gap-2 w-full sm:w-auto min-h-[44px] cursor-pointer"
                 >
                   <Calendar className="w-4 h-4 shrink-0" />
                   <span>Schedule Free Diagnostic Session</span>
                 </button>
                 <Link
                   to="/subjects"
-                  className="btn btn-outline-white font-bold text-xs sm:text-sm px-6 py-3.5 flex items-center justify-center gap-2 w-full sm:w-auto min-h-[44px] hover:border-emerald-300"
+                  className="bg-white text-[#0B4635] border-2 border-slate-300 hover:border-[#059669] hover:bg-[#ECFDF5] hover:text-[#059669] font-bold text-xs sm:text-sm px-6 py-3.5 rounded-lg flex items-center justify-center gap-2 w-full sm:w-auto min-h-[44px] shadow-2xs transition-all"
                 >
                   <span>Explore All 50+ Subjects</span>
                   <ArrowRight className="w-4 h-4 shrink-0" />
@@ -922,54 +922,55 @@ export const Home = () => {
 
             {/* Right Interactive Dashboard Preview */}
             <div className="lg:col-span-5">
-              <div className="p-6 sm:p-7 rounded-2xl bg-white/10 backdrop-blur-md border border-white/15 shadow-xl space-y-5">
+              <div className="p-6 sm:p-7 rounded-2xl bg-white border border-slate-200/90 shadow-xl space-y-5">
                 
                 {/* Scorecard Header */}
-                <div className="flex items-center justify-between border-b border-white/15 pb-4">
+                <div className="flex items-center justify-between border-b border-slate-100 pb-4">
                   <div className="flex items-center gap-3">
-                    <div className="w-10 h-10 rounded-xl bg-emerald-500/20 border border-emerald-400/30 flex items-center justify-center text-emerald-300 font-bold text-base">
+                    <div className="w-11 h-11 rounded-xl bg-gradient-to-br from-[#0B4635] to-[#047857] text-white shadow-md flex items-center justify-center font-extrabold text-lg font-heading">
                       A*
                     </div>
                     <div>
-                      <h4 className="text-sm font-bold text-white font-heading">Diagnostic Assessment Tracker</h4>
-                      <p className="text-[11px] text-emerald-300/90 font-medium">Cambridge & Edexcel Distinction Target</p>
+                      <h4 className="text-sm font-bold text-[#0B4635] font-heading">Diagnostic Assessment Tracker</h4>
+                      <p className="text-[11px] text-[#059669] font-semibold">Cambridge & Edexcel Distinction Target</p>
                     </div>
                   </div>
-                  <span className="px-2.5 py-1 rounded-full text-[10px] font-bold bg-emerald-400/20 text-emerald-300 border border-emerald-400/30">
+                  <span className="px-2.5 py-1 rounded-full text-[10px] font-bold bg-[#ECFDF5] text-[#059669] border border-[#A7F3D0] flex items-center gap-1.5">
+                    <span className="w-1.5 h-1.5 rounded-full bg-[#059669] animate-pulse"></span>
                     Live Status
                   </span>
                 </div>
 
                 {/* Progress Gauges */}
-                <div className="space-y-3 text-xs">
+                <div className="space-y-3.5 text-xs">
                   
-                  <div className="space-y-1">
-                    <div className="flex justify-between text-[11px] font-medium text-slate-200">
+                  <div className="space-y-1.5">
+                    <div className="flex justify-between text-[11px] font-semibold text-slate-700">
                       <span>Concept Foundations (P1 / P2)</span>
-                      <span className="text-emerald-300 font-bold">100% Mastered</span>
+                      <span className="text-[#059669] font-bold">100% Mastered</span>
                     </div>
-                    <div className="w-full bg-white/10 rounded-full h-2 overflow-hidden">
-                      <div className="bg-gradient-to-r from-emerald-400 to-teal-300 h-2 rounded-full w-full"></div>
+                    <div className="w-full bg-slate-100 rounded-full h-2.5 overflow-hidden border border-slate-200/50">
+                      <div className="bg-gradient-to-r from-[#059669] to-teal-400 h-2.5 rounded-full w-full"></div>
                     </div>
                   </div>
 
-                  <div className="space-y-1">
-                    <div className="flex justify-between text-[11px] font-medium text-slate-200">
+                  <div className="space-y-1.5">
+                    <div className="flex justify-between text-[11px] font-semibold text-slate-700">
                       <span>Topical Past Paper Drills (15 Yrs)</span>
-                      <span className="text-emerald-300 font-bold">94% Completed</span>
+                      <span className="text-[#059669] font-bold">94% Completed</span>
                     </div>
-                    <div className="w-full bg-white/10 rounded-full h-2 overflow-hidden">
-                      <div className="bg-gradient-to-r from-emerald-400 to-teal-300 h-2 rounded-full w-[94%]"></div>
+                    <div className="w-full bg-slate-100 rounded-full h-2.5 overflow-hidden border border-slate-200/50">
+                      <div className="bg-gradient-to-r from-[#059669] to-teal-400 h-2.5 rounded-full w-[94%]"></div>
                     </div>
                   </div>
 
-                  <div className="space-y-1">
-                    <div className="flex justify-between text-[11px] font-medium text-slate-200">
+                  <div className="space-y-1.5">
+                    <div className="flex justify-between text-[11px] font-semibold text-slate-700">
                       <span>Examiner Mark-Scheme Calibration</span>
-                      <span className="text-emerald-300 font-bold">98% Accuracy</span>
+                      <span className="text-[#059669] font-bold">98% Accuracy</span>
                     </div>
-                    <div className="w-full bg-white/10 rounded-full h-2 overflow-hidden">
-                      <div className="bg-gradient-to-r from-emerald-400 to-teal-300 h-2 rounded-full w-[98%]"></div>
+                    <div className="w-full bg-slate-100 rounded-full h-2.5 overflow-hidden border border-slate-200/50">
+                      <div className="bg-gradient-to-r from-[#059669] to-teal-400 h-2.5 rounded-full w-[98%]"></div>
                     </div>
                   </div>
 
@@ -977,23 +978,23 @@ export const Home = () => {
 
                 {/* 3 Metric Badges */}
                 <div className="grid grid-cols-3 gap-2.5 pt-2 text-center text-xs">
-                  <div className="p-2.5 rounded-xl bg-white/5 border border-white/10">
-                    <span className="text-base font-extrabold text-emerald-300 block font-heading">98.4%</span>
-                    <span className="text-[10px] text-slate-300 font-medium">A* / A Pass</span>
+                  <div className="p-3 rounded-xl bg-[#ECFDF5] border border-[#A7F3D0] shadow-2xs">
+                    <span className="text-base sm:text-lg font-extrabold text-[#059669] block font-heading">98.4%</span>
+                    <span className="text-[10px] text-slate-600 font-semibold">A* / A Pass</span>
                   </div>
-                  <div className="p-2.5 rounded-xl bg-white/5 border border-white/10">
-                    <span className="text-base font-extrabold text-white block font-heading">1-on-1</span>
-                    <span className="text-[10px] text-slate-300 font-medium">Focused Pacing</span>
+                  <div className="p-3 rounded-xl bg-slate-50 border border-slate-200 shadow-2xs">
+                    <span className="text-base sm:text-lg font-extrabold text-[#0B4635] block font-heading">1-on-1</span>
+                    <span className="text-[10px] text-slate-600 font-semibold">Focused Pacing</span>
                   </div>
-                  <div className="p-2.5 rounded-xl bg-white/5 border border-white/10">
-                    <span className="text-base font-extrabold text-emerald-300 block font-heading">100%</span>
-                    <span className="text-[10px] text-slate-300 font-medium">Free Demo</span>
+                  <div className="p-3 rounded-xl bg-[#FAF6EE] border border-[#E8DCBF] shadow-2xs">
+                    <span className="text-base sm:text-lg font-extrabold text-[#B45309] block font-heading">100%</span>
+                    <span className="text-[10px] text-slate-600 font-semibold">Free Demo</span>
                   </div>
                 </div>
 
                 {/* Micro Guarantee Note */}
-                <div className="p-3 rounded-xl bg-white/5 border border-white/10 text-[11px] text-slate-300 flex items-center gap-2">
-                  <ShieldCheck className="w-4 h-4 text-emerald-400 shrink-0" />
+                <div className="p-3 rounded-xl bg-slate-50 border border-slate-200/80 text-[11px] text-slate-600 flex items-center gap-2 font-medium">
+                  <ShieldCheck className="w-4 h-4 text-[#059669] shrink-0" />
                   <span>Zero upfront payment required. Experience our teaching before deciding.</span>
                 </div>
 
