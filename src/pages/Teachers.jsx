@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { useModal } from '../context/ModalContext';
 import { tutorsData } from '../data/tutorsData';
-import { User, ArrowRight, Star } from 'lucide-react';
+import { User, ArrowRight } from 'lucide-react';
 
 export const Teachers = () => {
   const { openTeacherModal, openBookingModal } = useModal();
@@ -91,17 +91,10 @@ export const Teachers = () => {
                         {tutor.level}
                       </span>
                     </div>
-                    <p className="text-xs font-bold text-[#059669] truncate mt-0.5">{tutor.role}</p>
-                    <div className="flex items-center flex-wrap gap-1.5 mt-1.5">
-                      <span className="inline-flex items-center gap-1 px-2 py-0.5 rounded text-[11px] font-bold bg-[#FEF9EE] text-[#B45309] border border-[#E8DCBF]">
-                        <Star className="w-3 h-3 fill-amber-400 text-amber-500" />
-                        <span>{tutor.rating ? tutor.rating.toFixed(1) : '5.0'}</span>
-                        <span className="text-slate-500 font-medium text-[10px]">({tutor.reviewsCount || '150+'})</span>
-                      </span>
-                      <span className="text-[10px] font-semibold text-emerald-800 bg-emerald-50 border border-emerald-200 px-1.5 py-0.5 rounded">
-                        {tutor.experience}
-                      </span>
-                    </div>
+                    <p className="text-xs font-bold text-[#059669] truncate">{tutor.role}</p>
+                    <span className="text-[10px] font-semibold text-emerald-800 bg-emerald-50 border border-emerald-200 px-1.5 py-0.5 rounded inline-block mt-1">
+                      {tutor.experience}
+                    </span>
                   </div>
                 </div>
 
