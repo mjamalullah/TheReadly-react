@@ -592,8 +592,7 @@ a {
 
 /* Elegant top accent shimmer on hover */
 .card-hover::before,
-.subject-premium-box::before,
-.academic-card::before {
+.subject-premium-box::before {
   content: '';
   position: absolute;
   top: 0;
@@ -609,10 +608,18 @@ a {
 }
 
 .card-hover:hover::before,
-.subject-premium-box:hover::before,
-.academic-card:hover::before {
+.subject-premium-box:hover::before {
   opacity: 1;
   transform: scaleX(1);
+}
+
+/* Disable top line on hover for teacher boxes */
+.academic-card::before,
+.academic-card:hover::before,
+.academic-card-hover::before,
+.academic-card-hover:hover::before {
+  display: none !important;
+  content: none !important;
 }
 
 /* Micro-interaction on icons inside hovered cards */
