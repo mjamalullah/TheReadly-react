@@ -7,6 +7,7 @@ import { PhoneCall, Mail, Clock, Send, Sparkles, MapPin } from 'lucide-react';
 export const Contact = () => {
   const { showToast } = useModal();
   const [formData, setFormData] = useState({
+    inquiry_type: 'Admission Inquiry',
     student_name: '',
     parent_name: '',
     country_code: '+92',
@@ -33,8 +34,13 @@ export const Contact = () => {
       ? formData.whatsapp_phone
       : `${formData.country_code} ${formData.whatsapp_phone}`;
 
+    const targetEmail = formData.inquiry_type === 'Admission Inquiry'
+      ? READLY_CONFIG.admissionsEmail
+      : READLY_CONFIG.generalEmail;
+
     const payload = {
-      form_type: "Contact Inquiry",
+      form_type: `Contact - ${formData.inquiry_type}`,
+      target_email: targetEmail,
       student_name: formData.student_name.trim(),
       parent_name: formData.parent_name.trim() || 'N/A',
       whatsapp: fullWhatsApp,
@@ -57,8 +63,9 @@ export const Contact = () => {
     const waLines = [
       "Hello Team Readly,",
       "",
-      "I am interested in admission and courses at The Readly Institute. Here are my inquiry details:",
+      `I am reaching out regarding ${formData.inquiry_type === 'Admission Inquiry' ? 'admissions & enrollment' : 'general inquiries'} at The Readly Institute. Details:`,
       "",
+      `• Department: ${formData.inquiry_type === 'Admission Inquiry' ? `Admissions (${READLY_CONFIG.admissionsEmail})` : `General Support (${READLY_CONFIG.generalEmail})`}`,
       `• Full Name: ${formData.student_name.trim()}`,
       formData.parent_name.trim() ? `• Parent / Guardian: ${formData.parent_name.trim()}` : null,
       `• WhatsApp: ${fullWhatsApp}`,
@@ -125,11 +132,19 @@ export const Contact = () => {
                 <div className="w-9 h-9 rounded-lg bg-emerald-50 text-[#059669] flex items-center justify-center shrink-0">
                   <Mail className="w-4 h-4" />
                 </div>
-                <div>
-                  <span className="text-slate-600 font-semibold block text-[11px]">Official Inquiries</span>
-                  <a href={`mailto:${READLY_CONFIG.officialEmail}`} className="text-slate-900 font-bold hover:text-[#059669] text-xs">
-                    {READLY_CONFIG.officialEmail}
-                  </a>
+                <div className="space-y-2">
+                  <div>
+                    <span className="text-slate-600 font-semibold block text-[11px]">Admissions Desk:</span>
+                    <a href={`mailto:${READLY_CONFIG.admissionsEmail}`} className="text-slate-900 font-bold hover:text-[#059669] text-xs">
+                      {READLY_CONFIG.admissionsEmail}
+                    </a>
+                  </div>
+                  <div>
+                    <span className="text-slate-600 font-semibold block text-[11px]">General Inquiries:</span>
+                    <a href={`mailto:${READLY_CONFIG.generalEmail}`} className="text-slate-900 font-bold hover:text-[#059669] text-xs">
+                      {READLY_CONFIG.generalEmail}
+                    </a>
+                  </div>
                   <p className="text-[11px] text-slate-600">Replies within 1 business hour</p>
                 </div>
               </div>
@@ -173,6 +188,44 @@ export const Contact = () => {
             <p className="text-xs text-slate-600 mb-6">Fill in your requirements and our academic counseling team will get back to you promptly.</p>
 
             <form onSubmit={handleSubmit} className="space-y-4 text-xs">
+              <div>
+                <label className="block font-bold text-slate-700 mb-1.5">Inquiry Type *</label>
+                <div className="grid grid-cols-2 gap-3">
+                  <button
+                    type="button"
+                    onClick={() => setFormData({ ...formData, inquiry_type: 'Admission Inquiry' })}
+                    className={`p-3 rounded-lg border text-left transition-all ${
+                      formData.inquiry_type === 'Admission Inquiry'
+                        ? 'border-[#059669] bg-emerald-50 text-[#0B4635] shadow-xs ring-1 ring-[#059669]'
+                        : 'border-slate-200 bg-white text-slate-600 hover:bg-slate-50'
+                    }`}
+                  >
+                    <div className="font-bold text-xs">
+                      🎓 Admissions Desk
+                    </div>
+                    <div className="text-[11px] text-slate-500 font-normal mt-0.5 truncate">
+                      {READLY_CONFIG.admissionsEmail}
+                    </div>
+                  </button>
+                  <button
+                    type="button"
+                    onClick={() => setFormData({ ...formData, inquiry_type: 'General Inquiry' })}
+                    className={`p-3 rounded-lg border text-left transition-all ${
+                      formData.inquiry_type === 'General Inquiry'
+                        ? 'border-[#059669] bg-emerald-50 text-[#0B4635] shadow-xs ring-1 ring-[#059669]'
+                        : 'border-slate-200 bg-white text-slate-600 hover:bg-slate-50'
+                    }`}
+                  >
+                    <div className="font-bold text-xs">
+                      💬 General Inquiries
+                    </div>
+                    <div className="text-[11px] text-slate-500 font-normal mt-0.5 truncate">
+                      {READLY_CONFIG.generalEmail}
+                    </div>
+                  </button>
+                </div>
+              </div>
+
               <div className="grid sm:grid-cols-2 gap-4">
                 <div>
                   <label className="block font-bold text-slate-700 mb-1">Your Full Name *</label>

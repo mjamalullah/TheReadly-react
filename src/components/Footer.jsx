@@ -105,14 +105,25 @@ export const Footer = () => {
               </li>
               <li className="flex items-start gap-2.5">
                 <Mail className="w-4 h-4 text-emerald-400 shrink-0 mt-0.5" />
-                <div>
-                  <span className="block text-[11px]" style={{ color: '#94A3B8' }}>Official Inquiries:</span>
-                  <a
-                    href={`mailto:${READLY_CONFIG.officialEmail}`}
-                    className="font-bold text-white hover:text-emerald-400 transition-colors"
-                  >
-                    {READLY_CONFIG.officialEmail}
-                  </a>
+                <div className="space-y-1">
+                  <div>
+                    <span className="block text-[11px]" style={{ color: '#94A3B8' }}>Admissions Desk:</span>
+                    <a
+                      href={`mailto:${READLY_CONFIG.admissionsEmail}`}
+                      className="font-bold text-white hover:text-emerald-400 transition-colors"
+                    >
+                      {READLY_CONFIG.admissionsEmail}
+                    </a>
+                  </div>
+                  <div>
+                    <span className="block text-[11px]" style={{ color: '#94A3B8' }}>General Inquiries:</span>
+                    <a
+                      href={`mailto:${READLY_CONFIG.generalEmail}`}
+                      className="font-bold text-white hover:text-emerald-400 transition-colors"
+                    >
+                      {READLY_CONFIG.generalEmail}
+                    </a>
+                  </div>
                 </div>
               </li>
               <li className="flex items-start gap-2.5">
