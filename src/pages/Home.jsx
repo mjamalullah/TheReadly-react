@@ -208,11 +208,12 @@ export const Home = () => {
     return sub.boardCategory === board;
   };
 
-  // Filtered Subjects
+  // Filtered Subjects for Home Page (Flagship / Main selection)
   const filteredSubjects = subjectsData.filter(sub => {
-    const matchBoard = isMatchingBoard(sub, selectedBoard);
-    const matchCategory = selectedCategory === 'all' || sub.category === selectedCategory;
-    return matchBoard && matchCategory;
+    if (selectedBoard === 'all') {
+      return sub.isMain;
+    }
+    return isMatchingBoard(sub, selectedBoard);
   }).slice(0, 8);
 
   // Filtered Tutors for Faculty Section
@@ -729,9 +730,13 @@ export const Home = () => {
                   <span className="text-[10px] font-bold uppercase tracking-wider px-2 py-0.5 rounded bg-emerald-50 text-[#059669]">
                     {sub.boards?.[0]}
                   </span>
-                  <span className="text-[10px] font-mono text-slate-400">{sub.codes?.[0]?.split(':')[0] || 'Code'}</span>
+                  <span className="text-[10px] font-mono text-slate-500 font-semibold truncate max-w-[120px]">
+                    {sub.codes?.[0]?.replace(/^(CAIE O Level:|Cambridge IGCSE:|CAIE AS & A Level:|Edexcel IGCSE:|Edexcel IAL:)\s*/i, '') || 'Code'}
+                  </span>
                 </div>
-                <h3 className="text-sm font-bold text-slate-900 group-hover:text-[#059669] transition-colors">{sub.title}</h3>
+                <h3 className="text-sm font-bold text-slate-900 group-hover:text-[#059669] transition-colors leading-snug">
+                  {sub.title}
+                </h3>
                 <p className="text-xs text-slate-500 line-clamp-2 leading-relaxed">{sub.description}</p>
               </div>
 
@@ -741,6 +746,28 @@ export const Home = () => {
               </div>
             </div>
           ))}
+        </div>
+
+        {/* Explore All Subjects Action Banner */}
+        <div className="mt-8 p-6 rounded-2xl bg-gradient-to-r from-[#ECFDF5] via-white to-[#FAF6EE] border border-[#A7F3D0] flex flex-col sm:flex-row items-center justify-between gap-5 shadow-xs">
+          <div className="text-center sm:text-left space-y-1">
+            <span className="text-[11px] font-bold uppercase tracking-wider text-[#059669]">
+              Comprehensive Academic Catalog
+            </span>
+            <h4 className="text-base sm:text-lg font-extrabold text-[#0B4635] font-heading">
+              Looking for More Subjects? Explore All 50+ Syllabi
+            </h4>
+            <p className="text-xs text-slate-600">
+              Browse complete past paper breakdowns, syllabus codes, and examiner schemes across O-Level, IGCSE, A-Level, Edexcel & IT Tracks.
+            </p>
+          </div>
+          <Link
+            to="/subjects"
+            className="btn-teal-academic py-2.5 px-6 text-xs font-bold shrink-0 flex items-center gap-2 shadow-sm hover:scale-[1.02] transition-transform"
+          >
+            <span>Explore Full Catalog (50+ Subjects)</span>
+            <ArrowRight className="w-4 h-4" />
+          </Link>
         </div>
       </section>
 

@@ -1,12 +1,15 @@
 import React from 'react';
 import { useModal } from '../context/ModalContext';
+import { subjectsData } from '../data/subjectsData';
 import { X, BookOpen, Layers, CheckCircle2, Clock, Calendar } from 'lucide-react';
 
 export const SyllabusModal = () => {
   const { syllabusModal, closeSyllabusModal, openBookingModal } = useModal();
   if (!syllabusModal.isOpen || !syllabusModal.subject) return null;
 
-  const sub = syllabusModal.subject;
+  const sub = typeof syllabusModal.subject === 'string'
+    ? subjectsData.find(s => s.id === syllabusModal.subject) || subjectsData[0]
+    : syllabusModal.subject;
 
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center p-4 sm:p-6 bg-slate-900/60 backdrop-blur-xs overflow-y-auto animate-fade-in">

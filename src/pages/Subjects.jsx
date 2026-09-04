@@ -222,7 +222,7 @@ export const Subjects = () => {
                       {sub.title}
                     </h3>
                     <span className="text-[11px] font-mono text-slate-500 font-medium block mt-0.5">
-                      {sub.codes?.[0] || ''}
+                      {sub.codes?.join(' • ') || ''}
                     </span>
                   </div>
 
