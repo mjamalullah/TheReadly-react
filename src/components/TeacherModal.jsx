@@ -1,12 +1,15 @@
 import React from 'react';
 import { useModal } from '../context/ModalContext';
+import { tutorsData } from '../data/tutorsData';
 import { X, Award, CheckCircle2, GraduationCap, Clock, Calendar } from 'lucide-react';
 
 export const TeacherModal = () => {
   const { teacherModal, closeTeacherModal, openBookingModal } = useModal();
   if (!teacherModal.isOpen || !teacherModal.teacher) return null;
 
-  const tutor = teacherModal.teacher;
+  const tutor = typeof teacherModal.teacher === 'string'
+    ? tutorsData.find(t => t.id === teacherModal.teacher) || tutorsData[0]
+    : teacherModal.teacher;
 
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center p-4 sm:p-6 bg-slate-900/60 backdrop-blur-xs overflow-y-auto animate-fade-in">

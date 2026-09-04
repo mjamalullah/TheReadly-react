@@ -1,87 +1,144 @@
-import React from 'react';
+import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 import { useModal } from '../context/ModalContext';
 import { tutorsData } from '../data/tutorsData';
-import { Award, GraduationCap, CheckCircle2, Calendar } from 'lucide-react';
+import { User, ArrowRight } from 'lucide-react';
 
 export const Teachers = () => {
   const { openTeacherModal, openBookingModal } = useModal();
+  const [selectedCategory, setSelectedCategory] = useState('all');
+
+  const categories = [
+    { id: 'all', label: 'All Faculty' },
+    { id: 'languages', label: 'Languages & Urdu' },
+    { id: 'sciences', label: 'Sciences (Physics, Chem, Bio)' },
+    { id: 'maths', label: 'Mathematics' },
+    { id: 'technology', label: 'Computer Science' },
+    { id: 'commerce', label: 'Economics & Business' },
+    { id: 'humanities', label: 'English & Humanities' }
+  ];
+
+  const filteredTutors = tutorsData.filter(tutor => {
+    if (selectedCategory === 'all') return true;
+    return tutor.category === selectedCategory;
+  });
 
   return (
-    <div className="py-8 sm:py-12 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto space-y-12">
-      
-      <div className="max-w-3xl">
-        <span className="section-badge">Verified Mentorship</span>
-        <h1 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-[#0B4635] font-heading mt-2">
-          Academic Faculty Directory
-        </h1>
-        <p className="text-slate-600 text-sm sm:text-base mt-3 leading-relaxed">
-          Learn from experienced Cambridge subject specialists with 8 to 15+ years of verified distinction results in O-Level, IGCSE, and A-Level examinations.
-        </p>
-      </div>
+    <main>
+      {/* PAGE HERO */}
+      <section className="py-16 md:py-20 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
+        <div className="max-w-3xl">
+          <div className="flex items-center gap-2 text-xs font-semibold text-slate-500 mb-3">
+            <Link to="/" className="hover:text-[#059669]">Home</Link>
+            <span>/</span>
+            <span className="text-slate-900">Faculty Directory</span>
+          </div>
+          <span className="section-badge">Academic Mentors</span>
+          <h1 className="text-4xl sm:text-5xl font-extrabold text-[#0B4635] font-heading tracking-tight mb-4">
+            Learn From People Who Know How to Teach
+          </h1>
+          <p className="text-base sm:text-lg text-slate-600 leading-relaxed">
+            Every teacher at The Readly Institute is selected for proven academic mastery, years of Cambridge classroom experience, and the ability to inspire genuine intellectual confidence in students.
+          </p>
+        </div>
+      </section>
 
-      <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-        {tutorsData.map(tutor => (
-          <div
-            key={tutor.id}
-            className="card-base p-6 sm:p-7 bg-white border-slate-200 hover:border-emerald-500 hover:shadow-xl transition-all flex flex-col justify-between group"
-          >
-            <div>
-              <div className="flex items-start gap-4 mb-4">
-                <img
-                  src={tutor.image}
-                  alt={tutor.name}
-                  className="w-20 h-20 rounded-2xl object-cover border-2 border-slate-200 shadow-xs shrink-0 group-hover:border-emerald-400 transition-colors"
-                  onError={(e) => { e.target.src = '/images/teachers/sohail-anjum.jpg'; }}
-                />
-                <div>
-                  <h3 className="text-lg font-bold text-slate-900 font-heading group-hover:text-[#059669] transition-colors">
-                    {tutor.name}
-                  </h3>
-                  <p className="text-xs text-[#059669] font-bold">{tutor.role}</p>
-                  <span className="text-[11px] text-slate-500 block mt-0.5">{tutor.qualifications}</span>
-                  <span className="inline-block px-2 py-0.5 mt-2 rounded text-[10px] font-bold bg-emerald-50 text-emerald-800 border border-emerald-100">
-                    {tutor.experience}
-                  </span>
+      {/* FACULTY CATEGORY FILTER PILLS & DIRECTORY */}
+      <section className="pb-24 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
+        
+        {/* Faculty Filter Pills */}
+        <div className="flex flex-wrap items-center justify-center gap-2 mb-10">
+          {categories.map(cat => (
+            <button
+              key={cat.id}
+              onClick={() => setSelectedCategory(cat.id)}
+              className={`tutor-pill px-4 py-2 rounded-lg text-xs font-bold transition-all cursor-pointer ${
+                selectedCategory === cat.id
+                  ? 'active bg-[#ECFDF5] text-[#059669] border border-[#A7F3D0] shadow-sm'
+                  : 'bg-white text-slate-600 border border-slate-200 hover:bg-slate-50'
+              }`}
+            >
+              {cat.label}
+            </button>
+          ))}
+        </div>
+
+        {/* Teachers Grid */}
+        <div id="tutorsGrid" className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          {filteredTutors.map(tutor => (
+            <div
+              key={tutor.id}
+              id={`tutorCard-${tutor.id}`}
+              className="academic-card academic-card-hover p-6 flex flex-col justify-between relative bg-white"
+            >
+              <div>
+                {/* Header with Mentor Photo, Name & Level */}
+                <div className="flex items-start gap-3.5 mb-4">
+                  <div className="w-14 h-14 rounded-xl overflow-hidden shadow-md border-2 border-slate-200 shrink-0 bg-[#ECFDF5]">
+                    <img
+                      src={tutor.image}
+                      alt={tutor.name}
+                      className="w-full h-full object-cover object-top"
+                      onError={(e) => {
+                        e.target.src = '/images/teachers/sohail-anjum.jpg';
+                      }}
+                    />
+                  </div>
+                  <div className="min-w-0 flex-1">
+                    <div className="flex items-center justify-between gap-1">
+                      <h3 className="text-base font-bold text-slate-900 font-heading truncate">{tutor.name}</h3>
+                      <span className="text-[10px] font-bold text-slate-500 bg-slate-100 px-2 py-0.5 rounded shrink-0">
+                        {tutor.level}
+                      </span>
+                    </div>
+                    <p className="text-xs font-bold text-[#059669] truncate">{tutor.role}</p>
+                    <span className="text-[10px] font-semibold text-emerald-800 bg-emerald-50 border border-emerald-200 px-1.5 py-0.5 rounded inline-block mt-1">
+                      {tutor.experience}
+                    </span>
+                  </div>
                 </div>
-              </div>
 
-              <p className="text-xs text-slate-600 leading-relaxed mb-4">{tutor.bio}</p>
+                {/* Qualification & Credentials */}
+                <p className="text-[11px] font-medium text-slate-500 mb-2.5">
+                  {tutor.qualifications}
+                </p>
 
-              <div className="p-3 rounded-lg bg-amber-50/80 border border-amber-200/80 mb-4 text-[11px] text-amber-900">
-                <strong>Track Record:</strong> {tutor.achievements}
-              </div>
+                {/* Short Bio */}
+                <p className="text-xs text-slate-600 leading-relaxed mb-4 line-clamp-3">
+                  {tutor.bio}
+                </p>
 
-              <div className="space-y-1 mb-4">
-                <span className="text-[11px] font-bold text-slate-700 uppercase tracking-wider block">Subjects Taught:</span>
-                <div className="flex flex-wrap gap-1.5">
+                {/* Subjects Tags */}
+                <div className="flex flex-wrap gap-1 mb-4">
                   {tutor.subjects?.map((s, idx) => (
-                    <span key={idx} className="px-2 py-0.5 rounded text-[10px] font-semibold bg-slate-100 text-slate-700">
+                    <span key={idx} className="px-2 py-0.5 rounded text-[10px] bg-slate-50 border border-slate-200 text-slate-700">
                       {s}
                     </span>
                   ))}
                 </div>
               </div>
-            </div>
 
-            <div className="pt-4 border-t border-slate-100 flex items-center justify-between gap-3">
-              <button
-                onClick={() => openTeacherModal(tutor)}
-                className="text-xs font-bold text-slate-700 hover:text-[#059669]"
-              >
-                View Full Profile
-              </button>
-              <button
-                onClick={() => openBookingModal({ teacher: tutor.name, subject: tutor.subjects?.[0] || '' })}
-                className="btn btn-teal text-xs py-2 px-3.5 font-bold shadow-xs"
-              >
-                <Calendar className="w-3.5 h-3.5" />
-                <span>Book Trial Class</span>
-              </button>
+              {/* Select Action */}
+              <div className="pt-3 border-t border-slate-100 flex items-center justify-between">
+                <button
+                  onClick={() => openTeacherModal(tutor)}
+                  className="btn-secondary-academic py-1.5 px-3 text-xs font-semibold flex items-center gap-1.5"
+                >
+                  <User className="w-3.5 h-3.5" />
+                  <span>Profile</span>
+                </button>
+                <button
+                  onClick={() => openBookingModal({ teacher: tutor.name, subject: tutor.subjects?.[0] || '' })}
+                  className="btn-teal-academic py-1.5 px-3 text-xs font-bold flex items-center gap-1.5"
+                >
+                  <span>Select Mentor</span>
+                  <ArrowRight className="w-3.5 h-3.5" />
+                </button>
+              </div>
             </div>
-          </div>
-        ))}
-      </div>
-
-    </div>
+          ))}
+        </div>
+      </section>
+    </main>
   );
 };

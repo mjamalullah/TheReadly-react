@@ -31,7 +31,8 @@ import {
   TrendingUp,
   FileText,
   Atom,
-  Globe
+  Globe,
+  User
 } from 'lucide-react';
 
 const heroSlides = [
@@ -160,6 +161,7 @@ export const Home = () => {
   // Subject Filter States
   const [selectedBoard, setSelectedBoard] = useState('all');
   const [selectedCategory, setSelectedCategory] = useState('all');
+  const [selectedTutorCategory, setSelectedTutorCategory] = useState('all');
 
   // FAQ Accordion State
   const [openFaq, setOpenFaq] = useState(0);
@@ -183,12 +185,41 @@ export const Home = () => {
     return () => clearInterval(timer);
   }, []);
 
+  // Board matching logic for IGCSE, O-Level, A-Level, Edexcel, IT
+  const isMatchingBoard = (sub, board) => {
+    if (board === 'all') return true;
+    if (board === 'igcse') {
+      return sub.boardCategory === 'igcse' ||
+        (sub.boards && sub.boards.some(b => b.toLowerCase().includes('igcse'))) ||
+        (sub.codes && sub.codes.some(c => c.toLowerCase().includes('igcse') || /0625|0620|0610|0580|0606|0478|0417|0455|0450|0452|0448|0493|0470|0460|0457|0500|0475|0539/i.test(c)));
+    }
+    if (board === 'olevel') {
+      return sub.boardCategory === 'olevel' || (sub.boards && sub.boards.some(b => b.toLowerCase().includes('o level') || b.toLowerCase().includes('o-level')));
+    }
+    if (board === 'alevel') {
+      return sub.boardCategory === 'alevel' || (sub.boards && sub.boards.some(b => b.toLowerCase().includes('a level') || b.toLowerCase().includes('a-level')));
+    }
+    if (board === 'edexcel') {
+      return sub.boardCategory === 'edexcel' || (sub.boards && sub.boards.some(b => b.toLowerCase().includes('edexcel')));
+    }
+    if (board === 'it-certifications') {
+      return sub.boardCategory === 'it-certifications' || sub.category === 'it-professional' || sub.category === 'technology';
+    }
+    return sub.boardCategory === board;
+  };
+
   // Filtered Subjects
   const filteredSubjects = subjectsData.filter(sub => {
-    const matchBoard = selectedBoard === 'all' || sub.boardCategory === selectedBoard;
+    const matchBoard = isMatchingBoard(sub, selectedBoard);
     const matchCategory = selectedCategory === 'all' || sub.category === selectedCategory;
     return matchBoard && matchCategory;
   }).slice(0, 8);
+
+  // Filtered Tutors for Faculty Section
+  const filteredTutors = tutorsData.filter(tutor => {
+    if (selectedTutorCategory === 'all') return true;
+    return tutor.category === selectedTutorCategory;
+  });
 
   const handleQuickSubmit = (e) => {
     e.preventDefault();
@@ -994,69 +1025,123 @@ export const Home = () => {
         </div>
       </section>
 
-      {/* ================= 8. FACULTY / TEACHERS ROSTER ================= */}
-      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8">
-        <div className="flex flex-col md:flex-row md:items-end justify-between gap-4">
-          <div>
-            <span className="section-badge">Verified Mentors</span>
-            <h2 className="text-3xl sm:text-4xl font-extrabold text-[#0B4635] font-heading mt-2">
-              Learn From Experienced Faculty
-            </h2>
-            <p className="text-slate-600 text-xs sm:text-sm mt-1">
-              Select a mentor to review detailed achievements or schedule a trial class.
-            </p>
-          </div>
-          <Link to="/teachers" className="text-xs font-bold text-[#059669] hover:underline flex items-center gap-1">
-            <span>View Full Faculty Directory</span>
-            <ArrowRight className="w-3.5 h-3.5" />
-          </Link>
+      {/* ================= 8. ACADEMIC FACULTY / TEACHERS ROSTER ================= */}
+      <section id="teachers" className="py-16 md:py-24 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto bg-pattern-lattice rounded-2xl border border-slate-200 my-6">
+        
+        <div className="text-center max-w-2xl mx-auto mb-10">
+          <span className="text-xs font-bold uppercase tracking-wider text-[#059669] block mb-1.5">Academic Faculty</span>
+          <h2 className="text-3xl font-extrabold text-[#0B4635] font-heading">
+            Learn From People Who Know How to Teach
+          </h2>
+          <p className="text-slate-600 text-sm mt-2">
+            Select a verified subject mentor to schedule a 1-on-1 diagnostic trial session.
+          </p>
         </div>
 
+        {/* Discipline Filter Pills */}
+        <div className="flex flex-wrap items-center justify-center gap-1.5 mb-8">
+          {[
+            { id: 'all', label: 'All Faculty' },
+            { id: 'languages', label: 'Languages & Urdu' },
+            { id: 'sciences', label: 'Sciences (Physics, Chem, Bio)' },
+            { id: 'maths', label: 'Mathematics' },
+            { id: 'technology', label: 'Computer Science' },
+            { id: 'commerce', label: 'Economics & Business' },
+            { id: 'humanities', label: 'English & Humanities' }
+          ].map(cat => (
+            <button
+              key={cat.id}
+              onClick={() => setSelectedTutorCategory(cat.id)}
+              className={`tutor-pill px-3.5 py-1.5 rounded text-xs font-bold transition-all cursor-pointer ${
+                selectedTutorCategory === cat.id
+                  ? 'active bg-[#ECFDF5] text-[#059669] border border-[#A7F3D0]'
+                  : 'bg-white text-slate-600 border border-slate-200 hover:bg-slate-50'
+              }`}
+            >
+              {cat.label}
+            </button>
+          ))}
+        </div>
+
+        {/* Teachers Grid */}
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
-          {tutorsData.slice(0, 3).map(tutor => (
-            <div key={tutor.id} className="card-base p-6 bg-white border-slate-200 hover:border-emerald-500 hover:shadow-lg transition-all flex flex-col justify-between group">
+          {filteredTutors.map(tutor => (
+            <div
+              key={tutor.id}
+              id={`tutorCard-${tutor.id}`}
+              className="academic-card academic-card-hover p-6 flex flex-col justify-between relative bg-white"
+            >
               <div>
-                <div className="flex items-start gap-4 mb-4">
-                  <img
-                    src={tutor.image}
-                    alt={tutor.name}
-                    className="w-16 h-16 rounded-xl object-cover border border-slate-200 shadow-xs shrink-0"
-                    onError={(e) => { e.target.src = '/images/teachers/sohail-anjum.jpg'; }}
-                  />
-                  <div>
-                    <h3 className="text-base font-bold text-slate-900 font-heading">{tutor.name}</h3>
-                    <p className="text-xs text-[#059669] font-semibold">{tutor.role}</p>
-                    <span className="text-[11px] text-slate-500 block mt-0.5">{tutor.qualifications}</span>
+                {/* Header with Mentor Photo, Name & Level */}
+                <div className="flex items-start gap-3.5 mb-4">
+                  <div className="w-14 h-14 rounded-xl overflow-hidden shadow-md border-2 border-slate-200 shrink-0 bg-[#ECFDF5]">
+                    <img
+                      src={tutor.image}
+                      alt={tutor.name}
+                      className="w-full h-full object-cover object-top"
+                      onError={(e) => { e.target.src = '/images/teachers/sohail-anjum.jpg'; }}
+                    />
+                  </div>
+                  <div className="min-w-0 flex-1">
+                    <div className="flex items-center justify-between gap-1">
+                      <h3 className="text-base font-bold text-slate-900 font-heading truncate">{tutor.name}</h3>
+                      <span className="text-[10px] font-bold text-slate-500 bg-slate-100 px-2 py-0.5 rounded shrink-0">
+                        {tutor.level}
+                      </span>
+                    </div>
+                    <p className="text-xs font-bold text-[#059669] truncate">{tutor.role}</p>
+                    <span className="text-[10px] font-semibold text-emerald-800 bg-emerald-50 border border-emerald-200 px-1.5 py-0.5 rounded inline-block mt-1">
+                      {tutor.experience}
+                    </span>
                   </div>
                 </div>
 
-                <p className="text-xs text-slate-600 line-clamp-3 leading-relaxed mb-4">{tutor.bio}</p>
+                {/* Qualification & Credentials */}
+                <p className="text-[11px] font-medium text-slate-500 mb-2.5">
+                  {tutor.qualifications}
+                </p>
 
-                <div className="flex flex-wrap gap-1.5 mb-4">
-                  {tutor.subjects?.slice(0, 2).map((s, idx) => (
-                    <span key={idx} className="px-2 py-0.5 rounded text-[10px] font-semibold bg-slate-100 text-slate-700">
+                {/* Short Bio */}
+                <p className="text-xs text-slate-600 leading-relaxed mb-4 line-clamp-3">
+                  {tutor.bio}
+                </p>
+
+                {/* Subjects Tags */}
+                <div className="flex flex-wrap gap-1 mb-4">
+                  {tutor.subjects?.map((s, idx) => (
+                    <span key={idx} className="px-2 py-0.5 rounded text-[10px] bg-slate-50 border border-slate-200 text-slate-700">
                       {s}
                     </span>
                   ))}
                 </div>
               </div>
 
-              <div className="pt-4 border-t border-slate-100 flex items-center justify-between gap-2">
+              {/* Select Action */}
+              <div className="pt-3 border-t border-slate-100 flex items-center justify-between">
                 <button
                   onClick={() => openTeacherModal(tutor)}
-                  className="text-xs font-bold text-slate-700 hover:text-[#059669]"
+                  className="btn-secondary-academic py-1.5 px-3 text-xs font-semibold flex items-center gap-1.5"
                 >
-                  View Profile
+                  <User className="w-3.5 h-3.5" />
+                  <span>Profile</span>
                 </button>
                 <button
                   onClick={() => openBookingModal({ teacher: tutor.name, subject: tutor.subjects?.[0] || '' })}
-                  className="btn btn-teal text-xs py-1.5 px-3"
+                  className="btn-teal-academic py-1.5 px-3 text-xs font-bold flex items-center gap-1.5"
                 >
-                  Book Trial
+                  <span>Select Mentor</span>
+                  <ArrowRight className="w-3.5 h-3.5" />
                 </button>
               </div>
             </div>
           ))}
+        </div>
+
+        <div className="mt-10 text-center">
+          <Link to="/teachers" className="inline-flex items-center gap-1.5 text-xs font-bold text-[#059669] hover:underline">
+            <span>Explore All Faculty Bios & Distinctions</span>
+            <ArrowRight className="w-3.5 h-3.5" />
+          </Link>
         </div>
       </section>
 

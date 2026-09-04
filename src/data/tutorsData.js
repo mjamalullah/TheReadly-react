@@ -10,7 +10,7 @@ export const tutorsData = [
     bio: "Distinguished Cambridge Urdu specialist with 15+ years of dedicated teaching experience in Cambridge O-Level (as First Language & Second Language) and IGCSE. Renowned for structured essay composition, comprehension analysis, precis writing, and Cambridge examiner mark-scheme precision.",
     subjects: ["O-Level Urdu First Language (3247)", "O-Level Urdu Second Language (3248)", "Cambridge IGCSE Urdu (0539)", "Urdu Essay Composition & Translation"],
     achievements: "15+ years of verified distinction results, mentoring hundreds of students to straight A* grades across international centers.",
-    image: "images/teachers/sohail-anjum.jpg"
+    image: "/images/teachers/sohail-anjum.jpg"
   },
   {
     id: "tutor-sarah-maths",
@@ -23,7 +23,7 @@ export const tutorsData = [
     bio: "Specializes in Pure Mathematics (9709 P1 & P3) and Mechanics vectors. Known for breaking down complex differential equations and vector geometry into intuitive step-by-step algorithms.",
     subjects: ["A-Level Mathematics (9709)", "O-Level Mathematics (4024)", "Additional Mathematics (4037)", "Edexcel Pure P1-P4"],
     achievements: "Over 300+ students guided to straight A* distinctions across Cambridge exam centers.",
-    image: "images/teachers/sarah-ahmed.jpg"
+    image: "/images/teachers/sarah-ahmed.jpg"
   },
   {
     id: "tutor-hamza-physics",
@@ -36,7 +36,7 @@ export const tutorsData = [
     bio: "Experienced educator focusing on first-principles kinematics, quantum physics, and electromagnetic induction. Expert in Paper 4 theory derivations and Paper 5 experiment design.",
     subjects: ["A-Level Physics (9702)", "O-Level Physics (5054)", "IGCSE Physics (0625)", "Paper 5 Planning"],
     achievements: "Specialized laboratory simulation worksheets credited with 94% distinctions in Paper 4 & 5.",
-    image: "images/teachers/hamza-khan.jpg"
+    image: "/images/teachers/hamza-khan.jpg"
   },
   {
     id: "tutor-farhan-chem",
@@ -49,7 +49,7 @@ export const tutorsData = [
     bio: "Teaches organic reaction pathways, equilibrium kinetics, and stoichiometry calculations with absolute clarity. Guides pre-medical students toward straight A*s.",
     subjects: ["A-Level Chemistry (9701)", "O-Level Chemistry (5070)", "IGCSE Chemistry (0620)", "Organic Synthesis"],
     achievements: "Authored specialized reaction mechanism roadmaps adopted by international students worldwide.",
-    image: "images/teachers/farhan-siddiqui.jpg"
+    image: "/images/teachers/farhan-siddiqui.jpg"
   },
   {
     id: "tutor-daniyal-cs",
@@ -62,7 +62,7 @@ export const tutorsData = [
     bio: "Teaches live screen Python programming, OOP design patterns, and pseudocode algorithms for A-Level Paper 4 and O-Level Computer Science (2210/9618).",
     subjects: ["A-Level Computer Science (9618)", "O-Level CS (2210)", "IGCSE CS (0478)", "Python Paper 4 Live Coding"],
     achievements: "Full hands-on screen-sharing labs with zero-loss debugging methodologies.",
-    image: "images/teachers/daniyal-qureshi.jpg"
+    image: "/images/teachers/daniyal-qureshi.jpg"
   },
   {
     id: "tutor-mahnoor-econ",
@@ -75,7 +75,7 @@ export const tutorsData = [
     bio: "Expert in macroeconomic fiscal models, monetary policy diagrams, and the BLT (Because-Leading-To) method for 20-mark Cambridge evaluation essays.",
     subjects: ["A-Level Economics (9708)", "O-Level Economics (2281)", "Business Studies (7115)", "Micro/Macro Policy"],
     achievements: "Trained hundreds of students who achieved Cambridge Top in Region and Top in Country in Economics.",
-    image: "images/teachers/mahnoor-tariq.jpg"
+    image: "/images/teachers/mahnoor-tariq.jpg"
   },
   {
     id: "tutor-ayesha-english",
@@ -88,6 +88,6 @@ export const tutorsData = [
     bio: "Specialist in critical reading comprehension, 10-point summary formulas, and advanced narrative & discursive essay writing for CAIE 1123 and IGCSE 0500.",
     subjects: ["English Language (1123)", "Cambridge IGCSE English (0500)", "Creative Writing", "Directed Essays"],
     achievements: "Master of 10-point summary structure; students consistently score 28+/30 on Directed Writing.",
-    image: "images/teachers/ayesha-malik.jpg"
+    image: "/images/teachers/ayesha-malik.jpg"
   }
 ];
