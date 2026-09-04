@@ -164,6 +164,7 @@ export const Home = () => {
   const [selectedCategory, setSelectedCategory] = useState('all');
   const [selectedTutorCategory, setSelectedTutorCategory] = useState('all');
   const [showAllSubjects, setShowAllSubjects] = useState(false);
+  const [showAllMobileTutors, setShowAllMobileTutors] = useState(false);
 
   // FAQ Accordion State
   const [openFaq, setOpenFaq] = useState(0);
@@ -1244,7 +1245,10 @@ export const Home = () => {
           ].map(cat => (
             <button
               key={cat.id}
-              onClick={() => setSelectedTutorCategory(cat.id)}
+              onClick={() => {
+                setSelectedTutorCategory(cat.id);
+                setShowAllMobileTutors(false);
+              }}
               className={`tutor-pill px-3.5 py-1.5 rounded text-xs font-bold transition-all cursor-pointer ${
                 selectedTutorCategory === cat.id
                   ? 'active bg-[#ECFDF5] text-[#059669] border border-[#A7F3D0]'
@@ -1258,11 +1262,13 @@ export const Home = () => {
 
         {/* Teachers Grid */}
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
-          {filteredTutors.map(tutor => (
+          {filteredTutors.map((tutor, idx) => (
             <div
               key={tutor.id}
               id={`tutorCard-${tutor.id}`}
-              className="academic-card academic-card-hover p-6 flex flex-col justify-between relative bg-white"
+              className={`academic-card academic-card-hover p-6 flex flex-col justify-between relative bg-white ${
+                !showAllMobileTutors && idx >= 4 ? 'hidden sm:flex' : 'flex'
+              }`}
             >
               <div>
                 {/* Header with Mentor Photo, Name & Level */}
@@ -1301,8 +1307,8 @@ export const Home = () => {
 
                 {/* Subjects Tags */}
                 <div className="flex flex-wrap gap-1 mb-4">
-                  {tutor.subjects?.map((s, idx) => (
-                    <span key={idx} className="px-2 py-0.5 rounded text-[10px] bg-slate-50 border border-slate-200 text-slate-700">
+                  {tutor.subjects?.map((s, sIdx) => (
+                    <span key={sIdx} className="px-2 py-0.5 rounded text-[10px] bg-slate-50 border border-slate-200 text-slate-700">
                       {s}
                     </span>
                   ))}
@@ -1329,6 +1335,23 @@ export const Home = () => {
             </div>
           ))}
         </div>
+
+        {/* Mobile-Only View All / Show Less Toggle Button */}
+        {filteredTutors.length > 4 && (
+          <div className="flex sm:hidden justify-center pt-6">
+            <button
+              onClick={() => setShowAllMobileTutors(prev => !prev)}
+              className="inline-flex items-center gap-2 px-6 py-3 rounded-xl text-xs font-bold bg-white text-[#0B4635] border-2 border-emerald-100 hover:border-[#059669] hover:bg-[#ECFDF5] shadow-xs hover:shadow-md transition-all duration-300 cursor-pointer min-h-[44px] group"
+            >
+              <span>{showAllMobileTutors ? 'Show Less' : `View All Teachers (${filteredTutors.length})`}</span>
+              {showAllMobileTutors ? (
+                <ChevronUp className="w-4 h-4 text-[#059669] transition-transform group-hover:-translate-y-0.5" />
+              ) : (
+                <ChevronDown className="w-4 h-4 text-[#059669] transition-transform group-hover:translate-y-0.5" />
+              )}
+            </button>
+          </div>
+        )}
 
         <div className="mt-10 text-center">
           <Link to="/teachers" className="inline-flex items-center gap-1.5 text-xs font-bold text-[#059669] hover:underline">
