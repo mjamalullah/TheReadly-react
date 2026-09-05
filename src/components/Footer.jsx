@@ -30,11 +30,12 @@ export const Footer = () => {
           </div>
 
           {/* Programs Col */}
-          <div className="lg:col-span-3 space-y-3">
-            <h4 className="text-xs font-bold uppercase tracking-wider text-emerald-400 font-heading">
-              Academic Curriculums
+          <div className="lg:col-span-3 space-y-3.5">
+            <h4 className="text-sm font-extrabold uppercase tracking-wider text-white font-heading flex items-center gap-2 pb-2 border-b border-emerald-800/70">
+              <span className="w-1.5 h-3.5 bg-[#10B981] rounded-full inline-block"></span>
+              <span>Academic Curriculums</span>
             </h4>
-            <ul className="space-y-2 text-xs" style={{ color: '#CBD5E1' }}>
+            <ul className="space-y-2 text-xs" style={{ color: '#E2E8F0' }}>
               <li>
                 <Link to="/programs" className="hover:text-white transition-colors">Cambridge O-Level (CAIE)</Link>
               </li>
@@ -57,11 +58,12 @@ export const Footer = () => {
           </div>
 
           {/* Quick Links */}
-          <div className="lg:col-span-2 space-y-3">
-            <h4 className="text-xs font-bold uppercase tracking-wider text-emerald-400 font-heading">
-              Quick Links
+          <div className="lg:col-span-2 space-y-3.5">
+            <h4 className="text-sm font-extrabold uppercase tracking-wider text-white font-heading flex items-center gap-2 pb-2 border-b border-emerald-800/70">
+              <span className="w-1.5 h-3.5 bg-[#10B981] rounded-full inline-block"></span>
+              <span>Quick Links</span>
             </h4>
-            <ul className="space-y-2 text-xs" style={{ color: '#CBD5E1' }}>
+            <ul className="space-y-2 text-xs" style={{ color: '#E2E8F0' }}>
               <li>
                 <Link to="/subjects" className="hover:text-white transition-colors">Subject Catalog</Link>
               </li>
@@ -83,24 +85,31 @@ export const Footer = () => {
               <li>
                 <Link to="/become-a-tutor" className="hover:text-white transition-colors text-emerald-300 font-semibold">Become a Tutor</Link>
               </li>
+              <li>
+                <Link to="/join-our-team" className="hover:text-white transition-colors text-emerald-300 font-semibold flex items-center gap-1.5">
+                  <span>Join Our Team</span>
+                  <span className="text-[9px] bg-[#059669] text-white px-1.5 py-0.2 rounded-full uppercase font-bold">Hiring</span>
+                </Link>
+              </li>
             </ul>
           </div>
 
           {/* Contact Col */}
-          <div className="lg:col-span-3 space-y-3">
-            <h4 className="text-xs font-bold uppercase tracking-wider text-emerald-400 font-heading">
-              Admissions Direct Desk
+          <div className="lg:col-span-3 space-y-3.5">
+            <h4 className="text-sm font-extrabold uppercase tracking-wider text-white font-heading flex items-center gap-2 pb-2 border-b border-emerald-800/70">
+              <span className="w-1.5 h-3.5 bg-[#10B981] rounded-full inline-block"></span>
+              <span>Admissions Direct Desk</span>
             </h4>
-            <ul className="space-y-3 text-xs" style={{ color: '#CBD5E1' }}>
+            <ul className="space-y-3 text-xs" style={{ color: '#E2E8F0' }}>
               <li className="flex items-start gap-2.5">
                 <Phone className="w-4 h-4 text-emerald-400 shrink-0 mt-0.5" />
                 <div>
-                  <span className="block text-[11px]" style={{ color: '#94A3B8' }}>WhatsApp & Direct Calls:</span>
+                  <span className="block text-[11px]" style={{ color: '#CBD5E1' }}>WhatsApp & Direct Calls:</span>
                   <a
                     href={`https://wa.me/${READLY_CONFIG.whatsappNumber}?text=${encodeURIComponent('Hi The Readly Institute, I would like to inquire about admissions.')}`}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="font-bold text-white hover:text-emerald-400 transition-colors"
+                    className="font-bold text-white hover:text-emerald-400 transition-colors text-sm"
                   >
                     {READLY_CONFIG.phoneDisplay}
                   </a>
@@ -108,9 +117,9 @@ export const Footer = () => {
               </li>
               <li className="flex items-start gap-2.5">
                 <Mail className="w-4 h-4 text-emerald-400 shrink-0 mt-0.5" />
-                <div className="space-y-1">
+                <div className="space-y-1.5">
                   <div>
-                    <span className="block text-[11px]" style={{ color: '#94A3B8' }}>Admissions Desk:</span>
+                    <span className="block text-[11px]" style={{ color: '#CBD5E1' }}>Admissions Desk:</span>
                     <a
                       href={`mailto:${READLY_CONFIG.admissionsEmail}`}
                       className="font-bold text-white hover:text-emerald-400 transition-colors"
@@ -119,7 +128,7 @@ export const Footer = () => {
                     </a>
                   </div>
                   <div>
-                    <span className="block text-[11px]" style={{ color: '#94A3B8' }}>General Inquiries:</span>
+                    <span className="block text-[11px]" style={{ color: '#CBD5E1' }}>General Inquiries:</span>
                     <a
                       href={`mailto:${READLY_CONFIG.generalEmail}`}
                       className="font-bold text-white hover:text-emerald-400 transition-colors"
@@ -132,8 +141,8 @@ export const Footer = () => {
               <li className="flex items-start gap-2.5">
                 <Clock className="w-4 h-4 text-emerald-400 shrink-0 mt-0.5" />
                 <div>
-                  <span className="block text-[11px]" style={{ color: '#94A3B8' }}>Operational Hours:</span>
-                  <span style={{ color: '#E2E8F0' }}>{READLY_CONFIG.hours}</span>
+                  <span className="block text-[11px]" style={{ color: '#CBD5E1' }}>Operational Hours:</span>
+                  <span style={{ color: '#FFFFFF' }} className="font-medium">{READLY_CONFIG.hours}</span>
                 </div>
               </li>
             </ul>
