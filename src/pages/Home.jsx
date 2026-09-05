@@ -33,123 +33,77 @@ import {
   FileText,
   Atom,
   Globe,
-  User
+  User,
+  Volume2,
+  Video,
+  FileCheck,
+  BadgeCheck
 } from 'lucide-react';
 
 const heroSlides = [
   {
+    tabLabel: "Live Classroom",
     badge: "Cambridge O-Level & A-Level Online",
     badgeIcon: GraduationCap,
     titleMain: "Learn Today.",
     titleHighlight: "Excel Tomorrow.",
-    subtitle: "Build Strong Foundations",
-    description: "Personalized online learning designed around every student's academic goals. Expert-led instruction to master Cambridge O-Level, IGCSE, and A-Level subjects with confidence.",
+    subtitle: "Interactive Virtual Classroom & Exam Precision",
+    description: "Personalized online learning designed around every student's academic goals. Expert-led instruction to master Cambridge O-Level, IGCSE, and A-Level subjects with examiner-trained faculty.",
     primaryBtn: { text: "Book a Free Demo", icon: Calendar, action: "modal" },
     secondaryBtn: { text: "Explore Subjects", icon: ArrowRight, to: "/subjects" },
-    dialog: {
-      type: "session",
-      headerTitle: "Academic Class Portal • Active Session",
-      headerTag: "Grade A* Target",
-      subjectCode: "A-Level Physics (9702)",
-      subjectTopic: "Thermodynamics & Waves • Mr. Hamza Khan",
-      subjectTag: "In Session",
-      progressLabel: "15-Year Topical Question Coverage",
-      progressPercent: 88,
+    mobilePreview: {
+      type: "live",
+      tag: "Live Faculty",
+      subject: "A-Level Physics (9702)",
+      topic: "Thermodynamics & Superposition • 1:1 Live Canvas",
       stats: [
-        { label: "Batch Size", value: "Max 8" },
-        { label: "Timed Practice", value: "18 Mocks", highlight: true },
-        { label: "Doubt Portal", value: "24/7" }
+        { label: "Class Batch", val: "1-on-1 & Max 8" },
+        { label: "Topical Mocks", val: "18 Mocks" },
+        { label: "Trial Demo", val: "100% Free" }
       ]
     }
   },
   {
-    badge: "Structured Syllabus & Past Papers",
-    badgeIcon: CheckCircle2,
+    tabLabel: "Past Paper Vault",
+    badge: "15-Year Topical Question Vault",
+    badgeIcon: BookOpen,
     titleMain: "Master Your",
     titleHighlight: "Cambridge Subjects.",
-    subtitle: "Structured Lessons & Expert Instruction",
-    description: "Structured lessons, expert teachers and exam-focused preparation. Learn syllabus mark schemes, examiner report keywords, and step-by-step problem derivations.",
+    subtitle: "Structured Syllabus & Past Paper Derivations",
+    description: "Structured lessons, expert teachers, and exam-focused preparation. Learn syllabus mark schemes, examiner report keywords, and step-by-step problem derivations with topical video solutions.",
     primaryBtn: { text: "Explore All Programs", icon: BookOpen, to: "/programs" },
     secondaryBtn: { text: "Book a Free Demo", icon: Calendar, action: "modal" },
-    dialog: {
-      type: "diagnostics",
-      headerTitle: "Curriculum Diagnostics",
-      headerTag: "CAIE & Edexcel",
-      blocks: [
-        {
-          title: "Mathematics & Pure Calculus",
-          desc: "Full step-by-step derivation videos, past paper solution sheets, and weekly timed mocks.",
-          theme: "teal"
-        },
-        {
-          title: "Sciences (Physics, Chem, Bio)",
-          desc: "Paper 4 ATP analysis, magnification calculations, and chemical reaction pathways.",
-          theme: "teal"
-        },
-        {
-          title: "Economics & Business Studies",
-          desc: "20-mark evaluation essay frameworks (BLT method) and macroeconomic policy diagrams.",
-          theme: "amber"
-        }
+    mobilePreview: {
+      type: "vault",
+      tag: "Examiner Rubrics",
+      subject: "Topical Past Paper Vault (2012–2026)",
+      topic: "Mathematics 9709 • Physics 9702 • Chemistry 9701",
+      stats: [
+        { label: "Method Mark", val: "[M1] Derivations" },
+        { label: "Accuracy", val: "[A1] 3 Sig-Figs" },
+        { label: "Evaluation", val: "[E1] Rubric" }
       ]
     }
   },
   {
-    badge: "Rigorous Exam Rehearsals",
+    tabLabel: "Distinction Merit",
+    badge: "Rigorous Exam Rehearsals & Distinctions",
     badgeIcon: Award,
     titleMain: "Prepare With",
     titleHighlight: "Total Confidence.",
-    subtitle: "Knowledge, Skills & High Performance",
-    description: "Develop the knowledge, analytical skills and exam confidence needed for outstanding grades. Timed mock examinations evaluated under authentic Cambridge grading rubrics.",
+    subtitle: "Authentic Cambridge Rubrics & A* Results",
+    description: "Develop the knowledge, analytical skills, and exam confidence needed for outstanding grades. Timed mock examinations evaluated under authentic Cambridge grading rubrics with guaranteed A* readiness.",
     primaryBtn: { text: "Schedule Diagnostic Demo", icon: CalendarCheck, action: "modal" },
     secondaryBtn: { text: "How It Works", icon: ArrowRight, to: "/how-it-works" },
-    dialog: {
-      type: "mock",
-      headerTitle: "Mock Exam Audit Card",
-      headerTag: "Verified Rubric",
-      examTitle: "Student Mock Performance",
-      examSeries: "Cambridge Oct/Nov Series Mock #4",
-      score: "94 / 100",
-      rubrics: [
-        "Examiner keyword accuracy: 96%",
-        "Time management per question: Optimal",
-        "Formula derivations: Zero penalties"
-      ],
-      recommendation: "Ready for official series registration with predicted A* profile."
-    }
-  },
-  {
-    badge: "International Online Academy",
-    badgeIcon: Globe,
-    titleMain: "Your Future",
-    titleHighlight: "Starts Here.",
-    subtitle: "Learn from Experienced Educators from Home",
-    description: "Connect with world distinction mentors from the comfort of your home. Small cohorts, individualized attention, and parent feedback loops.",
-    primaryBtn: { text: "Start with a Free Demo", icon: Sparkles, action: "modal" },
-    secondaryBtn: { text: "Meet Our Faculty", icon: Users, to: "/teachers" },
-    dialog: {
-      type: "features",
-      headerTitle: "Global Academic Community",
-      headerTag: "24/7 Access",
-      items: [
-        {
-          badge: "UK",
-          badgeBg: "bg-[#059669] text-white",
-          title: "Cambridge Assessment Standards",
-          desc: "Official syllabuses 2026/2027"
-        },
-        {
-          badge: "HD",
-          badgeBg: "bg-[#047857] text-white",
-          title: "Recorded Lecture Vault",
-          desc: "Rewatch any lesson anytime before exams"
-        },
-        {
-          badge: "1:1",
-          badgeBg: "bg-amber-500 text-white",
-          title: "Dedicated Mentor Support",
-          desc: "Weekly progress reviews with parents"
-        }
+    mobilePreview: {
+      type: "merit",
+      tag: "Verified A*",
+      subject: "Official Distinction Merit Profile",
+      topic: "Score 98.4% • Top 1% Regional Cambridge Candidates",
+      stats: [
+        { label: "Pakistan", val: "Rank #1" },
+        { label: "UAE Dubai", val: "Raw 96%" },
+        { label: "UK / KSA", val: "A* Grade" }
       ]
     }
   }
@@ -478,46 +432,55 @@ export const Home = () => {
                     <div className="flex items-center gap-2">
                       <span className="w-2 h-2 rounded-full bg-[#059669] animate-pulse"></span>
                       <span className="text-[11px] font-bold text-[#0B4635]">
-                        {heroSlides[currentSlide].dialog.headerTitle}
+                        {heroSlides[currentSlide].mobilePreview.subject}
                       </span>
                     </div>
                     <span className="text-[10px] font-bold bg-[#FEF9EE] text-[#936F1E] px-2 py-0.5 rounded-full border border-[#E8D3A7]">
-                      {heroSlides[currentSlide].dialog.headerTag}
+                      {heroSlides[currentSlide].mobilePreview.tag}
                     </span>
                   </div>
 
+                  <p className="text-xs text-slate-600 font-medium">
+                    {heroSlides[currentSlide].mobilePreview.topic}
+                  </p>
+
                   <div className="grid grid-cols-3 gap-2 text-center text-xs">
-                    <div className="p-2 rounded-lg bg-emerald-50/70 border border-emerald-100">
-                      <span className="font-extrabold text-[#059669] block text-xs">98%</span>
-                      <span className="text-[10px] text-slate-500 font-medium">Distinctions</span>
-                    </div>
-                    <div className="p-2 rounded-lg bg-slate-50 border border-slate-200/80">
-                      <span className="font-extrabold text-slate-800 block text-xs">1-on-1</span>
-                      <span className="text-[10px] text-slate-500 font-medium">Mentorship</span>
-                    </div>
-                    <div className="p-2 rounded-lg bg-amber-50/70 border border-amber-200/80">
-                      <span className="font-extrabold text-amber-800 block text-xs">Zero Fee</span>
-                      <span className="text-[10px] text-slate-500 font-medium">First Demo</span>
-                    </div>
+                    {heroSlides[currentSlide].mobilePreview.stats.map((st, i) => (
+                      <div key={i} className="p-2 rounded-lg bg-emerald-50/70 border border-emerald-100">
+                        <span className="font-extrabold text-[#059669] block text-xs truncate">{st.val}</span>
+                        <span className="text-[10px] text-slate-500 font-medium truncate block">{st.label}</span>
+                      </div>
+                    ))}
                   </div>
                 </div>
               </div>
 
-              {/* Slide Indicators with Animated Countdown Progress Bar */}
-              <div className="flex items-center justify-center md:justify-start gap-2.5 pt-2 w-full">
+              {/* Slide Indicator Tabs with Dynamic Progress Countdown */}
+              <div className="flex flex-wrap items-center justify-center md:justify-start gap-2 pt-2 w-full">
                 {heroSlides.map((slide, idx) => {
                   const isActive = currentSlide === idx;
                   return (
                     <button
                       key={idx}
                       onClick={() => handleSelectSlide(idx)}
-                      aria-label={`Go to slide ${idx + 1}: ${slide.badge}`}
-                      className={`group relative flex items-center transition-all duration-300 cursor-pointer ${
-                        isActive ? 'w-12 sm:w-16 h-3' : 'w-3 h-3 hover:scale-125'
+                      aria-label={`Go to slide ${idx + 1}: ${slide.tabLabel}`}
+                      className={`group relative flex items-center gap-2 px-3 py-1.5 rounded-xl transition-all duration-300 cursor-pointer text-left ${
+                        isActive 
+                          ? 'bg-white border-2 border-[#C59B4B] shadow-sm shadow-[#C59B4B]/10 scale-[1.02]' 
+                          : 'bg-white/70 border border-slate-200/80 hover:bg-white hover:border-[#C59B4B]/50'
                       }`}
                     >
-                      {isActive ? (
-                        <div className="w-full h-2.5 rounded-full bg-[#FEF9EE] border border-[#E8D3A7] overflow-hidden relative shadow-2xs">
+                      <div className="flex items-center gap-1.5">
+                        <span className={`text-[11px] font-mono font-bold ${isActive ? 'text-[#0B4635]' : 'text-slate-400'}`}>
+                          0{idx + 1}
+                        </span>
+                        <span className={`text-xs font-bold ${isActive ? 'text-[#0B4635]' : 'text-slate-600 group-hover:text-slate-900'}`}>
+                          {slide.tabLabel}
+                        </span>
+                      </div>
+
+                      {isActive && (
+                        <div className="w-8 sm:w-12 h-1.5 rounded-full bg-[#FEF9EE] border border-[#E8D3A7] overflow-hidden ml-1">
                           <div
                             key={`progress-${currentSlide}-${isHeroPaused}`}
                             className={`h-full bg-gradient-to-r from-[#B38838] to-[#C59B4B] rounded-full ${
@@ -525,168 +488,306 @@ export const Home = () => {
                             }`}
                           />
                         </div>
-                      ) : (
-                        <div className="w-2.5 h-2.5 rounded-full bg-slate-300 group-hover:bg-[#C59B4B] transition-colors" />
                       )}
                     </button>
                   );
                 })}
-                <span className="text-[11px] text-slate-500 font-bold ml-2 font-mono">
-                  0{currentSlide + 1} <span className="text-slate-300">/</span> 0{heroSlides.length}
-                </span>
+
                 {isHeroPaused && (
-                  <span className="text-[10px] uppercase font-bold text-[#936F1E] bg-[#FEF9EE] border border-[#E8D3A7] px-2 py-0.5 rounded-full animate-fade-in">
-                    Paused
+                  <span className="text-[10px] uppercase font-bold text-[#936F1E] bg-[#FEF9EE] border border-[#E8D3A7] px-2.5 py-1 rounded-full animate-fade-in ml-1">
+                    Hover Paused
                   </span>
                 )}
               </div>
 
             </div>
 
-            {/* Right Academic Dialog Box / macOS Preview Window (Desktop only: hidden lg:block) */}
+            {/* Right Desktop Area: 3 Completely Unique Layouts & Animations (hidden lg:block) */}
             <div className="hidden lg:block lg:col-span-5">
-              <div 
-                key={`dialog-window-${currentSlide}`}
-                className="dashboard-preview-window animate-hero-dialog-scale"
-              >
-                
-                {/* macOS Style Header Bar */}
-                <div className="dashboard-header-bar">
-                  <div className="flex items-center gap-2">
-                    <span className="w-2.5 h-2.5 rounded-full bg-rose-400"></span>
-                    <span className="w-2.5 h-2.5 rounded-full bg-amber-400"></span>
-                    <span className="w-2.5 h-2.5 rounded-full bg-emerald-400"></span>
-                    <span className="text-xs font-mono font-medium text-slate-200 ml-2">
-                      {heroSlides[currentSlide].dialog.headerTitle}
+              
+              {/* SLIDE 1 DESIGN: Live Interactive Virtual Whiteboard & Academic Portal */}
+              {currentSlide === 0 && (
+                <div key="slide-design-0" className="anim-slide1-portal anim-ambient-float">
+                  <div className="dashboard-preview-window border border-emerald-100 shadow-2xl bg-white overflow-hidden rounded-2xl">
+                    {/* macOS Header Bar */}
+                    <div className="dashboard-header-bar bg-[#06251C] px-4 py-3 flex items-center justify-between border-b border-white/10">
+                      <div className="flex items-center gap-2">
+                        <span className="w-3 h-3 rounded-full bg-rose-400"></span>
+                        <span className="w-3 h-3 rounded-full bg-amber-400"></span>
+                        <span className="w-3 h-3 rounded-full bg-emerald-400"></span>
+                        <span className="text-xs font-mono font-semibold text-slate-200 ml-2">
+                          Academic Portal • Live Classroom 04
+                        </span>
+                      </div>
+                      <div className="flex items-center gap-2">
+                        <span className="flex h-2 w-2 relative">
+                          <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+                          <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
+                        </span>
+                        <span className="text-[10px] font-bold bg-[#0B4635] text-emerald-200 px-2.5 py-0.5 rounded-full border border-emerald-500/30 uppercase tracking-wider">
+                          Faculty Live
+                        </span>
+                      </div>
+                    </div>
+
+                    {/* Portal Body */}
+                    <div className="p-5 space-y-4 bg-white">
+                      {/* Faculty & Subject Info Card */}
+                      <div className="p-3.5 rounded-xl bg-gradient-to-r from-emerald-50/90 via-teal-50/60 to-white border border-emerald-200/80 flex items-center justify-between">
+                        <div className="flex items-center gap-3">
+                          <div className="w-10 h-10 rounded-xl bg-[#0B4635] text-white flex items-center justify-center font-bold shadow-md shadow-emerald-950/10">
+                            <Atom className="w-5 h-5 text-emerald-300" />
+                          </div>
+                          <div>
+                            <div className="flex items-center gap-2">
+                              <span className="text-[10px] font-extrabold text-[#0B4635] uppercase tracking-wider">Active Stream</span>
+                              <span className="text-[10px] font-bold bg-[#FEF9EE] text-[#936F1E] px-1.5 py-0.2 rounded border border-[#E8D3A7]">Grade A* Target</span>
+                            </div>
+                            <h4 className="text-sm font-extrabold text-slate-900 font-heading mt-0.5">A-Level Physics (9702)</h4>
+                            <p className="text-xs text-slate-500">Thermodynamics & Superposition • Engr. Hamza</p>
+                          </div>
+                        </div>
+                        
+                        {/* Animated Audio Equalizer Waveform */}
+                        <div className="flex flex-col items-end gap-1 shrink-0">
+                          <div className="flex items-center gap-1.5 px-2 py-1 rounded bg-[#06251C] text-emerald-300 text-[10px] font-mono shadow-2xs">
+                            <Volume2 className="w-3 h-3 text-emerald-400" />
+                            <span>Audio</span>
+                            <div className="flex items-end gap-0.5 h-3 w-3.5 ml-0.5">
+                              <span className="w-0.5 bg-emerald-400 rounded-full audio-bar-1"></span>
+                              <span className="w-0.5 bg-emerald-400 rounded-full audio-bar-2"></span>
+                              <span className="w-0.5 bg-emerald-400 rounded-full audio-bar-3"></span>
+                              <span className="w-0.5 bg-emerald-400 rounded-full audio-bar-4"></span>
+                            </div>
+                          </div>
+                          <span className="text-[10px] text-emerald-700 font-bold">1:1 Graphics Tablet</span>
+                        </div>
+                      </div>
+
+                      {/* Simulated Live Whiteboard Step */}
+                      <div className="p-3.5 rounded-xl bg-slate-900 text-slate-100 font-mono text-xs space-y-1.5 shadow-inner">
+                        <div className="flex items-center justify-between text-[11px] text-slate-400 border-b border-slate-800 pb-1.5">
+                          <span className="flex items-center gap-1.5 text-emerald-400">
+                            <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+                            Whiteboard Canvas Stream
+                          </span>
+                          <span className="text-[10px] text-slate-400">CAIE 9702/P4 • Q3 Derivation</span>
+                        </div>
+                        <div className="space-y-1 text-[11px] font-mono">
+                          <p className="text-slate-300">Step 1: First Law &rarr; <span className="text-amber-300 font-bold">&Delta;Q = &Delta;U + W</span></p>
+                          <p className="text-emerald-300">Step 2: Isobaric Work &rarr; <span className="text-white font-bold">W = P &middot; &Delta;V = 1.01 &times; 10&#8309; &times; 0.045 J</span></p>
+                          <p className="text-slate-400 text-[10px] italic pt-0.5">&bull; [M1] Formula substitution verified &bull; [A1] Final Answer: 4.54 kJ</p>
+                        </div>
+                      </div>
+
+                      {/* Syllabus Progress Bar */}
+                      <div className="space-y-1.5">
+                        <div className="flex justify-between text-xs font-semibold text-slate-700">
+                          <span className="flex items-center gap-1.5">
+                            <CheckCircle2 className="w-3.5 h-3.5 text-[#059669]" />
+                            15-Year Topical Question Coverage
+                          </span>
+                          <span className="text-[#059669] font-extrabold">92% Mastered</span>
+                        </div>
+                        <div className="w-full bg-slate-100 rounded-full h-2 overflow-hidden">
+                          <div className="bg-gradient-to-r from-[#0B4635] via-[#059669] to-[#C59B4B] h-2 rounded-full w-[92%] transition-all duration-1000"></div>
+                        </div>
+                      </div>
+
+                      {/* 3 Metrics Pills */}
+                      <div className="grid grid-cols-3 gap-2.5 pt-1 text-center">
+                        <div className="p-2.5 rounded-lg bg-emerald-50/80 border border-emerald-200">
+                          <span className="font-extrabold text-[#0B4635] block text-xs sm:text-sm">1-on-1 / Batch</span>
+                          <span className="text-[10px] text-slate-500 font-medium">Max 8 Learners</span>
+                        </div>
+                        <div className="p-2.5 rounded-lg bg-amber-50/70 border border-amber-200">
+                          <span className="font-extrabold text-amber-900 block text-xs sm:text-sm">18 Mocks</span>
+                          <span className="text-[10px] text-slate-500 font-medium">Timed Practice</span>
+                        </div>
+                        <div className="p-2.5 rounded-lg bg-slate-50 border border-slate-200">
+                          <span className="font-extrabold text-slate-800 block text-xs sm:text-sm">24/7 Desk</span>
+                          <span className="text-[10px] text-slate-500 font-medium">Doubt Portal</span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              )}
+
+              {/* SLIDE 2 DESIGN: 3D Layered Dual-Card Stack (Past Paper Vault & Examiner Rubrics) */}
+              {currentSlide === 1 && (
+                <div key="slide-design-1" className="relative space-y-[-24px] select-none">
+                  {/* Card 1: Top Layer (Past Paper Matrix & Video Solutions) */}
+                  <div className="anim-card-top relative z-10 p-5 rounded-2xl bg-white border border-slate-200 shadow-xl shadow-slate-900/10 transition-transform duration-300 hover:scale-[1.01]">
+                    <div className="flex items-center justify-between border-b border-slate-100 pb-3 mb-3">
+                      <div className="flex items-center gap-2.5">
+                        <div className="w-8 h-8 rounded-lg bg-[#FEF9EE] border border-[#E8D3A7] flex items-center justify-center text-[#C59B4B]">
+                          <BookOpen className="w-4 h-4" />
+                        </div>
+                        <div>
+                          <h4 className="text-xs font-extrabold text-[#0B4635] uppercase tracking-wide">Topical Past Paper Vault</h4>
+                          <p className="text-[11px] text-slate-500">2012 – 2026 Series • Topical Video Solutions</p>
+                        </div>
+                      </div>
+                      <span className="text-[10px] font-bold bg-[#ECFDF5] text-[#059669] px-2.5 py-1 rounded-full border border-emerald-200">
+                        CAIE & Edexcel
+                      </span>
+                    </div>
+
+                    {/* Subject Rows with Video Solution Badges */}
+                    <div className="space-y-2">
+                      <div className="p-2.5 rounded-xl bg-slate-50 border border-slate-200/80 flex items-center justify-between hover:bg-emerald-50/50 transition-colors">
+                        <div className="flex items-center gap-2">
+                          <span className="w-2 h-2 rounded-full bg-[#059669]"></span>
+                          <span className="text-xs font-bold text-slate-900">Mathematics (4024 / 9709)</span>
+                        </div>
+                        <span className="text-[10px] font-bold bg-white text-[#0B4635] px-2 py-0.5 rounded border border-slate-200 flex items-center gap-1 shadow-2xs">
+                          <Video className="w-3 h-3 text-[#C59B4B]" />
+                          P1, P2 & Pure P3 Solved
+                        </span>
+                      </div>
+
+                      <div className="p-2.5 rounded-xl bg-slate-50 border border-slate-200/80 flex items-center justify-between hover:bg-emerald-50/50 transition-colors">
+                        <div className="flex items-center gap-2">
+                          <span className="w-2 h-2 rounded-full bg-[#C59B4B]"></span>
+                          <span className="text-xs font-bold text-slate-900">Physics (5054 / 9702)</span>
+                        </div>
+                        <span className="text-[10px] font-bold bg-white text-[#0B4635] px-2 py-0.5 rounded border border-slate-200 flex items-center gap-1 shadow-2xs">
+                          <FileCheck className="w-3 h-3 text-[#059669]" />
+                          ATP Paper 4 & Theory
+                        </span>
+                      </div>
+
+                      <div className="p-2.5 rounded-xl bg-slate-50 border border-slate-200/80 flex items-center justify-between hover:bg-emerald-50/50 transition-colors">
+                        <div className="flex items-center gap-2">
+                          <span className="w-2 h-2 rounded-full bg-emerald-500"></span>
+                          <span className="text-xs font-bold text-slate-900">Chemistry & Biology</span>
+                        </div>
+                        <span className="text-[10px] font-bold bg-white text-[#0B4635] px-2 py-0.5 rounded border border-slate-200 flex items-center gap-1 shadow-2xs">
+                          <BadgeCheck className="w-3 h-3 text-emerald-600" />
+                          Organic Pathways & MS
+                        </span>
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* Card 2: Bottom Overlapping Layer (Examiner Marking Rubrics) */}
+                  <div className="anim-card-bottom relative z-0 p-5 pt-8 rounded-2xl bg-gradient-to-br from-[#06251C] to-[#0B4635] text-white border border-[#C59B4B]/40 shadow-2xl shadow-emerald-950/20">
+                    <div className="flex items-center justify-between border-b border-white/10 pb-2.5 mb-3">
+                      <div className="flex items-center gap-2">
+                        <BadgeCheck className="w-4 h-4 text-[#C59B4B]" />
+                        <span className="text-xs font-extrabold text-[#FEF9EE] uppercase tracking-wider">Examiner Rubric Breakdown</span>
+                      </div>
+                      <span className="text-[10px] font-bold bg-[#C59B4B] text-[#06251C] px-2 py-0.5 rounded-full font-mono">
+                        100% Mark Scheme Aligned
+                      </span>
+                    </div>
+
+                    {/* Rubric Criteria Checklist */}
+                    <div className="grid grid-cols-1 gap-2 text-xs">
+                      <div className="flex items-start gap-2.5 bg-white/5 p-2 rounded-lg border border-white/5">
+                        <span className="text-[10px] font-mono font-bold bg-[#C59B4B]/20 text-[#DFBA73] px-1.5 py-0.5 rounded shrink-0">[M1]</span>
+                        <span className="text-slate-200 text-[11px]"><strong>Method Mark:</strong> Step-by-step formula & algebraic substitution verified</span>
+                      </div>
+                      <div className="flex items-start gap-2.5 bg-white/5 p-2 rounded-lg border border-white/5">
+                        <span className="text-[10px] font-mono font-bold bg-emerald-500/20 text-emerald-300 px-1.5 py-0.5 rounded shrink-0">[A1]</span>
+                        <span className="text-slate-200 text-[11px]"><strong>Accuracy Mark:</strong> Correct numerical answer rounded strictly to 3 sig-figs</span>
+                      </div>
+                      <div className="flex items-start gap-2.5 bg-white/5 p-2 rounded-lg border border-white/5">
+                        <span className="text-[10px] font-mono font-bold bg-amber-500/20 text-amber-300 px-1.5 py-0.5 rounded shrink-0">[E1]</span>
+                        <span className="text-slate-200 text-[11px]"><strong>Evaluation Mark:</strong> Examiner report command words & critical conclusions</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              )}
+
+              {/* SLIDE 3 DESIGN: Framed Gold Distinction Certificate & Global Merit Scorecard */}
+              {currentSlide === 2 && (
+                <div key="slide-design-2" className="anim-certificate-stamp anim-gold-pulse relative rounded-2xl border-2 border-[#C59B4B] bg-gradient-to-b from-[#FFFDF9] via-[#FCF8EE] to-[#F7EED8] p-6 shadow-2xl shadow-[#C59B4B]/20 select-none overflow-hidden">
+                  {/* Certificate Corner Geometric Accents */}
+                  <div className="absolute top-2.5 left-2.5 w-4 h-4 border-t-2 border-l-2 border-[#C59B4B]"></div>
+                  <div className="absolute top-2.5 right-2.5 w-4 h-4 border-t-2 border-r-2 border-[#C59B4B]"></div>
+                  <div className="absolute bottom-2.5 left-2.5 w-4 h-4 border-b-2 border-l-2 border-[#C59B4B]"></div>
+                  <div className="absolute bottom-2.5 right-2.5 w-4 h-4 border-b-2 border-r-2 border-[#C59B4B]"></div>
+
+                  {/* Watermark Crest */}
+                  <div className="absolute -right-10 -bottom-10 opacity-5 pointer-events-none">
+                    <Award className="w-56 h-56 text-[#0B4635]" />
+                  </div>
+
+                  {/* Certificate Header */}
+                  <div className="text-center border-b border-[#E8D3A7] pb-3 mb-3 relative">
+                    <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#FEF9EE] border border-[#C59B4B] text-[#936F1E] text-[10px] font-extrabold uppercase tracking-widest mb-1 shadow-2xs">
+                      <Award className="w-3.5 h-3.5 text-[#C59B4B]" />
+                      <span>Official Distinction Audit Card</span>
+                    </div>
+                    <h3 className="text-sm font-extrabold text-[#0B4635] font-heading tracking-wide uppercase">
+                      The Readly Institute &bull; Merit Roll
+                    </h3>
+                    <p className="text-[11px] text-slate-600 font-serif italic">Cambridge Assessment International Series Mock Audit</p>
+                  </div>
+
+                  {/* Distinction Score Ribbon */}
+                  <div className="p-3.5 rounded-xl bg-white/95 border border-[#E8D3A7] flex items-center justify-between shadow-sm mb-3">
+                    <div>
+                      <span className="text-[10px] font-bold text-slate-500 uppercase tracking-wider block">Official Result Profile</span>
+                      <h4 className="text-xl font-extrabold text-[#0B4635] font-heading leading-tight">
+                        Grade A* Distinction
+                      </h4>
+                      <span className="text-[11px] text-[#936F1E] font-medium flex items-center gap-1">
+                        <Star className="w-3 h-3 fill-[#C59B4B] text-[#C59B4B]" />
+                        Top 1% Worldwide Candidate Profile
+                      </span>
+                    </div>
+                    <div className="text-right">
+                      <span className="text-2xl sm:text-3xl font-black text-[#0B4635] font-heading block">98.4%</span>
+                      <span className="text-[10px] font-bold text-[#059669] bg-[#ECFDF5] px-2 py-0.5 rounded-full border border-emerald-200">
+                        Grade Cleared
+                      </span>
+                    </div>
+                  </div>
+
+                  {/* Global Student Merit Roll Pills (3 international hubs) */}
+                  <div className="space-y-1.5 mb-3">
+                    <span className="text-[10px] font-extrabold text-slate-500 uppercase tracking-wider block px-1">
+                      Global Candidate Benchmarks:
+                    </span>
+                    
+                    <div className="grid grid-cols-3 gap-2 text-center text-xs">
+                      <div className="p-2 rounded-lg bg-white/90 border border-[#E8D3A7]/80 shadow-2xs">
+                        <span className="text-sm block">🇵🇰</span>
+                        <span className="font-extrabold text-slate-900 block text-[11px]">Pakistan #1</span>
+                        <span className="text-[9px] text-slate-500">Math 4024 (Raw 98)</span>
+                      </div>
+
+                      <div className="p-2 rounded-lg bg-white/90 border border-[#E8D3A7]/80 shadow-2xs">
+                        <span className="text-sm block">🇦🇪</span>
+                        <span className="font-extrabold text-slate-900 block text-[11px]">UAE (Dubai)</span>
+                        <span className="text-[9px] text-slate-500">Physics 9702 (A*)</span>
+                      </div>
+
+                      <div className="p-2 rounded-lg bg-white/90 border border-[#E8D3A7]/80 shadow-2xs">
+                        <span className="text-sm block">🇸🇦 🇬🇧</span>
+                        <span className="font-extrabold text-slate-900 block text-[11px]">KSA & UK</span>
+                        <span className="text-[9px] text-slate-500">IGCSE CS 0478 (A*)</span>
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* Verification Stamp Footer */}
+                  <div className="flex items-center justify-between pt-2 border-t border-[#E8D3A7]/80 text-[10px] text-slate-600">
+                    <div className="flex items-center gap-1.5 text-emerald-800 font-bold">
+                      <ShieldCheck className="w-4 h-4 text-[#059669]" />
+                      <span>Verified Examiner Grading Rubric</span>
+                    </div>
+                    <span className="font-mono font-bold text-[#936F1E] bg-[#FEF9EE] px-2 py-0.5 rounded border border-[#E8D3A7]">
+                      REF: RDL-2026-A*
                     </span>
                   </div>
-                  <span className="text-[10px] font-bold bg-[#064E3B] text-emerald-200 px-2.5 py-0.5 rounded border border-emerald-500/30">
-                    {heroSlides[currentSlide].dialog.headerTag}
-                  </span>
                 </div>
+              )}
 
-                {/* Dialog Body - Slide 1: Academic Class Portal */}
-                {heroSlides[currentSlide].dialog.type === 'session' && (
-                  <div className="p-6 space-y-4 bg-white">
-                    <div className="p-4 rounded-xl bg-[#ECFDF5] border border-[#A7F3D0] flex items-center justify-between">
-                      <div className="flex items-center gap-3">
-                        <div className="w-10 h-10 rounded-lg bg-[#D1FAE5] text-[#059669] flex items-center justify-center font-bold">
-                          <Atom className="w-5 h-5" />
-                        </div>
-                        <div>
-                          <span className="text-[10px] font-bold text-[#059669] uppercase tracking-wider block">Class Session</span>
-                          <h4 className="text-sm font-bold text-slate-900">{heroSlides[currentSlide].dialog.subjectCode}</h4>
-                          <p className="text-xs text-slate-500">{heroSlides[currentSlide].dialog.subjectTopic}</p>
-                        </div>
-                      </div>
-                      <span className="px-2.5 py-1 text-[11px] font-bold text-[#047857] bg-[#D1FAE5] border border-[#A7F3D0] rounded-md">
-                        {heroSlides[currentSlide].dialog.subjectTag}
-                      </span>
-                    </div>
-
-                    <div className="space-y-2">
-                      <div className="flex justify-between text-xs font-semibold text-slate-700">
-                        <span>{heroSlides[currentSlide].dialog.progressLabel}</span>
-                        <span className="text-[#059669] font-bold">{heroSlides[currentSlide].dialog.progressPercent}% Mastered</span>
-                      </div>
-                      <div className="w-full bg-slate-100 rounded-full h-2.5 overflow-hidden">
-                        <div
-                          className="bg-[#059669] h-2.5 rounded-full transition-all duration-700"
-                          style={{ width: `${heroSlides[currentSlide].dialog.progressPercent}%` }}
-                        ></div>
-                      </div>
-                    </div>
-
-                    <div className="grid grid-cols-3 gap-2.5 pt-2 text-center text-xs">
-                      {heroSlides[currentSlide].dialog.stats.map((st, i) => (
-                        <div
-                          key={i}
-                          className={`p-2.5 rounded-lg border ${
-                            st.highlight
-                              ? 'bg-[#ECFDF5] border-[#A7F3D0]'
-                              : 'bg-slate-50 border-slate-200/80'
-                          }`}
-                        >
-                          <span className={`font-bold block text-xs sm:text-sm ${st.highlight ? 'text-[#059669]' : 'text-slate-900'}`}>
-                            {st.value}
-                          </span>
-                          <span className="text-[10px] text-slate-500">{st.label}</span>
-                        </div>
-                      ))}
-                    </div>
-                  </div>
-                )}
-
-                {/* Dialog Body - Slide 2: Curriculum Diagnostics */}
-                {heroSlides[currentSlide].dialog.type === 'diagnostics' && (
-                  <div className="p-6 space-y-3.5 bg-white">
-                    {heroSlides[currentSlide].dialog.blocks.map((bl, i) => (
-                      <div
-                        key={i}
-                        className={`p-3.5 rounded-xl border ${
-                          bl.theme === 'amber'
-                            ? 'bg-amber-50/70 border-amber-200'
-                            : 'bg-[#ECFDF5] border-[#A7F3D0]'
-                        }`}
-                      >
-                        <h4 className={`text-xs font-bold uppercase ${bl.theme === 'amber' ? 'text-amber-900' : 'text-[#0B4635]'}`}>
-                          {bl.title}
-                        </h4>
-                        <p className="text-xs text-slate-600 mt-1 leading-relaxed">{bl.desc}</p>
-                      </div>
-                    ))}
-                  </div>
-                )}
-
-                {/* Dialog Body - Slide 3: Mock Exam Audit Card */}
-                {heroSlides[currentSlide].dialog.type === 'mock' && (
-                  <div className="p-6 space-y-4 bg-white">
-                    <div className="flex items-center justify-between border-b border-slate-100 pb-3">
-                      <div>
-                        <h4 className="text-sm font-bold text-slate-900">{heroSlides[currentSlide].dialog.examTitle}</h4>
-                        <p className="text-xs text-slate-500">{heroSlides[currentSlide].dialog.examSeries}</p>
-                      </div>
-                      <span className="text-xl font-extrabold text-[#059669] font-heading">
-                        {heroSlides[currentSlide].dialog.score}
-                      </span>
-                    </div>
-
-                    <ul className="space-y-2.5 text-xs text-slate-600">
-                      {heroSlides[currentSlide].dialog.rubrics.map((r, i) => (
-                        <li key={i} className="flex items-center gap-2.5">
-                          <CheckCircle2 className="w-4 h-4 text-[#059669] shrink-0" />
-                          <span>{r}</span>
-                        </li>
-                      ))}
-                    </ul>
-
-                    <div className="p-3 bg-[#ECFDF5] border border-[#A7F3D0] rounded-xl text-xs text-[#0B4635] flex items-start gap-2">
-                      <Sparkles className="w-4 h-4 text-[#059669] shrink-0 mt-0.5" />
-                      <div>
-                        <strong>Tutor Recommendation:</strong> {heroSlides[currentSlide].dialog.recommendation}
-                      </div>
-                    </div>
-                  </div>
-                )}
-
-                {/* Dialog Body - Slide 4: Global Academic Community */}
-                {heroSlides[currentSlide].dialog.type === 'features' && (
-                  <div className="p-6 space-y-3 bg-white">
-                    {heroSlides[currentSlide].dialog.items.map((it, i) => (
-                      <div key={i} className="flex items-center gap-3 p-3 rounded-xl bg-slate-50 border border-slate-200/80">
-                        <div className={`w-9 h-9 rounded-full ${it.badgeBg} flex items-center justify-center font-bold text-xs shrink-0`}>
-                          {it.badge}
-                        </div>
-                        <div>
-                          <h4 className="text-xs font-bold text-slate-900">{it.title}</h4>
-                          <p className="text-[11px] text-slate-500">{it.desc}</p>
-                        </div>
-                      </div>
-                    ))}
-                  </div>
-                )}
-
-              </div>
             </div>
 
           </div>

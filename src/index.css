@@ -478,6 +478,109 @@ a {
   animation: heroProgressTimer 4500ms linear forwards;
 }
 
+/* Slide 1 Unique Animation: Spring Portal Float & Live Waveform */
+@keyframes portalSlideIn {
+  0% {
+    opacity: 0;
+    transform: translateY(28px) scale(0.96);
+    filter: blur(4px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+    filter: blur(0);
+  }
+}
+@keyframes portalAmbientFloat {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-5px);
+  }
+}
+.anim-slide1-portal {
+  animation: portalSlideIn 0.7s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+.anim-ambient-float {
+  animation: portalAmbientFloat 4s ease-in-out infinite;
+}
+
+@keyframes audioWave1 { 0%, 100% { height: 35%; } 50% { height: 95%; } }
+@keyframes audioWave2 { 0%, 100% { height: 85%; } 50% { height: 25%; } }
+@keyframes audioWave3 { 0%, 100% { height: 45%; } 50% { height: 100%; } }
+@keyframes audioWave4 { 0%, 100% { height: 90%; } 50% { height: 40%; } }
+.audio-bar-1 { animation: audioWave1 1s ease-in-out infinite; }
+.audio-bar-2 { animation: audioWave2 0.85s ease-in-out infinite 0.15s; }
+.audio-bar-3 { animation: audioWave3 1.1s ease-in-out infinite 0.3s; }
+.audio-bar-4 { animation: audioWave4 0.95s ease-in-out infinite 0.1s; }
+
+/* Slide 2 Unique Animation: 3D Layered Dual-Card Stack Unfurl */
+@keyframes cardStackTop {
+  0% {
+    opacity: 0;
+    transform: translateY(-26px) translateX(14px) rotate(-1.5deg) scale(0.95);
+    filter: blur(4px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) translateX(0) rotate(0deg) scale(1);
+    filter: blur(0);
+  }
+}
+@keyframes cardStackBottom {
+  0% {
+    opacity: 0;
+    transform: translateY(32px) translateX(-12px) rotate(1.5deg) scale(0.95);
+    filter: blur(4px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) translateX(0) rotate(0deg) scale(1);
+    filter: blur(0);
+  }
+}
+.anim-card-top {
+  animation: cardStackTop 0.65s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+.anim-card-bottom {
+  animation: cardStackBottom 0.75s cubic-bezier(0.16, 1, 0.3, 1) 0.12s both;
+}
+
+/* Slide 3 Unique Animation: Gold Distinction Certificate Stamp & Shimmer */
+@keyframes certStampDrop {
+  0% {
+    opacity: 0;
+    transform: scale(1.08) translateY(-14px);
+    box-shadow: 0 0 0 rgba(197, 155, 75, 0);
+  }
+  65% {
+    opacity: 1;
+    transform: scale(0.985) translateY(2px);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+    box-shadow: 0 25px 50px -12px rgba(11, 70, 53, 0.18), 0 0 25px rgba(197, 155, 75, 0.22);
+  }
+}
+@keyframes goldGlowPulse {
+  0%, 100% {
+    border-color: rgba(197, 155, 75, 0.65);
+    box-shadow: 0 20px 45px -10px rgba(11, 70, 53, 0.16), 0 0 20px rgba(197, 155, 75, 0.2);
+  }
+  50% {
+    border-color: rgba(197, 155, 75, 1);
+    box-shadow: 0 24px 50px -10px rgba(11, 70, 53, 0.2), 0 0 35px rgba(197, 155, 75, 0.38);
+  }
+}
+.anim-certificate-stamp {
+  animation: certStampDrop 0.75s cubic-bezier(0.2, 0.9, 0.3, 1.2) both;
+}
+.anim-gold-pulse {
+  animation: goldGlowPulse 3.5s ease-in-out infinite;
+}
+
 /* ================= DASHBOARD PREVIEW UI (ACADEMIC DIALOG BOX) ================= */
 .dashboard-preview-window {
   background: #ffffff;
