@@ -103,7 +103,7 @@ export const BookDemo = () => {
     openThankYouModal({
       title: "Free Trial Demo Registered",
       name: formData.student_name.trim(),
-      urduMessage: "ہم سے رابطہ کرنے کا بہت شکریہ۔ آپ کا فری ٹرائل ڈیمو رجسٹر ہو چکا ہے۔",
+      englishSubtitle: "Thank you for contacting us. Your free trial demo request has been successfully registered.",
       message: `Thank you for scheduling a diagnostic demo for ${formData.subject} (${formData.program}). Our admissions desk will assign your faculty mentor and connect with you shortly.`,
       whatsapp: fullWhatsApp,
       details: [
@@ -126,26 +126,29 @@ export const BookDemo = () => {
       email: '',
       program: 'Cambridge O-Level',
       grade: 'O-2 / Grade 10',
-      subject: 'Urdu - First Language (3247)',
+      subject: 'Mathematics - Syllabus D (4024)',
+      teacher: 'Assigned Faculty Specialist',
       exam_series: 'May / June 2026',
       message: ''
     });
   };
 
   return (
-    <div className="py-8 sm:py-12 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto space-y-12">
+    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 sm:py-16 space-y-12">
       
-      <div className="max-w-3xl">
+      {/* Header */}
+      <div className="text-center max-w-3xl mx-auto space-y-3">
         <span className="section-badge">100% Free Trial</span>
-        <h1 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-[#0B4635] font-heading mt-2">
-          Book Your Diagnostic <span className="text-[#C59B4B]">Trial Class</span>
+        <h1 className="text-3xl sm:text-4xl md:text-5xl font-extrabold font-heading text-[#0B4635] tracking-tight">
+          Book Your Diagnostic <span className="text-[#C59B4B]">Trial Demo</span>
         </h1>
-        <p className="text-slate-600 text-sm sm:text-base mt-3 leading-relaxed">
-          Experience our high-definition interactive classrooms, review a sample diagnostic paper with a Cambridge specialist, and clarify syllabus targets. Zero upfront fees.
+        <p className="text-xs sm:text-sm text-slate-600 leading-relaxed max-w-xl mx-auto">
+          Experience our interactive digital classroom, evaluate syllabus prerequisites with an experienced faculty specialist, and map out your path to straight A* grades.
         </p>
       </div>
 
-      <div className="grid lg:grid-cols-12 gap-10">
+      {/* Grid: Info + Form */}
+      <div className="grid lg:grid-cols-12 gap-8 items-start max-w-5xl mx-auto">
         
         {/* Left Col: Perks */}
         <div className="lg:col-span-5 space-y-6">
@@ -198,8 +201,8 @@ export const BookDemo = () => {
                 <h3 className="text-2xl sm:text-3xl font-extrabold text-slate-900 font-heading">
                   Thank You, {submittedData.name}!
                 </h3>
-                <p className="text-sm font-semibold text-emerald-800 font-urdu leading-relaxed">
-                  ہم سے رابطہ کرنے کا بہت شکریہ۔ آپ کا فری ٹرائل ڈیمو رجسٹر ہو چکا ہے۔
+                <p className="text-sm font-semibold text-emerald-800 leading-relaxed">
+                  Thank you for contacting us. Your free trial demo request has been registered successfully.
                 </p>
                 <p className="text-xs sm:text-sm text-slate-600 max-w-md mx-auto leading-relaxed">
                   Your diagnostic demo session for <strong className="text-slate-900">{submittedData.subject}</strong> ({submittedData.program}) has been successfully scheduled. Our admissions coordinator will assign your faculty mentor and connect with you shortly.

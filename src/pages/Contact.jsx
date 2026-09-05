@@ -100,7 +100,7 @@ export const Contact = () => {
     openThankYouModal({
       title: "Inquiry Successfully Received",
       name: formData.student_name.trim(),
-      urduMessage: "ہم سے رابطہ کرنے کا بہت شکریہ۔ آپ کا پیغام کامیابی سے موصول ہو گیا ہے۔",
+      englishSubtitle: "Thank you for contacting us. Your message has been received successfully.",
       message: `Thank you for contacting The Readly Institute regarding ${formData.inquiry_type}. Our academic coordinator will review your request and get in touch with you shortly.`,
       whatsapp: fullWhatsApp,
       details: [

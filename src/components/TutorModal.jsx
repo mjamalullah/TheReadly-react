@@ -26,10 +26,17 @@ export const TutorModal = () => {
     bio: ''
   });
 
+  const prevIsOpenRef = React.useRef(false);
+
   useEffect(() => {
-    if (tutorModal.isOpen) {
+    // Only reset form state when modal transitions from closed to open
+    if (tutorModal.isOpen && !prevIsOpenRef.current) {
       setIsSubmitted(false);
       setSubmittedData(null);
+    }
+    prevIsOpenRef.current = tutorModal.isOpen;
+
+    if (tutorModal.isOpen) {
       document.body.style.overflow = 'hidden';
       const handleKeyDown = (e) => {
         if (e.key === 'Escape') closeTutorModal();
@@ -186,8 +193,8 @@ export const TutorModal = () => {
                 <h3 className="text-xl sm:text-2xl font-extrabold text-slate-900">
                   Thank You, {submittedData.name}!
                 </h3>
-                <p className="text-sm font-semibold text-emerald-800 font-urdu leading-relaxed">
-                  ہم سے رابطہ کرنے کا بہت شکریہ۔ آپ کی فیکلٹی درخواست کامیابی سے موصول ہو گئی ہے۔
+                <p className="text-sm font-semibold text-emerald-800 leading-relaxed">
+                  Thank you for contacting us. Your faculty application has been successfully received.
                 </p>
                 <p className="text-xs sm:text-sm text-slate-600 max-w-md mx-auto leading-relaxed">
                   Your application to teach <strong className="text-slate-900">{submittedData.subjects}</strong> ({submittedData.curriculum}) has been registered with our Academic Selection Committee.
@@ -231,7 +238,7 @@ export const TutorModal = () => {
                   onClick={closeTutorModal}
                   className="w-full sm:w-auto px-5 py-2.5 rounded-xl border border-slate-300 hover:bg-slate-100 text-slate-700 font-bold text-xs transition-colors cursor-pointer"
                 >
-                  Done / Close
+                  Close Window
                 </button>
               </div>
             </div>

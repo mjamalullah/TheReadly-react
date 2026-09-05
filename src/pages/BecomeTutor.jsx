@@ -117,7 +117,7 @@ export const BecomeTutor = () => {
     openThankYouModal({
       title: "Faculty Application Received",
       name: formData.name.trim(),
-      urduMessage: "ہم سے رابطہ کرنے کا بہت شکریہ۔ آپ کی فیکلٹی درخواست کامیابی سے موصول ہو گئی ہے۔",
+      englishSubtitle: "Thank you for contacting us. Your faculty application has been successfully received.",
       message: `Thank you for applying to join the academic faculty at The Readly Institute. Your credentials for ${formData.subjects.trim()} (${formData.curriculum}) are under review by our Academic Selection Committee.`,
       whatsapp: fullWhatsApp,
       details: [

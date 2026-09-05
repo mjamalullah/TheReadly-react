@@ -63,8 +63,8 @@ export const ThankYouModal = () => {
           <h3 className="text-2xl sm:text-3xl font-extrabold text-slate-900 font-heading tracking-tight">
             Thank You, {thankYouModal.name || 'Valued Learner'}!
           </h3>
-          <p className="text-sm font-semibold text-emerald-800 font-urdu leading-relaxed">
-            {thankYouModal.urduMessage || 'ہم سے رابطہ کرنے کا بہت شکریہ۔ آپ کی تفصیلات کامیابی سے موصول ہو گئی ہیں۔'}
+          <p className="text-sm font-semibold text-emerald-800 leading-relaxed">
+            {thankYouModal.englishSubtitle || thankYouModal.subtitle || 'Thank you for reaching out to The Readly Institute. Your details have been received successfully.'}
           </p>
           <p className="text-xs sm:text-sm text-slate-600 leading-relaxed max-w-md mx-auto pt-1">
             {thankYouModal.message || 'Your submission has been successfully received by The Readly Institute. Our academic desk will review your profile and contact you shortly.'}
@@ -119,7 +119,7 @@ export const ThankYouModal = () => {
             onClick={closeThankYouModal}
             className="w-full sm:w-auto px-5 py-3 rounded-xl border border-slate-300 hover:bg-slate-100 text-slate-700 font-bold text-xs transition-colors cursor-pointer"
           >
-            Theek Hai / Done
+            Close Window
           </button>
         </div>
       </div>

@@ -170,7 +170,7 @@ export const JoinOurTeam = () => {
     openThankYouModal({
       title: "Team Application Received",
       name: formData.name.trim(),
-      urduMessage: "ہم سے رابطہ کرنے کا بہت شکریہ۔ آپ کی درخواست موصول ہو گئی ہے۔",
+      englishSubtitle: "Thank you for reaching out to us. Your application has been successfully received.",
       message: `Thank you for applying for the role of ${formData.role_title} (${formData.department}). Our HR and Management Team will review your credentials within 2–3 business days.`,
       whatsapp: fullWhatsApp,
       details: [

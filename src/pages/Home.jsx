@@ -260,7 +260,7 @@ export const Home = () => {
     openThankYouModal({
       title: "Faculty Application Received",
       name: tutorShortForm.name.trim(),
-      urduMessage: "ہم سے رابطہ کرنے کا بہت شکریہ۔ آپ کی فیکلٹی درخواست کامیابی سے موصول ہو گئی ہے۔",
+      englishSubtitle: "Thank you for reaching out to The Readly Institute. Your faculty application has been successfully received.",
       message: `Your credentials for teaching ${tutorShortForm.subjects.trim()} (${tutorShortForm.curriculum}) have been received. Our Academic Selection Committee will review your profile.`,
       whatsapp: fullWhatsApp,
       details: [
