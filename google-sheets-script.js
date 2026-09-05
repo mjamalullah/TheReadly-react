@@ -80,6 +80,11 @@ function doPost(e) {
         targetSheet = doc.insertSheet("Become a Teacher");
       }
 
+      // Absolute fail-safe: Ensure teacher submissions never hit admission tab
+      if (targetSheet.getSheetId() == ADMISSION_GID && doc.getSheets().length > 1) {
+        targetSheet = doc.getSheetByName("Become a Teacher") || doc.insertSheet("Become a Teacher");
+      }
+
       var teacherHeaders = [
         "Timestamp (PKT)",
         "Form Type",
@@ -145,6 +150,11 @@ function doPost(e) {
       // Fallback to first tab
       if (!targetSheet) {
         targetSheet = doc.getSheets()[0];
+      }
+
+      // Absolute fail-safe: Ensure admission submissions never hit teacher tab
+      if (targetSheet.getSheetId() == TEACHER_GID) {
+        targetSheet = doc.getSheetByName("Admissions") || doc.insertSheet("Admissions");
       }
 
       var admissionHeaders = [
