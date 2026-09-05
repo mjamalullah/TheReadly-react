@@ -158,7 +158,7 @@ export const BecomeTutor = () => {
       <div className="max-w-3xl">
         <span className="section-badge">Faculty Recruitment</span>
         <h1 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-[#0B4635] font-heading mt-2">
-          Teach With The Readly Institute
+          Teach With <span className="text-[#C59B4B]">The Readly Institute</span>
         </h1>
         <p className="text-slate-600 text-sm sm:text-base mt-3 leading-relaxed">
           Join an elite academic faculty dedicated to producing straight Cambridge A* distinctions worldwide. Teach 1-on-1 or structured batches with flexible timings and competitive international compensation.

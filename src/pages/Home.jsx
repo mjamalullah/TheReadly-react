@@ -669,7 +669,7 @@ export const Home = () => {
         <div className="text-center max-w-2xl mx-auto">
           <span className="section-badge">Accredited Pathways</span>
           <h2 className="text-3xl sm:text-4xl font-extrabold text-[#0B4635] font-heading mt-2">
-            Explore Our Programs
+            Explore Our <span className="text-[#C59B4B]">Academic Programs</span>
           </h2>
           <p className="text-slate-600 text-xs sm:text-sm mt-2">
             Tailored curriculum tracks covering syllabus deconstruction, mark schemes, and technical industry skills.
@@ -761,7 +761,7 @@ export const Home = () => {
           <div>
             <span className="section-badge">Comprehensive Database</span>
             <h2 className="text-2xl sm:text-3xl font-extrabold text-[#0B4635] font-heading mt-1">
-              Curriculum Subject Offerings
+              Curriculum <span className="text-[#C59B4B]">Subject Offerings</span>
             </h2>
             <p className="text-xs text-slate-600">Click any subject to view detailed paper breakdowns and syllabus prerequisites.</p>
           </div>
@@ -882,15 +882,15 @@ export const Home = () => {
             {/* Left Content Column */}
             <div className="lg:col-span-7 space-y-6 text-center md:text-left flex flex-col items-center md:items-start">
               
-              <span className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full text-xs font-bold bg-[#ECFDF5] text-[#059669] border border-[#A7F3D0] shadow-2xs">
-                <Sparkles className="w-3.5 h-3.5 text-[#059669]" />
+              <span className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full text-xs font-bold bg-[#FEF9EE] text-[#936F1E] border border-[#E8D3A7] shadow-2xs">
+                <Sparkles className="w-3.5 h-3.5 text-[#C59B4B]" />
                 <span>The Readly Distinction Engine</span>
               </span>
 
               <div className="space-y-2">
                 <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-extrabold text-[#0B4635] font-heading tracking-tight leading-tight">
                   How We Turn Syllabus Doubts Into{' '}
-                  <span className="text-[#059669]">Straight A* Distinctions</span>
+                  <span className="text-[#C59B4B]">Straight A* Distinctions</span>
                 </h2>
                 <p className="text-slate-600 text-xs sm:text-sm md:text-base leading-relaxed max-w-2xl">
                   We don't believe in crowded classrooms or passive video watching. Every student follows an individualized diagnostic roadmap combining concept breakdown, 15-year past paper mastery, and Cambridge examiner mark-scheme precision.
@@ -1054,7 +1054,7 @@ export const Home = () => {
         <div className="text-center max-w-2xl mx-auto">
           <span className="section-badge">The Readly Difference</span>
           <h2 className="text-3xl sm:text-4xl font-extrabold text-[#0B4635] font-heading mt-2">
-            Why Students Excel With Us
+            Why Students <span className="text-[#C59B4B]">Excel With Us</span>
           </h2>
           <p className="text-slate-600 text-xs sm:text-sm mt-2">
             Built from the ground up for Cambridge distinction results with zero fluff.
@@ -1129,7 +1129,7 @@ export const Home = () => {
         <div className="text-center max-w-2xl mx-auto mb-14">
           <span className="section-badge">Clear Academic Pathway</span>
           <h2 className="text-3xl sm:text-4xl font-extrabold text-[#0B4635] font-heading mt-2">
-            How It Works
+            Our Systematic <span className="text-[#C59B4B]">Learning Methodology</span>
           </h2>
           <p className="text-slate-600 text-xs sm:text-sm mt-2">
             From your introductory trial to exam distinction in four transparent, guided steps.
@@ -1266,7 +1266,7 @@ export const Home = () => {
         <div className="text-center max-w-2xl mx-auto mb-10">
           <span className="text-xs font-bold uppercase tracking-wider text-[#059669] block mb-1.5">Academic Faculty</span>
           <h2 className="text-3xl font-extrabold text-[#0B4635] font-heading">
-            Learn From People Who Know How to Teach
+            Learn From Faculty Who <span className="text-[#C59B4B]">Mastered Cambridge</span>
           </h2>
           <p className="text-slate-600 text-sm mt-2">
             Select a verified subject mentor to schedule a 1-on-1 diagnostic trial session.
@@ -1407,7 +1407,7 @@ export const Home = () => {
         <div className="text-center">
           <span className="section-badge">Got Questions?</span>
           <h2 className="text-3xl font-extrabold text-[#0B4635] font-heading mt-2">
-            Frequently Asked Questions
+            Frequently Asked <span className="text-[#C59B4B]">Questions</span>
           </h2>
         </div>
 
@@ -1497,11 +1497,11 @@ export const Home = () => {
               
               {/* Left Column: Value Proposition & High-Contrast Typography */}
               <div className="lg:col-span-5 space-y-4">
-                <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-bold bg-[#ECFDF5] text-[#059669] border border-emerald-200">
-                  <GraduationCap className="w-4 h-4 text-[#059669]" /> Faculty Recruitment Desk
+                <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-bold bg-[#FEF9EE] text-[#936F1E] border border-[#E8D3A7]">
+                  <GraduationCap className="w-4 h-4 text-[#C59B4B]" /> Faculty Recruitment Desk
                 </span>
-                <h2 className="text-3xl sm:text-4xl font-extrabold text-slate-900 font-heading leading-tight">
-                  Teach With <span className="text-[#059669]">The Readly Institute</span>
+                <h2 className="text-3xl sm:text-4xl font-extrabold text-[#0B4635] font-heading leading-tight">
+                  Teach With <span className="text-[#C59B4B]">The Readly Institute</span>
                 </h2>
                 <p className="text-xs sm:text-sm text-slate-600 leading-relaxed font-normal">
                   Join an elite faculty of Cambridge & Edexcel subject specialists. Mentor motivated students across Pakistan, the Middle East, and the UK from the convenience of your home.

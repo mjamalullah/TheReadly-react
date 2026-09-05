@@ -18,7 +18,7 @@ export const About = () => {
         </div>
         <span className="section-badge">Our Institutional Foundation</span>
         <h1 className="text-4xl sm:text-5xl font-extrabold text-[#0B4635] font-heading tracking-tight mb-4">
-          Redefining International Online Education
+          Redefining International <span className="text-[#C59B4B]">Online Education</span>
         </h1>
         <p className="text-base sm:text-lg text-slate-600 leading-relaxed">
           The Readly Institute is dedicated to helping Cambridge O-Level, IGCSE, and A-Level students bridge the gap between classroom theory and top-tier examination achievement.
@@ -78,7 +78,7 @@ export const About = () => {
       <div className="text-center max-w-2xl mx-auto mb-12">
         <span className="section-badge">Pedagogical Framework</span>
         <h2 className="text-3xl font-extrabold text-[#0B4635] font-heading">
-          Five Pillars of Readly Education
+          Five Pillars of <span className="text-[#C59B4B]">Readly Excellence</span>
         </h2>
         <p className="text-slate-600 text-sm mt-2">
           Every course at The Readly Institute is built upon a proven pedagogical foundation.
@@ -149,7 +149,7 @@ export const About = () => {
     {/*  BOTTOM CTA BANNER  */}
     <section className="py-16 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
       <div className="card-base p-8 sm:p-12 bg-[#0A192F] text-white text-center rounded-2xl border-slate-800">
-        <h2 className="text-3xl font-extrabold font-heading mb-3 text-white">Have questions about our academic structure?</h2>
+        <h2 className="text-3xl font-extrabold font-heading mb-3 text-white">Have questions about our <span className="text-[#C59B4B]">academic structure?</span></h2>
         <p className="text-slate-300 text-sm max-w-xl mx-auto mb-6">
           Our academic coordinators are available to discuss subject selection, examination series, and custom study plans.
         </p>

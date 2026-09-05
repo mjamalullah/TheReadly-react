@@ -138,7 +138,7 @@ export const BookDemo = () => {
       <div className="max-w-3xl">
         <span className="section-badge">100% Free Trial</span>
         <h1 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-[#0B4635] font-heading mt-2">
-          Book Your Diagnostic Trial Class
+          Book Your Diagnostic <span className="text-[#C59B4B]">Trial Class</span>
         </h1>
         <p className="text-slate-600 text-sm sm:text-base mt-3 leading-relaxed">
           Experience our high-definition interactive classrooms, review a sample diagnostic paper with a Cambridge specialist, and clarify syllabus targets. Zero upfront fees.

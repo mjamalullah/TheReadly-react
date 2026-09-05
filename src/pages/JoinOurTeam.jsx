@@ -217,7 +217,7 @@ export const JoinOurTeam = () => {
           <Briefcase className="w-3.5 h-3.5 text-[#059669]" /> Careers & Talent Acquisition
         </span>
         <h1 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-[#0B4635] font-heading">
-          Join Our Team at The Readly Institute
+          Join Our Team at <span className="text-[#C59B4B]">The Readly Institute</span>
         </h1>
         <p className="text-slate-600 text-sm sm:text-base leading-relaxed">
           We are building a world-class online academic institute. Whether you are an expert Cambridge educator, an administrative coordinator, a growth marketer, or student counselor, we offer a collaborative, rewarding environment.

@@ -18,7 +18,7 @@ export const Resources = () => {
         </div>
         <span className="section-badge">Student Study Vault</span>
         <h1 className="text-4xl sm:text-5xl font-extrabold text-[#0B4635] font-heading tracking-tight mb-4">
-          Cambridge Exam Resources & Guides
+          Cambridge Exam <span className="text-[#C59B4B]">Resources & Guides</span>
         </h1>
         <p className="text-base sm:text-lg text-slate-600 leading-relaxed">
           High-yield academic tools designed to optimize your revision. Access topical past paper breakdowns, formula summaries, syllabus timelines, and examiner rubrics.
@@ -120,7 +120,7 @@ export const Resources = () => {
 
       {/*  FREE TRIAL DEMO CALL TO ACTION  */}
       <div className="card-base p-8 sm:p-12 bg-[#0A192F] text-white text-center rounded-2xl border-slate-800">
-        <h2 className="text-3xl font-extrabold font-heading mb-3 text-white">Get Personalized Study Guidance</h2>
+        <h2 className="text-3xl font-extrabold font-heading mb-3 text-white">Get Personalized <span className="text-[#C59B4B]">Study Guidance</span></h2>
         <p className="text-slate-300 text-sm max-w-xl mx-auto mb-6">
           Schedule a 45-minute live trial class with a verified Cambridge faculty mentor. Review past questions and receive a customized revision roadmap.
         </p>

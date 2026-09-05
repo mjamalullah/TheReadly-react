@@ -135,7 +135,7 @@ export const Contact = () => {
       <div className="max-w-3xl">
         <span className="section-badge">Direct Communication</span>
         <h1 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-[#0B4635] font-heading mt-2">
-          Contact Admissions & Academic Counseling
+          Contact Admissions & <span className="text-[#C59B4B]">Academic Counseling</span>
         </h1>
         <p className="text-slate-600 text-sm sm:text-base mt-3 leading-relaxed">
           Have questions regarding syllabus pathways, mentor availability, fee structures, or May/June vs. Oct/Nov series registration? Our academic team replies promptly.

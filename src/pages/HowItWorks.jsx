@@ -18,7 +18,7 @@ export const HowItWorks = () => {
         </div>
         <span className="section-badge">Systematic Execution</span>
         <h1 className="text-4xl sm:text-5xl font-extrabold text-[#0B4635] font-heading tracking-tight mb-4">
-          How Online Learning Works at Readly
+          How Online Learning Works at <span className="text-[#C59B4B]">Readly</span>
         </h1>
         <p className="text-base sm:text-lg text-slate-600 leading-relaxed">
           We have engineered a streamlined 5-stage online instructional system that delivers personal attention, conceptual clarity, and structured exam readiness directly to your screen.
@@ -116,7 +116,7 @@ export const HowItWorks = () => {
       <div className="text-center max-w-2xl mx-auto mb-12">
         <span className="section-badge">Student Setup</span>
         <h2 className="text-3xl font-extrabold text-[#0B4635] font-heading">
-          Classroom Technology & Equipment
+          Classroom Technology & <span className="text-[#C59B4B]">Equipment</span>
         </h2>
         <p className="text-slate-600 text-sm mt-2">
           Joining our classes is simple. Here is the recommended student setup for an optimal learning experience:
@@ -161,7 +161,7 @@ export const HowItWorks = () => {
     {/*  BOTTOM CTA  */}
     <section className="py-16 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
       <div className="card-base p-8 sm:p-12 bg-[#0A192F] text-white text-center rounded-2xl border-slate-800">
-        <h2 className="text-3xl font-extrabold font-heading mb-3 text-white">Experience a live class first-hand</h2>
+        <h2 className="text-3xl font-extrabold font-heading mb-3 text-white">Experience a live class <span className="text-[#C59B4B]">first-hand</span></h2>
         <p className="text-slate-300 text-sm max-w-xl mx-auto mb-6">
           Schedule a free 45-minute demo class with our subject mentor. Experience our digital whiteboard pedagogy with zero obligation.
         </p>

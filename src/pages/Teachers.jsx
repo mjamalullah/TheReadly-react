@@ -35,7 +35,7 @@ export const Teachers = () => {
           </div>
           <span className="section-badge">Academic Mentors</span>
           <h1 className="text-4xl sm:text-5xl font-extrabold text-[#0B4635] font-heading tracking-tight mb-4">
-            Learn From People Who Know How to Teach
+            Learn From Faculty Who <span className="text-[#C59B4B]">Know How to Teach</span>
           </h1>
           <p className="text-base sm:text-lg text-slate-600 leading-relaxed">
             Every teacher at The Readly Institute is selected for proven academic mastery, years of Cambridge classroom experience, and the ability to inspire genuine intellectual confidence in students.

@@ -18,7 +18,7 @@ export const Programs = () => {
         </div>
         <span className="section-badge">Curriculum Pathways</span>
         <h1 className="text-4xl sm:text-5xl font-extrabold text-[#0B4635] font-heading tracking-tight mb-4">
-          Academic Programs Engineered for Distinction
+          Academic Programs Engineered for <span className="text-[#C59B4B]">Distinction</span>
         </h1>
         <p className="text-base sm:text-lg text-slate-600 leading-relaxed">
           Comprehensive online tracks tailored to Cambridge Assessment International Education and Pearson Edexcel. Designed for Grades 9 through 13.
@@ -326,7 +326,7 @@ export const Programs = () => {
       <div className="text-center max-w-3xl mx-auto mb-12">
         <span className="section-badge">Career & Industry Tracks</span>
         <h2 className="text-3xl sm:text-4xl font-extrabold text-[#0B4635] font-heading mb-3">
-          IT & Professional Certifications
+          IT & Professional <span className="text-[#C59B4B]">Certifications</span>
         </h2>
         <p className="text-slate-600 text-sm leading-relaxed">
           High-demand tech programs engineered for students and professionals seeking hands-on skills, industry certifications, and career acceleration in Digital Marketing, Cyber Security, Full-Stack Development, and AI.
@@ -556,7 +556,7 @@ export const Programs = () => {
       <div className="text-center max-w-2xl mx-auto mb-10">
         <span className="section-badge">Side-by-Side</span>
         <h2 className="text-3xl font-extrabold text-[#0B4635] font-heading">
-          Program Comparison Matrix
+          Program Comparison <span className="text-[#C59B4B]">Matrix</span>
         </h2>
       </div>
 
@@ -621,7 +621,7 @@ export const Programs = () => {
     {/*  BOTTOM CTA  */}
     <section className="py-16 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
       <div className="card-base p-8 sm:p-12 bg-[#0A192F] text-white text-center rounded-2xl border-slate-800">
-        <h2 className="text-3xl font-extrabold font-heading mb-3 text-white">Not sure which program matches your goals?</h2>
+        <h2 className="text-3xl font-extrabold font-heading mb-3 text-white">Not sure which program matches your <span className="text-[#C59B4B]">goals?</span></h2>
         <p className="text-slate-300 text-sm max-w-xl mx-auto mb-6">
           Our senior academic advisor will evaluate your previous scores, examination series, and target universities free of charge.
         </p>
