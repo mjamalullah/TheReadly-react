@@ -40,9 +40,11 @@ export const BecomeTutor = () => {
     }
 
     setIsSubmitting(true);
-    const fullWhatsApp = formData.whatsapp.startsWith('+')
-      ? formData.whatsapp
-      : `${formData.country_code} ${formData.whatsapp}`;
+    const rawPhone = (formData.whatsapp || '').trim();
+    const cleanPhone = rawPhone.replace(/^0+/, '');
+    const fullWhatsApp = rawPhone.startsWith('+')
+      ? rawPhone
+      : `${formData.country_code} ${cleanPhone}`;
 
     const payload = {
       formType: "teacher",
@@ -120,6 +122,7 @@ export const BecomeTutor = () => {
       name: '',
       email: '',
       country_code: '+92',
+      whatsapp: '',
       whatsapp_phone: '',
       city_country: '',
       highest_degree: "Master's Degree (M.Phil / MS / M.Sc)",
@@ -315,13 +318,13 @@ export const BecomeTutor = () => {
                       className="bg-slate-50 border-r border-slate-200 px-2 py-2 text-slate-700 text-xs font-semibold focus:outline-none max-w-[130px] sm:max-w-[155px] truncate"
                     >
                       <optgroup label="⭐ Popular / Quick Select">
-                        {popularCountries.map(c => (
-                          <option key={c.name} value={c.code}>{c.flag} {c.name} ({c.code})</option>
+                        {popularCountries.map((c, idx) => (
+                          <option key={`pop-${c.name}-${idx}`} value={c.code}>{c.flag} {c.name} ({c.code})</option>
                         ))}
                       </optgroup>
                       <optgroup label="🌍 All Countries (A - Z)">
-                        {otherCountries.map(c => (
-                          <option key={c.name} value={c.code}>{c.flag} {c.name} ({c.code})</option>
+                        {otherCountries.map((c, idx) => (
+                          <option key={`all-${c.name}-${idx}`} value={c.code}>{c.flag} {c.name} ({c.code})</option>
                         ))}
                       </optgroup>
                     </select>
@@ -329,11 +332,15 @@ export const BecomeTutor = () => {
                       type="tel"
                       required
                       value={formData.whatsapp}
-                      onChange={(e) => setFormData({ ...formData, whatsapp: e.target.value })}
-                      placeholder="333 1234567"
+                      onChange={(e) => {
+                        const clean = e.target.value.replace(/[^0-9+\s-]/g, '');
+                        setFormData({ ...formData, whatsapp: clean });
+                      }}
+                      placeholder="300 1234567"
                       className="w-full bg-transparent px-3 py-2 text-slate-800 text-xs focus:outline-none"
                     />
                   </div>
+                  <p className="text-[10px] text-slate-500 mt-1">e.g. 300 1234567 (without leading zero)</p>
                 </div>
                 <div>
                   <label className="block font-bold text-slate-700 mb-1">Current City & Country *</label>

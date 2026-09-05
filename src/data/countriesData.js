@@ -128,11 +128,6 @@ export const countriesData = [
     "flag": "🇦🇼"
   },
   {
-    "code": "+61",
-    "name": "Australia",
-    "flag": "🇦🇺"
-  },
-  {
     "code": "+43",
     "name": "Austria",
     "flag": "🇦🇹"
@@ -146,11 +141,6 @@ export const countriesData = [
     "code": "+1242",
     "name": "Bahamas",
     "flag": "🇧🇸"
-  },
-  {
-    "code": "+973",
-    "name": "Bahrain",
-    "flag": "🇧🇭"
   },
   {
     "code": "+880",
@@ -241,11 +231,6 @@ export const countriesData = [
     "code": "+237",
     "name": "Cameroon",
     "flag": "🇨🇲"
-  },
-  {
-    "code": "+1",
-    "name": "Canada",
-    "flag": "🇨🇦"
   },
   {
     "code": "+238",
@@ -538,11 +523,6 @@ export const countriesData = [
     "flag": "🇰🇪"
   },
   {
-    "code": "+965",
-    "name": "Kuwait",
-    "flag": "🇰🇼"
-  },
-  {
     "code": "+996",
     "name": "Kyrgyzstan",
     "flag": "🇰🇬"
@@ -598,11 +578,6 @@ export const countriesData = [
     "flag": "🇲🇴"
   },
   {
-    "code": "+389",
-    "name": "North Macedonia",
-    "flag": "🇲🇰"
-  },
-  {
     "code": "+261",
     "name": "Madagascar",
     "flag": "🇲🇬"
@@ -611,11 +586,6 @@ export const countriesData = [
     "code": "+265",
     "name": "Malawi",
     "flag": "🇲🇼"
-  },
-  {
-    "code": "+60",
-    "name": "Malaysia",
-    "flag": "🇲🇾"
   },
   {
     "code": "+960",
@@ -718,19 +688,19 @@ export const countriesData = [
     "flag": "🇳🇬"
   },
   {
+    "code": "+389",
+    "name": "North Macedonia",
+    "flag": "🇲🇰"
+  },
+  {
     "code": "+47",
     "name": "Norway",
     "flag": "🇳🇴"
   },
   {
-    "code": "+968",
-    "name": "Oman",
-    "flag": "🇴🇲"
-  },
-  {
-    "code": "+92",
-    "name": "Pakistan",
-    "flag": "🇵🇰"
+    "code": "+",
+    "name": "Other Country",
+    "flag": "🌍"
   },
   {
     "code": "+970",
@@ -773,11 +743,6 @@ export const countriesData = [
     "flag": "🇵🇹"
   },
   {
-    "code": "+974",
-    "name": "Qatar",
-    "flag": "🇶🇦"
-  },
-  {
     "code": "+40",
     "name": "Romania",
     "flag": "🇷🇴"
@@ -791,11 +756,6 @@ export const countriesData = [
     "code": "+250",
     "name": "Rwanda",
     "flag": "🇷🇼"
-  },
-  {
-    "code": "+966",
-    "name": "Saudi Arabia",
-    "flag": "🇸🇦"
   },
   {
     "code": "+221",
@@ -816,11 +776,6 @@ export const countriesData = [
     "code": "+232",
     "name": "Sierra Leone",
     "flag": "🇸🇱"
-  },
-  {
-    "code": "+65",
-    "name": "Singapore",
-    "flag": "🇸🇬"
   },
   {
     "code": "+421",
@@ -938,21 +893,6 @@ export const countriesData = [
     "flag": "🇺🇦"
   },
   {
-    "code": "+971",
-    "name": "United Arab Emirates",
-    "flag": "🇦🇪"
-  },
-  {
-    "code": "+44",
-    "name": "United Kingdom",
-    "flag": "🇬🇧"
-  },
-  {
-    "code": "+1",
-    "name": "United States",
-    "flag": "🇺🇸"
-  },
-  {
     "code": "+598",
     "name": "Uruguay",
     "flag": "🇺🇾"
@@ -986,10 +926,5 @@ export const countriesData = [
     "code": "+263",
     "name": "Zimbabwe",
     "flag": "🇿🇼"
-  },
-  {
-    "code": "+",
-    "name": "Other Country",
-    "flag": "🌍"
   }
 ];

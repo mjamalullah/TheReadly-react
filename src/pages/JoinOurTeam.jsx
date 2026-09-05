@@ -105,10 +105,11 @@ export const JoinOurTeam = () => {
     }
 
     setIsSubmitting(true);
-
-    const fullWhatsApp = formData.whatsapp_phone.startsWith('+')
-      ? formData.whatsapp_phone
-      : `${formData.country_code} ${formData.whatsapp_phone}`;
+    const rawPhone = (formData.whatsapp_phone || '').trim();
+    const cleanPhone = rawPhone.replace(/^0+/, '');
+    const fullWhatsApp = rawPhone.startsWith('+')
+      ? rawPhone
+      : `${formData.country_code} ${cleanPhone}`;
 
     const isTeacher = formData.department.toLowerCase().includes("faculty") || 
                       formData.department.toLowerCase().includes("tutor");
@@ -370,13 +371,13 @@ export const JoinOurTeam = () => {
                       className="bg-slate-50 border-r border-slate-200 px-2.5 py-2.5 text-slate-700 text-xs font-semibold focus:outline-none max-w-[130px] sm:max-w-[150px] truncate"
                     >
                       <optgroup label="⭐ Popular">
-                        {popularCountries.map(c => (
-                          <option key={c.name} value={c.code}>{c.flag} {c.name} ({c.code})</option>
+                        {popularCountries.map((c, idx) => (
+                          <option key={`pop-${c.name}-${idx}`} value={c.code}>{c.flag} {c.name} ({c.code})</option>
                         ))}
                       </optgroup>
                       <optgroup label="🌍 All Countries">
-                        {otherCountries.map(c => (
-                          <option key={c.name} value={c.code}>{c.flag} {c.name} ({c.code})</option>
+                        {otherCountries.map((c, idx) => (
+                          <option key={`all-${c.name}-${idx}`} value={c.code}>{c.flag} {c.name} ({c.code})</option>
                         ))}
                       </optgroup>
                     </select>
@@ -385,11 +386,15 @@ export const JoinOurTeam = () => {
                       required
                       name="whatsapp_phone"
                       value={formData.whatsapp_phone}
-                      onChange={handleChange}
+                      onChange={(e) => {
+                        const clean = e.target.value.replace(/[^0-9+\s-]/g, '');
+                        setFormData(prev => ({ ...prev, whatsapp_phone: clean }));
+                      }}
                       placeholder="300 1234567"
                       className="w-full px-3.5 py-2.5 text-slate-800 focus:outline-none"
                     />
                   </div>
+                  <p className="text-[10px] text-slate-500 mt-1">e.g. 300 1234567 (without leading zero)</p>
                 </div>
 
                 <div>

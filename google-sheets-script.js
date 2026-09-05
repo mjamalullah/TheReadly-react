@@ -1,12 +1,13 @@
 /**
  * ==============================================================================
- * UNIFIED GOOGLE APPS SCRIPT WEBHOOK ROUTER
- * The Readly Institute — Admissions & Become a Teacher Forms
+ * UNIFIED GOOGLE APPS SCRIPT WEBHOOK ROUTER (V3 - FORMULA ERROR FIX)
+ * The Readly Institute — Admissions, Become a Teacher & Careers
  * ==============================================================================
  * Spreadsheet: https://docs.google.com/spreadsheets/d/1Xwwv4QyLLeXdB5IVYdtPeuvNIOsYRBxgL4e3OVNJ20M/edit
  *
  * Route 1: formType: "admission" -> Target Sheet GID: 0 ("Admissions")
  * Route 2: formType: "teacher"   -> Target Sheet GID: 1304058449 ("Become a Teacher")
+ * Route 3: formType: "team"      -> Target Sheet: "Team & Careers"
  * ==============================================================================
  */
 
@@ -24,9 +25,21 @@ function getSheetByGid(spreadsheet, gid) {
   return null;
 }
 
+/**
+ * Formats phone numbers safely for Google Sheets.
+ * Prepends a single quote (') so Google Sheets stores it as raw text
+ * and never attempts to evaluate '+' as an arithmetic formula (which produces #ERROR!).
+ */
+function formatPhoneForSheet(phone) {
+  if (!phone) return "N/A";
+  var str = phone.toString().trim();
+  if (!str) return "N/A";
+  if (str.charAt(0) === "'") return str;
+  return "'" + str;
+}
+
 function doPost(e) {
   var lock = LockService.getScriptLock();
-  // Wait up to 15 seconds to prevent race conditions during concurrent form submissions
   lock.tryLock(15000);
 
   try {
@@ -42,7 +55,7 @@ function doPost(e) {
       throw new Error("Unable to open Spreadsheet with ID: " + SPREADSHEET_ID);
     }
 
-    // 2. Parse Incoming Payload (handles raw JSON text and form-encoded data)
+    // 2. Parse Incoming Payload
     var data = {};
     if (e.postData && e.postData.contents) {
       try {
@@ -57,17 +70,22 @@ function doPost(e) {
     // 3. Timestamp (Formatted in PKT UTC+5)
     var timestamp = Utilities.formatDate(new Date(), "GMT+5", "yyyy-MM-dd HH:mm:ss");
 
-    // 4. Identify Form Type & Target Sheet
+    // 4. Safe WhatsApp Phone String
+    var rawPhone = data.whatsapp || data.phone || data.whatsapp_phone || "";
+    var safeWhatsApp = formatPhoneForSheet(rawPhone);
+
+    // 5. Identify Form Type & Target Sheet
     var formType = (data.formType || data.form_type || "").toString().toLowerCase().trim();
     var targetSheet = null;
+    var detectedType = "admission";
 
     if (formType === "teacher" || formType.indexOf("tutor") !== -1 || (formType === "team" && (data.department === "Teacher / Tutor" || (data.role || "").toLowerCase().indexOf("teacher") !== -1))) {
       // ------------------------------------------------------------------------
       // TEACHER FORM ROUTE (gid=1304058449)
       // ------------------------------------------------------------------------
+      detectedType = "teacher";
       targetSheet = getSheetByGid(doc, TEACHER_GID);
 
-      // Fallback by sheet name if GID is re-assigned
       if (!targetSheet) {
         targetSheet = doc.getSheetByName("Become a Teacher") ||
                       doc.getSheetByName("become a teacher") ||
@@ -75,12 +93,10 @@ function doPost(e) {
                       doc.getSheetByName("Become a Tutor");
       }
 
-      // If still not found, create the tab
       if (!targetSheet) {
         targetSheet = doc.insertSheet("Become a Teacher");
       }
 
-      // Absolute fail-safe: Ensure teacher submissions never hit admission tab
       if (targetSheet.getSheetId() == ADMISSION_GID && doc.getSheets().length > 1) {
         targetSheet = doc.getSheetByName("Become a Teacher") || doc.insertSheet("Become a Teacher");
       }
@@ -107,17 +123,22 @@ function doPost(e) {
         targetSheet.appendRow(teacherHeaders);
         var tHeaderRange = targetSheet.getRange(1, 1, 1, teacherHeaders.length);
         tHeaderRange.setFontWeight("bold");
-        tHeaderRange.setBackground("#064E3B"); // Readly Deep Emerald
+        tHeaderRange.setBackground("#064E3B");
         tHeaderRange.setFontColor("#FFFFFF");
         targetSheet.setFrozenRows(1);
       }
+
+      // Ensure WhatsApp column (Col E / 5) is formatted as plain text
+      try {
+        targetSheet.getRange(2, 5, Math.max(1, targetSheet.getMaxRows() - 1), 1).setNumberFormat("@");
+      } catch (fmtErr) {}
 
       var teacherRow = [
         timestamp,
         "teacher",
         data.name || data.applicant_name || data.student_name || "N/A",
         data.email || "N/A",
-        data.whatsapp || "N/A",
+        safeWhatsApp,
         data.location || data.city_country || "N/A",
         data.highest_qualification || data.highest_degree || "N/A",
         data.university || "N/A",
@@ -136,6 +157,7 @@ function doPost(e) {
       // ------------------------------------------------------------------------
       // JOIN OUR TEAM ROUTE (Admin, Marketing, General Staff)
       // ------------------------------------------------------------------------
+      detectedType = "team";
       targetSheet = doc.getSheetByName("Team & Careers") ||
                     doc.getSheetByName("Staff Applications") ||
                     doc.getSheetByName("Careers");
@@ -169,12 +191,17 @@ function doPost(e) {
         targetSheet.setFrozenRows(1);
       }
 
+      // Ensure WhatsApp column (Col E / 5) is formatted as plain text
+      try {
+        targetSheet.getRange(2, 5, Math.max(1, targetSheet.getMaxRows() - 1), 1).setNumberFormat("@");
+      } catch (fmtErr) {}
+
       var teamRow = [
         timestamp,
         "team",
         data.name || data.applicant_name || "N/A",
         data.department || data.role || "General Staff",
-        data.whatsapp || "N/A",
+        safeWhatsApp,
         data.email || "N/A",
         data.location || data.city_country || "N/A",
         data.highest_qualification || data.qualification || "N/A",
@@ -186,12 +213,14 @@ function doPost(e) {
       ];
 
       targetSheet.appendRow(teamRow);
+
+    } else {
       // ------------------------------------------------------------------------
       // ADMISSION FORM ROUTE (gid=0 / Admissions)
       // ------------------------------------------------------------------------
+      detectedType = "admission";
       targetSheet = getSheetByGid(doc, ADMISSION_GID);
 
-      // Fallback by sheet name
       if (!targetSheet) {
         targetSheet = doc.getSheetByName("Admissions") ||
                       doc.getSheetByName("admissions") ||
@@ -200,12 +229,10 @@ function doPost(e) {
                       doc.getSheetByName("Sheet1");
       }
 
-      // Fallback to first tab
       if (!targetSheet) {
         targetSheet = doc.getSheets()[0];
       }
 
-      // Absolute fail-safe: Ensure admission submissions never hit teacher tab
       if (targetSheet.getSheetId() == TEACHER_GID) {
         targetSheet = doc.getSheetByName("Admissions") || doc.insertSheet("Admissions");
       }
@@ -230,17 +257,22 @@ function doPost(e) {
         targetSheet.appendRow(admissionHeaders);
         var aHeaderRange = targetSheet.getRange(1, 1, 1, admissionHeaders.length);
         aHeaderRange.setFontWeight("bold");
-        aHeaderRange.setBackground("#064E3B"); // Readly Deep Emerald
+        aHeaderRange.setBackground("#064E3B");
         aHeaderRange.setFontColor("#FFFFFF");
         targetSheet.setFrozenRows(1);
       }
+
+      // Ensure WhatsApp column (Col E / 5) is formatted as plain text
+      try {
+        targetSheet.getRange(2, 5, Math.max(1, targetSheet.getMaxRows() - 1), 1).setNumberFormat("@");
+      } catch (fmtErr) {}
 
       var admissionRow = [
         timestamp,
         "admission",
         data.student_name || data.name || "N/A",
         data.parent_name || "N/A",
-        data.whatsapp || "N/A",
+        safeWhatsApp,
         data.email || "N/A",
         data.program || "General Academic",
         data.grade || "N/A",
@@ -259,10 +291,10 @@ function doPost(e) {
       .createTextOutput(JSON.stringify({
         status: "success",
         message: "Record added",
-        formType: (formType === "teacher" || formType.indexOf("tutor") !== -1) ? "teacher" : "admission",
-        sheetName: targetSheet.getName(),
-        sheetId: targetSheet.getSheetId(),
-        row: targetSheet.getLastRow(),
+        formType: detectedType,
+        sheetName: targetSheet ? targetSheet.getName() : "Default",
+        sheetId: targetSheet ? targetSheet.getSheetId() : 0,
+        row: targetSheet ? targetSheet.getLastRow() : 0,
         timestamp: timestamp
       }))
       .setMimeType(ContentService.MimeType.JSON);
@@ -281,6 +313,6 @@ function doPost(e) {
 
 function doGet(e) {
   return ContentService
-    .createTextOutput("The Readly Institute Google Apps Script Router (Admissions & Teacher Forms) is Online.")
+    .createTextOutput("The Readly Institute Google Apps Script Router is Online. POST requests accepted.")
     .setMimeType(ContentService.MimeType.TEXT);
 }

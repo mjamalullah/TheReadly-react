@@ -241,9 +241,11 @@ export const Home = () => {
     }
 
     setIsTutorSubmitting(true);
-    const fullWhatsApp = tutorShortForm.whatsapp_phone.startsWith('+')
-      ? tutorShortForm.whatsapp_phone
-      : `${tutorShortForm.country_code} ${tutorShortForm.whatsapp_phone}`;
+    const rawPhone = (tutorShortForm.whatsapp_phone || '').trim();
+    const cleanPhone = rawPhone.replace(/^0+/, '');
+    const fullWhatsApp = rawPhone.startsWith('+')
+      ? rawPhone
+      : `${tutorShortForm.country_code} ${cleanPhone}`;
 
     const payload = {
       formType: "teacher",
@@ -1546,13 +1548,13 @@ export const Home = () => {
                           className="bg-slate-100 border-r border-slate-200 px-2.5 py-2.5 text-slate-700 text-xs font-semibold focus:outline-none max-w-[125px] truncate"
                         >
                           <optgroup label="⭐ Popular">
-                            {popularCountries.map(c => (
-                              <option key={c.name} value={c.code}>{c.flag} {c.name} ({c.code})</option>
+                            {popularCountries.map((c, idx) => (
+                              <option key={`pop-${c.name}-${idx}`} value={c.code}>{c.flag} {c.name} ({c.code})</option>
                             ))}
                           </optgroup>
                           <optgroup label="🌍 All Countries">
-                            {otherCountries.map(c => (
-                              <option key={c.name} value={c.code}>{c.flag} {c.name} ({c.code})</option>
+                            {otherCountries.map((c, idx) => (
+                              <option key={`all-${c.name}-${idx}`} value={c.code}>{c.flag} {c.name} ({c.code})</option>
                             ))}
                           </optgroup>
                         </select>
@@ -1560,11 +1562,15 @@ export const Home = () => {
                           type="tel"
                           required
                           value={tutorShortForm.whatsapp_phone}
-                          onChange={(e) => setTutorShortForm({ ...tutorShortForm, whatsapp_phone: e.target.value })}
+                          onChange={(e) => {
+                            const clean = e.target.value.replace(/[^0-9+\s-]/g, '');
+                            setTutorShortForm({ ...tutorShortForm, whatsapp_phone: clean });
+                          }}
                           placeholder="300 1234567"
                           className="w-full bg-transparent px-3 py-2 text-slate-900 font-medium text-xs focus:outline-none"
                         />
                       </div>
+                      <p className="text-[10px] text-slate-500 mt-1">e.g. 300 1234567 (without leading zero)</p>
                     </div>
                   </div>
 

@@ -32,9 +32,11 @@ export const Contact = () => {
     }
 
     setIsSubmitting(true);
-    const fullWhatsApp = formData.whatsapp_phone.startsWith('+')
-      ? formData.whatsapp_phone
-      : `${formData.country_code} ${formData.whatsapp_phone}`;
+    const rawPhone = (formData.whatsapp_phone || '').trim();
+    const cleanPhone = rawPhone.replace(/^0+/, '');
+    const fullWhatsApp = rawPhone.startsWith('+')
+      ? rawPhone
+      : `${formData.country_code} ${cleanPhone}`;
 
     const targetEmail = formData.inquiry_type === 'Admission Inquiry'
       ? READLY_CONFIG.admissionsEmail
@@ -345,13 +347,13 @@ export const Contact = () => {
                       className="bg-slate-50 border-r border-slate-200 px-2 py-2 text-slate-700 text-xs font-semibold focus:outline-none max-w-[130px] sm:max-w-[155px] truncate"
                     >
                       <optgroup label="⭐ Popular / Quick Select">
-                        {popularCountries.map(c => (
-                          <option key={c.name} value={c.code}>{c.flag} {c.name} ({c.code})</option>
+                        {popularCountries.map((c, idx) => (
+                          <option key={`pop-${c.name}-${idx}`} value={c.code}>{c.flag} {c.name} ({c.code})</option>
                         ))}
                       </optgroup>
                       <optgroup label="🌍 All Countries (A - Z)">
-                        {otherCountries.map(c => (
-                          <option key={c.name} value={c.code}>{c.flag} {c.name} ({c.code})</option>
+                        {otherCountries.map((c, idx) => (
+                          <option key={`all-${c.name}-${idx}`} value={c.code}>{c.flag} {c.name} ({c.code})</option>
                         ))}
                       </optgroup>
                     </select>
@@ -359,11 +361,15 @@ export const Contact = () => {
                       type="tel"
                       required
                       value={formData.whatsapp_phone}
-                      onChange={(e) => setFormData({ ...formData, whatsapp_phone: e.target.value })}
-                      placeholder="333 7221552"
+                      onChange={(e) => {
+                        const clean = e.target.value.replace(/[^0-9+\s-]/g, '');
+                        setFormData({ ...formData, whatsapp_phone: clean });
+                      }}
+                      placeholder="300 1234567"
                       className="w-full bg-transparent px-3 py-2 text-slate-800 text-xs focus:outline-none"
                     />
                   </div>
+                  <p className="text-[10px] text-slate-500 mt-1">e.g. 300 1234567 (without leading zero)</p>
                 </div>
                 <div>
                   <label className="block font-bold text-slate-700 mb-1">Email Address</label>
