@@ -80,6 +80,9 @@ export const Footer = () => {
               <li>
                 <Link to="/book-demo" className="hover:text-white transition-colors">Book Free Trial Class</Link>
               </li>
+              <li>
+                <Link to="/become-a-tutor" className="hover:text-white transition-colors text-emerald-300 font-semibold">Become a Tutor</Link>
+              </li>
             </ul>
           </div>
 

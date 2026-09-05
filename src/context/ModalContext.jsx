@@ -20,6 +20,10 @@ export const ModalProvider = ({ children }) => {
     subject: null
   });
 
+  const [tutorModal, setTutorModal] = useState({
+    isOpen: false
+  });
+
   const [toast, setToast] = useState({
     visible: false,
     message: '',
@@ -36,6 +40,7 @@ export const ModalProvider = ({ children }) => {
   const openBookingModal = (opts = {}) => {
     setTeacherModal({ isOpen: false, teacher: null });
     setSyllabusModal({ isOpen: false, subject: null });
+    setTutorModal({ isOpen: false });
     setBookingModal({
       isOpen: true,
       subject: typeof opts === 'string' ? opts : (opts.subject || ''),
@@ -64,6 +69,17 @@ export const ModalProvider = ({ children }) => {
     setSyllabusModal({ isOpen: false, subject: null });
   };
 
+  const openTutorModal = () => {
+    setBookingModal(prev => ({ ...prev, isOpen: false }));
+    setTeacherModal({ isOpen: false, teacher: null });
+    setSyllabusModal({ isOpen: false, subject: null });
+    setTutorModal({ isOpen: true });
+  };
+
+  const closeTutorModal = () => {
+    setTutorModal({ isOpen: false });
+  };
+
   return (
     <ModalContext.Provider
       value={{
@@ -76,6 +92,9 @@ export const ModalProvider = ({ children }) => {
         syllabusModal,
         openSyllabusModal,
         closeSyllabusModal,
+        tutorModal,
+        openTutorModal,
+        closeTutorModal,
         toast,
         showToast
       }}

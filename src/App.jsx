@@ -8,6 +8,7 @@ import { Toast } from './components/Toast';
 import { BookingModal } from './components/BookingModal';
 import { TeacherModal } from './components/TeacherModal';
 import { SyllabusModal } from './components/SyllabusModal';
+import { TutorModal } from './components/TutorModal';
 
 // Pages
 import { Home } from './pages/Home';
@@ -19,6 +20,7 @@ import { HowItWorks } from './pages/HowItWorks';
 import { Resources } from './pages/Resources';
 import { Contact } from './pages/Contact';
 import { BookDemo } from './pages/BookDemo';
+import { BecomeTutor } from './pages/BecomeTutor';
 import { SubjectDetail } from './pages/SubjectDetail';
 
 // Scroll to top on route change
@@ -49,6 +51,7 @@ export default function App() {
             <Route path="/resources" element={<Resources />} />
             <Route path="/contact" element={<Contact />} />
             <Route path="/book-demo" element={<BookDemo />} />
+            <Route path="/become-a-tutor" element={<BecomeTutor />} />
             <Route path="*" element={<Navigate to="/" replace />} />
           </Routes>
         </main>
@@ -61,6 +64,7 @@ export default function App() {
         <BookingModal />
         <TeacherModal />
         <SyllabusModal />
+        <TutorModal />
       </div>
     </ModalProvider>
   );
