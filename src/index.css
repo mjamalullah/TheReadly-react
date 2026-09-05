@@ -428,6 +428,56 @@ a {
   transform: translateY(-2px);
 }
 
+/* ================= HERO SLIDER DYNAMIC CINEMATIC ANIMATIONS ================= */
+@keyframes heroFadeSlideUp {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+    filter: blur(4px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+    filter: blur(0);
+  }
+}
+
+@keyframes heroDialogMorph {
+  0% {
+    opacity: 0;
+    transform: scale(0.95) translateY(16px);
+    filter: blur(3px);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+    filter: blur(0);
+  }
+}
+
+@keyframes heroProgressTimer {
+  0% {
+    width: 0%;
+  }
+  100% {
+    width: 100%;
+  }
+}
+
+.animate-hero-fade-slide {
+  animation: heroFadeSlideUp 0.65s cubic-bezier(0.16, 1, 0.3, 1) both;
+  will-change: transform, opacity, filter;
+}
+
+.animate-hero-dialog-scale {
+  animation: heroDialogMorph 0.7s cubic-bezier(0.16, 1, 0.3, 1) both;
+  will-change: transform, opacity, filter;
+}
+
+.hero-progress-active {
+  animation: heroProgressTimer 4500ms linear forwards;
+}
+
 /* ================= DASHBOARD PREVIEW UI (ACADEMIC DIALOG BOX) ================= */
 .dashboard-preview-window {
   background: #ffffff;

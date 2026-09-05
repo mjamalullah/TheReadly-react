@@ -186,13 +186,26 @@ export const Home = () => {
   const [isTutorSubmitted, setIsTutorSubmitted] = useState(false);
   const [tutorSubmittedData, setTutorSubmittedData] = useState(null);
 
-  // 3s Auto Hero Slider
+  // 4.5s Auto Hero Slider with Pause on Hover
+  const [isHeroPaused, setIsHeroPaused] = useState(false);
+
   useEffect(() => {
+    if (isHeroPaused) return;
     const timer = setInterval(() => {
       setCurrentSlide(prev => (prev + 1) % heroSlides.length);
-    }, 4000);
+    }, 4500);
     return () => clearInterval(timer);
-  }, []);
+  }, [isHeroPaused, currentSlide]);
+
+  const handlePrevSlide = () => {
+    setCurrentSlide(prev => (prev - 1 + heroSlides.length) % heroSlides.length);
+  };
+  const handleNextSlide = () => {
+    setCurrentSlide(prev => (prev + 1) % heroSlides.length);
+  };
+  const handleSelectSlide = (idx) => {
+    setCurrentSlide(idx);
+  };
 
   // Board matching logic for IGCSE, O-Level, A-Level, Edexcel, IT
   const isMatchingBoard = (sub, board) => {
@@ -354,51 +367,73 @@ export const Home = () => {
     <div className="space-y-16 sm:space-y-24">
 
       {/* ================= 1. HERO SLIDER SECTION (3.5s Auto Rotator with Dialog Box) ================= */}
-      <section className="relative overflow-hidden pt-6 pb-12 sm:pt-10 sm:pb-16 md:pt-14 md:pb-24 bg-gradient-to-b from-slate-50 via-white to-slate-50 border-b border-slate-200/80">
+      <section 
+        onMouseEnter={() => setIsHeroPaused(true)}
+        onMouseLeave={() => setIsHeroPaused(false)}
+        className="relative overflow-hidden pt-6 pb-12 sm:pt-10 sm:pb-16 md:pt-14 md:pb-24 bg-gradient-to-b from-slate-50 via-white to-slate-50 border-b border-slate-200/80"
+      >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
           
           {/* Slider Prev & Next Arrow Controls */}
           <button
-            onClick={() => setCurrentSlide(prev => (prev - 1 + heroSlides.length) % heroSlides.length)}
+            onClick={handlePrevSlide}
             aria-label="Previous slide"
-            className="hidden md:flex absolute -left-3 lg:-left-5 top-1/2 -translate-y-1/2 z-20 w-10 h-10 rounded-full bg-white shadow-md border border-slate-200 items-center justify-center text-slate-700 hover:text-[#059669] hover:border-[#059669] transition-all hover:scale-105 cursor-pointer"
+            className="hidden md:flex absolute -left-3 lg:-left-5 top-1/2 -translate-y-1/2 z-20 w-10 h-10 rounded-full bg-white shadow-md border border-slate-200 items-center justify-center text-slate-700 hover:text-[#0B4635] hover:border-[#C59B4B] hover:bg-[#FEF9EE] transition-all hover:scale-110 cursor-pointer"
           >
             <ChevronLeft className="w-5 h-5" />
           </button>
           <button
-            onClick={() => setCurrentSlide(prev => (prev + 1) % heroSlides.length)}
+            onClick={handleNextSlide}
             aria-label="Next slide"
-            className="hidden md:flex absolute -right-3 lg:-right-5 top-1/2 -translate-y-1/2 z-20 w-10 h-10 rounded-full bg-white shadow-md border border-slate-200 items-center justify-center text-slate-700 hover:text-[#059669] hover:border-[#059669] transition-all hover:scale-105 cursor-pointer"
+            className="hidden md:flex absolute -right-3 lg:-right-5 top-1/2 -translate-y-1/2 z-20 w-10 h-10 rounded-full bg-white shadow-md border border-slate-200 items-center justify-center text-slate-700 hover:text-[#0B4635] hover:border-[#C59B4B] hover:bg-[#FEF9EE] transition-all hover:scale-110 cursor-pointer"
           >
             <ChevronRight className="w-5 h-5" />
           </button>
 
           <div className="grid lg:grid-cols-12 gap-8 sm:gap-10 lg:gap-12 items-center">
             
-            {/* Left Content (Dynamic Slider) */}
-            <div className="lg:col-span-7 flex flex-col items-center md:items-start text-center md:text-left space-y-4 sm:space-y-5">
+            {/* Left Content (Dynamic Slider with Cinematic Staggered Entrance) */}
+            <div 
+              key={`slide-left-${currentSlide}`}
+              className="lg:col-span-7 flex flex-col items-center md:items-start text-center md:text-left space-y-4 sm:space-y-5"
+            >
               
-              <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full text-xs font-bold bg-[#FEF9EE] text-[#936F1E] border border-[#E8D3A7] shadow-2xs">
+              <div 
+                className="animate-hero-fade-slide inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full text-xs font-bold bg-[#FEF9EE] text-[#936F1E] border border-[#E8D3A7] shadow-2xs"
+                style={{ animationDelay: '0ms' }}
+              >
                 {React.createElement(heroSlides[currentSlide].badgeIcon, { className: "w-3.5 h-3.5 shrink-0 text-[#C59B4B]" })}
                 <span className="truncate max-w-[260px] sm:max-w-none">{heroSlides[currentSlide].badge}</span>
               </div>
 
               <div className="space-y-1.5 sm:space-y-2 w-full">
-                <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-extrabold text-[#0B4635] font-heading tracking-tight leading-[1.2] sm:leading-[1.15]">
+                <h1 
+                  className="animate-hero-fade-slide text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-extrabold text-[#0B4635] font-heading tracking-tight leading-[1.2] sm:leading-[1.15]"
+                  style={{ animationDelay: '90ms' }}
+                >
                   {heroSlides[currentSlide].titleMain}{' '}
                   <span className="text-[#C59B4B]">{heroSlides[currentSlide].titleHighlight}</span>
                 </h1>
-                <h2 className="text-base sm:text-lg md:text-xl font-bold text-slate-800">
+                <h2 
+                  className="animate-hero-fade-slide text-base sm:text-lg md:text-xl font-bold text-slate-800"
+                  style={{ animationDelay: '170ms' }}
+                >
                   {heroSlides[currentSlide].subtitle}
                 </h2>
               </div>
 
-              <p className="text-slate-600 text-xs sm:text-sm md:text-base leading-relaxed max-w-xl md:max-w-2xl min-h-[50px] sm:min-h-[60px]">
+              <p 
+                className="animate-hero-fade-slide text-slate-600 text-xs sm:text-sm md:text-base leading-relaxed max-w-xl md:max-w-2xl min-h-[50px] sm:min-h-[60px]"
+                style={{ animationDelay: '250ms' }}
+              >
                 {heroSlides[currentSlide].description}
               </p>
 
               {/* Action Buttons (Mobile: Tap-Friendly & Centered Above/Near Fold) */}
-              <div className="w-full flex flex-col sm:flex-row items-stretch sm:items-center justify-center md:justify-start gap-2.5 sm:gap-3.5 pt-1 sm:pt-2">
+              <div 
+                className="animate-hero-fade-slide w-full flex flex-col sm:flex-row items-stretch sm:items-center justify-center md:justify-start gap-2.5 sm:gap-3.5 pt-1 sm:pt-2"
+                style={{ animationDelay: '330ms' }}
+              >
                 {heroSlides[currentSlide].primaryBtn.action === 'modal' ? (
                   <button
                     onClick={() => openBookingModal()}
@@ -468,28 +503,52 @@ export const Home = () => {
                 </div>
               </div>
 
-              {/* Slide Indicators */}
-              <div className="flex items-center justify-center md:justify-start gap-2 pt-1 sm:pt-2 w-full">
-                {heroSlides.map((_, idx) => (
-                  <button
-                    key={idx}
-                    onClick={() => setCurrentSlide(idx)}
-                    aria-label={`Slide ${idx + 1}`}
-                    className={`h-2.5 rounded-full transition-all duration-300 cursor-pointer ${
-                      currentSlide === idx ? 'w-8 bg-[#C59B4B]' : 'w-2.5 bg-slate-300 hover:bg-slate-400'
-                    }`}
-                  />
-                ))}
-                <span className="text-[11px] text-slate-500 font-semibold ml-2">
-                  Slide {currentSlide + 1} of {heroSlides.length}
+              {/* Slide Indicators with Animated Countdown Progress Bar */}
+              <div className="flex items-center justify-center md:justify-start gap-2.5 pt-2 w-full">
+                {heroSlides.map((slide, idx) => {
+                  const isActive = currentSlide === idx;
+                  return (
+                    <button
+                      key={idx}
+                      onClick={() => handleSelectSlide(idx)}
+                      aria-label={`Go to slide ${idx + 1}: ${slide.badge}`}
+                      className={`group relative flex items-center transition-all duration-300 cursor-pointer ${
+                        isActive ? 'w-12 sm:w-16 h-3' : 'w-3 h-3 hover:scale-125'
+                      }`}
+                    >
+                      {isActive ? (
+                        <div className="w-full h-2.5 rounded-full bg-[#FEF9EE] border border-[#E8D3A7] overflow-hidden relative shadow-2xs">
+                          <div
+                            key={`progress-${currentSlide}-${isHeroPaused}`}
+                            className={`h-full bg-gradient-to-r from-[#B38838] to-[#C59B4B] rounded-full ${
+                              !isHeroPaused ? 'hero-progress-active' : 'w-full'
+                            }`}
+                          />
+                        </div>
+                      ) : (
+                        <div className="w-2.5 h-2.5 rounded-full bg-slate-300 group-hover:bg-[#C59B4B] transition-colors" />
+                      )}
+                    </button>
+                  );
+                })}
+                <span className="text-[11px] text-slate-500 font-bold ml-2 font-mono">
+                  0{currentSlide + 1} <span className="text-slate-300">/</span> 0{heroSlides.length}
                 </span>
+                {isHeroPaused && (
+                  <span className="text-[10px] uppercase font-bold text-[#936F1E] bg-[#FEF9EE] border border-[#E8D3A7] px-2 py-0.5 rounded-full animate-fade-in">
+                    Paused
+                  </span>
+                )}
               </div>
 
             </div>
 
             {/* Right Academic Dialog Box / macOS Preview Window (Desktop only: hidden lg:block) */}
             <div className="hidden lg:block lg:col-span-5">
-              <div className="dashboard-preview-window">
+              <div 
+                key={`dialog-window-${currentSlide}`}
+                className="dashboard-preview-window animate-hero-dialog-scale"
+              >
                 
                 {/* macOS Style Header Bar */}
                 <div className="dashboard-header-bar">
