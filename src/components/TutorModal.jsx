@@ -65,7 +65,9 @@ export const TutorModal = () => {
     const payload = {
       form_type: "Tutor Faculty Application",
       target_tab: "Become a Teacher",
-      target_gid: "1304058449",
+      target_gid: READLY_CONFIG.tutorSheetGid || "1304058449",
+      spreadsheet_id: READLY_CONFIG.spreadsheetId,
+      spreadsheet_url: READLY_CONFIG.tutorGoogleSheetUrl,
       target_email: READLY_CONFIG.generalEmail || "info@thereadly.com",
       applicant_name: formData.name.trim(),
       email: formData.email.trim() || 'N/A',
