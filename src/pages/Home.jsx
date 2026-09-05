@@ -241,6 +241,7 @@ export const Home = () => {
 
     const payload = {
       form_type: "Quick Homepage Demo Booking",
+      target_tab: "Admissions",
       student_name: quickForm.student_name.trim(),
       parent_name: quickForm.parent_name.trim() || 'N/A',
       whatsapp: fullWhatsApp,

@@ -151,6 +151,7 @@ export const BookingModal = () => {
 
     const payload = {
       form_type: "Free Trial Demo Booking",
+      target_tab: "Admissions",
       student_name: formData.student_name.trim(),
       parent_name: formData.parent_name.trim() || 'N/A',
       whatsapp: fullWhatsApp,
@@ -161,7 +162,7 @@ export const BookingModal = () => {
       teacher: formData.teacher,
       exam_series: formData.exam_series,
       message: formData.message.trim() || 'None',
-      page: "React Web App"
+      page: "Free Demo Modal"
     };
 
     // 1. Google Sheets Background Dispatch

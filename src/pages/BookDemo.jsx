@@ -37,6 +37,7 @@ export const BookDemo = () => {
 
     const payload = {
       form_type: "Free Trial Demo Booking",
+      target_tab: "Admissions",
       student_name: formData.student_name.trim(),
       parent_name: formData.parent_name.trim() || 'N/A',
       whatsapp: fullWhatsApp,

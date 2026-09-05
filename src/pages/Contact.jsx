@@ -40,6 +40,7 @@ export const Contact = () => {
 
     const payload = {
       form_type: `Contact - ${formData.inquiry_type}`,
+      target_tab: "Admissions",
       target_email: targetEmail,
       student_name: formData.student_name.trim(),
       parent_name: formData.parent_name.trim() || 'N/A',
