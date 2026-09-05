@@ -1,10 +1,27 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useModal } from '../context/ModalContext';
 import { tutorsData } from '../data/tutorsData';
 import { X, Award, CheckCircle2, GraduationCap, Clock, Calendar } from 'lucide-react';
 
 export const TeacherModal = () => {
   const { teacherModal, closeTeacherModal, openBookingModal } = useModal();
+
+  useEffect(() => {
+    if (teacherModal.isOpen) {
+      document.body.style.overflow = 'hidden';
+      const handleKeyDown = (e) => {
+        if (e.key === 'Escape') closeTeacherModal();
+      };
+      window.addEventListener('keydown', handleKeyDown);
+      return () => {
+        document.body.style.overflow = 'unset';
+        window.removeEventListener('keydown', handleKeyDown);
+      };
+    } else {
+      document.body.style.overflow = 'unset';
+    }
+  }, [teacherModal.isOpen, closeTeacherModal]);
+
   if (!teacherModal.isOpen || !teacherModal.teacher) return null;
 
   const tutor = typeof teacherModal.teacher === 'string'
@@ -12,17 +29,27 @@ export const TeacherModal = () => {
     : teacherModal.teacher;
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center p-4 sm:p-6 bg-slate-900/60 backdrop-blur-xs overflow-y-auto animate-fade-in">
-      <div className="relative w-full max-w-2xl bg-white rounded-2xl shadow-2xl border border-slate-200 overflow-hidden my-8">
-        
-        {/* Header */}
-        <div className="bg-[#0B4635] text-white p-6 sm:p-7 relative">
-          <button
-            onClick={closeTeacherModal}
-            className="absolute top-5 right-5 p-1.5 rounded-full text-slate-300 hover:text-white hover:bg-white/10 transition-colors"
-          >
-            <X className="w-5 h-5" />
-          </button>
+    <div 
+      className="fixed inset-0 z-50 overflow-y-auto bg-slate-900/60 backdrop-blur-xs animate-fade-in"
+      onClick={(e) => {
+        if (e.target === e.currentTarget) closeTeacherModal();
+      }}
+    >
+      <div className="flex min-h-full items-start sm:items-center justify-center p-3 sm:p-6 text-left">
+        <div 
+          className="relative w-full max-w-2xl bg-white rounded-2xl shadow-2xl border border-slate-200 overflow-hidden my-4 sm:my-8"
+          onClick={(e) => e.stopPropagation()}
+        >
+          
+          {/* Header */}
+          <div className="bg-[#0B4635] text-white p-5 sm:p-7 relative shrink-0">
+            <button
+              onClick={closeTeacherModal}
+              className="absolute top-4 right-4 sm:top-5 sm:right-5 p-2 rounded-full text-slate-300 hover:text-white hover:bg-white/10 transition-colors focus:outline-none"
+              aria-label="Close modal"
+            >
+              <X className="w-5 h-5" />
+            </button>
           
           <div className="flex items-start gap-4">
             <img
@@ -110,6 +137,7 @@ export const TeacherModal = () => {
 
         </div>
 
+        </div>
       </div>
     </div>
   );
