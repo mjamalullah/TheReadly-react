@@ -119,9 +119,9 @@ export const Resources = () => {
       </div>
 
       {/*  FREE TRIAL DEMO CALL TO ACTION  */}
-      <div className="card-base p-8 sm:p-12 bg-[#0A192F] text-white text-center rounded-2xl border-slate-800">
-        <h2 className="text-3xl font-extrabold font-heading mb-3 text-white">Get Personalized <span className="text-[#C59B4B]">Study Guidance</span></h2>
-        <p className="text-slate-300 text-sm max-w-xl mx-auto mb-6">
+      <div className="card-base p-8 sm:p-12 bg-gradient-to-br from-emerald-50/60 via-white to-amber-50/40 text-center rounded-2xl border border-emerald-200/80 shadow-sm">
+        <h2 className="text-3xl font-extrabold font-heading mb-3 text-[#0B4635]">Get Personalized <span className="text-[#C59B4B]">Study Guidance</span></h2>
+        <p className="text-slate-600 text-sm max-w-xl mx-auto mb-6">
           Schedule a 45-minute live trial class with a verified Cambridge faculty mentor. Review past questions and receive a customized revision roadmap.
         </p>
         <button

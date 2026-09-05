@@ -148,9 +148,9 @@ export const About = () => {
 
     {/*  BOTTOM CTA BANNER  */}
     <section className="py-16 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
-      <div className="card-base p-8 sm:p-12 bg-[#0A192F] text-white text-center rounded-2xl border-slate-800">
-        <h2 className="text-3xl font-extrabold font-heading mb-3 text-white">Have questions about our <span className="text-[#C59B4B]">academic structure?</span></h2>
-        <p className="text-slate-300 text-sm max-w-xl mx-auto mb-6">
+      <div className="card-base p-8 sm:p-12 bg-gradient-to-br from-emerald-50/60 via-white to-amber-50/40 text-center rounded-2xl border border-emerald-200/80 shadow-sm">
+        <h2 className="text-3xl font-extrabold font-heading mb-3 text-[#0B4635]">Have questions about our <span className="text-[#C59B4B]">academic structure?</span></h2>
+        <p className="text-slate-600 text-sm max-w-xl mx-auto mb-6">
           Our academic coordinators are available to discuss subject selection, examination series, and custom study plans.
         </p>
         <div className="flex flex-wrap justify-center gap-3">
