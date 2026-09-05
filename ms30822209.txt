@@ -1,0 +1,5 @@
+﻿{
+  "Description": "Domain ownership verification file for Microsoft 365 - place in the website root",
+  "Domain": "thereadly.com",
+  "Id": "f2ae2277-6a72-4f05-b780-adb51f28fd1c"
+}
