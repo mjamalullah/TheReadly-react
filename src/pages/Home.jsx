@@ -1413,39 +1413,39 @@ export const Home = () => {
         </div>
       </section>
 
-      {/* ================= 10. JOIN AS TUTOR SHORT FORM ================= */}
+      {/* ================= 10. JOIN AS TUTOR SHORT FORM (LIGHT-DARK HIGH CONTRAST) ================= */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="card-base p-8 sm:p-12 bg-gradient-to-br from-[#0B4635] to-[#063326] text-white rounded-3xl shadow-xl">
+        <div className="p-8 sm:p-12 bg-gradient-to-br from-slate-100 via-slate-50 to-emerald-50/50 border border-slate-200/90 rounded-3xl shadow-lg text-slate-800">
           {isTutorSubmitted && tutorSubmittedData ? (
             /* Thank You / Confirmation State (No Auto-Redirect) */
-            <div className="bg-white text-slate-900 rounded-2xl p-8 sm:p-10 shadow-2xl text-center space-y-6 max-w-2xl mx-auto animate-fade-in">
-              <div className="w-16 h-16 bg-emerald-100 text-emerald-700 rounded-full flex items-center justify-center mx-auto">
+            <div className="bg-white text-slate-900 rounded-3xl p-8 sm:p-10 shadow-xl border border-emerald-200 text-center space-y-6 max-w-2xl mx-auto animate-fade-in">
+              <div className="w-16 h-16 bg-emerald-100 text-[#059669] rounded-full flex items-center justify-center mx-auto shadow-inner">
                 <CheckCircle2 className="w-9 h-9" />
               </div>
               <div className="space-y-2">
-                <span className="inline-block px-3 py-1 bg-emerald-100 text-emerald-800 text-xs font-bold rounded-full">
+                <span className="inline-block px-3 py-1 bg-emerald-100 text-emerald-800 text-xs font-bold rounded-full border border-emerald-200">
                   Faculty Application Received
                 </span>
-                <h3 className="text-2xl sm:text-3xl font-extrabold text-slate-900">
+                <h3 className="text-2xl sm:text-3xl font-extrabold text-slate-900 font-heading">
                   Thank You, {tutorSubmittedData.name}!
                 </h3>
-                <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
-                  Your credentials for teaching <strong className="text-emerald-700">{tutorSubmittedData.subjects}</strong> ({tutorSubmittedData.curriculum}) have been successfully submitted to our Academic Faculty Desk.
+                <p className="text-xs sm:text-sm text-slate-600 leading-relaxed max-w-md mx-auto">
+                  Your credentials for teaching <strong className="text-slate-900 font-bold">{tutorSubmittedData.subjects}</strong> ({tutorSubmittedData.curriculum}) have been successfully submitted to our Academic Faculty Desk.
                 </p>
               </div>
 
-              <div className="bg-slate-50 border border-slate-200 rounded-xl p-4 text-xs text-left space-y-1.5 text-slate-700">
-                <div className="flex justify-between border-b border-slate-200 pb-1.5">
-                  <span className="text-slate-500">Applicant:</span>
+              <div className="bg-slate-50 border border-slate-200 rounded-2xl p-5 text-xs text-left space-y-2 text-slate-700 max-w-md mx-auto">
+                <div className="flex justify-between border-b border-slate-200 pb-2">
+                  <span className="text-slate-500 font-medium">Applicant Name:</span>
                   <span className="font-bold text-slate-900">{tutorSubmittedData.name}</span>
                 </div>
-                <div className="flex justify-between border-b border-slate-200 pb-1.5">
-                  <span className="text-slate-500">Contact WhatsApp:</span>
-                  <span className="font-medium text-slate-800">{tutorSubmittedData.whatsapp}</span>
+                <div className="flex justify-between border-b border-slate-200 pb-2">
+                  <span className="text-slate-500 font-medium">Contact WhatsApp:</span>
+                  <span className="font-semibold text-slate-800">{tutorSubmittedData.whatsapp}</span>
                 </div>
                 <div className="flex justify-between pt-1">
-                  <span className="text-slate-500">Review Status:</span>
-                  <span className="font-semibold text-emerald-700">Pending Evaluation (1–2 Days)</span>
+                  <span className="text-slate-500 font-medium">Review Status:</span>
+                  <span className="font-bold text-[#059669]">Under Evaluation (1–2 Days)</span>
                 </div>
               </div>
 
@@ -1457,7 +1457,7 @@ export const Home = () => {
                   )}`}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="w-full sm:w-auto px-6 py-3 rounded-xl bg-[#25D366] hover:bg-[#20BA5A] text-white font-bold text-xs shadow-md transition-all flex items-center justify-center gap-2"
+                  className="w-full sm:w-auto px-6 py-3 rounded-xl bg-[#25D366] hover:bg-[#20BA5A] text-white font-bold text-xs shadow-md hover:shadow-lg transition-all flex items-center justify-center gap-2 cursor-pointer"
                 >
                   <svg className="w-4 h-4 fill-current" viewBox="0 0 24 24">
                     <path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.711 2.598 2.664-.699c.971.53 1.942.812 2.796.812 3.179 0 5.767-2.587 5.767-5.766.001-3.187-2.575-5.77-5.767-5.798zm3.364 8.163c-.141.396-.714.731-1.01.769-.283.036-.649.064-1.921-.462-1.397-.579-2.316-1.979-2.385-2.072-.07-.093-.565-.751-.565-1.433 0-.682.358-1.018.485-1.157.128-.139.278-.174.372-.174.093 0 .186.002.267.006.086.005.201-.033.314.24.118.283.402.977.437 1.047.035.07.058.152.012.245-.047.093-.07.151-.139.233-.07.081-.147.18-.21.244-.07.07-.143.146-.062.285.081.139.362.597.777.967.534.476.985.624 1.124.693.139.07.221.058.303-.035.082-.093.349-.408.442-.548.093-.14.186-.117.314-.07.128.047.814.384.954.454.14.07.233.105.267.163.035.058.035.337-.106.733z" />
@@ -1468,46 +1468,46 @@ export const Home = () => {
                 <button
                   type="button"
                   onClick={handleResetTutorForm}
-                  className="w-full sm:w-auto px-5 py-3 rounded-xl border border-slate-300 hover:bg-slate-100 text-slate-700 font-bold text-xs transition-colors cursor-pointer"
+                  className="w-full sm:w-auto px-5 py-3 rounded-xl border border-slate-300 hover:bg-slate-50 text-slate-700 font-bold text-xs transition-colors cursor-pointer"
                 >
                   Submit Another Application
                 </button>
               </div>
             </div>
           ) : (
-            <div className="grid lg:grid-cols-12 gap-8 items-center">
+            <div className="grid lg:grid-cols-12 gap-8 lg:gap-12 items-center">
               
-              {/* Left Column: Value Proposition */}
+              {/* Left Column: Value Proposition & High-Contrast Typography */}
               <div className="lg:col-span-5 space-y-4">
-                <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-bold bg-[#ECFDF5] text-[#059669]">
-                  <GraduationCap className="w-4 h-4" /> Faculty Recruitment Desk
+                <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-bold bg-[#ECFDF5] text-[#059669] border border-emerald-200">
+                  <GraduationCap className="w-4 h-4 text-[#059669]" /> Faculty Recruitment Desk
                 </span>
-                <h2 className="text-3xl sm:text-4xl font-extrabold text-white font-heading leading-tight">
-                  Teach With The Readly Institute
+                <h2 className="text-3xl sm:text-4xl font-extrabold text-slate-900 font-heading leading-tight">
+                  Teach With <span className="text-[#059669]">The Readly Institute</span>
                 </h2>
-                <p className="text-xs sm:text-sm text-slate-200 leading-relaxed">
+                <p className="text-xs sm:text-sm text-slate-600 leading-relaxed font-normal">
                   Join an elite faculty of Cambridge & Edexcel subject specialists. Mentor motivated students across Pakistan, the Middle East, and the UK from the convenience of your home.
                 </p>
 
-                <div className="space-y-2.5 text-xs text-emerald-200 pt-2">
-                  <div className="flex items-center gap-2">
-                    <CheckCircle2 className="w-4 h-4 text-emerald-400 shrink-0" />
-                    <span>Competitive hourly remuneration with prompt direct payouts</span>
+                <div className="space-y-3 text-xs pt-1">
+                  <div className="flex items-start gap-3 bg-white/90 p-3 rounded-xl border border-slate-200/80 shadow-2xs">
+                    <CheckCircle2 className="w-4 h-4 text-[#059669] shrink-0 mt-0.5" />
+                    <span className="text-slate-800 font-medium">Competitive hourly remuneration with prompt direct payouts</span>
                   </div>
-                  <div className="flex items-center gap-2">
-                    <CheckCircle2 className="w-4 h-4 text-emerald-400 shrink-0" />
-                    <span>Flexible teaching schedules adapted to your availability</span>
+                  <div className="flex items-start gap-3 bg-white/90 p-3 rounded-xl border border-slate-200/80 shadow-2xs">
+                    <CheckCircle2 className="w-4 h-4 text-[#059669] shrink-0 mt-0.5" />
+                    <span className="text-slate-800 font-medium">Flexible teaching schedules adapted to your availability</span>
                   </div>
-                  <div className="flex items-center gap-2">
-                    <CheckCircle2 className="w-4 h-4 text-emerald-400 shrink-0" />
-                    <span>Verified topical question banks, LMS, and grading tools provided</span>
+                  <div className="flex items-start gap-3 bg-white/90 p-3 rounded-xl border border-slate-200/80 shadow-2xs">
+                    <CheckCircle2 className="w-4 h-4 text-[#059669] shrink-0 mt-0.5" />
+                    <span className="text-slate-800 font-medium">Verified topical question banks, LMS, and grading tools provided</span>
                   </div>
                 </div>
 
                 <div className="pt-2">
                   <Link
                     to="/become-a-tutor"
-                    className="inline-flex items-center gap-2 text-xs font-bold text-white hover:text-emerald-300 underline underline-offset-4 transition-colors"
+                    className="inline-flex items-center gap-2 text-xs font-bold text-[#059669] hover:text-[#047857] hover:underline underline-offset-4 transition-colors"
                   >
                     <span>View full faculty benefits & compensation details</span>
                     <ArrowRight className="w-3.5 h-3.5" />
@@ -1515,30 +1515,35 @@ export const Home = () => {
                 </div>
               </div>
 
-              {/* Right Column: Short Application Form */}
+              {/* Right Column: Short Application Form (Crisp Light Card with Dark Fonts) */}
               <div className="lg:col-span-7">
-                <form onSubmit={handleTutorShortSubmit} className="bg-white p-6 sm:p-8 rounded-2xl text-slate-900 shadow-xl space-y-3.5 text-xs">
+                <form onSubmit={handleTutorShortSubmit} className="bg-white p-6 sm:p-8 rounded-2xl text-slate-900 shadow-xl border border-slate-200/80 space-y-4 text-xs">
                   
+                  <div className="border-b border-slate-100 pb-3">
+                    <h3 className="text-base font-bold text-slate-900 font-heading">Faculty Quick Application</h3>
+                    <p className="text-[11px] text-slate-500 mt-0.5">Please provide your details below. All submissions are treated confidentially.</p>
+                  </div>
+
                   <div className="grid sm:grid-cols-2 gap-3.5">
                     <div>
-                      <label className="block font-bold text-slate-700 mb-1">Your Full Name *</label>
+                      <label className="block font-bold text-slate-800 mb-1">Your Full Name *</label>
                       <input
                         type="text"
                         required
                         value={tutorShortForm.name}
                         onChange={(e) => setTutorShortForm({ ...tutorShortForm, name: e.target.value })}
                         placeholder="e.g. Dr. Salman Tariq"
-                        className="w-full bg-slate-50 border border-slate-300 rounded-lg px-3 py-2 text-slate-800 focus:outline-none focus:border-[#059669]"
+                        className="w-full bg-slate-50 border border-slate-300 rounded-lg px-3.5 py-2.5 text-slate-900 font-medium placeholder-slate-400 focus:bg-white focus:outline-none focus:ring-2 focus:ring-[#059669] focus:border-transparent transition-all"
                       />
                     </div>
 
                     <div>
-                      <label className="block font-bold text-slate-700 mb-1">WhatsApp Phone *</label>
-                      <div className="flex rounded-lg border border-slate-300 focus-within:border-[#059669] bg-white overflow-hidden">
+                      <label className="block font-bold text-slate-800 mb-1">WhatsApp Phone *</label>
+                      <div className="flex rounded-lg border border-slate-300 focus-within:ring-2 focus-within:ring-[#059669] focus-within:border-transparent bg-white overflow-hidden">
                         <select
                           value={tutorShortForm.country_code}
                           onChange={(e) => setTutorShortForm({ ...tutorShortForm, country_code: e.target.value })}
-                          className="bg-slate-50 border-r border-slate-200 px-2 py-2 text-slate-700 text-xs font-semibold focus:outline-none max-w-[120px] truncate"
+                          className="bg-slate-100 border-r border-slate-200 px-2.5 py-2.5 text-slate-700 text-xs font-semibold focus:outline-none max-w-[125px] truncate"
                         >
                           <optgroup label="⭐ Popular">
                             {popularCountries.map(c => (
@@ -1557,7 +1562,7 @@ export const Home = () => {
                           value={tutorShortForm.whatsapp_phone}
                           onChange={(e) => setTutorShortForm({ ...tutorShortForm, whatsapp_phone: e.target.value })}
                           placeholder="300 1234567"
-                          className="w-full bg-transparent px-3 py-2 text-slate-800 text-xs focus:outline-none"
+                          className="w-full bg-transparent px-3 py-2 text-slate-900 font-medium text-xs focus:outline-none"
                         />
                       </div>
                     </div>
@@ -1565,22 +1570,22 @@ export const Home = () => {
 
                   <div className="grid sm:grid-cols-2 gap-3.5">
                     <div>
-                      <label className="block font-bold text-slate-700 mb-1">Email Address</label>
+                      <label className="block font-bold text-slate-800 mb-1">Email Address</label>
                       <input
                         type="email"
                         value={tutorShortForm.email}
                         onChange={(e) => setTutorShortForm({ ...tutorShortForm, email: e.target.value })}
                         placeholder="tutor@example.com"
-                        className="w-full bg-slate-50 border border-slate-300 rounded-lg px-3 py-2 text-slate-800 focus:outline-none focus:border-[#059669]"
+                        className="w-full bg-slate-50 border border-slate-300 rounded-lg px-3.5 py-2.5 text-slate-900 font-medium placeholder-slate-400 focus:bg-white focus:outline-none focus:ring-2 focus:ring-[#059669] focus:border-transparent transition-all"
                       />
                     </div>
 
                     <div>
-                      <label className="block font-bold text-slate-700 mb-1">Curriculum Board</label>
+                      <label className="block font-bold text-slate-800 mb-1">Curriculum Board</label>
                       <select
                         value={tutorShortForm.curriculum}
                         onChange={(e) => setTutorShortForm({ ...tutorShortForm, curriculum: e.target.value })}
-                        className="w-full bg-slate-50 border border-slate-300 rounded-lg px-3 py-2 text-slate-800 focus:outline-none focus:border-[#059669]"
+                        className="w-full bg-slate-50 border border-slate-300 rounded-lg px-3.5 py-2.5 text-slate-900 font-medium focus:bg-white focus:outline-none focus:ring-2 focus:ring-[#059669] focus:border-transparent transition-all"
                       >
                         <option>Cambridge O-Level & IGCSE</option>
                         <option>Cambridge International A-Level</option>
@@ -1592,11 +1597,11 @@ export const Home = () => {
 
                   <div className="grid sm:grid-cols-2 gap-3.5">
                     <div>
-                      <label className="block font-bold text-slate-700 mb-1">Highest Qualification</label>
+                      <label className="block font-bold text-slate-800 mb-1">Highest Qualification</label>
                       <select
                         value={tutorShortForm.highest_qualification}
                         onChange={(e) => setTutorShortForm({ ...tutorShortForm, highest_qualification: e.target.value })}
-                        className="w-full bg-slate-50 border border-slate-300 rounded-lg px-3 py-2 text-slate-800 focus:outline-none focus:border-[#059669]"
+                        className="w-full bg-slate-50 border border-slate-300 rounded-lg px-3.5 py-2.5 text-slate-900 font-medium focus:bg-white focus:outline-none focus:ring-2 focus:ring-[#059669] focus:border-transparent transition-all"
                       >
                         <option>Ph.D. / Doctorate</option>
                         <option>Master's Degree (M.Phil / MS / M.Sc)</option>
@@ -1606,11 +1611,11 @@ export const Home = () => {
                     </div>
 
                     <div>
-                      <label className="block font-bold text-slate-700 mb-1">Teaching Experience</label>
+                      <label className="block font-bold text-slate-800 mb-1">Teaching Experience</label>
                       <select
                         value={tutorShortForm.experience}
                         onChange={(e) => setTutorShortForm({ ...tutorShortForm, experience: e.target.value })}
-                        className="w-full bg-slate-50 border border-slate-300 rounded-lg px-3 py-2 text-slate-800 focus:outline-none focus:border-[#059669]"
+                        className="w-full bg-slate-50 border border-slate-300 rounded-lg px-3.5 py-2.5 text-slate-900 font-medium focus:bg-white focus:outline-none focus:ring-2 focus:ring-[#059669] focus:border-transparent transition-all"
                       >
                         <option>1–2 Years</option>
                         <option>3–5 Years</option>
@@ -1621,33 +1626,33 @@ export const Home = () => {
                   </div>
 
                   <div>
-                    <label className="block font-bold text-slate-700 mb-1">Subject(s) You Wish to Teach *</label>
+                    <label className="block font-bold text-slate-800 mb-1">Subject(s) You Wish to Teach *</label>
                     <input
                       type="text"
                       required
                       value={tutorShortForm.subjects}
                       onChange={(e) => setTutorShortForm({ ...tutorShortForm, subjects: e.target.value })}
                       placeholder="e.g. A-Level Pure Mathematics (9709), Physics (9702), Chemistry (9701)"
-                      className="w-full bg-slate-50 border border-slate-300 rounded-lg px-3 py-2 text-slate-800 focus:outline-none focus:border-[#059669]"
+                      className="w-full bg-slate-50 border border-slate-300 rounded-lg px-3.5 py-2.5 text-slate-900 font-medium placeholder-slate-400 focus:bg-white focus:outline-none focus:ring-2 focus:ring-[#059669] focus:border-transparent transition-all"
                     />
                   </div>
 
                   <div>
-                    <label className="block font-bold text-slate-700 mb-1">Resume / CV Link (Google Drive / LinkedIn)</label>
+                    <label className="block font-bold text-slate-800 mb-1">Resume / CV Link (Google Drive / LinkedIn)</label>
                     <input
                       type="url"
                       value={tutorShortForm.cv_link}
                       onChange={(e) => setTutorShortForm({ ...tutorShortForm, cv_link: e.target.value })}
                       placeholder="https://drive.google.com/... or LinkedIn profile URL"
-                      className="w-full bg-slate-50 border border-slate-300 rounded-lg px-3 py-2 text-slate-800 focus:outline-none focus:border-[#059669]"
+                      className="w-full bg-slate-50 border border-slate-300 rounded-lg px-3.5 py-2.5 text-slate-900 font-medium placeholder-slate-400 focus:bg-white focus:outline-none focus:ring-2 focus:ring-[#059669] focus:border-transparent transition-all"
                     />
                   </div>
 
-                  <div className="pt-1.5">
+                  <div className="pt-2">
                     <button
                       type="submit"
                       disabled={isTutorSubmitting}
-                      className="btn btn-teal w-full text-xs font-bold py-3 justify-center shadow-md cursor-pointer flex items-center gap-2"
+                      className="btn btn-teal w-full text-xs font-bold py-3.5 justify-center shadow-md hover:shadow-lg transition-all cursor-pointer flex items-center gap-2"
                     >
                       {isTutorSubmitting ? (
                         <>
@@ -1664,7 +1669,7 @@ export const Home = () => {
                         </>
                       )}
                     </button>
-                    <p className="text-[10px] text-slate-500 text-center mt-2">
+                    <p className="text-[11px] text-slate-500 text-center mt-2.5 font-normal">
                       Submitting records your application securely. You will not be redirected automatically.
                     </p>
                   </div>
