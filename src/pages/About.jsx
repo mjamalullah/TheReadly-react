@@ -12,7 +12,7 @@ export const About = () => {
     <section className="py-16 md:py-20 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
       <div className="max-w-3xl">
         <div className="flex items-center gap-2 text-xs font-semibold text-slate-500 mb-3">
-          <a to="/" className="hover:text-[#059669]">Home</a>
+          <Link to="/" className="hover:text-[#059669]">Home</Link>
           <span>/</span>
           <span className="text-slate-900">About Us</span>
         </div>
@@ -134,10 +134,14 @@ export const About = () => {
               Attend a live 45-minute demo session and experience how our certified Cambridge educators teach.
             </p>
           </div>
-          <a to="/book-demo" className="btn btn-secondary bg-white text-[#0B4635] mt-4 text-xs">
+          <button
+            type="button"
+            onClick={() => openBookingModal()}
+            className="btn btn-secondary bg-white text-[#0B4635] mt-4 text-xs cursor-pointer"
+          >
             <span>Book a Free Demo</span>
             <Icon name="arrow-right" className="w-3.5 h-3.5" />
-          </a>
+          </button>
         </div>
       </div>
     </section>
@@ -150,9 +154,9 @@ export const About = () => {
           Our academic coordinators are available to discuss subject selection, examination series, and custom study plans.
         </p>
         <div className="flex flex-wrap justify-center gap-3">
-          <a to="/contact" className="btn btn-teal text-xs">
+          <Link to="/contact" className="btn btn-teal text-xs cursor-pointer">
             <span>Contact Admissions Office</span>
-          </a>
+          </Link>
           <a href="https://wa.me/923337221552?text=Hi%20The%20Readly%20Institute,%20I%20have%20questions%20about%20your%20academy" target="_blank" className="btn btn-whatsapp text-xs">
             <span>Chat on WhatsApp</span>
           </a>

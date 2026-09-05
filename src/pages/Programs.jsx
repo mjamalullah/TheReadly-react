@@ -12,7 +12,7 @@ export const Programs = () => {
     <section className="py-16 md:py-20 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
       <div className="max-w-3xl">
         <div className="flex items-center gap-2 text-xs font-semibold text-slate-500 mb-3">
-          <a to="/" className="hover:text-[#059669]">Home</a>
+          <Link to="/" className="hover:text-[#059669]">Home</Link>
           <span>/</span>
           <span className="text-slate-900">Academic Programs</span>
         </div>
@@ -66,13 +66,17 @@ export const Programs = () => {
             </div>
 
             <div className="pt-4 flex flex-wrap gap-3">
-              <a to="/book-demo" className="btn btn-teal btn-sm">
-                <span>Book O-Level Trial</span>
+              <button
+                type="button"
+                onClick={() => openBookingModal({ curriculum: 'Cambridge O-Level' })}
+                className="btn btn-teal btn-sm cursor-pointer"
+              >
+                <span>O-Level Enrolment & Free Trial</span>
                 <Icon name="calendar" className="w-4 h-4" />
-              </a>
-              <a to="/subjects" className="btn btn-secondary btn-sm">
+              </button>
+              <Link to="/subjects" className="btn btn-secondary btn-sm cursor-pointer">
                 <span>View O-Level Subjects</span>
-              </a>
+              </Link>
             </div>
           </div>
 
@@ -135,13 +139,17 @@ export const Programs = () => {
             </div>
 
             <div className="pt-4 flex flex-wrap gap-3">
-              <a to="/book-demo" className="btn btn-teal btn-sm">
-                <span>Book IGCSE Trial</span>
+              <button
+                type="button"
+                onClick={() => openBookingModal({ curriculum: 'Cambridge IGCSE' })}
+                className="btn btn-teal btn-sm cursor-pointer"
+              >
+                <span>IGCSE Enrolment & Free Trial</span>
                 <Icon name="calendar" className="w-4 h-4" />
-              </a>
-              <a to="/subjects" className="btn btn-secondary btn-sm">
+              </button>
+              <Link to="/subjects" className="btn btn-secondary btn-sm cursor-pointer">
                 <span>View IGCSE Subjects</span>
-              </a>
+              </Link>
             </div>
           </div>
 
@@ -204,13 +212,17 @@ export const Programs = () => {
             </div>
 
             <div className="pt-4 flex flex-wrap gap-3">
-              <a to="/book-demo" className="btn btn-teal btn-sm">
-                <span>Book A-Level Trial</span>
+              <button
+                type="button"
+                onClick={() => openBookingModal({ curriculum: 'Cambridge A-Level' })}
+                className="btn btn-teal btn-sm cursor-pointer"
+              >
+                <span>A-Level Enrolment & Free Trial</span>
                 <Icon name="calendar" className="w-4 h-4" />
-              </a>
-              <a to="/subjects" className="btn btn-secondary btn-sm">
+              </button>
+              <Link to="/subjects" className="btn btn-secondary btn-sm cursor-pointer">
                 <span>View A-Level Subjects</span>
-              </a>
+              </Link>
             </div>
           </div>
 
@@ -273,10 +285,14 @@ export const Programs = () => {
             </div>
 
             <div className="pt-4 flex flex-wrap gap-3">
-              <a to="/book-demo" className="btn btn-teal btn-sm">
-                <span>Enroll in Revision Bootcamp</span>
+              <button
+                type="button"
+                onClick={() => openBookingModal({ curriculum: 'Revision Crash Course' })}
+                className="btn btn-teal btn-sm cursor-pointer"
+              >
+                <span>Enrol in Revision Bootcamp</span>
                 <Icon name="calendar" className="w-4 h-4" />
-              </a>
+              </button>
             </div>
           </div>
 
@@ -358,10 +374,17 @@ export const Programs = () => {
 
           <div className="pt-4 border-t border-slate-100 flex items-center justify-between">
             <span className="text-xs font-semibold text-slate-500">Duration: 3 - 6 Months</span>
-            <a to="/book-demo" className="btn btn-teal btn-sm text-xs">
-              <span>Book Free Demo</span>
+            <button
+              type="button"
+              onClick={() => openBookingModal({ 
+                curriculum: 'IT & Professional Certifications', 
+                subject: 'Digital Marketing & Performance Strategy (Meta & Google Ads)' 
+              })}
+              className="btn btn-teal btn-sm text-xs cursor-pointer"
+            >
+              <span>Enrol / Book Free Demo</span>
               <Icon name="arrow-right" className="w-3.5 h-3.5" />
-            </a>
+            </button>
           </div>
         </div>
 
@@ -404,10 +427,17 @@ export const Programs = () => {
 
           <div className="pt-4 border-t border-slate-100 flex items-center justify-between">
             <span className="text-xs font-semibold text-slate-500">Duration: 4 - 6 Months</span>
-            <a to="/book-demo" className="btn btn-teal btn-sm text-xs">
-              <span>Book Free Demo</span>
+            <button
+              type="button"
+              onClick={() => openBookingModal({ 
+                curriculum: 'IT & Professional Certifications', 
+                subject: 'CSIS Certification (Cyber Security & Information Systems)' 
+              })}
+              className="btn btn-teal btn-sm text-xs cursor-pointer"
+            >
+              <span>Enrol / Book Free Demo</span>
               <Icon name="arrow-right" className="w-3.5 h-3.5" />
-            </a>
+            </button>
           </div>
         </div>
 
@@ -450,10 +480,17 @@ export const Programs = () => {
 
           <div className="pt-4 border-t border-slate-100 flex items-center justify-between">
             <span className="text-xs font-semibold text-slate-500">Duration: 4 - 6 Months</span>
-            <a to="/book-demo" className="btn btn-teal btn-sm text-xs">
-              <span>Book Free Demo</span>
+            <button
+              type="button"
+              onClick={() => openBookingModal({ 
+                curriculum: 'IT & Professional Certifications', 
+                subject: 'Full-Stack Web Development (HTML, CSS, Modern JS, MERN Stack)' 
+              })}
+              className="btn btn-teal btn-sm text-xs cursor-pointer"
+            >
+              <span>Enrol / Book Free Demo</span>
               <Icon name="arrow-right" className="w-3.5 h-3.5" />
-            </a>
+            </button>
           </div>
         </div>
 
@@ -496,10 +533,17 @@ export const Programs = () => {
 
           <div className="pt-4 border-t border-slate-100 flex items-center justify-between">
             <span className="text-xs font-semibold text-slate-500">Duration: 3 - 6 Months</span>
-            <a to="/book-demo" className="btn btn-teal btn-sm text-xs">
-              <span>Book Free Demo</span>
+            <button
+              type="button"
+              onClick={() => openBookingModal({ 
+                curriculum: 'IT & Professional Certifications', 
+                subject: 'Python for Data Analytics & Artificial Intelligence (AI Tools)' 
+              })}
+              className="btn btn-teal btn-sm text-xs cursor-pointer"
+            >
+              <span>Enrol / Book Free Demo</span>
               <Icon name="arrow-right" className="w-3.5 h-3.5" />
-            </a>
+            </button>
           </div>
         </div>
 
@@ -581,10 +625,14 @@ export const Programs = () => {
         <p className="text-slate-300 text-sm max-w-xl mx-auto mb-6">
           Our senior academic advisor will evaluate your previous scores, examination series, and target universities free of charge.
         </p>
-        <a to="/book-demo" className="btn btn-teal text-xs">
+        <button
+          type="button"
+          onClick={() => openBookingModal({ curriculum: 'Cambridge O-Level' })}
+          className="btn btn-teal text-xs cursor-pointer"
+        >
           <span>Book an Academic Consultation</span>
           <Icon name="arrow-right" className="w-4 h-4" />
-        </a>
+        </button>
       </div>
     </section>
   

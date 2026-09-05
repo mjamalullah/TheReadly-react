@@ -12,7 +12,7 @@ export const HowItWorks = () => {
     <section className="py-16 md:py-20 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
       <div className="max-w-3xl">
         <div className="flex items-center gap-2 text-xs font-semibold text-slate-500 mb-3">
-          <a to="/" className="hover:text-[#059669]">Home</a>
+          <Link to="/" className="hover:text-[#059669]">Home</Link>
           <span>/</span>
           <span className="text-slate-900">Learning Methodology</span>
         </div>
@@ -165,10 +165,14 @@ export const HowItWorks = () => {
         <p className="text-slate-300 text-sm max-w-xl mx-auto mb-6">
           Schedule a free 45-minute demo class with our subject mentor. Experience our digital whiteboard pedagogy with zero obligation.
         </p>
-        <a to="/book-demo" className="btn btn-teal text-xs">
+        <button
+          type="button"
+          onClick={() => openBookingModal()}
+          className="btn btn-teal text-xs cursor-pointer"
+        >
           <span>Book a Free Live Demo</span>
           <Icon name="calendar" className="w-4 h-4" />
-        </a>
+        </button>
       </div>
     </section>
   

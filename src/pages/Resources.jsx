@@ -12,7 +12,7 @@ export const Resources = () => {
     <section className="py-16 md:py-20 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
       <div className="max-w-3xl">
         <div className="flex items-center gap-2 text-xs font-semibold text-slate-500 mb-3">
-          <a to="/" className="hover:text-[#059669]">Home</a>
+          <Link to="/" className="hover:text-[#059669]">Home</Link>
           <span>/</span>
           <span className="text-slate-900">Academic Resources</span>
         </div>
@@ -124,10 +124,14 @@ export const Resources = () => {
         <p className="text-slate-300 text-sm max-w-xl mx-auto mb-6">
           Schedule a 45-minute live trial class with a verified Cambridge faculty mentor. Review past questions and receive a customized revision roadmap.
         </p>
-        <a to="/book-demo" className="btn btn-teal text-xs">
+        <button
+          type="button"
+          onClick={() => openBookingModal()}
+          className="btn btn-teal text-xs cursor-pointer"
+        >
           <span>Book a Free Trial Session</span>
           <Icon name="arrow-right" className="w-4 h-4" />
-        </a>
+        </button>
       </div>
 
     </section>
