@@ -275,6 +275,9 @@ export const BookingModal = () => {
                 <h3 className="text-xl sm:text-2xl font-extrabold text-slate-900">
                   Thank You, {submittedInfo.name}!
                 </h3>
+                <p className="text-sm font-semibold text-emerald-800 font-urdu leading-relaxed">
+                  ہم سے رابطہ کرنے کا بہت شکریہ۔ آپ کا فری ٹرائل ڈیمو رجسٹر ہو چکا ہے۔
+                </p>
                 <p className="text-xs sm:text-sm text-slate-600 max-w-md mx-auto leading-relaxed">
                   Your trial demo request for <strong className="text-slate-900">{submittedInfo.subject}</strong> ({submittedInfo.program}) has been recorded. Our admissions coordinator will assign your faculty mentor.
                 </p>

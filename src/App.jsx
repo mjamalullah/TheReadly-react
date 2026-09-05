@@ -9,6 +9,7 @@ import { BookingModal } from './components/BookingModal';
 import { TeacherModal } from './components/TeacherModal';
 import { SyllabusModal } from './components/SyllabusModal';
 import { TutorModal } from './components/TutorModal';
+import { ThankYouModal } from './components/ThankYouModal';
 
 // Pages
 import { Home } from './pages/Home';
@@ -67,6 +68,7 @@ export default function App() {
         <TeacherModal />
         <SyllabusModal />
         <TutorModal />
+        <ThankYouModal />
       </div>
     </ModalProvider>
   );

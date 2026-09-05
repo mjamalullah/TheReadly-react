@@ -5,7 +5,7 @@ import { READLY_CONFIG } from '../config/readlyConfig';
 import { GraduationCap, Send, Sparkles, CheckCircle2, ShieldCheck, Globe, Users, Clock, Award } from 'lucide-react';
 
 export const BecomeTutor = () => {
-  const { showToast } = useModal();
+  const { showToast, openThankYouModal } = useModal();
   const [isSubmitting, setIsSubmitting] = useState(false);
 
   const [formData, setFormData] = useState({
@@ -113,6 +113,21 @@ export const BecomeTutor = () => {
     setIsSubmitting(false);
     setIsSubmitted(true);
     showToast(`Faculty application submitted for ${formData.name}!`, "success");
+
+    openThankYouModal({
+      title: "Faculty Application Received",
+      name: formData.name.trim(),
+      urduMessage: "ہم سے رابطہ کرنے کا بہت شکریہ۔ آپ کی فیکلٹی درخواست کامیابی سے موصول ہو گئی ہے۔",
+      message: `Thank you for applying to join the academic faculty at The Readly Institute. Your credentials for ${formData.subjects.trim()} (${formData.curriculum}) are under review by our Academic Selection Committee.`,
+      whatsapp: fullWhatsApp,
+      details: [
+        { label: "Teaching Subjects", value: formData.subjects.trim() },
+        { label: "Curriculum", value: formData.curriculum },
+        { label: "Highest Degree", value: formData.highest_degree },
+        { label: "Experience", value: formData.experience }
+      ],
+      waUrl: waUrl
+    });
   };
 
   const handleResetForm = () => {

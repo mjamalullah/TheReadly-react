@@ -24,6 +24,17 @@ export const ModalProvider = ({ children }) => {
     isOpen: false
   });
 
+  const [thankYouModal, setThankYouModal] = useState({
+    isOpen: false,
+    title: '',
+    name: '',
+    message: '',
+    urduMessage: '',
+    whatsapp: '',
+    details: [],
+    waUrl: ''
+  });
+
   const [toast, setToast] = useState({
     visible: false,
     message: '',
@@ -80,6 +91,25 @@ export const ModalProvider = ({ children }) => {
     setTutorModal({ isOpen: false });
   };
 
+  const openThankYouModal = (config = {}) => {
+    setBookingModal(prev => ({ ...prev, isOpen: false }));
+    setTutorModal({ isOpen: false });
+    setThankYouModal({
+      isOpen: true,
+      title: config.title || 'Inquiry Received',
+      name: config.name || 'Valued Applicant',
+      message: config.message || 'Your inquiry has been successfully received by The Readly Institute. Our academic desk will review your profile and contact you shortly.',
+      urduMessage: config.urduMessage || 'ہم سے رابطہ کرنے کا بہت شکریہ۔ آپ کی تفصیلات کامیابی سے موصول ہو گئی ہیں۔',
+      whatsapp: config.whatsapp || '',
+      details: config.details || [],
+      waUrl: config.waUrl || ''
+    });
+  };
+
+  const closeThankYouModal = () => {
+    setThankYouModal(prev => ({ ...prev, isOpen: false }));
+  };
+
   return (
     <ModalContext.Provider
       value={{
@@ -95,6 +125,9 @@ export const ModalProvider = ({ children }) => {
         tutorModal,
         openTutorModal,
         closeTutorModal,
+        thankYouModal,
+        openThankYouModal,
+        closeThankYouModal,
         toast,
         showToast
       }}

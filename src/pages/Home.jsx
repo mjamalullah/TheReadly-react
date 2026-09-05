@@ -156,7 +156,7 @@ const heroSlides = [
 ];
 
 export const Home = () => {
-  const { openBookingModal, openTeacherModal, openSyllabusModal, showToast } = useModal();
+  const { openBookingModal, openTeacherModal, openSyllabusModal, showToast, openThankYouModal } = useModal();
   const [currentSlide, setCurrentSlide] = useState(0);
 
   // Subject Filter States
@@ -289,6 +289,22 @@ export const Home = () => {
     setIsTutorSubmitting(false);
     setIsTutorSubmitted(true);
     showToast("Application received! Our Academic Selection Committee will review your profile.", "success");
+
+    openThankYouModal({
+      title: "Faculty Application Received",
+      name: tutorShortForm.name.trim(),
+      urduMessage: "ہم سے رابطہ کرنے کا بہت شکریہ۔ آپ کی فیکلٹی درخواست کامیابی سے موصول ہو گئی ہے۔",
+      message: `Your credentials for teaching ${tutorShortForm.subjects.trim()} (${tutorShortForm.curriculum}) have been received. Our Academic Selection Committee will review your profile.`,
+      whatsapp: fullWhatsApp,
+      details: [
+        { label: "Teaching Subjects", value: tutorShortForm.subjects.trim() },
+        { label: "Curriculum", value: tutorShortForm.curriculum },
+        { label: "Experience", value: tutorShortForm.experience }
+      ],
+      waUrl: `https://wa.me/${READLY_CONFIG.whatsappNumber}?text=${encodeURIComponent(
+        `Hello The Readly Institute Academic Desk,\n\nI have applied to join as a Tutor for ${tutorShortForm.subjects.trim()}.\n• Applicant: ${tutorShortForm.name.trim()}\n• Contact: ${fullWhatsApp}\n\nLooking forward to speaking with the Academic Selection Committee!`
+      )}`
+    });
   };
 
   const handleResetTutorForm = () => {

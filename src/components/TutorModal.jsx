@@ -186,6 +186,9 @@ export const TutorModal = () => {
                 <h3 className="text-xl sm:text-2xl font-extrabold text-slate-900">
                   Thank You, {submittedData.name}!
                 </h3>
+                <p className="text-sm font-semibold text-emerald-800 font-urdu leading-relaxed">
+                  ہم سے رابطہ کرنے کا بہت شکریہ۔ آپ کی فیکلٹی درخواست کامیابی سے موصول ہو گئی ہے۔
+                </p>
                 <p className="text-xs sm:text-sm text-slate-600 max-w-md mx-auto leading-relaxed">
                   Your application to teach <strong className="text-slate-900">{submittedData.subjects}</strong> ({submittedData.curriculum}) has been registered with our Academic Selection Committee.
                 </p>

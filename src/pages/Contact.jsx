@@ -5,7 +5,7 @@ import { READLY_CONFIG } from '../config/readlyConfig';
 import { PhoneCall, Mail, Clock, Send, Sparkles, MapPin, CheckCircle2 } from 'lucide-react';
 
 export const Contact = () => {
-  const { showToast } = useModal();
+  const { showToast, openThankYouModal } = useModal();
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [submittedData, setSubmittedData] = useState(null);
   const [formData, setFormData] = useState({
@@ -96,6 +96,20 @@ export const Contact = () => {
     setIsSubmitting(false);
     setIsSubmitted(true);
     showToast(`Inquiry sent successfully for ${formData.student_name}!`, "success");
+
+    openThankYouModal({
+      title: "Inquiry Successfully Received",
+      name: formData.student_name.trim(),
+      urduMessage: "ہم سے رابطہ کرنے کا بہت شکریہ۔ آپ کا پیغام کامیابی سے موصول ہو گیا ہے۔",
+      message: `Thank you for contacting The Readly Institute regarding ${formData.inquiry_type}. Our academic coordinator will review your request and get in touch with you shortly.`,
+      whatsapp: fullWhatsApp,
+      details: [
+        { label: "Inquiry Type", value: formData.inquiry_type },
+        { label: "Subject", value: formData.subject },
+        { label: "Program", value: formData.program }
+      ],
+      waUrl: waUrl
+    });
   };
 
   const handleResetForm = () => {

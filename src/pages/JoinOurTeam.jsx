@@ -50,7 +50,7 @@ const departments = [
 ];
 
 export const JoinOurTeam = () => {
-  const { showToast } = useModal();
+  const { showToast, openThankYouModal } = useModal();
   const [selectedDept, setSelectedDept] = useState("faculty");
 
   const [formData, setFormData] = useState({
@@ -166,6 +166,20 @@ export const JoinOurTeam = () => {
     setIsSubmitting(false);
     setIsSubmitted(true);
     showToast("Application submitted successfully! Our HR team will review your profile.", "success");
+
+    openThankYouModal({
+      title: "Team Application Received",
+      name: formData.name.trim(),
+      urduMessage: "ہم سے رابطہ کرنے کا بہت شکریہ۔ آپ کی درخواست موصول ہو گئی ہے۔",
+      message: `Thank you for applying for the role of ${formData.role_title} (${formData.department}). Our HR and Management Team will review your credentials within 2–3 business days.`,
+      whatsapp: fullWhatsApp,
+      details: [
+        { label: "Department", value: formData.department },
+        { label: "Role / Position", value: formData.role_title },
+        { label: "Qualification", value: formData.highest_degree }
+      ],
+      waUrl: waHRUrl
+    });
   };
 
   const handleResetForm = () => {
