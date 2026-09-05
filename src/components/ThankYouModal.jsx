@@ -56,8 +56,8 @@ export const ThankYouModal = () => {
 
         {/* Badge & Title */}
         <div className="space-y-1.5">
-          <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-[11px] font-bold bg-[#ECFDF5] text-[#059669] border border-[#A7F3D0]">
-            <Sparkles className="w-3 h-3 text-[#059669]" />
+          <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-[11px] font-bold bg-[#FEF9EE] text-[#936F1E] border border-[#E8D3A7]">
+            <Sparkles className="w-3 h-3 text-[#C59B4B]" />
             {thankYouModal.title || 'Form Successfully Submitted'}
           </span>
           <h3 className="text-2xl sm:text-3xl font-extrabold text-slate-900 font-heading tracking-tight">

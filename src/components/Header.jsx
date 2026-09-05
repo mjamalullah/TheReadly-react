@@ -42,8 +42,8 @@ export const Header = () => {
                 className={({ isActive }) =>
                   `px-3.5 py-1.5 rounded-lg text-xs font-bold transition-all duration-200 ${
                     isActive
-                      ? 'bg-white text-[#059669] shadow-xs'
-                      : 'text-slate-700 hover:text-[#059669] hover:bg-white/60'
+                      ? 'bg-white text-[#0B4635] shadow-xs border-b-2 border-[#C59B4B]'
+                      : 'text-slate-700 hover:text-[#0B4635] hover:bg-white/60'
                   }`
                 }
               >
@@ -58,8 +58,8 @@ export const Header = () => {
                 className={({ isActive }) =>
                   `px-3.5 py-1.5 rounded-lg text-xs font-bold transition-all duration-200 flex items-center gap-1 cursor-pointer ${
                     isActive || location.pathname === '/join-our-team'
-                      ? 'bg-white text-[#059669] shadow-xs'
-                      : 'text-slate-700 hover:text-[#059669] hover:bg-white/60'
+                      ? 'bg-white text-[#0B4635] shadow-xs border-b-2 border-[#C59B4B]'
+                      : 'text-slate-700 hover:text-[#0B4635] hover:bg-white/60'
                   }`
                 }
               >
@@ -92,7 +92,7 @@ export const Header = () => {
                     <div className="flex-1">
                       <div className="text-xs font-bold flex items-center justify-between">
                         <span>Join Our Team</span>
-                        <span className="text-[9px] bg-[#059669] text-white px-1.5 py-0.2 rounded-full uppercase font-bold">Hiring</span>
+                        <span className="text-[9px] bg-[#C59B4B] text-white px-1.5 py-0.2 rounded-full uppercase font-bold">Hiring</span>
                       </div>
                       <div className="text-[10px] text-slate-500">Teachers, Admin & Staff</div>
                     </div>
@@ -107,9 +107,9 @@ export const Header = () => {
             {/* Become a Tutor Button */}
             <button
               onClick={() => openTutorModal()}
-              className="px-3.5 py-2 rounded-xl text-xs font-bold border border-slate-300 text-slate-700 hover:text-[#059669] hover:border-[#059669] hover:bg-[#ECFDF5] transition-all flex items-center gap-1.5 shadow-2xs group cursor-pointer"
+              className="px-3.5 py-2 rounded-xl text-xs font-bold border border-slate-300 text-slate-700 hover:text-[#0B4635] hover:border-[#C59B4B] hover:bg-[#FEF9EE] transition-all flex items-center gap-1.5 shadow-2xs group cursor-pointer"
             >
-              <GraduationCap className="w-4 h-4 text-[#059669] group-hover:scale-110 transition-transform" />
+              <GraduationCap className="w-4 h-4 text-[#C59B4B] group-hover:scale-110 transition-transform" />
               <span>Become a Tutor</span>
             </button>
 
@@ -181,8 +181,8 @@ export const Header = () => {
               className={({ isActive }) =>
                 `block px-3.5 py-2.5 rounded-lg text-sm font-bold transition-colors ${
                   isActive
-                    ? 'bg-[#ECFDF5] text-[#059669]'
-                    : 'text-slate-800 hover:bg-slate-50 hover:text-[#059669]'
+                    ? 'bg-[#FEF9EE] text-[#0B4635] font-bold border-l-4 border-[#C59B4B]'
+                    : 'text-slate-800 hover:bg-slate-50 hover:text-[#0B4635]'
                 }`
               }
             >
@@ -231,7 +231,7 @@ export const Header = () => {
                   <Briefcase className="w-4 h-4 text-[#059669]" />
                   <div className="flex items-center gap-2">
                     <span>Join Our Team</span>
-                    <span className="text-[9px] bg-[#059669] text-white px-1.5 py-0.2 rounded-full uppercase font-bold">Hiring</span>
+                    <span className="text-[9px] bg-[#C59B4B] text-white px-1.5 py-0.2 rounded-full uppercase font-bold">Hiring</span>
                   </div>
                 </div>
                 <ChevronRight className="w-4 h-4 text-slate-400" />

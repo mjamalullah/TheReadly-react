@@ -24,15 +24,15 @@ export const Footer = () => {
               Premier live online academy for Cambridge Assessment International Education (O-Level, IGCSE & A-Level), Pearson Edexcel, and Industry IT Certifications. Mentoring students across Pakistan, UAE, Saudi Arabia, the UK, and overseas to straight A* academic distinctions.
             </p>
             <div className="flex items-center gap-2 text-xs text-emerald-400 font-semibold">
-              <ShieldCheck className="w-4 h-4 text-emerald-400" />
-              <span style={{ color: '#A7F3D0' }}>Registered Academic Preparation Provider</span>
+              <ShieldCheck className="w-4 h-4 text-[#C59B4B]" />
+              <span style={{ color: '#E8D3A7' }}>Registered Academic Preparation Provider</span>
             </div>
           </div>
 
           {/* Programs Col */}
           <div className="lg:col-span-3 space-y-3.5">
             <h4 className="text-sm font-extrabold uppercase tracking-wider text-white font-heading flex items-center gap-2 pb-2 border-b border-emerald-800/70">
-              <span className="w-1.5 h-3.5 bg-[#10B981] rounded-full inline-block"></span>
+              <span className="w-1.5 h-3.5 bg-[#C59B4B] rounded-full inline-block"></span>
               <span>Academic Curriculums</span>
             </h4>
             <ul className="space-y-2 text-xs" style={{ color: '#E2E8F0' }}>
@@ -60,7 +60,7 @@ export const Footer = () => {
           {/* Quick Links */}
           <div className="lg:col-span-2 space-y-3.5">
             <h4 className="text-sm font-extrabold uppercase tracking-wider text-white font-heading flex items-center gap-2 pb-2 border-b border-emerald-800/70">
-              <span className="w-1.5 h-3.5 bg-[#10B981] rounded-full inline-block"></span>
+              <span className="w-1.5 h-3.5 bg-[#C59B4B] rounded-full inline-block"></span>
               <span>Quick Links</span>
             </h4>
             <ul className="space-y-2 text-xs" style={{ color: '#E2E8F0' }}>
@@ -88,7 +88,7 @@ export const Footer = () => {
               <li>
                 <Link to="/join-our-team" className="hover:text-white transition-colors text-emerald-300 font-semibold flex items-center gap-1.5">
                   <span>Join Our Team</span>
-                  <span className="text-[9px] bg-[#059669] text-white px-1.5 py-0.2 rounded-full uppercase font-bold">Hiring</span>
+                  <span className="text-[9px] bg-[#C59B4B] text-white px-1.5 py-0.2 rounded-full uppercase font-bold">Hiring</span>
                 </Link>
               </li>
             </ul>

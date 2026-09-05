@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;500;600;700;800;900&family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap');
 
 @tailwind base;
 @tailwind components;
@@ -10,23 +10,29 @@
    ========================================================================== */
 
 :root {
-  /* Fresh & Elegant Green Academic Theme — With Distinct Dark Green Typography */
-  --color-primary-navy: #0B4635; /* A little bit dark green — for headings, titles and branding */
-  --color-text-dark-green: #0B4635; /* A little bit dark green */
-  --color-text-body: #1C3B32; /* Legible dark green body text */
-  --color-text-muted: #2E564B; /* Muted subtext with green hue */
-  --color-navy-dark: #063326;
-  --color-navy-card: #084333;
-  --color-royal-blue: #059669; /* Vibrant Primary Emerald Green */
-  --color-royal-blue-hover: #047857;
-  --color-royal-blue-light: #ECFDF5; /* Soft, refreshing light green tint */
-  --color-teal-accent: #059669;
-  --color-teal-hover: #047857;
-  --color-teal-light: #ECFDF5;
+  /* The Readly Institute Official Brand Identity (Aligned with Logo) */
+  --color-primary-navy: #0B4635; /* Primary Deep Forest Green from Logo Shield & Lettering */
+  --color-forest-dark: #072F24; /* Deep Pine Green from Logo */
+  --color-forest-deep: #06251C; /* Darkest Forest Pine for Footers & Dark Surfaces */
+  --color-text-dark-green: #0B4635; /* Heading Deep Forest Green */
+  --color-text-body: #1E293B; /* Crisp high-contrast body text */
+  --color-text-muted: #64748B; /* High-readability secondary copy */
+  --color-navy-dark: #06251C;
+  --color-navy-card: #08302A;
+  --color-royal-blue: #0B4635; /* Primary Button Tone */
+  --color-royal-blue-hover: #072F24;
+  --color-royal-blue-light: #FEF9EE; /* Warm Gold Tint */
+  --color-teal-accent: #0B4635;
+  --color-teal-hover: #072F24;
+  --color-teal-light: #FEF9EE;
   --color-emerald-deep: #0B4635;
-  --color-gold-accent: #C59B4B; /* Metallic Warm Gold from Logo */
+  --color-emerald-accent: #059669; /* Kept for success badges, checks & indicators */
+  --color-gold-accent: #C59B4B; /* Signature Metallic Warm Gold from Logo Spine & Monogram */
   --color-gold-hover: #B38838;
-  --color-gold-light: #FEF9EE;
+  --color-gold-dark: #936F1E; /* Rich dark gold for high-contrast badge text */
+  --color-gold-light: #FEF9EE; /* Soft warm gold background for pills/badges */
+  --color-gold-border: #E8D3A7; /* Elegant gold border */
+  --color-gold-shimmer: #DFBA73;
 
   /* Neutrals */
   --color-white: #FFFFFF;
@@ -46,9 +52,10 @@
   --color-whatsapp: #25D366;
   --color-whatsapp-hover: #20BA5A;
 
-  /* Typography */
-  --font-heading: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
-  --font-body: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  /* Typography Matching Logo: Geometric Architectural Display + Crisp Modern Body */
+  --font-heading: 'Outfit', 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-brand: 'Outfit', -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-body: 'Plus Jakarta Sans', 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
 
   /* Transitions & Shadows */
   --transition-fast: 0.15s ease;
@@ -84,10 +91,31 @@ body {
 
 h1, h2, h3, h4, h5, h6, .font-heading {
   font-family: var(--font-heading);
-  color: var(--color-text-dark-green); /* A little bit dark green */
-  letter-spacing: -0.02em;
+  color: var(--color-primary-navy);
+  letter-spacing: -0.015em;
   font-weight: 700;
   line-height: 1.25;
+}
+
+/* Logo Brand Helpers */
+.text-gold, .text-logo-gold {
+  color: var(--color-gold-accent) !important;
+}
+.bg-gold-light {
+  background-color: var(--color-gold-light) !important;
+}
+.border-gold {
+  border-color: var(--color-gold-accent) !important;
+}
+.gradient-logo-text {
+  background: linear-gradient(135deg, #0B4635 0%, #C59B4B 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+.gradient-gold-text {
+  background: linear-gradient(135deg, #C59B4B 0%, #DFBA73 50%, #B38838 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 
 p {
@@ -308,38 +336,44 @@ a {
 }
 
 .btn-primary {
-  background-color: var(--color-royal-blue);
-  color: #ffffff;
-  border: 1px solid rgba(0, 0, 0, 0.08);
+  background-color: var(--color-primary-navy);
+  color: #ffffff !important;
+  border: 1px solid rgba(197, 155, 75, 0.35);
+  box-shadow: 0 2px 8px rgba(11, 70, 53, 0.22);
 }
 
 .btn-primary:hover {
-  background-color: var(--color-royal-blue-hover);
-  box-shadow: 0 4px 12px rgba(5, 150, 105, 0.25);
+  background-color: var(--color-forest-dark);
+  border-color: var(--color-gold-accent);
+  color: #ffffff !important;
+  box-shadow: 0 6px 18px rgba(197, 155, 75, 0.28);
   transform: translateY(-1px);
 }
 
 .btn-secondary {
   background-color: #ffffff;
-  color: var(--color-primary-navy);
+  color: var(--color-primary-navy) !important;
   border-color: var(--color-slate-300);
 }
 
 .btn-secondary:hover {
-  background-color: var(--color-slate-50);
-  border-color: var(--color-royal-blue);
-  color: var(--color-royal-blue);
+  background-color: var(--color-gold-light);
+  border-color: var(--color-gold-accent);
+  color: var(--color-gold-dark) !important;
 }
 
 .btn-teal {
-  background-color: var(--color-royal-blue);
-  color: #ffffff;
-  border: 1px solid rgba(0, 0, 0, 0.08);
+  background-color: var(--color-primary-navy);
+  color: #ffffff !important;
+  border: 1px solid rgba(197, 155, 75, 0.35);
+  box-shadow: 0 2px 8px rgba(11, 70, 53, 0.22);
 }
 
 .btn-teal:hover {
-  background-color: var(--color-royal-blue-hover);
-  box-shadow: 0 4px 12px rgba(5, 150, 105, 0.25);
+  background-color: var(--color-forest-dark);
+  border-color: var(--color-gold-accent);
+  color: #ffffff !important;
+  box-shadow: 0 6px 18px rgba(197, 155, 75, 0.28);
   transform: translateY(-1px);
 }
 
@@ -521,7 +555,7 @@ a {
 }
 
 .slider-dot.active-dot {
-  background-color: var(--color-teal-accent);
+  background-color: var(--color-gold-accent);
   width: 44px;
 }
 
@@ -545,10 +579,10 @@ a {
 }
 
 .slider-arrow-btn:hover {
-  background: var(--color-teal-accent);
-  color: #ffffff;
-  border-color: var(--color-teal-accent);
-  box-shadow: 0 4px 14px rgba(5, 150, 105, 0.35);
+  background: var(--color-primary-navy);
+  color: var(--color-gold-accent);
+  border-color: var(--color-gold-accent);
+  box-shadow: 0 4px 14px rgba(197, 155, 75, 0.35);
 }
 
 .slider-arrow-prev {
@@ -583,11 +617,11 @@ a {
 .academic-card-hover:hover,
 .subject-premium-box:hover {
   transform: translateY(-5px) scale(1.006);
-  border-color: #10B981 !important;
+  border-color: var(--color-gold-accent) !important;
   box-shadow: 
-    0 18px 30px -6px rgba(5, 150, 105, 0.16),
-    0 6px 12px -2px rgba(15, 23, 42, 0.05),
-    0 0 0 1.5px rgba(16, 185, 129, 0.28) !important;
+    0 18px 32px -6px rgba(11, 70, 53, 0.14),
+    0 6px 14px -2px rgba(197, 155, 75, 0.09),
+    0 0 0 1.5px rgba(197, 155, 75, 0.35) !important;
 }
 
 /* Elegant top accent shimmer on hover */
@@ -599,7 +633,7 @@ a {
   left: 0;
   right: 0;
   height: 3px;
-  background: linear-gradient(90deg, #10B981, #C59B4B, #059669);
+  background: linear-gradient(90deg, #0B4635, #C59B4B, #0B4635);
   opacity: 0;
   border-radius: 0.875rem 0.875rem 0 0;
   transition: opacity 0.3s ease, transform 0.3s ease;
@@ -671,10 +705,10 @@ a {
 }
 
 .subject-board-tab.active {
-  background-color: var(--color-royal-blue) !important;
+  background-color: var(--color-primary-navy) !important;
   color: #ffffff !important;
-  border-color: var(--color-royal-blue) !important;
-  box-shadow: 0 4px 10px rgba(5, 150, 105, 0.2);
+  border-color: var(--color-gold-accent) !important;
+  box-shadow: 0 4px 12px rgba(11, 70, 53, 0.25);
 }
 
 .subject-category-pill {
@@ -825,16 +859,24 @@ a {
   display: inline-flex;
   align-items: center;
   gap: 0.4rem;
-  padding: 0.35rem 0.85rem;
+  padding: 0.35rem 0.9rem;
   border-radius: 9999px;
-  font-size: 0.75rem;
+  font-family: var(--font-heading);
+  font-size: 0.72rem;
   font-weight: 700;
-  letter-spacing: 0.06em;
+  letter-spacing: 0.08em;
   text-transform: uppercase;
-  background-color: var(--color-royal-blue-light);
-  color: var(--color-royal-blue);
-  border: 1px solid rgba(5, 150, 105, 0.2);
+  background-color: var(--color-gold-light);
+  color: var(--color-gold-dark);
+  border: 1px solid var(--color-gold-border);
   margin-bottom: 0.75rem;
+  box-shadow: 0 1px 3px rgba(197, 155, 75, 0.1);
+}
+
+.section-badge-green {
+  background-color: #ECFDF5;
+  color: #0B4635;
+  border: 1px solid #A7F3D0;
 }
 
 .section-badge-teal {

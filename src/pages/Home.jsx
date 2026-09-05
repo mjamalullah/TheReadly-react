@@ -378,15 +378,15 @@ export const Home = () => {
             {/* Left Content (Dynamic Slider) */}
             <div className="lg:col-span-7 flex flex-col items-center md:items-start text-center md:text-left space-y-4 sm:space-y-5">
               
-              <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full text-xs font-bold bg-[#ECFDF5] text-[#059669] border border-[#A7F3D0] shadow-2xs">
-                {React.createElement(heroSlides[currentSlide].badgeIcon, { className: "w-3.5 h-3.5 shrink-0" })}
+              <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full text-xs font-bold bg-[#FEF9EE] text-[#936F1E] border border-[#E8D3A7] shadow-2xs">
+                {React.createElement(heroSlides[currentSlide].badgeIcon, { className: "w-3.5 h-3.5 shrink-0 text-[#C59B4B]" })}
                 <span className="truncate max-w-[260px] sm:max-w-none">{heroSlides[currentSlide].badge}</span>
               </div>
 
               <div className="space-y-1.5 sm:space-y-2 w-full">
                 <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-extrabold text-[#0B4635] font-heading tracking-tight leading-[1.2] sm:leading-[1.15]">
                   {heroSlides[currentSlide].titleMain}{' '}
-                  <span className="text-[#059669]">{heroSlides[currentSlide].titleHighlight}</span>
+                  <span className="text-[#C59B4B]">{heroSlides[currentSlide].titleHighlight}</span>
                 </h1>
                 <h2 className="text-base sm:text-lg md:text-xl font-bold text-slate-800">
                   {heroSlides[currentSlide].subtitle}
@@ -446,7 +446,7 @@ export const Home = () => {
                         {heroSlides[currentSlide].dialog.headerTitle}
                       </span>
                     </div>
-                    <span className="text-[10px] font-bold bg-[#ECFDF5] text-[#059669] px-2 py-0.5 rounded-full border border-emerald-200">
+                    <span className="text-[10px] font-bold bg-[#FEF9EE] text-[#936F1E] px-2 py-0.5 rounded-full border border-[#E8D3A7]">
                       {heroSlides[currentSlide].dialog.headerTag}
                     </span>
                   </div>
@@ -476,7 +476,7 @@ export const Home = () => {
                     onClick={() => setCurrentSlide(idx)}
                     aria-label={`Slide ${idx + 1}`}
                     className={`h-2.5 rounded-full transition-all duration-300 cursor-pointer ${
-                      currentSlide === idx ? 'w-8 bg-[#059669]' : 'w-2.5 bg-slate-300 hover:bg-slate-400'
+                      currentSlide === idx ? 'w-8 bg-[#C59B4B]' : 'w-2.5 bg-slate-300 hover:bg-slate-400'
                     }`}
                   />
                 ))}
@@ -639,19 +639,19 @@ export const Home = () => {
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6">
           <div className="card-base p-5 bg-white border-slate-200 text-center space-y-1">
-            <span className="text-2xl sm:text-3xl font-extrabold text-[#059669] font-heading block">4,500+</span>
+            <span className="text-2xl sm:text-3xl font-extrabold text-[#0B4635] font-heading block">4,500+</span>
             <span className="text-xs font-bold text-slate-800 block">Distinction Grades</span>
             <span className="text-[11px] text-slate-500">Verified CAIE & Edexcel</span>
           </div>
 
           <div className="card-base p-5 bg-white border-slate-200 text-center space-y-1">
-            <span className="text-2xl sm:text-3xl font-extrabold text-[#0B4635] font-heading block">98.4%</span>
+            <span className="text-2xl sm:text-3xl font-extrabold text-[#C59B4B] font-heading block">98.4%</span>
             <span className="text-xs font-bold text-slate-800 block">A* / A Pass Rate</span>
             <span className="text-[11px] text-slate-500">Documented Academic Proof</span>
           </div>
 
           <div className="card-base p-5 bg-white border-slate-200 text-center space-y-1">
-            <span className="text-2xl sm:text-3xl font-extrabold text-[#059669] font-heading block">15+ Years</span>
+            <span className="text-2xl sm:text-3xl font-extrabold text-[#0B4635] font-heading block">15+ Years</span>
             <span className="text-xs font-bold text-slate-800 block">CAIE Specialization</span>
             <span className="text-[11px] text-slate-500">Senior Examiner Faculty</span>
           </div>

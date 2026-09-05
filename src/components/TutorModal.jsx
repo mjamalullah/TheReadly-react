@@ -150,7 +150,7 @@ export const TutorModal = () => {
           onClick={(e) => e.stopPropagation()}
         >
           {/* Header */}
-          <div className="bg-[#0B4635] text-white p-5 sm:p-7 relative shrink-0">
+          <div className="bg-[#0B4635] text-white p-5 sm:p-7 relative shrink-0 border-b-2 border-[#C59B4B]">
             <button
               onClick={closeTutorModal}
               className="absolute top-4 right-4 sm:top-5 sm:right-5 p-2 rounded-full text-slate-300 hover:text-white hover:bg-white/10 transition-colors focus:outline-none"
@@ -159,8 +159,8 @@ export const TutorModal = () => {
               <X className="w-5 h-5" />
             </button>
             <div className="flex items-center gap-2 mb-2">
-              <span className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-[11px] font-bold bg-[#ECFDF5] text-[#059669]">
-                <GraduationCap className="w-3.5 h-3.5 text-[#059669]" />
+              <span className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-[11px] font-bold bg-[#FEF9EE] text-[#936F1E] border border-[#E8D3A7]">
+                <GraduationCap className="w-3.5 h-3.5 text-[#C59B4B]" />
                 Faculty Recruitment Guild
               </span>
             </div>
