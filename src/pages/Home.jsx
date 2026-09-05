@@ -169,16 +169,22 @@ export const Home = () => {
   // FAQ Accordion State
   const [openFaq, setOpenFaq] = useState(0);
 
-  // Quick Form state
-  const [quickForm, setQuickForm] = useState({
-    student_name: '',
-    parent_name: '',
+  // Join as Tutor Short Form state
+  const [tutorShortForm, setTutorShortForm] = useState({
+    name: '',
     country_code: '+92',
     whatsapp_phone: '',
-    program: 'Cambridge O-Level',
-    subject: 'Urdu - First Language (3247)'
+    email: '',
+    curriculum: 'Cambridge O-Level & IGCSE',
+    highest_qualification: "Master's Degree (M.Phil / MS / M.Sc)",
+    experience: '3–5 Years',
+    subjects: '',
+    cv_link: '',
+    bio: ''
   });
-  const [isQuickSubmitting, setIsQuickSubmitting] = useState(false);
+  const [isTutorSubmitting, setIsTutorSubmitting] = useState(false);
+  const [isTutorSubmitted, setIsTutorSubmitted] = useState(false);
+  const [tutorSubmittedData, setTutorSubmittedData] = useState(null);
 
   // 3s Auto Hero Slider
   useEffect(() => {
@@ -227,61 +233,77 @@ export const Home = () => {
     return tutor.category === selectedTutorCategory;
   });
 
-  const handleQuickSubmit = (e) => {
+  const handleTutorShortSubmit = async (e) => {
     e.preventDefault();
-    if (!quickForm.student_name.trim() || !quickForm.whatsapp_phone.trim()) {
-      showToast("Please enter Student Name and WhatsApp Number.", "error");
+    if (!tutorShortForm.name.trim() || !tutorShortForm.whatsapp_phone.trim() || !tutorShortForm.subjects.trim()) {
+      showToast("Please enter your Name, WhatsApp Number, and Subjects to Teach.", "error");
       return;
     }
 
-    setIsQuickSubmitting(true);
-    const fullWhatsApp = quickForm.whatsapp_phone.startsWith('+')
-      ? quickForm.whatsapp_phone
-      : `${quickForm.country_code} ${quickForm.whatsapp_phone}`;
+    setIsTutorSubmitting(true);
+    const fullWhatsApp = tutorShortForm.whatsapp_phone.startsWith('+')
+      ? tutorShortForm.whatsapp_phone
+      : `${tutorShortForm.country_code} ${tutorShortForm.whatsapp_phone}`;
 
     const payload = {
-      form_type: "Quick Homepage Demo Booking",
-      target_tab: "Admissions",
-      student_name: quickForm.student_name.trim(),
-      parent_name: quickForm.parent_name.trim() || 'N/A',
+      formType: "teacher",
+      form_type: "Homepage Pre-Footer Tutor Form",
+      target_tab: "Become a Teacher",
+      target_gid: READLY_CONFIG.tutorSheetGid || "1304058449",
+      name: tutorShortForm.name.trim(),
+      applicant_name: tutorShortForm.name.trim(),
       whatsapp: fullWhatsApp,
-      program: quickForm.program,
-      subject: quickForm.subject,
-      page: "Home Page Quick Form"
+      email: tutorShortForm.email.trim() || 'N/A',
+      highest_qualification: tutorShortForm.highest_qualification,
+      teaching_experience: tutorShortForm.experience,
+      target_curriculum: tutorShortForm.curriculum,
+      subjects: tutorShortForm.subjects.trim(),
+      weekly_availability: "Part-Time / Flexible",
+      cv_portfolio_url: tutorShortForm.cv_link.trim() || 'N/A',
+      statement_bio: tutorShortForm.bio.trim() || 'N/A',
+      page: "Home Page Pre-Footer Section"
     };
 
     if (READLY_CONFIG.enableGoogleSheetLogging && READLY_CONFIG.googleSheetWebAppUrl) {
-      fetch(READLY_CONFIG.googleSheetWebAppUrl, {
-        method: 'POST',
-        mode: 'no-cors',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(payload)
-      }).catch(err => console.warn('Google Sheet log notice:', err));
+      try {
+        await fetch(READLY_CONFIG.googleSheetWebAppUrl, {
+          method: 'POST',
+          mode: 'no-cors',
+          headers: { 'Content-Type': 'text/plain;charset=utf-8' },
+          body: JSON.stringify(payload)
+        });
+      } catch (err) {
+        console.warn('Google Sheet log notice:', err);
+      }
     }
 
-    const waLines = [
-      "Hello Team Readly,",
-      "",
-      "I am interested in admission at The Readly Institute and would like to book a Free Trial Demo Class.",
-      "",
-      "Here are my details:",
-      `• Student Name: ${quickForm.student_name.trim()}`,
-      quickForm.parent_name.trim() ? `• Parent Name: ${quickForm.parent_name.trim()}` : null,
-      `• WhatsApp: ${fullWhatsApp}`,
-      `• Program: ${quickForm.program}`,
-      `• Subject for Demo: ${quickForm.subject}`,
-      "",
-      "Looking forward to hearing from you. Thank you!"
-    ].filter(Boolean);
+    setTutorSubmittedData({
+      name: tutorShortForm.name.trim(),
+      whatsapp: fullWhatsApp,
+      subjects: tutorShortForm.subjects.trim(),
+      curriculum: tutorShortForm.curriculum
+    });
 
-    const waUrl = `https://wa.me/${READLY_CONFIG.whatsappNumber}?text=${encodeURIComponent(waLines.join('\n'))}`;
+    setIsTutorSubmitting(false);
+    setIsTutorSubmitted(true);
+    showToast("Application received! Our Academic Selection Committee will review your profile.", "success");
+  };
 
-    showToast(`Inquiry received for ${quickForm.student_name}! Opening WhatsApp...`, "success");
-
-    setTimeout(() => {
-      setIsQuickSubmitting(false);
-      window.open(waUrl, '_blank');
-    }, 600);
+  const handleResetTutorForm = () => {
+    setIsTutorSubmitted(false);
+    setTutorSubmittedData(null);
+    setTutorShortForm({
+      name: '',
+      country_code: '+92',
+      whatsapp_phone: '',
+      email: '',
+      curriculum: 'Cambridge O-Level & IGCSE',
+      highest_qualification: "Master's Degree (M.Phil / MS / M.Sc)",
+      experience: '3–5 Years',
+      subjects: '',
+      cv_link: '',
+      bio: ''
+    });
   };
 
   const faqs = [
@@ -1391,119 +1413,266 @@ export const Home = () => {
         </div>
       </section>
 
-      {/* ================= 10. QUICK TRIAL BOOKING FORM ================= */}
+      {/* ================= 10. JOIN AS TUTOR SHORT FORM ================= */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="card-base p-8 sm:p-12 bg-gradient-to-br from-[#0B4635] to-[#063326] text-white rounded-3xl shadow-xl">
-          <div className="grid lg:grid-cols-12 gap-8 items-center">
-            
-            <div className="lg:col-span-5 space-y-4">
-              <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-bold bg-[#ECFDF5] text-[#059669]">
-                <Sparkles className="w-3.5 h-3.5" /> Start Your Distinction Journey
-              </span>
-              <h2 className="text-3xl sm:text-4xl font-extrabold text-white font-heading">
-                Ready to Experience The Readly Standard?
-              </h2>
-              <p className="text-xs sm:text-sm text-slate-200 leading-relaxed">
-                Fill in your details to schedule a complimentary 1-on-1 diagnostic trial paper and consultation with our academic mentors.
-              </p>
-              <div className="space-y-2 text-xs text-emerald-300">
-                <div className="flex items-center gap-2">
-                  <CheckCircle2 className="w-4 h-4 text-emerald-400" />
-                  <span>No credit card or upfront deposit required</span>
+          {isTutorSubmitted && tutorSubmittedData ? (
+            /* Thank You / Confirmation State (No Auto-Redirect) */
+            <div className="bg-white text-slate-900 rounded-2xl p-8 sm:p-10 shadow-2xl text-center space-y-6 max-w-2xl mx-auto animate-fade-in">
+              <div className="w-16 h-16 bg-emerald-100 text-emerald-700 rounded-full flex items-center justify-center mx-auto">
+                <CheckCircle2 className="w-9 h-9" />
+              </div>
+              <div className="space-y-2">
+                <span className="inline-block px-3 py-1 bg-emerald-100 text-emerald-800 text-xs font-bold rounded-full">
+                  Faculty Application Received
+                </span>
+                <h3 className="text-2xl sm:text-3xl font-extrabold text-slate-900">
+                  Thank You, {tutorSubmittedData.name}!
+                </h3>
+                <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
+                  Your credentials for teaching <strong className="text-emerald-700">{tutorSubmittedData.subjects}</strong> ({tutorSubmittedData.curriculum}) have been successfully submitted to our Academic Faculty Desk.
+                </p>
+              </div>
+
+              <div className="bg-slate-50 border border-slate-200 rounded-xl p-4 text-xs text-left space-y-1.5 text-slate-700">
+                <div className="flex justify-between border-b border-slate-200 pb-1.5">
+                  <span className="text-slate-500">Applicant:</span>
+                  <span className="font-bold text-slate-900">{tutorSubmittedData.name}</span>
                 </div>
-                <div className="flex items-center gap-2">
-                  <CheckCircle2 className="w-4 h-4 text-emerald-400" />
-                  <span>Direct admissions coordinator reply within 1 hour</span>
+                <div className="flex justify-between border-b border-slate-200 pb-1.5">
+                  <span className="text-slate-500">Contact WhatsApp:</span>
+                  <span className="font-medium text-slate-800">{tutorSubmittedData.whatsapp}</span>
+                </div>
+                <div className="flex justify-between pt-1">
+                  <span className="text-slate-500">Review Status:</span>
+                  <span className="font-semibold text-emerald-700">Pending Evaluation (1–2 Days)</span>
                 </div>
               </div>
+
+              {/* Standalone Action Buttons (No auto-redirect) */}
+              <div className="flex flex-col sm:flex-row items-center justify-center gap-3 pt-2">
+                <a
+                  href={`https://wa.me/${READLY_CONFIG.whatsappNumber}?text=${encodeURIComponent(
+                    `Hello The Readly Institute Academic Desk,\n\nI have applied to join as a Tutor for ${tutorSubmittedData.subjects}.\n• Applicant: ${tutorSubmittedData.name}\n• Contact: ${tutorSubmittedData.whatsapp}\n\nLooking forward to speaking with the Academic Selection Committee!`
+                  )}`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="w-full sm:w-auto px-6 py-3 rounded-xl bg-[#25D366] hover:bg-[#20BA5A] text-white font-bold text-xs shadow-md transition-all flex items-center justify-center gap-2"
+                >
+                  <svg className="w-4 h-4 fill-current" viewBox="0 0 24 24">
+                    <path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.711 2.598 2.664-.699c.971.53 1.942.812 2.796.812 3.179 0 5.767-2.587 5.767-5.766.001-3.187-2.575-5.77-5.767-5.798zm3.364 8.163c-.141.396-.714.731-1.01.769-.283.036-.649.064-1.921-.462-1.397-.579-2.316-1.979-2.385-2.072-.07-.093-.565-.751-.565-1.433 0-.682.358-1.018.485-1.157.128-.139.278-.174.372-.174.093 0 .186.002.267.006.086.005.201-.033.314.24.118.283.402.977.437 1.047.035.07.058.152.012.245-.047.093-.07.151-.139.233-.07.081-.147.18-.21.244-.07.07-.143.146-.062.285.081.139.362.597.777.967.534.476.985.624 1.124.693.139.07.221.058.303-.035.082-.093.349-.408.442-.548.093-.14.186-.117.314-.07.128.047.814.384.954.454.14.07.233.105.267.163.035.058.035.337-.106.733z" />
+                    <path d="M12 2C6.477 2 2 6.477 2 12c0 1.821.487 3.53 1.338 5L2.05 22l5.167-1.323A9.957 9.957 0 0012 22c5.523 0 10-4.477 10-10S17.523 2 12 2zm0 18.167c-1.545 0-3.003-.437-4.247-1.196l-.304-.184-3.134.803.834-3.05-.201-.318A8.127 8.127 0 013.833 12C3.833 7.5 7.5 3.833 12 3.833S20.167 7.5 20.167 12 16.5 20.167 12 20.167z" />
+                  </svg>
+                  <span>Chat with Academic Desk on WhatsApp</span>
+                </a>
+                <button
+                  type="button"
+                  onClick={handleResetTutorForm}
+                  className="w-full sm:w-auto px-5 py-3 rounded-xl border border-slate-300 hover:bg-slate-100 text-slate-700 font-bold text-xs transition-colors cursor-pointer"
+                >
+                  Submit Another Application
+                </button>
+              </div>
             </div>
+          ) : (
+            <div className="grid lg:grid-cols-12 gap-8 items-center">
+              
+              {/* Left Column: Value Proposition */}
+              <div className="lg:col-span-5 space-y-4">
+                <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-bold bg-[#ECFDF5] text-[#059669]">
+                  <GraduationCap className="w-4 h-4" /> Faculty Recruitment Desk
+                </span>
+                <h2 className="text-3xl sm:text-4xl font-extrabold text-white font-heading leading-tight">
+                  Teach With The Readly Institute
+                </h2>
+                <p className="text-xs sm:text-sm text-slate-200 leading-relaxed">
+                  Join an elite faculty of Cambridge & Edexcel subject specialists. Mentor motivated students across Pakistan, the Middle East, and the UK from the convenience of your home.
+                </p>
 
-            <div className="lg:col-span-7">
-              <form onSubmit={handleQuickSubmit} className="bg-white p-6 sm:p-8 rounded-2xl text-slate-900 shadow-lg space-y-4 text-xs">
-                <div className="grid sm:grid-cols-2 gap-4">
-                  <div>
-                    <label className="block font-bold text-slate-700 mb-1">Student Name *</label>
-                    <input
-                      type="text"
-                      required
-                      value={quickForm.student_name}
-                      onChange={(e) => setQuickForm({ ...quickForm, student_name: e.target.value })}
-                      placeholder="e.g. Ali Raza"
-                      className="w-full bg-slate-50 border border-slate-300 rounded-lg px-3.5 py-2.5 text-slate-800 focus:outline-none focus:border-[#059669]"
-                    />
+                <div className="space-y-2.5 text-xs text-emerald-200 pt-2">
+                  <div className="flex items-center gap-2">
+                    <CheckCircle2 className="w-4 h-4 text-emerald-400 shrink-0" />
+                    <span>Competitive hourly remuneration with prompt direct payouts</span>
                   </div>
-                  <div>
-                    <label className="block font-bold text-slate-700 mb-1">Parent Name</label>
-                    <input
-                      type="text"
-                      value={quickForm.parent_name}
-                      onChange={(e) => setQuickForm({ ...quickForm, parent_name: e.target.value })}
-                      placeholder="e.g. Raza Mohammad"
-                      className="w-full bg-slate-50 border border-slate-300 rounded-lg px-3.5 py-2.5 text-slate-800 focus:outline-none focus:border-[#059669]"
-                    />
+                  <div className="flex items-center gap-2">
+                    <CheckCircle2 className="w-4 h-4 text-emerald-400 shrink-0" />
+                    <span>Flexible teaching schedules adapted to your availability</span>
                   </div>
-                </div>
-
-                <div className="grid sm:grid-cols-2 gap-4">
-                  <div>
-                    <label className="block font-bold text-slate-700 mb-1">WhatsApp Number *</label>
-                    <div className="flex rounded-lg border border-slate-300 focus-within:border-[#059669] focus-within:ring-1 focus-within:ring-[#059669] bg-white overflow-hidden shadow-xs">
-                      <select
-                        value={quickForm.country_code}
-                        onChange={(e) => setQuickForm({ ...quickForm, country_code: e.target.value })}
-                        className="bg-slate-50 border-r border-slate-200 px-2 py-2 text-slate-700 text-xs font-semibold focus:outline-none max-w-[130px] sm:max-w-[155px] truncate"
-                      >
-                        <optgroup label="⭐ Popular / Quick Select">
-                          {popularCountries.map(c => (
-                            <option key={c.name} value={c.code}>{c.flag} {c.name} ({c.code})</option>
-                          ))}
-                        </optgroup>
-                        <optgroup label="🌍 All Countries (A - Z)">
-                          {otherCountries.map(c => (
-                            <option key={c.name} value={c.code}>{c.flag} {c.name} ({c.code})</option>
-                          ))}
-                        </optgroup>
-                      </select>
-                      <input
-                        type="tel"
-                        required
-                        value={quickForm.whatsapp_phone}
-                        onChange={(e) => setQuickForm({ ...quickForm, whatsapp_phone: e.target.value })}
-                        placeholder="333 7221552"
-                        className="w-full bg-transparent px-3 py-2 text-slate-800 text-xs focus:outline-none"
-                      />
-                    </div>
-                  </div>
-
-                  <div>
-                    <label className="block font-bold text-slate-700 mb-1">Curriculum Board</label>
-                    <select
-                      value={quickForm.program}
-                      onChange={(e) => setQuickForm({ ...quickForm, program: e.target.value })}
-                      className="w-full bg-slate-50 border border-slate-300 rounded-lg px-3.5 py-2.5 text-slate-800 focus:outline-none focus:border-[#059669]"
-                    >
-                      <option>Cambridge O-Level</option>
-                      <option>Cambridge IGCSE</option>
-                      <option>Cambridge A-Level</option>
-                      <option>Pearson Edexcel</option>
-                      <option>IT & Professional Certifications</option>
-                    </select>
+                  <div className="flex items-center gap-2">
+                    <CheckCircle2 className="w-4 h-4 text-emerald-400 shrink-0" />
+                    <span>Verified topical question banks, LMS, and grading tools provided</span>
                   </div>
                 </div>
 
                 <div className="pt-2">
-                  <button
-                    type="submit"
-                    disabled={isQuickSubmitting}
-                    className="btn btn-teal w-full text-xs font-bold py-3 justify-center shadow-md"
+                  <Link
+                    to="/become-a-tutor"
+                    className="inline-flex items-center gap-2 text-xs font-bold text-white hover:text-emerald-300 underline underline-offset-4 transition-colors"
                   >
-                    {isQuickSubmitting ? "Sending & Opening WhatsApp..." : "Schedule Diagnostic Trial & Open WhatsApp"}
-                  </button>
+                    <span>View full faculty benefits & compensation details</span>
+                    <ArrowRight className="w-3.5 h-3.5" />
+                  </Link>
                 </div>
-              </form>
-            </div>
+              </div>
 
-          </div>
+              {/* Right Column: Short Application Form */}
+              <div className="lg:col-span-7">
+                <form onSubmit={handleTutorShortSubmit} className="bg-white p-6 sm:p-8 rounded-2xl text-slate-900 shadow-xl space-y-3.5 text-xs">
+                  
+                  <div className="grid sm:grid-cols-2 gap-3.5">
+                    <div>
+                      <label className="block font-bold text-slate-700 mb-1">Your Full Name *</label>
+                      <input
+                        type="text"
+                        required
+                        value={tutorShortForm.name}
+                        onChange={(e) => setTutorShortForm({ ...tutorShortForm, name: e.target.value })}
+                        placeholder="e.g. Dr. Salman Tariq"
+                        className="w-full bg-slate-50 border border-slate-300 rounded-lg px-3 py-2 text-slate-800 focus:outline-none focus:border-[#059669]"
+                      />
+                    </div>
+
+                    <div>
+                      <label className="block font-bold text-slate-700 mb-1">WhatsApp Phone *</label>
+                      <div className="flex rounded-lg border border-slate-300 focus-within:border-[#059669] bg-white overflow-hidden">
+                        <select
+                          value={tutorShortForm.country_code}
+                          onChange={(e) => setTutorShortForm({ ...tutorShortForm, country_code: e.target.value })}
+                          className="bg-slate-50 border-r border-slate-200 px-2 py-2 text-slate-700 text-xs font-semibold focus:outline-none max-w-[120px] truncate"
+                        >
+                          <optgroup label="⭐ Popular">
+                            {popularCountries.map(c => (
+                              <option key={c.name} value={c.code}>{c.flag} {c.name} ({c.code})</option>
+                            ))}
+                          </optgroup>
+                          <optgroup label="🌍 All Countries">
+                            {otherCountries.map(c => (
+                              <option key={c.name} value={c.code}>{c.flag} {c.name} ({c.code})</option>
+                            ))}
+                          </optgroup>
+                        </select>
+                        <input
+                          type="tel"
+                          required
+                          value={tutorShortForm.whatsapp_phone}
+                          onChange={(e) => setTutorShortForm({ ...tutorShortForm, whatsapp_phone: e.target.value })}
+                          placeholder="300 1234567"
+                          className="w-full bg-transparent px-3 py-2 text-slate-800 text-xs focus:outline-none"
+                        />
+                      </div>
+                    </div>
+                  </div>
+
+                  <div className="grid sm:grid-cols-2 gap-3.5">
+                    <div>
+                      <label className="block font-bold text-slate-700 mb-1">Email Address</label>
+                      <input
+                        type="email"
+                        value={tutorShortForm.email}
+                        onChange={(e) => setTutorShortForm({ ...tutorShortForm, email: e.target.value })}
+                        placeholder="tutor@example.com"
+                        className="w-full bg-slate-50 border border-slate-300 rounded-lg px-3 py-2 text-slate-800 focus:outline-none focus:border-[#059669]"
+                      />
+                    </div>
+
+                    <div>
+                      <label className="block font-bold text-slate-700 mb-1">Curriculum Board</label>
+                      <select
+                        value={tutorShortForm.curriculum}
+                        onChange={(e) => setTutorShortForm({ ...tutorShortForm, curriculum: e.target.value })}
+                        className="w-full bg-slate-50 border border-slate-300 rounded-lg px-3 py-2 text-slate-800 focus:outline-none focus:border-[#059669]"
+                      >
+                        <option>Cambridge O-Level & IGCSE</option>
+                        <option>Cambridge International A-Level</option>
+                        <option>Pearson Edexcel (IGCSE & IAL)</option>
+                        <option>IT & Professional Certifications</option>
+                      </select>
+                    </div>
+                  </div>
+
+                  <div className="grid sm:grid-cols-2 gap-3.5">
+                    <div>
+                      <label className="block font-bold text-slate-700 mb-1">Highest Qualification</label>
+                      <select
+                        value={tutorShortForm.highest_qualification}
+                        onChange={(e) => setTutorShortForm({ ...tutorShortForm, highest_qualification: e.target.value })}
+                        className="w-full bg-slate-50 border border-slate-300 rounded-lg px-3 py-2 text-slate-800 focus:outline-none focus:border-[#059669]"
+                      >
+                        <option>Ph.D. / Doctorate</option>
+                        <option>Master's Degree (M.Phil / MS / M.Sc)</option>
+                        <option>Bachelor's Degree (BS / B.Sc / BA)</option>
+                        <option>CA / ACCA / CFA</option>
+                      </select>
+                    </div>
+
+                    <div>
+                      <label className="block font-bold text-slate-700 mb-1">Teaching Experience</label>
+                      <select
+                        value={tutorShortForm.experience}
+                        onChange={(e) => setTutorShortForm({ ...tutorShortForm, experience: e.target.value })}
+                        className="w-full bg-slate-50 border border-slate-300 rounded-lg px-3 py-2 text-slate-800 focus:outline-none focus:border-[#059669]"
+                      >
+                        <option>1–2 Years</option>
+                        <option>3–5 Years</option>
+                        <option>5–10 Years</option>
+                        <option>10+ Years (Senior Specialist)</option>
+                      </select>
+                    </div>
+                  </div>
+
+                  <div>
+                    <label className="block font-bold text-slate-700 mb-1">Subject(s) You Wish to Teach *</label>
+                    <input
+                      type="text"
+                      required
+                      value={tutorShortForm.subjects}
+                      onChange={(e) => setTutorShortForm({ ...tutorShortForm, subjects: e.target.value })}
+                      placeholder="e.g. A-Level Pure Mathematics (9709), Physics (9702), Chemistry (9701)"
+                      className="w-full bg-slate-50 border border-slate-300 rounded-lg px-3 py-2 text-slate-800 focus:outline-none focus:border-[#059669]"
+                    />
+                  </div>
+
+                  <div>
+                    <label className="block font-bold text-slate-700 mb-1">Resume / CV Link (Google Drive / LinkedIn)</label>
+                    <input
+                      type="url"
+                      value={tutorShortForm.cv_link}
+                      onChange={(e) => setTutorShortForm({ ...tutorShortForm, cv_link: e.target.value })}
+                      placeholder="https://drive.google.com/... or LinkedIn profile URL"
+                      className="w-full bg-slate-50 border border-slate-300 rounded-lg px-3 py-2 text-slate-800 focus:outline-none focus:border-[#059669]"
+                    />
+                  </div>
+
+                  <div className="pt-1.5">
+                    <button
+                      type="submit"
+                      disabled={isTutorSubmitting}
+                      className="btn btn-teal w-full text-xs font-bold py-3 justify-center shadow-md cursor-pointer flex items-center gap-2"
+                    >
+                      {isTutorSubmitting ? (
+                        <>
+                          <svg className="animate-spin h-4 w-4 text-white" fill="none" viewBox="0 0 24 24">
+                            <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" />
+                            <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8v8H4z" />
+                          </svg>
+                          <span>Submitting Faculty Credentials...</span>
+                        </>
+                      ) : (
+                        <>
+                          <Send className="w-3.5 h-3.5" />
+                          <span>Submit Faculty Application</span>
+                        </>
+                      )}
+                    </button>
+                    <p className="text-[10px] text-slate-500 text-center mt-2">
+                      Submitting records your application securely. You will not be redirected automatically.
+                    </p>
+                  </div>
+                </form>
+              </div>
+
+            </div>
+          )}
         </div>
       </section>
 

@@ -61,7 +61,7 @@ function doPost(e) {
     var formType = (data.formType || data.form_type || "").toString().toLowerCase().trim();
     var targetSheet = null;
 
-    if (formType === "teacher" || formType.indexOf("tutor") !== -1) {
+    if (formType === "teacher" || formType.indexOf("tutor") !== -1 || (formType === "team" && (data.department === "Teacher / Tutor" || (data.role || "").toLowerCase().indexOf("teacher") !== -1))) {
       // ------------------------------------------------------------------------
       // TEACHER FORM ROUTE (gid=1304058449)
       // ------------------------------------------------------------------------
@@ -132,7 +132,60 @@ function doPost(e) {
 
       targetSheet.appendRow(teacherRow);
 
-    } else {
+    } else if (formType === "team" || formType.indexOf("staff") !== -1 || formType.indexOf("career") !== -1) {
+      // ------------------------------------------------------------------------
+      // JOIN OUR TEAM ROUTE (Admin, Marketing, General Staff)
+      // ------------------------------------------------------------------------
+      targetSheet = doc.getSheetByName("Team & Careers") ||
+                    doc.getSheetByName("Staff Applications") ||
+                    doc.getSheetByName("Careers");
+
+      if (!targetSheet) {
+        targetSheet = doc.insertSheet("Team & Careers");
+      }
+
+      var teamHeaders = [
+        "Timestamp (PKT)",
+        "Form Type",
+        "Applicant Name",
+        "Department / Role",
+        "WhatsApp Number",
+        "Email Address",
+        "City & Country",
+        "Highest Qualification",
+        "Experience",
+        "Key Skills / Tools",
+        "CV / Portfolio Link",
+        "Cover Note / Statement",
+        "Page Source"
+      ];
+
+      if (targetSheet.getLastRow() === 0) {
+        targetSheet.appendRow(teamHeaders);
+        var teamHeaderRange = targetSheet.getRange(1, 1, 1, teamHeaders.length);
+        teamHeaderRange.setFontWeight("bold");
+        teamHeaderRange.setBackground("#0B4635");
+        teamHeaderRange.setFontColor("#FFFFFF");
+        targetSheet.setFrozenRows(1);
+      }
+
+      var teamRow = [
+        timestamp,
+        "team",
+        data.name || data.applicant_name || "N/A",
+        data.department || data.role || "General Staff",
+        data.whatsapp || "N/A",
+        data.email || "N/A",
+        data.location || data.city_country || "N/A",
+        data.highest_qualification || data.qualification || "N/A",
+        data.experience || "N/A",
+        data.skills || data.subjects || "N/A",
+        data.cv_portfolio_url || data.portfolio_link || "N/A",
+        data.statement_bio || data.bio || data.message || "N/A",
+        data.page || "Join Our Team Page"
+      ];
+
+      targetSheet.appendRow(teamRow);
       // ------------------------------------------------------------------------
       // ADMISSION FORM ROUTE (gid=0 / Admissions)
       // ------------------------------------------------------------------------

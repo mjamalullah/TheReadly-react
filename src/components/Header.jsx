@@ -1,12 +1,13 @@
 import React, { useState } from 'react';
-import { NavLink, Link } from 'react-router-dom';
+import { NavLink, Link, useLocation } from 'react-router-dom';
 import { useModal } from '../context/ModalContext';
 import { READLY_CONFIG } from '../config/readlyConfig';
-import { Menu, X, PhoneCall, ChevronRight, GraduationCap } from 'lucide-react';
+import { Menu, X, PhoneCall, ChevronRight, ChevronDown, GraduationCap, Briefcase, Mail } from 'lucide-react';
 
 export const Header = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const { openBookingModal, openTutorModal } = useModal();
+  const location = useLocation();
 
   const navLinks = [
     { to: '/', label: 'Home' },
@@ -16,7 +17,6 @@ export const Header = () => {
     { to: '/how-it-works', label: 'How It Works' },
     { to: '/resources', label: 'Resources' },
     { to: '/about', label: 'About Us' },
-    { to: '/contact', label: 'Contact' },
   ];
 
   return (
@@ -50,6 +50,56 @@ export const Header = () => {
                 {link.label}
               </NavLink>
             ))}
+
+            {/* Contact Dropdown with Join Our Team */}
+            <div className="relative group">
+              <NavLink
+                to="/contact"
+                className={({ isActive }) =>
+                  `px-3.5 py-1.5 rounded-lg text-xs font-bold transition-all duration-200 flex items-center gap-1 cursor-pointer ${
+                    isActive || location.pathname === '/join-our-team'
+                      ? 'bg-white text-[#059669] shadow-xs'
+                      : 'text-slate-700 hover:text-[#059669] hover:bg-white/60'
+                  }`
+                }
+              >
+                <span>Contact</span>
+                <ChevronDown className="w-3.5 h-3.5 text-slate-400 group-hover:text-[#059669] group-hover:rotate-180 transition-transform duration-200" />
+              </NavLink>
+
+              <div className="absolute right-0 top-full pt-2 w-60 hidden group-hover:block animate-fade-in z-50">
+                <div className="bg-white rounded-xl shadow-xl border border-slate-200 p-1.5 space-y-1">
+                  <Link
+                    to="/contact"
+                    className="flex items-center gap-2.5 p-2 rounded-lg hover:bg-[#ECFDF5] text-slate-700 hover:text-[#059669] transition-colors"
+                  >
+                    <div className="w-7 h-7 rounded-lg bg-emerald-50 text-[#059669] flex items-center justify-center shrink-0">
+                      <Mail className="w-3.5 h-3.5" />
+                    </div>
+                    <div>
+                      <div className="text-xs font-bold">Contact Us</div>
+                      <div className="text-[10px] text-slate-500">Admissions & Support</div>
+                    </div>
+                  </Link>
+
+                  <Link
+                    to="/join-our-team"
+                    className="flex items-center gap-2.5 p-2 rounded-lg hover:bg-[#ECFDF5] text-slate-700 hover:text-[#059669] transition-colors"
+                  >
+                    <div className="w-7 h-7 rounded-lg bg-emerald-50 text-[#059669] flex items-center justify-center shrink-0">
+                      <Briefcase className="w-3.5 h-3.5" />
+                    </div>
+                    <div className="flex-1">
+                      <div className="text-xs font-bold flex items-center justify-between">
+                        <span>Join Our Team</span>
+                        <span className="text-[9px] bg-[#059669] text-white px-1.5 py-0.2 rounded-full uppercase font-bold">Hiring</span>
+                      </div>
+                      <div className="text-[10px] text-slate-500">Teachers, Admin & Staff</div>
+                    </div>
+                  </Link>
+                </div>
+              </div>
+            </div>
           </nav>
 
           {/* Right Header CTAs */}
@@ -142,6 +192,52 @@ export const Header = () => {
               </div>
             </NavLink>
           ))}
+
+          {/* Contact & Join Our Team in Mobile Drawer */}
+          <div className="pt-2 border-t border-slate-100 space-y-1">
+            <NavLink
+              to="/contact"
+              onClick={() => setMobileMenuOpen(false)}
+              className={({ isActive }) =>
+                `block px-3.5 py-2.5 rounded-lg text-sm font-bold transition-colors ${
+                  isActive
+                    ? 'bg-[#ECFDF5] text-[#059669]'
+                    : 'text-slate-800 hover:bg-slate-50 hover:text-[#059669]'
+                }`
+              }
+            >
+              <div className="flex items-center justify-between">
+                <div className="flex items-center gap-2">
+                  <Mail className="w-4 h-4 text-[#059669]" />
+                  <span>Contact Admissions</span>
+                </div>
+                <ChevronRight className="w-4 h-4 text-slate-400" />
+              </div>
+            </NavLink>
+
+            <NavLink
+              to="/join-our-team"
+              onClick={() => setMobileMenuOpen(false)}
+              className={({ isActive }) =>
+                `block px-3.5 py-2.5 rounded-lg text-sm font-bold transition-colors ${
+                  isActive
+                    ? 'bg-[#ECFDF5] text-[#059669]'
+                    : 'text-slate-800 hover:bg-slate-50 hover:text-[#059669]'
+                }`
+              }
+            >
+              <div className="flex items-center justify-between">
+                <div className="flex items-center gap-2">
+                  <Briefcase className="w-4 h-4 text-[#059669]" />
+                  <div className="flex items-center gap-2">
+                    <span>Join Our Team</span>
+                    <span className="text-[9px] bg-[#059669] text-white px-1.5 py-0.2 rounded-full uppercase font-bold">Hiring</span>
+                  </div>
+                </div>
+                <ChevronRight className="w-4 h-4 text-slate-400" />
+              </div>
+            </NavLink>
+          </div>
           <div className="pt-4 border-t border-slate-100 space-y-2.5">
             <button
               onClick={() => {

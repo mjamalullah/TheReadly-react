@@ -21,6 +21,7 @@ import { Resources } from './pages/Resources';
 import { Contact } from './pages/Contact';
 import { BookDemo } from './pages/BookDemo';
 import { BecomeTutor } from './pages/BecomeTutor';
+import { JoinOurTeam } from './pages/JoinOurTeam';
 import { SubjectDetail } from './pages/SubjectDetail';
 
 // Scroll to top on route change
@@ -50,6 +51,7 @@ export default function App() {
             <Route path="/how-it-works" element={<HowItWorks />} />
             <Route path="/resources" element={<Resources />} />
             <Route path="/contact" element={<Contact />} />
+            <Route path="/join-our-team" element={<JoinOurTeam />} />
             <Route path="/book-demo" element={<BookDemo />} />
             <Route path="/become-a-tutor" element={<BecomeTutor />} />
             <Route path="*" element={<Navigate to="/" replace />} />
