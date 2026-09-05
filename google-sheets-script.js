@@ -1,116 +1,89 @@
 /**
  * ==============================================================================
- * The Readly Institute — Multi-Tab Automated Google Sheet Backend Script
+ * UNIFIED GOOGLE APPS SCRIPT WEBHOOK ROUTER
+ * The Readly Institute — Admissions & Become a Teacher Forms
  * ==============================================================================
  * Spreadsheet: https://docs.google.com/spreadsheets/d/1Xwwv4QyLLeXdB5IVYdtPeuvNIOsYRBxgL4e3OVNJ20M/edit
  *
- * This script automatically routes incoming submissions to the correct tab:
- * 1. "Admissions" / "Inquiries" Tab -> For Student Demo Bookings, Consultations & Contact
- * 2. "Become a Teacher" Tab (gid=1304058449) -> For Teacher / Faculty Applications
- *
- * ==============================================================================
- * 🚀 UPDATE INSTRUCTIONS (1 MINUTE):
- * ==============================================================================
- * 1. Open your Google Sheet:
- *    https://docs.google.com/spreadsheets/d/1Xwwv4QyLLeXdB5IVYdtPeuvNIOsYRBxgL4e3OVNJ20M/edit
- * 2. Click on top menu: Extensions -> Apps Script
- * 3. Delete existing code in Code.gs and PASTE ALL the code below.
- * 4. Click the blue "Deploy" button (top right) -> choose "Manage deployments".
- * 5. Click the Pencil icon ✏️ (Edit) next to your Active deployment.
- * 6. Under "Version", select: "New version".
- * 7. Click "Deploy".
- *
- * DONE! Both Admissions and Teacher applications are now live and separated!
+ * Route 1: formType: "admission" -> Target Sheet GID: 0 ("Admissions")
+ * Route 2: formType: "teacher"   -> Target Sheet GID: 1304058449 ("Become a Teacher")
  * ==============================================================================
  */
 
 var SPREADSHEET_ID = "1Xwwv4QyLLeXdB5IVYdtPeuvNIOsYRBxgL4e3OVNJ20M";
-var TEACHER_TAB_GID = 1304058449;
+var ADMISSION_GID = 0;
+var TEACHER_GID = 1304058449;
+
+function getSheetByGid(spreadsheet, gid) {
+  var sheets = spreadsheet.getSheets();
+  for (var i = 0; i < sheets.length; i++) {
+    if (sheets[i].getSheetId() == gid) {
+      return sheets[i];
+    }
+  }
+  return null;
+}
 
 function doPost(e) {
   var lock = LockService.getScriptLock();
-  // Wait up to 10 seconds for other concurrent writes to clear
-  lock.tryLock(10000);
+  // Wait up to 15 seconds to prevent race conditions during concurrent form submissions
+  lock.tryLock(15000);
 
   try {
-    var doc = SpreadsheetApp.getActiveSpreadsheet();
-    if (!doc) {
+    // 1. Open Target Spreadsheet
+    var doc;
+    try {
       doc = SpreadsheetApp.openById(SPREADSHEET_ID);
+    } catch (openErr) {
+      doc = SpreadsheetApp.getActiveSpreadsheet();
     }
 
-    // 1. Parse incoming payload
+    if (!doc) {
+      throw new Error("Unable to open Spreadsheet with ID: " + SPREADSHEET_ID);
+    }
+
+    // 2. Parse Incoming Payload (handles raw JSON text and form-encoded data)
     var data = {};
     if (e.postData && e.postData.contents) {
       try {
         data = JSON.parse(e.postData.contents);
-      } catch (parseErr) {
+      } catch (jsonErr) {
         data = e.parameter || {};
       }
     } else if (e.parameter) {
       data = e.parameter;
     }
 
-    // Format timestamp in Pakistan Standard Time (PKT / UTC+5)
+    // 3. Timestamp (Formatted in PKT UTC+5)
     var timestamp = Utilities.formatDate(new Date(), "GMT+5", "yyyy-MM-dd HH:mm:ss");
 
-    // 2. Identify whether this is a Teacher Application or Admission/Student Inquiry
-    var formTypeLower = (data.form_type || "").toLowerCase();
-    var targetTabLower = (data.target_tab || "").toLowerCase();
-    var targetGid = data.target_gid ? String(data.target_gid) : "";
-
-    var isTeacherApplication = (
-      formTypeLower.indexOf("tutor") !== -1 ||
-      formTypeLower.indexOf("teacher") !== -1 ||
-      targetTabLower.indexOf("teacher") !== -1 ||
-      targetTabLower.indexOf("tutor") !== -1 ||
-      targetGid === String(TEACHER_TAB_GID)
-    );
-
+    // 4. Identify Form Type & Target Sheet
+    var formType = (data.formType || data.form_type || "").toString().toLowerCase().trim();
     var targetSheet = null;
 
-    if (isTeacherApplication) {
-      // --------------------------------------------------------------------------
-      // A. ROUTE TO: "BECOME A TEACHER" TAB
-      // --------------------------------------------------------------------------
-      // 1. Try finding by exact GID (1304058449)
-      var allSheets = doc.getSheets();
-      for (var i = 0; i < allSheets.length; i++) {
-        if (allSheets[i].getSheetId() == TEACHER_TAB_GID) {
-          targetSheet = allSheets[i];
-          break;
-        }
-      }
+    if (formType === "teacher" || formType.indexOf("tutor") !== -1) {
+      // ------------------------------------------------------------------------
+      // TEACHER FORM ROUTE (gid=1304058449)
+      // ------------------------------------------------------------------------
+      targetSheet = getSheetByGid(doc, TEACHER_GID);
 
-      // 2. If not found by GID, try common teacher tab names
+      // Fallback by sheet name if GID is re-assigned
       if (!targetSheet) {
-        var teacherNames = [
-          "become a teacher",
-          "Become a Teacher",
-          "Become a Tutor",
-          "become a tutor",
-          "Teachers",
-          "Faculty Applications",
-          "Tutor Applications"
-        ];
-        for (var j = 0; j < teacherNames.length; j++) {
-          var tSheet = doc.getSheetByName(teacherNames[j]);
-          if (tSheet) {
-            targetSheet = tSheet;
-            break;
-          }
-        }
+        targetSheet = doc.getSheetByName("Become a Teacher") ||
+                      doc.getSheetByName("become a teacher") ||
+                      doc.getSheetByName("Teachers") ||
+                      doc.getSheetByName("Become a Tutor");
       }
 
-      // 3. Fallback: Create tab if not exists
+      // If still not found, create the tab
       if (!targetSheet) {
         targetSheet = doc.insertSheet("Become a Teacher");
       }
 
-      // Teacher Tab Column Headers
       var teacherHeaders = [
         "Timestamp (PKT)",
         "Form Type",
-        "Teacher / Applicant Name",
+        "Teacher Name",
         "Email Address",
         "WhatsApp Number",
         "City & Country",
@@ -119,13 +92,12 @@ function doPost(e) {
         "Teaching Experience",
         "Curriculum Expertise",
         "Subjects to Teach",
-        "Preferred Availability",
-        "CV / LinkedIn Profile",
-        "Teaching Philosophy / Bio",
+        "Weekly Availability",
+        "CV / Portfolio URL",
+        "Bio / Teaching Philosophy",
         "Page Source"
       ];
 
-      // If tab is newly created or empty, format headers
       if (targetSheet.getLastRow() === 0) {
         targetSheet.appendRow(teacherHeaders);
         var tHeaderRange = targetSheet.getRange(1, 1, 1, teacherHeaders.length);
@@ -137,8 +109,8 @@ function doPost(e) {
 
       var teacherRow = [
         timestamp,
-        data.form_type || "Tutor Faculty Application",
-        data.applicant_name || data.name || data.student_name || "N/A",
+        "teacher",
+        data.name || data.applicant_name || data.student_name || "N/A",
         data.email || "N/A",
         data.whatsapp || "N/A",
         data.location || data.city_country || "N/A",
@@ -156,44 +128,25 @@ function doPost(e) {
       targetSheet.appendRow(teacherRow);
 
     } else {
-      // --------------------------------------------------------------------------
-      // B. ROUTE TO: "ADMISSIONS & BOOKINGS" TAB
-      // --------------------------------------------------------------------------
-      var admissionNames = [
-        "Admissions",
-        "admissions",
-        "Inquiries",
-        "Demo Bookings",
-        "Bookings",
-        "Sheet1",
-        "Sheet 1"
-      ];
+      // ------------------------------------------------------------------------
+      // ADMISSION FORM ROUTE (gid=0 / Admissions)
+      // ------------------------------------------------------------------------
+      targetSheet = getSheetByGid(doc, ADMISSION_GID);
 
-      for (var k = 0; k < admissionNames.length; k++) {
-        var aSheet = doc.getSheetByName(admissionNames[k]);
-        if (aSheet && aSheet.getSheetId() != TEACHER_TAB_GID) {
-          targetSheet = aSheet;
-          break;
-        }
-      }
-
-      // If not found by name, pick the first sheet that is not the teacher sheet
+      // Fallback by sheet name
       if (!targetSheet) {
-        var sList = doc.getSheets();
-        for (var m = 0; m < sList.length; m++) {
-          if (sList[m].getSheetId() != TEACHER_TAB_GID) {
-            targetSheet = sList[m];
-            break;
-          }
-        }
+        targetSheet = doc.getSheetByName("Admissions") ||
+                      doc.getSheetByName("admissions") ||
+                      doc.getSheetByName("Inquiries") ||
+                      doc.getSheetByName("Demo Bookings") ||
+                      doc.getSheetByName("Sheet1");
       }
 
-      // Final fallback: first sheet
+      // Fallback to first tab
       if (!targetSheet) {
         targetSheet = doc.getSheets()[0];
       }
 
-      // Admission Tab Column Headers
       var admissionHeaders = [
         "Timestamp (PKT)",
         "Form Type",
@@ -201,12 +154,12 @@ function doPost(e) {
         "Parent Name",
         "WhatsApp Number",
         "Email Address",
-        "Program",
-        "Grade / Year",
+        "Program / Curriculum",
+        "Grade / Level",
         "Subject",
         "Preferred Mentor",
-        "Exam Series",
-        "Notes / Message",
+        "Target Exam Series",
+        "Inquiry / Notes",
         "Page Source"
       ];
 
@@ -221,8 +174,8 @@ function doPost(e) {
 
       var admissionRow = [
         timestamp,
-        data.form_type || "Free Trial Demo Booking",
-        data.student_name || "N/A",
+        "admission",
+        data.student_name || data.name || "N/A",
         data.parent_name || "N/A",
         data.whatsapp || "N/A",
         data.email || "N/A",
@@ -238,10 +191,12 @@ function doPost(e) {
       targetSheet.appendRow(admissionRow);
     }
 
+    // Return clean JSON response
     return ContentService
       .createTextOutput(JSON.stringify({
         status: "success",
-        category: isTeacherApplication ? "Teacher Application" : "Admission Inquiry",
+        message: "Record added",
+        formType: (formType === "teacher" || formType.indexOf("tutor") !== -1) ? "teacher" : "admission",
         sheetName: targetSheet.getName(),
         sheetId: targetSheet.getSheetId(),
         row: targetSheet.getLastRow(),
@@ -253,7 +208,7 @@ function doPost(e) {
     return ContentService
       .createTextOutput(JSON.stringify({
         status: "error",
-        error: err.toString()
+        message: err.toString()
       }))
       .setMimeType(ContentService.MimeType.JSON);
   } finally {
@@ -263,6 +218,6 @@ function doPost(e) {
 
 function doGet(e) {
   return ContentService
-    .createTextOutput("The Readly Institute Multi-Tab Google Sheet Backend (Admissions & Teacher Applications) is active.")
+    .createTextOutput("The Readly Institute Google Apps Script Router (Admissions & Teacher Forms) is Online.")
     .setMimeType(ContentService.MimeType.TEXT);
 }

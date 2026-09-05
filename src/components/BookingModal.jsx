@@ -150,6 +150,7 @@ export const BookingModal = () => {
       : `${formData.country_code} ${formData.whatsapp_phone}`;
 
     const payload = {
+      formType: "admission",
       form_type: "Free Trial Demo Booking",
       target_tab: "Admissions",
       student_name: formData.student_name.trim(),
@@ -170,7 +171,7 @@ export const BookingModal = () => {
       fetch(READLY_CONFIG.googleSheetWebAppUrl, {
         method: 'POST',
         mode: 'no-cors',
-        headers: { 'Content-Type': 'application/json' },
+        headers: { 'Content-Type': 'text/plain;charset=utf-8' },
         body: JSON.stringify(payload)
       }).catch(err => console.warn('Google Sheet background log notice:', err));
     }

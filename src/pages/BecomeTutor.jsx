@@ -45,12 +45,14 @@ export const BecomeTutor = () => {
       : `${formData.country_code} ${formData.whatsapp}`;
 
     const payload = {
+      formType: "teacher",
       form_type: "Tutor Faculty Application",
       target_tab: "Become a Teacher",
       target_gid: READLY_CONFIG.tutorSheetGid || "1304058449",
       spreadsheet_id: READLY_CONFIG.spreadsheetId,
       spreadsheet_url: READLY_CONFIG.tutorGoogleSheetUrl,
       target_email: READLY_CONFIG.generalEmail || "info@thereadly.com",
+      name: formData.name.trim(),
       applicant_name: formData.name.trim(),
       email: formData.email.trim() || 'N/A',
       whatsapp: fullWhatsApp,
@@ -70,7 +72,7 @@ export const BecomeTutor = () => {
       fetch(READLY_CONFIG.googleSheetWebAppUrl, {
         method: 'POST',
         mode: 'no-cors',
-        headers: { 'Content-Type': 'application/json' },
+        headers: { 'Content-Type': 'text/plain;charset=utf-8' },
         body: JSON.stringify(payload)
       }).catch(err => console.warn('Google Sheet log notice:', err));
     }
