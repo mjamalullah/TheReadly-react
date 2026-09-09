@@ -353,10 +353,10 @@ export const Home = () => {
             >
               
               <div 
-                className="animate-hero-fade-slide inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full text-xs font-bold bg-[#FEF9EE] text-[#936F1E] border border-[#E8D3A7] shadow-2xs"
+                className="animate-hero-fade-slide inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full text-xs font-black bg-emerald-100 text-emerald-950 border border-emerald-300 shadow-2xs"
                 style={{ animationDelay: '0ms' }}
               >
-                {React.createElement(heroSlides[currentSlide].badgeIcon, { className: "w-3.5 h-3.5 shrink-0 text-[#C59B4B]" })}
+                {React.createElement(heroSlides[currentSlide].badgeIcon, { className: "w-3.5 h-3.5 shrink-0 text-emerald-700" })}
                 <span className="truncate max-w-[260px] sm:max-w-none">{heroSlides[currentSlide].badge}</span>
               </div>
 
@@ -366,7 +366,7 @@ export const Home = () => {
                   style={{ animationDelay: '90ms' }}
                 >
                   {heroSlides[currentSlide].titleMain}{' '}
-                  <span className="text-[#C59B4B]">{heroSlides[currentSlide].titleHighlight}</span>
+                  <span className="text-emerald-700 underline decoration-amber-400 decoration-wavy underline-offset-4">{heroSlides[currentSlide].titleHighlight}</span>
                 </h1>
                 <h2 
                   className="animate-hero-fade-slide text-base sm:text-lg md:text-xl font-bold text-slate-800"
@@ -749,20 +749,20 @@ export const Home = () => {
                           <span className="text-[10px] text-slate-500">9:00 AM – 1:00 PM PKT</span>
                         </div>
                       </div>
-                      <div className="p-2 rounded-lg bg-amber-50/60 border border-amber-200 flex items-center gap-2">
+                      <div className="p-2 rounded-lg bg-amber-50/80 border border-amber-200 flex items-center gap-2">
                         <span className="text-base">🌆</span>
                         <div>
-                          <span className="font-extrabold text-[#936F1E] block text-[11px]">Evening Batch</span>
-                          <span className="text-[10px] text-slate-500">4:30 PM – 8:30 PM PKT</span>
+                          <span className="font-black text-amber-900 block text-[11px]">Evening Batch</span>
+                          <span className="text-[10px] text-slate-600">4:30 PM – 8:30 PM PKT</span>
                         </div>
                       </div>
                     </div>
 
                     {/* 4 Subject Streams Covered */}
                     <div className="space-y-1.5">
-                      <div className="flex justify-between items-center text-[10px] font-bold text-slate-500 uppercase tracking-wider px-1">
+                      <div className="flex justify-between items-center text-[10px] font-black text-slate-600 uppercase tracking-wider px-1">
                         <span>Core Subject Offerings:</span>
-                        <span className="text-[#059669]">CAIE 4000/5000/7000 Series</span>
+                        <span className="text-emerald-800 font-bold">CAIE 4000/5000/7000 Series</span>
                       </div>
                       <div className="grid grid-cols-2 gap-1.5 text-xs">
                         <div className="p-2 rounded-lg bg-slate-50 border border-slate-200 hover:border-emerald-300 transition-colors">
@@ -786,17 +786,17 @@ export const Home = () => {
 
                     {/* 3 Key Benefits */}
                     <div className="grid grid-cols-3 gap-2 text-center text-xs pt-0.5">
-                      <div className="p-2 rounded-lg bg-emerald-50/60 border border-emerald-100">
-                        <span className="font-extrabold text-[#059669] block text-xs">15-Year Topical</span>
-                        <span className="text-[10px] text-slate-500 font-medium">Daily Homework Marking</span>
+                      <div className="p-2 rounded-lg bg-emerald-50/80 border border-emerald-200">
+                        <span className="font-black text-emerald-800 block text-xs">15-Year Topical</span>
+                        <span className="text-[10px] text-slate-600 font-medium">Daily Homework Marking</span>
                       </div>
-                      <div className="p-2 rounded-lg bg-amber-50/60 border border-amber-100">
-                        <span className="font-extrabold text-[#936F1E] block text-xs">Monthly Full Mocks</span>
-                        <span className="text-[10px] text-slate-500 font-medium">Exam Simulation</span>
+                      <div className="p-2 rounded-lg bg-amber-50/80 border border-amber-200">
+                        <span className="font-black text-amber-900 block text-xs">Monthly Full Mocks</span>
+                        <span className="text-[10px] text-slate-600 font-medium">Exam Simulation</span>
                       </div>
-                      <div className="p-2 rounded-lg bg-slate-50 border border-slate-200">
-                        <span className="font-extrabold text-[#0B4635] block text-xs">CAIE Registration</span>
-                        <span className="text-[10px] text-slate-500 font-medium">British Council Support</span>
+                      <div className="p-2 rounded-lg bg-slate-100 border border-slate-200">
+                        <span className="font-black text-[#0B4635] block text-xs">CAIE Registration</span>
+                        <span className="text-[10px] text-slate-600 font-medium">British Council Support</span>
                       </div>
                     </div>
 
@@ -951,57 +951,69 @@ export const Home = () => {
 
       {/* ================= 3.1 FEATURED SPOTLIGHT: FULL ONLINE O-LEVEL SCHOOLING & BATCHES ================= */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="card-base p-8 sm:p-12 bg-gradient-to-br from-[#041D15] via-[#0B4635] to-[#07261D] text-white rounded-3xl border-2 border-[#C59B4B]/70 shadow-2xl relative overflow-hidden">
+        <div className="card-base p-8 sm:p-12 bg-gradient-to-br from-emerald-50/90 via-white to-amber-50/50 text-slate-900 rounded-3xl border-2 border-emerald-600/30 shadow-xl relative overflow-hidden text-left">
           
-          {/* Subtle Background Glow Elements */}
-          <div className="absolute -right-24 -top-24 w-96 h-96 bg-[#C59B4B]/15 rounded-full blur-3xl pointer-events-none"></div>
-          <div className="absolute -left-24 -bottom-24 w-96 h-96 bg-emerald-400/10 rounded-full blur-3xl pointer-events-none"></div>
+          {/* Subtle Decorative Background Glow Elements */}
+          <div className="absolute -right-24 -top-24 w-96 h-96 bg-emerald-200/40 rounded-full blur-3xl pointer-events-none"></div>
+          <div className="absolute -left-24 -bottom-24 w-96 h-96 bg-amber-200/30 rounded-full blur-3xl pointer-events-none"></div>
 
           <div className="relative z-10 grid lg:grid-cols-12 gap-8 items-center">
             
             {/* Left Content */}
             <div className="lg:col-span-7 space-y-4 text-left">
               <div className="flex items-center gap-2 flex-wrap">
-                <span className="px-3.5 py-1.5 rounded-full text-xs font-black bg-gradient-to-r from-[#C59B4B] via-[#E5C07B] to-[#C59B4B] text-[#06251C] uppercase tracking-wider shadow-md flex items-center gap-1.5">
-                  <GraduationCap className="w-4 h-4" />
+                <span className="px-3.5 py-1.5 rounded-full text-xs font-black bg-[#0B4635] text-white uppercase tracking-wider shadow-sm flex items-center gap-1.5">
+                  <GraduationCap className="w-4 h-4 text-amber-400" />
                   <span>A Complete Virtual Cambridge School</span>
                 </span>
-                <span className="px-3 py-1 rounded-full text-xs font-bold bg-[#FEF9EE] text-[#0B4635] border border-[#E8D3A7] shadow-xs">
+                <span className="px-3 py-1 rounded-full text-xs font-extrabold bg-amber-100 text-amber-950 border border-amber-300">
                   Baqaida Schooling • Grades 9, 10 & 11
                 </span>
-                <span className="px-2.5 py-1 rounded-full text-xs font-bold bg-emerald-400/20 text-emerald-200 border border-emerald-400/30">
+                <span className="px-3 py-1 rounded-full text-xs font-extrabold bg-emerald-100 text-emerald-950 border border-emerald-300">
                   Zero Physical School Needed
                 </span>
               </div>
 
-              <h2 className="text-3xl sm:text-4xl lg:text-[44px] font-black font-heading text-white tracking-tight leading-[1.14]">
+              <h2 className="text-3xl sm:text-4xl lg:text-[44px] font-black font-heading text-slate-900 tracking-tight leading-[1.15]">
                 Full Online Cambridge O-Level School.
-                <span className="block mt-1 text-[#FFE58F] drop-shadow-md">
+                <span className="block mt-1.5 text-emerald-800 font-extrabold">
                   Study Full O-Level Just Like a Regular School.
                 </span>
               </h2>
 
-              <p className="text-emerald-100/90 text-sm sm:text-base leading-relaxed font-normal">
+              <p className="text-slate-700 text-sm sm:text-base leading-relaxed font-medium">
                 A formal online Cambridge school replacement. Get structured daily timetables, live interactive classes, daily 15-year topical past paper practice, homework marking, and British Council private candidate exam registration — all from home with zero physical school attendance needed.
               </p>
 
               {/* 4 Feature Badges */}
               <div className="grid sm:grid-cols-2 gap-2.5 pt-2 text-xs">
-                <div className="flex items-center gap-2.5 p-2.5 rounded-xl bg-black/25 border border-emerald-400/25 text-emerald-100">
-                  <span className="text-lg">🌅</span>
-                  <span><strong>Morning Batch:</strong> 9:00 AM – 1:00 PM PKT</span>
+                <div className="flex items-center gap-3 p-3 rounded-xl bg-white border-2 border-emerald-200/90 shadow-xs text-slate-900">
+                  <span className="text-xl">🌅</span>
+                  <div>
+                    <span className="text-slate-900 block font-black text-xs sm:text-sm">Morning Batch:</span>
+                    <span className="text-slate-600 text-xs">9:00 AM – 1:00 PM PKT</span>
+                  </div>
                 </div>
-                <div className="flex items-center gap-2.5 p-2.5 rounded-xl bg-black/25 border border-emerald-400/25 text-emerald-100">
-                  <span className="text-lg">🌆</span>
-                  <span><strong>Evening Batch:</strong> 4:30 PM – 8:30 PM PKT</span>
+                <div className="flex items-center gap-3 p-3 rounded-xl bg-white border-2 border-amber-200/90 shadow-xs text-slate-900">
+                  <span className="text-xl">🌆</span>
+                  <div>
+                    <span className="text-slate-900 block font-black text-xs sm:text-sm">Evening Batch:</span>
+                    <span className="text-slate-600 text-xs">4:30 PM – 8:30 PM PKT</span>
+                  </div>
                 </div>
-                <div className="flex items-center gap-2.5 p-2.5 rounded-xl bg-black/25 border border-emerald-400/25 text-emerald-100">
-                  <span className="text-lg">👥</span>
-                  <span><strong>Micro-Batches:</strong> Strictly 6 to 8 students</span>
+                <div className="flex items-center gap-3 p-3 rounded-xl bg-white border-2 border-emerald-200/90 shadow-xs text-slate-900">
+                  <span className="text-xl">👥</span>
+                  <div>
+                    <span className="text-slate-900 block font-black text-xs sm:text-sm">Micro-Batches:</span>
+                    <span className="text-slate-600 text-xs">Strictly 6 to 8 students</span>
+                  </div>
                 </div>
-                <div className="flex items-center gap-2.5 p-2.5 rounded-xl bg-black/25 border border-emerald-400/25 text-emerald-100">
-                  <span className="text-lg">🏛️</span>
-                  <span><strong>British Council:</strong> Complete exam entry support</span>
+                <div className="flex items-center gap-3 p-3 rounded-xl bg-white border-2 border-amber-200/90 shadow-xs text-slate-900">
+                  <span className="text-xl">🏛️</span>
+                  <div>
+                    <span className="text-slate-900 block font-black text-xs sm:text-sm">British Council:</span>
+                    <span className="text-slate-600 text-xs">Complete exam entry support</span>
+                  </div>
                 </div>
               </div>
 
@@ -1009,7 +1021,7 @@ export const Home = () => {
               <div className="flex flex-wrap items-center gap-3 pt-3">
                 <Link
                   to="/programs/online-o-level"
-                  className="btn btn-teal text-xs sm:text-sm font-extrabold py-3.5 px-6 shadow-xl hover:scale-[1.02] transition-all flex items-center gap-2 cursor-pointer"
+                  className="btn btn-teal text-xs sm:text-sm font-black py-3.5 px-6 shadow-md hover:shadow-lg transition-all flex items-center gap-2 cursor-pointer"
                 >
                   <span>Explore Dedicated O-Level School</span>
                   <ArrowRight className="w-4 h-4" />
@@ -1018,7 +1030,7 @@ export const Home = () => {
                 <button
                   type="button"
                   onClick={() => openBookingModal({ curriculum: 'Cambridge O-Level' })}
-                  className="px-5 py-3.5 rounded-xl text-xs sm:text-sm font-extrabold bg-gradient-to-r from-[#C59B4B] via-[#DFBA73] to-[#C59B4B] text-[#06251C] hover:shadow-lg hover:scale-[1.02] transition-all shadow-md flex items-center gap-2 cursor-pointer"
+                  className="px-5 py-3.5 rounded-xl text-xs sm:text-sm font-black bg-amber-400 hover:bg-amber-500 text-slate-950 hover:shadow-md transition-all flex items-center gap-2 cursor-pointer border border-amber-500"
                 >
                   <Users className="w-4 h-4" />
                   <span>Join Free Trial Batch Class</span>
@@ -1028,41 +1040,41 @@ export const Home = () => {
             </div>
 
             {/* Right Card: Subject Snapshot & Registration */}
-            <div className="lg:col-span-5 bg-white/10 backdrop-blur-md p-6 rounded-2xl border-2 border-[#C59B4B]/40 space-y-4 text-left shadow-xl">
-              <div className="flex items-center justify-between border-b border-white/15 pb-3">
+            <div className="lg:col-span-5 bg-white p-6 rounded-2xl border-2 border-emerald-600/30 space-y-4 text-left shadow-lg">
+              <div className="flex items-center justify-between border-b border-slate-200 pb-3">
                 <div>
-                  <span className="text-[10px] font-black text-[#FFE58F] uppercase tracking-widest block">Available Streams</span>
-                  <h4 className="text-base font-extrabold text-white font-heading">Full Schooling Subjects</h4>
+                  <span className="text-[11px] font-black text-emerald-800 uppercase tracking-widest block">Available Streams</span>
+                  <h4 className="text-base font-black text-slate-900 font-heading">Full Schooling Subjects</h4>
                 </div>
-                <span className="text-[10px] font-bold bg-[#C59B4B] text-[#06251C] px-2.5 py-0.5 rounded-full font-mono">
+                <span className="text-xs font-black bg-[#0B4635] text-white px-3 py-1 rounded-full font-mono shadow-xs">
                   2026 / 2027 Series
                 </span>
               </div>
 
-              <div className="space-y-2 text-xs">
-                <div className="p-2.5 rounded-xl bg-black/30 border border-white/10 flex items-center justify-between">
-                  <span className="font-bold text-slate-100">Sciences (Physics, Chem, Bio)</span>
-                  <span className="text-[11px] text-[#FFE58F] font-mono font-bold">Theory + ATP Lab</span>
+              <div className="space-y-2.5 text-xs">
+                <div className="p-3 rounded-xl bg-slate-50 border border-slate-200 flex items-center justify-between hover:bg-emerald-50/50 transition-colors">
+                  <span className="font-bold text-slate-900">Sciences (Physics, Chem, Bio)</span>
+                  <span className="text-xs font-black text-emerald-800 bg-emerald-100 border border-emerald-200 px-2.5 py-1 rounded font-mono">Theory + ATP Lab</span>
                 </div>
-                <div className="p-2.5 rounded-xl bg-black/30 border border-white/10 flex items-center justify-between">
-                  <span className="font-bold text-slate-100">Mathematics (4024 / 4037)</span>
-                  <span className="text-[11px] text-emerald-300 font-mono font-bold">P1, P2 Topical Mocks</span>
+                <div className="p-3 rounded-xl bg-slate-50 border border-slate-200 flex items-center justify-between hover:bg-emerald-50/50 transition-colors">
+                  <span className="font-bold text-slate-900">Mathematics (4024 / 4037)</span>
+                  <span className="text-xs font-black text-emerald-800 bg-emerald-100 border border-emerald-200 px-2.5 py-1 rounded font-mono">P1, P2 Topical Mocks</span>
                 </div>
-                <div className="p-2.5 rounded-xl bg-black/30 border border-white/10 flex items-center justify-between">
-                  <span className="font-bold text-slate-100">Languages (English & Urdu)</span>
-                  <span className="text-[11px] text-slate-200 font-mono">Directed Writing</span>
+                <div className="p-3 rounded-xl bg-slate-50 border border-slate-200 flex items-center justify-between hover:bg-emerald-50/50 transition-colors">
+                  <span className="font-bold text-slate-900">Languages (English & Urdu)</span>
+                  <span className="text-xs font-bold text-slate-700 bg-slate-200 px-2.5 py-1 rounded font-mono">Directed Writing</span>
                 </div>
-                <div className="p-2.5 rounded-xl bg-black/30 border border-white/10 flex items-center justify-between">
-                  <span className="font-bold text-slate-100">Pak Studies (2059) & Islamiyat (2058)</span>
-                  <span className="text-[11px] text-[#FFE58F] font-mono font-bold">Structured Rubrics</span>
+                <div className="p-3 rounded-xl bg-slate-50 border border-slate-200 flex items-center justify-between hover:bg-emerald-50/50 transition-colors">
+                  <span className="font-bold text-slate-900">Pak Studies (2059) & Islamiyat (2058)</span>
+                  <span className="text-xs font-black text-amber-900 bg-amber-100 border border-amber-200 px-2.5 py-1 rounded font-mono">Structured Rubrics</span>
                 </div>
               </div>
 
-              <div className="pt-2 border-t border-white/15 flex items-center justify-between text-xs">
-                <span className="text-slate-200 text-[11px]">Baqaida admission inquiries:</span>
+              <div className="pt-2 border-t border-slate-200 flex items-center justify-between text-xs">
+                <span className="text-slate-600 text-xs font-medium">Baqaida admission inquiries:</span>
                 <Link
                   to="/programs/online-o-level"
-                  className="font-extrabold text-[#FFE58F] hover:text-white underline flex items-center gap-1"
+                  className="font-black text-[#0B4635] hover:text-emerald-700 underline flex items-center gap-1 text-xs"
                 >
                   <span>View Full Timetable &rarr;</span>
                 </Link>

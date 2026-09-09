@@ -121,24 +121,26 @@ export const Programs = () => {
         <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-6 pb-6 border-b border-emerald-100">
           <div>
             <div className="flex items-center gap-2 mb-2 flex-wrap">
-              <span className="px-3.5 py-1 rounded-full text-xs font-black bg-[#0B4635] text-white uppercase tracking-wider flex items-center gap-1.5 shadow-xs">
-                <Icon name="graduation-cap" className="w-4 h-4 text-[#C59B4B]" />
+              <span className="px-3.5 py-1.5 rounded-full text-xs font-black bg-[#0B4635] text-white uppercase tracking-wider flex items-center gap-1.5 shadow-xs">
+                <Icon name="graduation-cap" className="w-4 h-4 text-amber-400" />
                 <span>Virtual Cambridge School</span>
               </span>
-              <span className="px-3 py-1 rounded-full text-xs font-bold bg-[#FEF9EE] text-[#0B4635] border border-[#E8D3A7]">
+              <span className="px-3 py-1 rounded-full text-xs font-black bg-amber-100 text-amber-950 border border-amber-300">
                 Baqaida Schooling Without Physical Attendance
               </span>
-              <span className="px-2.5 py-0.5 rounded-full text-xs font-bold bg-emerald-100/80 text-[#059669]">
+              <span className="px-3 py-1 rounded-full text-xs font-black bg-emerald-100 text-emerald-950 border border-emerald-300">
                 Morning & Evening Batches
               </span>
             </div>
-            <h3 className="text-2xl sm:text-4xl font-black text-[#0B4635] font-heading">
-              Full-Fledged Online Cambridge O-Level <span className="text-[#C59B4B]">School.</span>
+            <h3 className="text-2xl sm:text-4xl font-black text-slate-900 font-heading">
+              Full-Fledged Online Cambridge O-Level <span className="text-emerald-700 underline decoration-amber-400 decoration-wavy underline-offset-8">School.</span>
             </h3>
-            <p className="text-sm font-bold text-[#059669] mt-1">
-              Study Full O-Level Just Like a Regular School — Complete Daily Classes & Exam Entry
-            </p>
-            <p className="text-sm text-slate-600 mt-1.5 max-w-3xl leading-relaxed">
+            <div className="p-2.5 rounded-lg bg-emerald-50 border-l-4 border-emerald-600 my-2 inline-block">
+              <p className="text-sm sm:text-base font-black text-[#0B4635]">
+                Study Full O-Level Just Like a Regular School — Complete Daily Classes & Exam Entry
+              </p>
+            </div>
+            <p className="text-sm text-slate-700 mt-1 max-w-3xl leading-relaxed font-medium">
               Designed specifically for students who want to study Cambridge O-Level completely from home without going to a conventional physical school. Get structured daily classes, interactive small batches (max 6–8 students), daily topical past paper solving, and full British Council private candidate exam registration assistance.
             </p>
           </div>
@@ -732,9 +734,11 @@ export const Programs = () => {
 
     {/*  BOTTOM CTA  */}
     <section className="py-16 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
-      <div className="card-base p-8 sm:p-12 bg-gradient-to-br from-emerald-50/60 via-white to-amber-50/40 text-center rounded-2xl border border-emerald-200/80 shadow-sm">
-        <h2 className="text-3xl font-extrabold font-heading mb-3 text-[#0B4635]">Not sure which program matches your <span className="text-[#C59B4B]">goals?</span></h2>
-        <p className="text-slate-600 text-sm max-w-xl mx-auto mb-6">
+      <div className="card-base p-8 sm:p-12 bg-gradient-to-br from-emerald-50/90 via-white to-amber-50/50 text-center rounded-2xl border-2 border-emerald-600/30 shadow-md">
+        <h2 className="text-3xl sm:text-4xl font-black font-heading mb-3 text-slate-900">
+          Not sure which program matches your <span className="text-emerald-700 underline decoration-amber-400 decoration-wavy underline-offset-8">goals?</span>
+        </h2>
+        <p className="text-slate-700 text-sm sm:text-base max-w-xl mx-auto mb-6 font-medium">
           Our senior academic advisor will evaluate your previous scores, examination series, and target universities free of charge.
         </p>
         <button

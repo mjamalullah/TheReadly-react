@@ -117,27 +117,29 @@ export const OnlineOLevel = () => {
             {/* Left Content */}
             <div className="lg:col-span-7 space-y-5 text-left">
               <div className="flex items-center gap-2 flex-wrap">
-                <span className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-gradient-to-r from-[#0B4635] to-[#043326] text-white border border-[#C59B4B] text-xs font-black shadow-xs">
-                  <GraduationCap className="w-4 h-4 text-[#C59B4B]" />
+                <span className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#0B4635] text-white border border-[#0B4635] text-xs font-black shadow-xs">
+                  <GraduationCap className="w-4 h-4 text-amber-400" />
                   <span className="tracking-wide uppercase">The Readly Virtual School • Cambridge O-Level</span>
                 </span>
-                <span className="px-3 py-1 rounded-full text-xs font-bold bg-[#FEF9EE] text-[#936F1E] border border-[#E8D3A7]">
+                <span className="px-3 py-1 rounded-full text-xs font-black bg-amber-100 text-amber-950 border border-amber-300">
                   Baqaida Schooling • Grades 9, 10 & 11
                 </span>
-                <span className="px-2.5 py-1 rounded-full text-xs font-bold bg-emerald-50 text-[#059669] border border-emerald-200">
+                <span className="px-3 py-1 rounded-full text-xs font-black bg-emerald-100 text-emerald-950 border border-emerald-300">
                   Zero Physical School Needed
                 </span>
               </div>
 
-              <h1 className="text-3xl sm:text-5xl lg:text-[54px] font-black text-[#0B4635] font-heading tracking-tight leading-[1.12]">
-                Full-Fledged Online <span className="text-[#C59B4B] bg-gradient-to-r from-[#B38838] via-[#C59B4B] to-[#936F1E] bg-clip-text text-transparent underline decoration-[#C59B4B]/40 decoration-wavy underline-offset-8">Cambridge O-Level School.</span>
+              <h1 className="text-3xl sm:text-5xl lg:text-[54px] font-black text-slate-900 font-heading tracking-tight leading-[1.12]">
+                Full-Fledged Online <span className="text-emerald-700 underline decoration-amber-400 decoration-wavy underline-offset-8">Cambridge O-Level School.</span>
               </h1>
 
-              <p className="text-base sm:text-xl font-bold text-[#059669] font-heading">
-                Study Full O-Level Just Like a Regular School — Structured Daily Classes from Home
-              </p>
+              <div className="p-3.5 rounded-xl bg-emerald-50 border-l-4 border-emerald-600">
+                <p className="text-base sm:text-xl font-black text-[#0B4635] font-heading">
+                  Study Full O-Level Just Like a Regular School — Structured Daily Classes from Home
+                </p>
+              </div>
 
-              <p className="text-slate-600 text-sm sm:text-base leading-relaxed max-w-2xl">
+              <p className="text-slate-700 text-sm sm:text-base leading-relaxed max-w-2xl font-medium">
                 A complete accredited virtual school designed for homeschoolers, private candidates, and independent students. Complete your full Cambridge O-Level (CAIE) curriculum from home with structured daily timetables (Morning & Evening batches), daily 15-year topical past paper practice, weekly assessments, and end-to-end British Council private exam registration support.
               </p>
 
@@ -198,38 +200,38 @@ export const OnlineOLevel = () => {
                       Online Schooling Portal • Grade 10 Batch 02
                     </span>
                   </div>
-                  <span className="text-[10px] font-bold bg-[#0B4635] text-amber-300 border border-[#C59B4B]/40 px-2 py-0.5 rounded-full">
+                  <span className="text-xs font-black bg-amber-400 text-slate-950 px-3 py-1 rounded-full shadow-xs">
                     ● Enrolling Now
                   </span>
                 </div>
 
                 {/* Body Content */}
                 <div className="p-5 space-y-3.5 bg-white text-left">
-                  <div className="p-3 rounded-xl bg-gradient-to-r from-emerald-50 via-[#FEF9EE] to-amber-50/60 border border-emerald-200/80 flex items-center justify-between">
+                  <div className="p-3 rounded-xl bg-gradient-to-r from-emerald-50 via-white to-amber-50/60 border border-emerald-200 flex items-center justify-between">
                     <div>
-                      <span className="text-[10px] font-extrabold text-[#0B4635] uppercase tracking-wider block">Cohort Track</span>
-                      <h4 className="text-xs font-extrabold text-slate-900 font-heading">
+                      <span className="text-[10px] font-black text-emerald-800 uppercase tracking-wider block">Cohort Track</span>
+                      <h4 className="text-xs font-black text-slate-900 font-heading">
                         Cambridge O-Level Complete Package
                       </h4>
-                      <p className="text-[11px] text-slate-500">Sciences, Math, English & Pak Studies</p>
+                      <p className="text-[11px] text-slate-600">Sciences, Math, English & Pak Studies</p>
                     </div>
-                    <span className="text-[10px] font-bold bg-[#059669] text-white px-2 py-1 rounded">
+                    <span className="text-[10px] font-black bg-emerald-700 text-white px-2.5 py-1 rounded">
                       Homeschool Ready
                     </span>
                   </div>
 
                   {/* Batch Timings */}
                   <div className="grid grid-cols-2 gap-2 text-xs">
-                    <div className="p-2.5 rounded-lg bg-emerald-50/70 border border-emerald-200">
+                    <div className="p-2.5 rounded-lg bg-emerald-50/80 border border-emerald-200">
                       <span className="text-base block mb-0.5">🌅</span>
-                      <span className="font-extrabold text-[#0B4635] block text-[11px]">Morning Cohort</span>
-                      <span className="text-[10px] text-slate-500 font-mono">9:00 AM – 1:00 PM PKT</span>
+                      <span className="font-black text-[#0B4635] block text-[11px]">Morning Cohort</span>
+                      <span className="text-[10px] text-slate-600 font-mono">9:00 AM – 1:00 PM PKT</span>
                     </div>
 
-                    <div className="p-2.5 rounded-lg bg-amber-50/60 border border-amber-200">
+                    <div className="p-2.5 rounded-lg bg-amber-50/80 border border-amber-200">
                       <span className="text-base block mb-0.5">🌆</span>
-                      <span className="font-extrabold text-[#936F1E] block text-[11px]">Evening Cohort</span>
-                      <span className="text-[10px] text-slate-500 font-mono">4:30 PM – 8:30 PM PKT</span>
+                      <span className="font-black text-amber-900 block text-[11px]">Evening Cohort</span>
+                      <span className="text-[10px] text-slate-600 font-mono">4:30 PM – 8:30 PM PKT</span>
                     </div>
                   </div>
 
@@ -284,17 +286,17 @@ export const OnlineOLevel = () => {
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8">
         <div className="text-center max-w-2xl mx-auto">
           <span className="section-badge">Student Pathways</span>
-          <h2 className="text-3xl font-extrabold text-[#0B4635] font-heading mt-2">
-            Who Is This <span className="text-[#C59B4B]">Program For?</span>
+          <h2 className="text-3xl font-black text-slate-900 font-heading mt-2">
+            Who Is This <span className="text-emerald-700">Program For?</span>
           </h2>
-          <p className="text-slate-600 text-xs sm:text-sm mt-2">
+          <p className="text-slate-700 text-xs sm:text-sm mt-2 font-medium">
             Whether you choose not to attend a physical school or seek intensive exam excellence, Readly provides complete academic accreditation.
           </p>
         </div>
 
         <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
           <div className="p-6 rounded-2xl bg-white border border-slate-200 hover:border-emerald-500 hover:shadow-lg transition-all space-y-3 text-left">
-            <div className="w-10 h-10 rounded-xl bg-emerald-50 text-[#059669] flex items-center justify-center font-bold text-lg">
+            <div className="w-10 h-10 rounded-xl bg-emerald-100 text-emerald-800 flex items-center justify-center font-bold text-lg">
               🏡
             </div>
             <h3 className="text-base font-extrabold text-slate-900 font-heading">Full-Time Homeschoolers</h3>
@@ -304,7 +306,7 @@ export const OnlineOLevel = () => {
           </div>
 
           <div className="p-6 rounded-2xl bg-white border border-slate-200 hover:border-emerald-500 hover:shadow-lg transition-all space-y-3 text-left">
-            <div className="w-10 h-10 rounded-xl bg-amber-50 text-[#936F1E] flex items-center justify-center font-bold text-lg">
+            <div className="w-10 h-10 rounded-xl bg-amber-100 text-amber-900 flex items-center justify-center font-bold text-lg">
               🎯
             </div>
             <h3 className="text-base font-extrabold text-slate-900 font-heading">Private Candidates</h3>
@@ -314,7 +316,7 @@ export const OnlineOLevel = () => {
           </div>
 
           <div className="p-6 rounded-2xl bg-white border border-slate-200 hover:border-emerald-500 hover:shadow-lg transition-all space-y-3 text-left">
-            <div className="w-10 h-10 rounded-xl bg-emerald-50 text-[#059669] flex items-center justify-center font-bold text-lg">
+            <div className="w-10 h-10 rounded-xl bg-emerald-100 text-emerald-800 flex items-center justify-center font-bold text-lg">
               🌍
             </div>
             <h3 className="text-base font-extrabold text-slate-900 font-heading">Overseas & Expat Families</h3>
@@ -324,7 +326,7 @@ export const OnlineOLevel = () => {
           </div>
 
           <div className="p-6 rounded-2xl bg-white border border-slate-200 hover:border-emerald-500 hover:shadow-lg transition-all space-y-3 text-left">
-            <div className="w-10 h-10 rounded-xl bg-amber-50 text-[#936F1E] flex items-center justify-center font-bold text-lg">
+            <div className="w-10 h-10 rounded-xl bg-amber-100 text-amber-900 flex items-center justify-center font-bold text-lg">
               📈
             </div>
             <h3 className="text-base font-extrabold text-slate-900 font-heading">Grade Retake & Acceleration</h3>
@@ -341,10 +343,10 @@ export const OnlineOLevel = () => {
           
           <div className="text-center max-w-2xl mx-auto">
             <span className="section-badge">Flexible Schedules</span>
-            <h2 className="text-2xl sm:text-3xl font-extrabold text-[#0B4635] font-heading mt-2">
-              Choose Your Daily <span className="text-[#C59B4B]">Batch Timetable</span>
+            <h2 className="text-2xl sm:text-3xl font-black text-slate-900 font-heading mt-2">
+              Choose Your Daily <span className="text-emerald-700">Batch Timetable</span>
             </h2>
-            <p className="text-slate-600 text-xs sm:text-sm mt-1">
+            <p className="text-slate-700 text-xs sm:text-sm mt-1 font-medium">
               Select the batch that perfectly complements your family's daily lifestyle. All batches include the identical comprehensive curriculum and topical past-paper training.
             </p>
           </div>
@@ -397,26 +399,26 @@ export const OnlineOLevel = () => {
                 <div className="flex items-center gap-2">
                   <span className="text-2xl">🌆</span>
                   <div>
-                    <h3 className="text-base font-extrabold text-[#936F1E] font-heading">Evening Batch (After School)</h3>
+                    <h3 className="text-base font-black text-amber-900 font-heading">Evening Batch (After School)</h3>
                     <span className="text-xs font-mono text-slate-500">4:30 PM – 8:30 PM PKT / GMT+5</span>
                   </div>
                 </div>
-                <span className="text-[10px] font-bold bg-[#FEF9EE] text-[#936F1E] px-2.5 py-1 rounded-full border border-[#E8D3A7]">
+                <span className="text-[10px] font-black bg-amber-100 text-amber-950 px-2.5 py-1 rounded-full border border-amber-300">
                   Overseas / Flexible
                 </span>
               </div>
 
               <ul className="space-y-2.5 text-xs text-slate-700">
                 <li className="flex items-start gap-2">
-                  <CheckCircle2 className="w-4 h-4 text-[#C59B4B] shrink-0 mt-0.5" />
+                  <CheckCircle2 className="w-4 h-4 text-amber-600 font-bold shrink-0 mt-0.5" />
                   <span><strong>Ideal for Middle East Time Zones:</strong> Aligns seamlessly with UAE (+1 hr) and Saudi Arabia (+2 hrs) timelines.</span>
                 </li>
                 <li className="flex items-start gap-2">
-                  <CheckCircle2 className="w-4 h-4 text-[#C59B4B] shrink-0 mt-0.5" />
+                  <CheckCircle2 className="w-4 h-4 text-amber-600 font-bold shrink-0 mt-0.5" />
                   <span><strong>Convenient for Working Parents:</strong> Parents can observe their children's classes and homework reviews in the evening.</span>
                 </li>
                 <li className="flex items-start gap-2">
-                  <CheckCircle2 className="w-4 h-4 text-[#C59B4B] shrink-0 mt-0.5" />
+                  <CheckCircle2 className="w-4 h-4 text-amber-600 font-bold shrink-0 mt-0.5" />
                   <span><strong>Live Whiteboard Recordings:</strong> Backup recordings available immediately if evening dinner or family events arise.</span>
                 </li>
               </ul>
@@ -424,7 +426,7 @@ export const OnlineOLevel = () => {
               <button
                 type="button"
                 onClick={() => openBookingModal({ curriculum: 'Cambridge O-Level' })}
-                className="btn btn-secondary w-full text-xs font-bold py-2.5 justify-center cursor-pointer border-[#C59B4B] text-[#936F1E] hover:bg-[#FEF9EE]"
+                className="btn btn-secondary w-full text-xs font-black py-2.5 justify-center cursor-pointer border-amber-400 text-slate-900 bg-amber-50 hover:bg-amber-100"
               >
                 <span>Register for Evening Batch</span>
                 <ArrowRight className="w-3.5 h-3.5" />
@@ -439,8 +441,8 @@ export const OnlineOLevel = () => {
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8">
         <div className="text-center max-w-2xl mx-auto">
           <span className="section-badge">Curriculum Coverage</span>
-          <h2 className="text-3xl font-extrabold text-[#0B4635] font-heading mt-2">
-            Complete Cambridge O-Level <span className="text-[#C59B4B]">Subject Packages</span>
+          <h2 className="text-3xl font-black text-slate-900 font-heading mt-2">
+            Complete Cambridge O-Level <span className="text-emerald-700">Subject Packages</span>
           </h2>
           <p className="text-slate-600 text-xs sm:text-sm mt-2">
             Our batch classes cover all core subjects required by Cambridge Assessment International Education and university equivalence boards.
@@ -477,17 +479,17 @@ export const OnlineOLevel = () => {
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8">
         <div className="text-center max-w-2xl mx-auto">
           <span className="section-badge">Pedagogical Framework</span>
-          <h2 className="text-3xl font-extrabold text-[#0B4635] font-heading mt-2">
-            How Our Online Schooling <span className="text-[#C59B4B]">Produces Straight A*s</span>
+          <h2 className="text-3xl font-black text-slate-900 font-heading mt-2">
+            How Our Online Schooling <span className="text-emerald-700">Produces Straight A*s</span>
           </h2>
-          <p className="text-slate-600 text-xs sm:text-sm mt-2">
+          <p className="text-slate-700 text-xs sm:text-sm mt-2 font-medium">
             We don't leave homeschoolers to self-study. We run a rigorous, instructor-guided framework that ensures every student peaks at exam time.
           </p>
         </div>
 
         <div className="grid sm:grid-cols-2 lg:grid-cols-5 gap-4 text-left">
           <div className="p-5 rounded-2xl bg-white border border-slate-200 space-y-2.5">
-            <span className="text-2xl font-black text-[#C59B4B] font-mono block">01</span>
+            <span className="text-2xl font-black text-emerald-700 font-mono block">01</span>
             <h4 className="text-sm font-extrabold text-slate-900 font-heading">Concept Foundations</h4>
             <p className="text-xs text-slate-600 leading-relaxed">
               Crystal-clear live instruction using interactive digital whiteboards and graphic tablets. Every formula derivation explained from root principles.
@@ -495,7 +497,7 @@ export const OnlineOLevel = () => {
           </div>
 
           <div className="p-5 rounded-2xl bg-white border border-slate-200 space-y-2.5">
-            <span className="text-2xl font-black text-[#C59B4B] font-mono block">02</span>
+            <span className="text-2xl font-black text-emerald-700 font-mono block">02</span>
             <h4 className="text-sm font-extrabold text-slate-900 font-heading">Daily Topical Drilling</h4>
             <p className="text-xs text-slate-600 leading-relaxed">
               No generic textbook exercises. Students solve 15 years of past Cambridge exam questions topical-by-topical immediately after each chapter.
@@ -503,7 +505,7 @@ export const OnlineOLevel = () => {
           </div>
 
           <div className="p-5 rounded-2xl bg-white border border-slate-200 space-y-2.5">
-            <span className="text-2xl font-black text-[#C59B4B] font-mono block">03</span>
+            <span className="text-2xl font-black text-emerald-700 font-mono block">03</span>
             <h4 className="text-sm font-extrabold text-slate-900 font-heading">Examiner Mark Schemes</h4>
             <p className="text-xs text-slate-600 leading-relaxed">
               Students learn official mark schemes: Method marks [M1], Accuracy marks [A1], and Evaluation rubrics [E1] to eliminate avoidable mark deductions.
@@ -511,7 +513,7 @@ export const OnlineOLevel = () => {
           </div>
 
           <div className="p-5 rounded-2xl bg-white border border-slate-200 space-y-2.5">
-            <span className="text-2xl font-black text-[#C59B4B] font-mono block">04</span>
+            <span className="text-2xl font-black text-emerald-700 font-mono block">04</span>
             <h4 className="text-sm font-extrabold text-slate-900 font-heading">Timed Monthly Mocks</h4>
             <p className="text-xs text-slate-600 leading-relaxed">
               Full-length exam simulations administered under strict exam conditions. Evaluated with authentic percentile ranks and error diagnostics.
@@ -519,7 +521,7 @@ export const OnlineOLevel = () => {
           </div>
 
           <div className="p-5 rounded-2xl bg-white border border-slate-200 space-y-2.5">
-            <span className="text-2xl font-black text-[#C59B4B] font-mono block">05</span>
+            <span className="text-2xl font-black text-emerald-700 font-mono block">05</span>
             <h4 className="text-sm font-extrabold text-slate-900 font-heading">Exam Registration Desk</h4>
             <p className="text-xs text-slate-600 leading-relaxed">
               Complete support for British Council private candidate exam entry: guidance with registration deadlines, venue locations, and exam series planning.
@@ -532,8 +534,8 @@ export const OnlineOLevel = () => {
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-6">
         <div className="text-center max-w-2xl mx-auto">
           <span className="section-badge">Clear Comparison</span>
-          <h2 className="text-2xl sm:text-3xl font-extrabold text-[#0B4635] font-heading mt-2">
-            Conventional Physical School vs. <span className="text-[#C59B4B]">Readly Online Batches</span>
+          <h2 className="text-2xl sm:text-3xl font-black text-slate-900 font-heading mt-2">
+            Conventional Physical School vs. <span className="text-emerald-700">Readly Online Batches</span>
           </h2>
         </div>
 
@@ -542,8 +544,8 @@ export const OnlineOLevel = () => {
             <thead>
               <tr className="bg-slate-50 text-slate-700 font-bold border-b border-slate-200">
                 <th className="p-4">Educational Metric</th>
-                <th className="p-4 text-slate-500">Conventional Physical School</th>
-                <th className="p-4 text-[#0B4635] bg-emerald-50/70 border-x border-emerald-200 font-extrabold">
+                <th className="p-4 text-slate-600">Conventional Physical School</th>
+                <th className="p-4 text-[#0B4635] bg-emerald-50 border-x border-emerald-200 font-black">
                   The Readly Institute (Online Batches)
                 </th>
               </tr>
@@ -551,43 +553,43 @@ export const OnlineOLevel = () => {
             <tbody className="divide-y divide-slate-100 text-slate-700">
               <tr>
                 <td className="p-4 font-bold text-slate-900">Classroom Batch Size</td>
-                <td className="p-4 text-slate-500">30 to 45 students per class</td>
-                <td className="p-4 bg-emerald-50/40 border-x border-emerald-200 font-bold text-[#059669]">
+                <td className="p-4 text-slate-600">30 to 45 students per class</td>
+                <td className="p-4 bg-emerald-50/60 border-x border-emerald-200 font-black text-emerald-800">
                   Strictly 6 to 8 students (Micro-Batch)
                 </td>
               </tr>
               <tr>
                 <td className="p-4 font-bold text-slate-900">Daily Travel & Commute Time</td>
-                <td className="p-4 text-slate-500">1.5 to 2.5 hours lost in daily traffic</td>
-                <td className="p-4 bg-emerald-50/40 border-x border-emerald-200 font-bold text-[#059669]">
+                <td className="p-4 text-slate-600">1.5 to 2.5 hours lost in daily traffic</td>
+                <td className="p-4 bg-emerald-50/60 border-x border-emerald-200 font-black text-emerald-800">
                   0 minutes (Study safely from home)
                 </td>
               </tr>
               <tr>
                 <td className="p-4 font-bold text-slate-900">Past Paper Topical Coverage</td>
-                <td className="p-4 text-slate-500">Usually 2–3 recent years rushed at year-end</td>
-                <td className="p-4 bg-emerald-50/40 border-x border-emerald-200 font-bold text-[#059669]">
+                <td className="p-4 text-slate-600">Usually 2–3 recent years rushed at year-end</td>
+                <td className="p-4 bg-emerald-50/60 border-x border-emerald-200 font-black text-emerald-800">
                   15 Years (2012–2026) topical mastery every chapter
                 </td>
               </tr>
               <tr>
                 <td className="p-4 font-bold text-slate-900">Missed Class Recovery</td>
-                <td className="p-4 text-slate-500">Missed forever; rely on classmate's notes</td>
-                <td className="p-4 bg-emerald-50/40 border-x border-emerald-200 font-bold text-[#059669]">
+                <td className="p-4 text-slate-600">Missed forever; rely on classmate's notes</td>
+                <td className="p-4 bg-emerald-50/60 border-x border-emerald-200 font-black text-emerald-800">
                   Full HD recorded video + digital canvas notes provided
                 </td>
               </tr>
               <tr>
                 <td className="p-4 font-bold text-slate-900">British Council Exam Entry</td>
-                <td className="p-4 text-slate-500">Restricted by school internal quotas</td>
-                <td className="p-4 bg-emerald-50/40 border-x border-emerald-200 font-bold text-[#059669]">
+                <td className="p-4 text-slate-600">Restricted by school internal quotas</td>
+                <td className="p-4 bg-emerald-50/60 border-x border-emerald-200 font-black text-emerald-800">
                   Full independence as British Council private candidate
                 </td>
               </tr>
               <tr>
                 <td className="p-4 font-bold text-slate-900">Tuition & School Fee</td>
-                <td className="p-4 text-slate-500">High tuition + building charges + transport</td>
-                <td className="p-4 bg-emerald-50/40 border-x border-emerald-200 font-bold text-[#059669]">
+                <td className="p-4 text-slate-600">High tuition + building charges + transport</td>
+                <td className="p-4 bg-emerald-50/60 border-x border-emerald-200 font-black text-emerald-800">
                   Transparent, affordable fee with all study materials included
                 </td>
               </tr>
@@ -600,10 +602,10 @@ export const OnlineOLevel = () => {
       <section className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8">
         <div className="text-center">
           <span className="section-badge">Got Questions?</span>
-          <h2 className="text-2xl sm:text-3xl font-extrabold text-[#0B4635] font-heading mt-2">
-            Frequently Asked <span className="text-[#C59B4B]">Questions</span>
+          <h2 className="text-2xl sm:text-3xl font-black text-slate-900 font-heading mt-2">
+            Frequently Asked <span className="text-emerald-700">Questions</span>
           </h2>
-          <p className="text-slate-600 text-xs sm:text-sm mt-1">
+          <p className="text-slate-700 text-xs sm:text-sm mt-1 font-medium">
             Common questions parents and students ask about online Cambridge O-Level schooling.
           </p>
         </div>
@@ -619,7 +621,7 @@ export const OnlineOLevel = () => {
               >
                 <div className="flex items-center justify-between gap-3">
                   <div className="flex items-center gap-3">
-                    <HelpCircle className="w-4 h-4 text-[#059669] shrink-0" />
+                    <HelpCircle className="w-4 h-4 text-emerald-700 shrink-0" />
                     <h4 className="text-xs sm:text-sm font-bold text-slate-900 font-heading">{faq.q}</h4>
                   </div>
                   <span className="text-slate-400 shrink-0">
@@ -639,27 +641,27 @@ export const OnlineOLevel = () => {
 
       {/* 8. BOTTOM CALL TO ACTION */}
       <section className="py-8 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
-        <div className="card-base p-8 sm:p-12 bg-gradient-to-br from-emerald-50/70 via-white to-amber-50/40 text-center rounded-2xl border border-emerald-200/80 shadow-sm">
-          <h2 className="text-3xl font-extrabold font-heading mb-3 text-[#0B4635]">
-            Start Your Cambridge O-Level <span className="text-[#C59B4B]">From Home Today</span>
+        <div className="card-base p-8 sm:p-12 bg-gradient-to-br from-emerald-50/90 via-white to-amber-50/50 text-center rounded-2xl border-2 border-emerald-600/30 shadow-md">
+          <h2 className="text-3xl font-black font-heading mb-3 text-slate-900">
+            Start Your Cambridge O-Level <span className="text-emerald-700">From Home Today</span>
           </h2>
-          <p className="text-slate-600 text-sm max-w-xl mx-auto mb-6">
+          <p className="text-slate-700 text-sm max-w-xl mx-auto mb-6 font-medium">
             Join our upcoming Morning or Evening micro-batch. Take a 45-minute live diagnostic trial class with zero financial commitment.
           </p>
           <div className="flex flex-wrap items-center justify-center gap-3">
             <button
               type="button"
               onClick={() => openBookingModal({ curriculum: 'Cambridge O-Level' })}
-              className="btn btn-teal text-xs font-bold px-6 py-3 shadow-md hover:shadow-lg cursor-pointer flex items-center gap-2"
+              className="btn btn-teal text-xs font-black px-6 py-3.5 shadow-md hover:shadow-lg cursor-pointer flex items-center gap-2"
             >
-              <span>Enrol in O-Level Batch (Free Trial)</span>
+              <span>Enrol in Virtual School (Free Trial)</span>
               <ArrowRight className="w-4 h-4" />
             </button>
             <a
               href={`https://wa.me/${READLY_CONFIG.whatsappNumber}?text=${encodeURIComponent('Hi The Readly Institute, I would like to speak with an academic advisor about Cambridge O-Level Online Schooling Batches.')}`}
               target="_blank"
               rel="noopener noreferrer"
-              className="btn btn-whatsapp text-xs font-bold px-5 py-3 flex items-center gap-2"
+              className="btn btn-whatsapp text-xs font-black px-5 py-3.5 flex items-center gap-2"
             >
               <span>WhatsApp Academic Desk</span>
             </a>
