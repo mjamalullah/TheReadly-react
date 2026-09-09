@@ -37,7 +37,7 @@ export const Footer = () => {
             </h4>
             <ul className="space-y-2 text-xs" style={{ color: '#E2E8F0' }}>
               <li>
-                <Link to="/programs" className="hover:text-white transition-colors">Cambridge O-Level (CAIE)</Link>
+                <Link to="/programs/cambridge-olevel-igcse" className="hover:text-white transition-colors">Cambridge O-Level (CAIE)</Link>
               </li>
               <li>
                 <Link to="/programs/online-o-level" className="hover:text-white text-emerald-300 font-semibold transition-colors flex items-center gap-1.5">
@@ -46,13 +46,13 @@ export const Footer = () => {
                 </Link>
               </li>
               <li>
-                <Link to="/programs" className="hover:text-white transition-colors">Cambridge IGCSE</Link>
+                <Link to="/programs/cambridge-olevel-igcse" className="hover:text-white transition-colors">Cambridge IGCSE</Link>
               </li>
               <li>
                 <Link to="/programs" className="hover:text-white transition-colors">Cambridge International AS & A-Level</Link>
               </li>
               <li>
-                <Link to="/programs#matric" className="hover:text-white transition-colors">Matriculation Board (SSC Part I & II)</Link>
+                <Link to="/programs/matric" className="hover:text-white transition-colors">Matriculation Board (SSC Part I & II)</Link>
               </li>
               <li>
                 <Link to="/programs" className="hover:text-white transition-colors">Pearson Edexcel International GCSE</Link>

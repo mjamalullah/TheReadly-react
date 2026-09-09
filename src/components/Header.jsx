@@ -83,7 +83,7 @@ export const Header = () => {
                   </Link>
 
                   <Link
-                    to="/programs#olevel"
+                    to="/programs/cambridge-olevel-igcse"
                     className="flex items-start gap-2.5 p-2.5 rounded-lg hover:bg-slate-50 text-slate-700 hover:text-[#059669] transition-colors"
                   >
                     <div className="w-8 h-8 rounded-lg bg-emerald-50 text-[#059669] flex items-center justify-center shrink-0 mt-0.5">
@@ -96,7 +96,7 @@ export const Header = () => {
                   </Link>
 
                   <Link
-                    to="/programs#matric"
+                    to="/programs/matric"
                     className="flex items-start gap-2.5 p-2.5 rounded-lg hover:bg-slate-50 text-slate-700 hover:text-[#059669] transition-colors"
                   >
                     <div className="w-8 h-8 rounded-lg bg-emerald-50 text-[#059669] flex items-center justify-center shrink-0 mt-0.5">
@@ -306,7 +306,7 @@ export const Header = () => {
             </NavLink>
 
             <NavLink
-              to="/programs#olevel"
+              to="/programs/cambridge-olevel-igcse"
               onClick={() => setMobileMenuOpen(false)}
               className="block px-3.5 py-2 rounded-lg text-sm font-bold transition-colors text-slate-800 hover:bg-slate-50 hover:text-[#0B4635]"
             >
@@ -320,7 +320,7 @@ export const Header = () => {
             </NavLink>
 
             <NavLink
-              to="/programs#matric"
+              to="/programs/matric"
               onClick={() => setMobileMenuOpen(false)}
               className="block px-3.5 py-2 rounded-lg text-sm font-bold transition-colors text-slate-800 hover:bg-slate-50 hover:text-[#0B4635]"
             >

@@ -88,8 +88,11 @@ export const Programs = () => {
                 <span>O-Level Enrolment & Free Trial</span>
                 <Icon name="calendar" className="w-4 h-4" />
               </button>
+              <Link to="/programs/cambridge-olevel-igcse" className="btn btn-secondary btn-sm cursor-pointer">
+                <span>Dedicated O-Level & IGCSE Page &rarr;</span>
+              </Link>
               <Link to="/subjects" className="btn btn-secondary btn-sm cursor-pointer">
-                <span>View O-Level Subjects</span>
+                <span>View Subjects</span>
               </Link>
             </div>
           </div>
@@ -405,8 +408,11 @@ export const Programs = () => {
                 <span>Matric Enrolment & Free Trial</span>
                 <Icon name="calendar" className="w-4 h-4" />
               </button>
+              <Link to="/programs/matric" className="btn btn-secondary btn-sm cursor-pointer">
+                <span>Dedicated Matric Page &rarr;</span>
+              </Link>
               <Link to="/subjects" className="btn btn-secondary btn-sm cursor-pointer">
-                <span>View Matric Subjects</span>
+                <span>View Subjects</span>
               </Link>
             </div>
           </div>

@@ -25,6 +25,8 @@ import { BecomeTutor } from './pages/BecomeTutor';
 import { JoinOurTeam } from './pages/JoinOurTeam';
 import { SubjectDetail } from './pages/SubjectDetail';
 import { OnlineOLevel } from './pages/OnlineOLevel';
+import { CambridgeOLevelIGCSE } from './pages/CambridgeOLevelIGCSE';
+import { MatricBoard } from './pages/MatricBoard';
 
 // Scroll to top on route change
 function ScrollToTop() {
@@ -49,6 +51,10 @@ export default function App() {
             <Route path="/programs" element={<Programs />} />
             <Route path="/programs/online-o-level" element={<OnlineOLevel />} />
             <Route path="/online-o-level" element={<OnlineOLevel />} />
+            <Route path="/programs/cambridge-olevel-igcse" element={<CambridgeOLevelIGCSE />} />
+            <Route path="/programs/cambridge" element={<CambridgeOLevelIGCSE />} />
+            <Route path="/programs/matric" element={<MatricBoard />} />
+            <Route path="/programs/matric-board" element={<MatricBoard />} />
             <Route path="/subjects" element={<Subjects />} />
             <Route path="/subjects/:slug" element={<SubjectDetail />} />
             <Route path="/teachers" element={<Teachers />} />

@@ -884,8 +884,8 @@ export const Home = () => {
                 Full online schooling for homeschoolers & private candidates. Daily morning/evening interactive batches and 1-on-1 tracks with topical past paper drilling.
               </p>
             </div>
-            <Link to="/programs#olevel-batches" className="mt-4 pt-3 border-t border-slate-100 flex items-center justify-between text-xs font-bold text-[#059669]">
-              <span>View O-Level Batches</span>
+            <Link to="/programs/cambridge-olevel-igcse" className="mt-4 pt-3 border-t border-slate-100 flex items-center justify-between text-xs font-bold text-[#059669]">
+              <span>View O-Level Program</span>
               <ArrowRight className="w-3.5 h-3.5 transition-transform group-hover:translate-x-1" />
             </Link>
           </div>
@@ -899,8 +899,8 @@ export const Home = () => {
                 Engineered for international school students across UAE, Saudi Arabia, and UK exam centers.
               </p>
             </div>
-            <Link to="/programs" className="mt-4 pt-3 border-t border-slate-100 flex items-center justify-between text-xs font-bold text-[#059669]">
-              <span>View Curriculum</span>
+            <Link to="/programs/cambridge-olevel-igcse" className="mt-4 pt-3 border-t border-slate-100 flex items-center justify-between text-xs font-bold text-[#059669]">
+              <span>View IGCSE Program</span>
               <ArrowRight className="w-3.5 h-3.5 transition-transform group-hover:translate-x-1" />
             </Link>
           </div>
@@ -932,7 +932,7 @@ export const Home = () => {
                 Specialized preparation for 9th & 10th grades across Federal FBISE & Provincial Boards (Punjab, Sindh, KPK). Complete SLO conceptual learning, numerical derivations & past board papers.
               </p>
             </div>
-            <Link to="/programs#matric" className="mt-4 pt-3 border-t border-slate-100 flex items-center justify-between text-xs font-bold text-[#059669]">
+            <Link to="/programs/matric" className="mt-4 pt-3 border-t border-slate-100 flex items-center justify-between text-xs font-bold text-[#059669]">
               <span>View Matric Program</span>
               <ArrowRight className="w-3.5 h-3.5 transition-transform group-hover:translate-x-1" />
             </Link>
