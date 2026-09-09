@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { NavLink, Link, useLocation } from 'react-router-dom';
 import { useModal } from '../context/ModalContext';
 import { READLY_CONFIG } from '../config/readlyConfig';
-import { Menu, X, PhoneCall, ChevronRight, ChevronDown, GraduationCap, Briefcase, Mail } from 'lucide-react';
+import { Menu, X, PhoneCall, ChevronRight, ChevronDown, GraduationCap, Briefcase, Mail, Users, BookOpen } from 'lucide-react';
 
 export const Header = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -10,14 +10,14 @@ export const Header = () => {
   const location = useLocation();
 
   const navLinks = [
-    { to: '/', label: 'Home' },
-    { to: '/programs', label: 'Programs' },
     { to: '/subjects', label: 'Subjects' },
     { to: '/teachers', label: 'Faculty' },
     { to: '/how-it-works', label: 'How It Works' },
     { to: '/resources', label: 'Resources' },
     { to: '/about', label: 'About Us' },
   ];
+
+  const isProgramsActive = location.pathname.startsWith('/programs') || location.pathname === '/online-o-level';
 
   return (
     <header className="sticky top-0 z-40 bg-white/95 backdrop-blur-md border-b border-slate-200/90 shadow-xs">
@@ -35,6 +35,69 @@ export const Header = () => {
 
           {/* Desktop Navigation Menu */}
           <nav className="hidden lg:flex items-center gap-1 bg-slate-100 p-1.5 rounded-xl border border-slate-200/80">
+            <NavLink
+              to="/"
+              className={({ isActive }) =>
+                `px-3.5 py-1.5 rounded-lg text-xs font-bold transition-all duration-200 ${
+                  isActive
+                    ? 'bg-white text-[#0B4635] shadow-xs border-b-2 border-[#C59B4B]'
+                    : 'text-slate-700 hover:text-[#0B4635] hover:bg-white/60'
+                }`
+              }
+            >
+              Home
+            </NavLink>
+
+            {/* Programs Dropdown with Online O-Level Batches */}
+            <div className="relative group">
+              <NavLink
+                to="/programs"
+                className={
+                  `px-3.5 py-1.5 rounded-lg text-xs font-bold transition-all duration-200 flex items-center gap-1 cursor-pointer ${
+                    isProgramsActive
+                      ? 'bg-white text-[#0B4635] shadow-xs border-b-2 border-[#C59B4B]'
+                      : 'text-slate-700 hover:text-[#0B4635] hover:bg-white/60'
+                  }`
+                }
+              >
+                <span>Programs</span>
+                <ChevronDown className="w-3.5 h-3.5 text-slate-400 group-hover:text-[#059669] group-hover:rotate-180 transition-transform duration-200" />
+              </NavLink>
+
+              <div className="absolute left-0 top-full pt-2 w-72 hidden group-hover:block animate-fade-in z-50">
+                <div className="bg-white rounded-xl shadow-xl border border-slate-200 p-2 space-y-1.5">
+                  <Link
+                    to="/programs/online-o-level"
+                    className="flex items-start gap-2.5 p-2.5 rounded-lg bg-gradient-to-r from-emerald-50/80 to-amber-50/40 hover:from-emerald-100/90 hover:to-amber-100/60 text-slate-700 hover:text-[#0B4635] transition-colors border border-emerald-200/70"
+                  >
+                    <div className="w-8 h-8 rounded-lg bg-[#0B4635] text-[#C59B4B] flex items-center justify-center shrink-0 mt-0.5 shadow-2xs">
+                      <Users className="w-4 h-4" />
+                    </div>
+                    <div className="flex-1">
+                      <div className="text-xs font-extrabold text-[#0B4635] flex items-center justify-between">
+                        <span>Online O-Level Batches</span>
+                        <span className="text-[9px] bg-[#059669] text-white px-1.5 py-0.2 rounded-full uppercase font-bold">New</span>
+                      </div>
+                      <div className="text-[11px] text-slate-600 leading-tight mt-0.5">Full online schooling for homeschoolers (Morning/Eve)</div>
+                    </div>
+                  </Link>
+
+                  <Link
+                    to="/programs"
+                    className="flex items-start gap-2.5 p-2.5 rounded-lg hover:bg-slate-50 text-slate-700 hover:text-[#059669] transition-colors"
+                  >
+                    <div className="w-8 h-8 rounded-lg bg-slate-100 text-slate-700 flex items-center justify-center shrink-0 mt-0.5">
+                      <BookOpen className="w-4 h-4" />
+                    </div>
+                    <div>
+                      <div className="text-xs font-bold">All Academic Programs</div>
+                      <div className="text-[11px] text-slate-500 leading-tight">O-Level, IGCSE, A-Level, Edexcel & IT Matrix</div>
+                    </div>
+                  </Link>
+                </div>
+              </div>
+            </div>
+
             {navLinks.map((link) => (
               <NavLink
                 key={link.to}
@@ -173,6 +236,70 @@ export const Header = () => {
       {/* Mobile Drawer */}
       {mobileMenuOpen && (
         <div className="lg:hidden bg-white border-b border-slate-200 px-4 pt-3 pb-6 space-y-2 shadow-xl animate-fade-in">
+          <NavLink
+            to="/"
+            onClick={() => setMobileMenuOpen(false)}
+            className={({ isActive }) =>
+              `block px-3.5 py-2.5 rounded-lg text-sm font-bold transition-colors ${
+                isActive
+                  ? 'bg-[#FEF9EE] text-[#0B4635] font-bold border-l-4 border-[#C59B4B]'
+                  : 'text-slate-800 hover:bg-slate-50 hover:text-[#0B4635]'
+              }`
+            }
+          >
+            <div className="flex items-center justify-between">
+              <span>Home</span>
+              <ChevronRight className="w-4 h-4 text-slate-400" />
+            </div>
+          </NavLink>
+
+          {/* Programs Section in Mobile Drawer */}
+          <div className="space-y-1 pt-1 pb-1">
+            <div className="px-3.5 text-[10px] font-extrabold uppercase tracking-wider text-slate-400">
+              Academic Curriculums
+            </div>
+            
+            <NavLink
+              to="/programs/online-o-level"
+              onClick={() => setMobileMenuOpen(false)}
+              className={({ isActive }) =>
+                `block px-3.5 py-2.5 rounded-lg text-sm font-bold transition-colors ${
+                  isActive
+                    ? 'bg-[#FEF9EE] text-[#0B4635] border-l-4 border-[#C59B4B]'
+                    : 'bg-emerald-50/60 text-[#0B4635] hover:bg-emerald-100/80'
+                }`
+              }
+            >
+              <div className="flex items-center justify-between">
+                <div className="flex items-center gap-2">
+                  <Users className="w-4 h-4 text-[#059669]" />
+                  <span>Online O-Level Batches</span>
+                </div>
+                <span className="text-[9px] bg-[#059669] text-white px-1.5 py-0.2 rounded-full uppercase font-bold">New</span>
+              </div>
+            </NavLink>
+
+            <NavLink
+              to="/programs"
+              onClick={() => setMobileMenuOpen(false)}
+              className={({ isActive }) =>
+                `block px-3.5 py-2 rounded-lg text-sm font-bold transition-colors ${
+                  isActive
+                    ? 'bg-[#FEF9EE] text-[#0B4635] border-l-4 border-[#C59B4B]'
+                    : 'text-slate-800 hover:bg-slate-50 hover:text-[#0B4635]'
+                }`
+              }
+            >
+              <div className="flex items-center justify-between">
+                <div className="flex items-center gap-2">
+                  <BookOpen className="w-4 h-4 text-slate-500" />
+                  <span>All Programs Overview</span>
+                </div>
+                <ChevronRight className="w-4 h-4 text-slate-400" />
+              </div>
+            </NavLink>
+          </div>
+
           {navLinks.map((link) => (
             <NavLink
               key={link.to}

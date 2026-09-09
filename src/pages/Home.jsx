@@ -949,6 +949,128 @@ export const Home = () => {
         </div>
       </section>
 
+      {/* ================= 3.1 FEATURED SPOTLIGHT: FULL ONLINE O-LEVEL SCHOOLING & BATCHES ================= */}
+      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="card-base p-8 sm:p-12 bg-gradient-to-br from-[#06281E] via-[#0B4635] to-[#08302A] text-white rounded-3xl border border-[#C59B4B]/40 shadow-2xl relative overflow-hidden">
+          
+          {/* Subtle Background Glow Elements */}
+          <div className="absolute -right-24 -top-24 w-96 h-96 bg-[#C59B4B]/10 rounded-full blur-3xl pointer-events-none"></div>
+          <div className="absolute -left-24 -bottom-24 w-96 h-96 bg-emerald-500/10 rounded-full blur-3xl pointer-events-none"></div>
+
+          <div className="relative z-10 grid lg:grid-cols-12 gap-8 items-center">
+            
+            {/* Left Content */}
+            <div className="lg:col-span-7 space-y-4 text-left">
+              <div className="flex items-center gap-2 flex-wrap">
+                <span className="px-3 py-1 rounded-full text-xs font-extrabold bg-[#C59B4B] text-[#06251C] uppercase tracking-wider">
+                  Featured Academic Track
+                </span>
+                <span className="px-2.5 py-0.5 rounded-full text-xs font-bold bg-white/10 text-emerald-200 border border-emerald-400/20">
+                  No Physical School Needed
+                </span>
+                <span className="px-2.5 py-0.5 rounded-full text-xs font-bold bg-[#FEF9EE] text-[#936F1E]">
+                  Grades 9 to 11
+                </span>
+              </div>
+
+              <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold font-heading text-white tracking-tight leading-tight">
+                Full Online Cambridge O-Level.{' '}
+                <span className="text-[#DFBA73]">Interactive Batch Classes.</span>
+              </h2>
+
+              <p className="text-slate-200 text-xs sm:text-sm leading-relaxed">
+                Do you want your child to study Cambridge O-Level from home without going to a physical school? Join our structured online batch schooling with daily live teacher lectures, daily 15-year topical past paper practice, and full British Council private candidate exam registration guidance.
+              </p>
+
+              {/* 4 Feature Badges */}
+              <div className="grid sm:grid-cols-2 gap-2.5 pt-2 text-xs">
+                <div className="flex items-center gap-2 p-2 rounded-lg bg-white/5 border border-white/10">
+                  <span className="text-base">🌅</span>
+                  <span><strong>Morning Batch:</strong> 9:00 AM – 1:00 PM PKT</span>
+                </div>
+                <div className="flex items-center gap-2 p-2 rounded-lg bg-white/5 border border-white/10">
+                  <span className="text-base">🌆</span>
+                  <span><strong>Evening Batch:</strong> 4:30 PM – 8:30 PM PKT</span>
+                </div>
+                <div className="flex items-center gap-2 p-2 rounded-lg bg-white/5 border border-white/10">
+                  <span className="text-base">👥</span>
+                  <span><strong>Micro-Batches:</strong> Strictly 6 to 8 students</span>
+                </div>
+                <div className="flex items-center gap-2 p-2 rounded-lg bg-white/5 border border-white/10">
+                  <span className="text-base">🏛️</span>
+                  <span><strong>British Council:</strong> Complete exam entry support</span>
+                </div>
+              </div>
+
+              {/* Action Buttons */}
+              <div className="flex flex-wrap items-center gap-3 pt-3">
+                <Link
+                  to="/programs/online-o-level"
+                  className="btn btn-teal text-xs font-bold py-3 px-5 shadow-lg hover:scale-[1.02] transition-all flex items-center gap-2"
+                >
+                  <span>Explore Dedicated O-Level Page</span>
+                  <ArrowRight className="w-4 h-4" />
+                </Link>
+
+                <button
+                  type="button"
+                  onClick={() => openBookingModal({ curriculum: 'Cambridge O-Level' })}
+                  className="px-4 py-3 rounded-xl text-xs font-bold bg-[#C59B4B] text-[#06251C] hover:bg-[#DFBA73] transition-all shadow-md flex items-center gap-2 cursor-pointer"
+                >
+                  <Users className="w-4 h-4" />
+                  <span>Join Free Trial Batch Class</span>
+                </button>
+              </div>
+
+            </div>
+
+            {/* Right Card: Subject Snapshot & Registration */}
+            <div className="lg:col-span-5 bg-white/10 backdrop-blur-md p-6 rounded-2xl border border-white/15 space-y-4 text-left">
+              <div className="flex items-center justify-between border-b border-white/10 pb-3">
+                <div>
+                  <span className="text-[10px] font-bold text-amber-300 uppercase tracking-widest block">Available Streams</span>
+                  <h4 className="text-sm font-extrabold text-white font-heading">Full Subject Packages</h4>
+                </div>
+                <span className="text-[10px] font-bold bg-emerald-400/20 text-emerald-300 px-2 py-0.5 rounded-full border border-emerald-400/30">
+                  2026 / 2027 Series
+                </span>
+              </div>
+
+              <div className="space-y-2 text-xs">
+                <div className="p-2.5 rounded-xl bg-black/20 border border-white/5 flex items-center justify-between">
+                  <span className="font-bold text-slate-100">Sciences (Physics, Chem, Bio)</span>
+                  <span className="text-[11px] text-amber-300 font-mono">Theory + ATP Lab</span>
+                </div>
+                <div className="p-2.5 rounded-xl bg-black/20 border border-white/5 flex items-center justify-between">
+                  <span className="font-bold text-slate-100">Mathematics (4024 / 4037)</span>
+                  <span className="text-[11px] text-emerald-300 font-mono">P1, P2 Topical Mocks</span>
+                </div>
+                <div className="p-2.5 rounded-xl bg-black/20 border border-white/5 flex items-center justify-between">
+                  <span className="font-bold text-slate-100">Languages (English & Urdu)</span>
+                  <span className="text-[11px] text-slate-300 font-mono">Directed Writing</span>
+                </div>
+                <div className="p-2.5 rounded-xl bg-black/20 border border-white/5 flex items-center justify-between">
+                  <span className="font-bold text-slate-100">Pak Studies (2059) & Islamiyat (2058)</span>
+                  <span className="text-[11px] text-amber-300 font-mono">Structured Rubrics</span>
+                </div>
+              </div>
+
+              <div className="pt-2 border-t border-white/10 flex items-center justify-between text-xs">
+                <span className="text-slate-300 text-[11px]">Interested in batch admission?</span>
+                <Link
+                  to="/programs/online-o-level"
+                  className="font-bold text-amber-300 hover:text-white underline flex items-center gap-1"
+                >
+                  <span>View Details & Timetable &rarr;</span>
+                </Link>
+              </div>
+            </div>
+
+          </div>
+
+        </div>
+      </section>
+
       {/* ================= 4. SUBJECT CATALOG WITH BOARD & CATEGORY FILTERS ================= */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-6">
         <div className="flex flex-col md:flex-row md:items-end justify-between gap-4">

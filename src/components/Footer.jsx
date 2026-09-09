@@ -40,6 +40,12 @@ export const Footer = () => {
                 <Link to="/programs" className="hover:text-white transition-colors">Cambridge O-Level (CAIE)</Link>
               </li>
               <li>
+                <Link to="/programs/online-o-level" className="hover:text-white text-emerald-300 font-semibold transition-colors flex items-center gap-1.5">
+                  <span className="w-1.5 h-1.5 rounded-full bg-[#C59B4B]"></span>
+                  <span>Online O-Level Batches (Homeschooling)</span>
+                </Link>
+              </li>
+              <li>
                 <Link to="/programs" className="hover:text-white transition-colors">Cambridge IGCSE</Link>
               </li>
               <li>

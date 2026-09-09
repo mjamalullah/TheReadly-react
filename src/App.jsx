@@ -24,6 +24,7 @@ import { BookDemo } from './pages/BookDemo';
 import { BecomeTutor } from './pages/BecomeTutor';
 import { JoinOurTeam } from './pages/JoinOurTeam';
 import { SubjectDetail } from './pages/SubjectDetail';
+import { OnlineOLevel } from './pages/OnlineOLevel';
 
 // Scroll to top on route change
 function ScrollToTop() {
@@ -46,6 +47,8 @@ export default function App() {
             <Route path="/" element={<Home />} />
             <Route path="/about" element={<About />} />
             <Route path="/programs" element={<Programs />} />
+            <Route path="/programs/online-o-level" element={<OnlineOLevel />} />
+            <Route path="/online-o-level" element={<OnlineOLevel />} />
             <Route path="/subjects" element={<Subjects />} />
             <Route path="/subjects/:slug" element={<SubjectDetail />} />
             <Route path="/teachers" element={<Teachers />} />
