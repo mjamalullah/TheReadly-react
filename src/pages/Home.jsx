@@ -91,7 +91,7 @@ const heroSlides = [
     badgeIcon: GraduationCap,
     titleMain: "Full Online Cambridge School.",
     titleHighlight: "Study O-Level From Home.",
-    subtitle: "Baqaida Schooling • Daily Batches • Zero Physical School Needed",
+    subtitle: "Formal Schooling • Daily Batches • Zero Physical School Needed",
     description: "A complete accredited online alternative to physical schools. Study all Cambridge O-Level subjects with structured daily classes, daily 15-year topical past paper drills, weekly assessments, and end-to-end British Council private candidate exam registration.",
     primaryBtn: { text: "Enrol in Virtual School", icon: GraduationCap, action: "modal" },
     secondaryBtn: { text: "Explore Online School", icon: ArrowRight, to: "/programs/online-o-level" },
@@ -985,7 +985,7 @@ export const Home = () => {
                   <span>Virtual Cambridge School</span>
                 </span>
                 <span className="px-2.5 py-0.5 rounded text-[10px] font-bold bg-[#FEF9EE] text-[#936F1E] border border-[#E8D3A7]">
-                  Baqaida Schooling • Grades 9, 10 & 11
+                  Formal Schooling • Grades 9, 10 & 11
                 </span>
                 <span className="px-2.5 py-0.5 rounded text-[10px] font-bold bg-emerald-50 text-[#059669] border border-emerald-200">
                   Zero Physical School Needed
@@ -1087,7 +1087,7 @@ export const Home = () => {
               </div>
 
               <div className="pt-2 border-t border-slate-200 flex items-center justify-between text-xs">
-                <span className="text-slate-500 text-[11px]">Baqaida admission inquiries:</span>
+                <span className="text-slate-500 text-[11px]">Official admission inquiries:</span>
                 <Link
                   to="/programs/online-o-level"
                   className="font-bold text-[#059669] hover:text-[#0B4635] underline flex items-center gap-1 text-xs"

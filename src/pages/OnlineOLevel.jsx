@@ -122,7 +122,7 @@ export const OnlineOLevel = () => {
                   <span className="tracking-wide uppercase">The Readly Virtual School • Cambridge O-Level</span>
                 </span>
                 <span className="px-3 py-1 rounded-full text-xs font-bold bg-[#FEF9EE] text-[#936F1E] border border-[#E8D3A7]">
-                  Baqaida Schooling • Grades 9, 10 & 11
+                  Formal Schooling • Grades 9, 10 & 11
                 </span>
                 <span className="px-2.5 py-1 rounded-full text-xs font-bold bg-emerald-50 text-[#059669] border border-emerald-200">
                   Zero Physical School Needed

@@ -126,7 +126,7 @@ export const Programs = () => {
                 <span>Virtual Cambridge School</span>
               </span>
               <span className="px-3 py-1 rounded-full text-xs font-bold bg-[#FEF9EE] text-[#0B4635] border border-[#E8D3A7]">
-                Baqaida Schooling Without Physical Attendance
+                Formal Schooling Without Physical Attendance
               </span>
               <span className="px-2.5 py-0.5 rounded-full text-xs font-bold bg-emerald-100/80 text-[#059669]">
                 Morning & Evening Batches

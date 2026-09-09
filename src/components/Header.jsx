@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { NavLink, Link, useLocation } from 'react-router-dom';
 import { useModal } from '../context/ModalContext';
 import { READLY_CONFIG } from '../config/readlyConfig';
-import { Menu, X, PhoneCall, ChevronRight, ChevronDown, GraduationCap, Briefcase, Mail, Users, BookOpen } from 'lucide-react';
+import { Menu, X, PhoneCall, ChevronRight, ChevronDown, GraduationCap, Briefcase, Mail, Users, BookOpen, Award } from 'lucide-react';
 
 export const Header = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -78,7 +78,20 @@ export const Header = () => {
                         <span>Full Online O-Level School</span>
                         <span className="text-[9px] bg-[#059669] text-white px-1.5 py-0.2 rounded-full uppercase font-bold">School</span>
                       </div>
-                      <div className="text-[11px] text-slate-600 leading-tight mt-0.5">Baqaida Cambridge schooling from home (Morning/Eve batches)</div>
+                      <div className="text-[11px] text-slate-600 leading-tight mt-0.5">Structured Cambridge schooling from home (Morning/Eve batches)</div>
+                    </div>
+                  </Link>
+
+                  <Link
+                    to="/programs#olevel"
+                    className="flex items-start gap-2.5 p-2.5 rounded-lg hover:bg-slate-50 text-slate-700 hover:text-[#059669] transition-colors"
+                  >
+                    <div className="w-8 h-8 rounded-lg bg-emerald-50 text-[#059669] flex items-center justify-center shrink-0 mt-0.5">
+                      <Award className="w-4 h-4" />
+                    </div>
+                    <div>
+                      <div className="text-xs font-bold text-slate-900">Cambridge O-Level & IGCSE</div>
+                      <div className="text-[11px] text-slate-500 leading-tight">CAIE syllabus preparation & past paper mastery</div>
                     </div>
                   </Link>
 
@@ -289,6 +302,20 @@ export const Header = () => {
                   <span>Full Online O-Level School</span>
                 </div>
                 <span className="text-[9px] bg-[#059669] text-white px-1.5 py-0.2 rounded-full uppercase font-bold">School</span>
+              </div>
+            </NavLink>
+
+            <NavLink
+              to="/programs#olevel"
+              onClick={() => setMobileMenuOpen(false)}
+              className="block px-3.5 py-2 rounded-lg text-sm font-bold transition-colors text-slate-800 hover:bg-slate-50 hover:text-[#0B4635]"
+            >
+              <div className="flex items-center justify-between">
+                <div className="flex items-center gap-2">
+                  <Award className="w-4 h-4 text-[#059669]" />
+                  <span>Cambridge O-Level & IGCSE</span>
+                </div>
+                <ChevronRight className="w-4 h-4 text-slate-400" />
               </div>
             </NavLink>
 
