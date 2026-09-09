@@ -175,6 +175,10 @@ export const Home = () => {
     if (board === 'alevel') {
       return sub.boardCategory === 'alevel' || (sub.boards && sub.boards.some(b => b.toLowerCase().includes('a level') || b.toLowerCase().includes('a-level')));
     }
+    if (board === 'matric') {
+      return sub.boardCategory === 'matric' ||
+        (sub.boards && sub.boards.some(b => b.toLowerCase().includes('matric') || b.toLowerCase().includes('ssc') || b.toLowerCase().includes('fbise') || b.toLowerCase().includes('bise')));
+    }
     if (board === 'edexcel') {
       return sub.boardCategory === 'edexcel' || (sub.boards && sub.boards.some(b => b.toLowerCase().includes('edexcel')));
     }
@@ -867,7 +871,7 @@ export const Home = () => {
           </p>
         </div>
 
-        <div className="grid sm:grid-cols-2 lg:grid-cols-5 gap-5">
+        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
           {/* Card 1: O-Level */}
           <div className="card-base p-6 bg-white border-slate-200 hover:border-emerald-500 hover:shadow-lg transition-all flex flex-col justify-between group">
             <div className="space-y-3">
@@ -916,7 +920,25 @@ export const Home = () => {
             </Link>
           </div>
 
-          {/* Card 4: Edexcel */}
+          {/* Card 4: Matric Board */}
+          <div className="card-base p-6 bg-white border-slate-200 hover:border-emerald-500 hover:shadow-lg transition-all flex flex-col justify-between group">
+            <div className="space-y-3">
+              <div className="flex items-center gap-1.5 flex-wrap">
+                <span className="px-2.5 py-1 rounded text-[10px] font-bold uppercase bg-emerald-50 text-[#059669]">SSC I & II</span>
+                <span className="px-2 py-0.5 rounded text-[10px] font-bold bg-[#FEF9EE] text-[#936F1E] border border-[#E8D3A7]">FBISE & BISE</span>
+              </div>
+              <h3 className="text-base font-bold text-slate-900 font-heading group-hover:text-[#059669] transition-colors">Matriculation Board</h3>
+              <p className="text-xs text-slate-600 leading-relaxed">
+                Specialized preparation for 9th & 10th grades across Federal FBISE & Provincial Boards (Punjab, Sindh, KPK). Complete SLO conceptual learning, numerical derivations & past board papers.
+              </p>
+            </div>
+            <Link to="/programs#matric" className="mt-4 pt-3 border-t border-slate-100 flex items-center justify-between text-xs font-bold text-[#059669]">
+              <span>View Matric Program</span>
+              <ArrowRight className="w-3.5 h-3.5 transition-transform group-hover:translate-x-1" />
+            </Link>
+          </div>
+
+          {/* Card 5: Edexcel */}
           <div className="card-base p-6 bg-white border-slate-200 hover:border-emerald-500 hover:shadow-lg transition-all flex flex-col justify-between group">
             <div className="space-y-3">
               <span className="px-2.5 py-1 rounded text-[10px] font-bold uppercase bg-indigo-50 text-indigo-700">Edexcel</span>
@@ -1103,6 +1125,7 @@ export const Home = () => {
             { id: 'olevel', label: 'Cambridge O-Level' },
             { id: 'igcse', label: 'Cambridge IGCSE' },
             { id: 'alevel', label: 'Cambridge A-Level' },
+            { id: 'matric', label: 'Matric Board (SSC)' },
             { id: 'edexcel', label: 'Pearson Edexcel' },
             { id: 'it-certifications', label: 'IT & Certifications' }
           ].map(b => (

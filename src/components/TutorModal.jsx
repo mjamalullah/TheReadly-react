@@ -384,6 +384,8 @@ export const TutorModal = () => {
                 >
                   <option>Cambridge O-Level & IGCSE</option>
                   <option>Cambridge International A-Level (AS & A2)</option>
+                  <option>Matriculation Board (FBISE / BISE)</option>
+                  <option>Dual Track (Cambridge & Matric)</option>
                   <option>Dual Cambridge (O-Level & A-Level)</option>
                   <option>Pearson Edexcel (IGCSE / International A-Level)</option>
                   <option>Professional IT & Digital Skills Track</option>

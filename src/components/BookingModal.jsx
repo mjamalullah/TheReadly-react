@@ -51,6 +51,18 @@ const curriculumSubjectsMap = {
     "Edexcel IGCSE Biology",
     "Edexcel International A-Level Pure Maths P1-P4"
   ],
+  "Matriculation Board (SSC)": [
+    "All Core Subjects (Full Matric Batch)",
+    "Matric Mathematics (9th & 10th - Science)",
+    "Matric Physics (9th & 10th - SSC)",
+    "Matric Chemistry (9th & 10th - SSC)",
+    "Matric Biology (9th & 10th - SSC)",
+    "Matric Computer Science (9th & 10th - SSC)",
+    "Matric English Compulsory (9th & 10th)",
+    "Matric Urdu Lazmi (9th & 10th - SSC)",
+    "Matric Pakistan Studies (Mutalia-e-Pakistan)",
+    "Matric Islamiyat Lazmi (Compulsory)"
+  ],
   "IT & Professional Certifications": [
     "Digital Marketing & Performance Strategy (Meta & Google Ads)",
     "CSIS Certification (Cyber Security & Information Systems)",
@@ -76,6 +88,15 @@ const curriculumGradesMap = {
   ],
   "Cambridge IGCSE": ["Year 9", "Year 10", "Year 11"],
   "Cambridge A-Level": ["AS-Level / Grade 12", "A2-Level / Grade 13"],
+  "Matriculation Board (SSC)": [
+    "9th Grade / SSC Part-I (Federal FBISE)",
+    "10th Grade / SSC Part-II (Federal FBISE)",
+    "9th Grade / SSC Part-I (Punjab BISE)",
+    "10th Grade / SSC Part-II (Punjab BISE)",
+    "9th Grade / SSC Part-I (Sindh / KPK BISE)",
+    "10th Grade / SSC Part-II (Sindh / KPK BISE)",
+    "1-on-1 Individual Matric Tutoring"
+  ],
   "Pearson Edexcel": ["IGCSE Year 1", "IGCSE Year 2", "International AS", "International A2"],
   "IT & Professional Certifications": ["Beginner Track (Foundation)", "Intermediate / Professional Track", "Advanced Certification Track"],
   "Revision Crash Course": ["Targeting May/June Series", "Targeting Oct/Nov Series"]
@@ -439,6 +460,7 @@ export const BookingModal = () => {
                 <option value="Cambridge O-Level">Cambridge O-Level</option>
                 <option value="Cambridge IGCSE">Cambridge IGCSE</option>
                 <option value="Cambridge A-Level">Cambridge A-Level</option>
+                <option value="Matriculation Board (SSC)">Matriculation Board (SSC)</option>
                 <option value="Pearson Edexcel">Pearson Edexcel</option>
                 <option value="IT & Professional Certifications">IT & Professional Certifications</option>
                 <option value="Revision Crash Course">Revision Crash Course</option>

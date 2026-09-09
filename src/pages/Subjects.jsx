@@ -52,6 +52,10 @@ export const Subjects = () => {
         s.boardCategory === 'alevel' ||
         (s.boards && s.boards.some(b => b.toLowerCase().includes('a level') || b.toLowerCase().includes('a-level')))
       )) ||
+      (boardFilter === 'matric' && (
+        s.boardCategory === 'matric' ||
+        (s.boards && s.boards.some(b => b.toLowerCase().includes('matric') || b.toLowerCase().includes('ssc') || b.toLowerCase().includes('fbise') || b.toLowerCase().includes('bise')))
+      )) ||
       (boardFilter === 'edexcel' && (
         s.boardCategory === 'edexcel' ||
         (s.boards && s.boards.some(b => b.toLowerCase().includes('edexcel')))
@@ -83,7 +87,7 @@ export const Subjects = () => {
       <div className="max-w-3xl">
         <span className="section-badge">Academic Inventory</span>
         <h1 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-[#0B4635] font-heading mt-2">
-          All Cambridge & Edexcel <span className="text-[#C59B4B]">Subjects</span>
+          All Cambridge, Matric & Edexcel <span className="text-[#C59B4B]">Subjects</span>
         </h1>
         <p className="text-slate-600 text-sm sm:text-base mt-3 leading-relaxed">
           Comprehensive curriculum coverage across Sciences, Mathematics, Commerce, Humanities, and Languages. Select any subject to explore course structure and sample past paper roadmaps.
@@ -101,6 +105,7 @@ export const Subjects = () => {
               { id: 'olevel', label: 'Cambridge O-Level' },
               { id: 'igcse', label: 'Cambridge IGCSE' },
               { id: 'alevel', label: 'Cambridge A-Level' },
+              { id: 'matric', label: 'Matric Board (SSC)' },
               { id: 'edexcel', label: 'Pearson Edexcel' },
               { id: 'it-certifications', label: 'IT & Certifications' }
             ].map(tab => (

@@ -338,6 +338,7 @@ export const BookDemo = () => {
                     <option>Cambridge O-Level</option>
                     <option>Cambridge IGCSE</option>
                     <option>Cambridge A-Level</option>
+                    <option>Matriculation Board (SSC)</option>
                     <option>Pearson Edexcel</option>
                     <option>IT & Professional Certifications</option>
                     <option>Revision Crash Course</option>
@@ -353,6 +354,8 @@ export const BookDemo = () => {
                     <option>O-1 / Grade 9</option>
                     <option>O-2 / Grade 10</option>
                     <option>O-3 / Grade 11</option>
+                    <option>Matric 9th Grade (SSC-I)</option>
+                    <option>Matric 10th Grade (SSC-II)</option>
                     <option>AS-Level / Grade 12</option>
                     <option>A2-Level / Grade 13</option>
                     <option>IGCSE Year 10/11</option>

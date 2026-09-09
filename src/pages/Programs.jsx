@@ -35,7 +35,7 @@ export const Programs = () => {
           Academic Programs Engineered for <span className="text-[#C59B4B]">Distinction</span>
         </h1>
         <p className="text-base sm:text-lg text-slate-600 leading-relaxed">
-          Comprehensive online tracks tailored to Cambridge Assessment International Education and Pearson Edexcel. Designed for Grades 9 through 13.
+          Comprehensive online tracks tailored to Cambridge Assessment International Education (O-Level, IGCSE, A-Level), Matriculation Board (FBISE & Provincial BISE), and Pearson Edexcel. Designed for Grades 9 through 13.
         </p>
       </div>
     </section>
@@ -360,7 +360,80 @@ export const Programs = () => {
         </div>
       </div>
 
-      {/*  4. EXAM REVISION BOOTCAMP  */}
+      {/*  4. MATRICULATION BOARD (SSC PART I & II)  */}
+      <div id="matric" className="card-base p-8 sm:p-10 bg-white border-slate-200 scroll-mt-24">
+        <div className="grid lg:grid-cols-12 gap-8 items-start">
+          <div className="lg:col-span-8 space-y-4">
+            <div className="flex items-center gap-3">
+              <span className="px-3 py-1 rounded-full text-xs font-bold bg-[#ECFDF5] text-[#059669] border border-[#A7F3D0]">
+                Grades 9 & 10 • SSC Part-I & Part-II
+              </span>
+              <span className="text-xs font-mono text-slate-500">Federal FBISE & Provincial BISE</span>
+            </div>
+            <h2 className="text-2xl sm:text-3xl font-bold text-slate-900 font-heading">
+              Matriculation Board Program (SSC)
+            </h2>
+            <p className="text-sm text-slate-600 leading-relaxed">
+              Designed specifically for Matric students enrolled in Federal Board (FBISE Islamabad) and Provincial Boards (Punjab BISE, Sindh Board, KPK Board). We transition students from rote learning to SLO-based (Student Learning Outcomes) conceptual mastery, accurate numerical derivations, and polished Urdu & English presentation for top board positions.
+            </p>
+
+            <div className="grid sm:grid-cols-2 gap-3 pt-2 text-xs text-slate-700">
+              <div className="flex items-center gap-2">
+                <Icon name="check" className="w-4 h-4 text-[#059669]" />
+                <span>SLO-based conceptual reasoning and high-yield question banks</span>
+              </div>
+              <div className="flex items-center gap-2">
+                <Icon name="check" className="w-4 h-4 text-[#059669]" />
+                <span>Step-by-step Physics & Chemistry numerical problem solving</span>
+              </div>
+              <div className="flex items-center gap-2">
+                <Icon name="check" className="w-4 h-4 text-[#059669]" />
+                <span>Matric Mathematics theorem proofs & geometry presentation</span>
+              </div>
+              <div className="flex items-center gap-2">
+                <Icon name="check" className="w-4 h-4 text-[#059669]" />
+                <span>10-Year solved model papers & board examiner presentation rubrics</span>
+              </div>
+            </div>
+
+            <div className="pt-4 flex flex-wrap gap-3">
+              <button
+                type="button"
+                onClick={() => openBookingModal({ curriculum: 'Matriculation Board (SSC)' })}
+                className="btn btn-teal btn-sm cursor-pointer"
+              >
+                <span>Matric Enrolment & Free Trial</span>
+                <Icon name="calendar" className="w-4 h-4" />
+              </button>
+              <Link to="/subjects" className="btn btn-secondary btn-sm cursor-pointer">
+                <span>View Matric Subjects</span>
+              </Link>
+            </div>
+          </div>
+
+          <div className="lg:col-span-4 bg-slate-50 p-6 rounded-xl border border-slate-200 space-y-3 text-xs">
+            <h4 className="font-bold text-slate-900 uppercase tracking-wider">Program Overview</h4>
+            <div className="flex justify-between py-1.5 border-b border-slate-200">
+              <span className="text-slate-500">Board Coverage:</span>
+              <span className="font-bold text-slate-800">FBISE & All Provincial BISE</span>
+            </div>
+            <div className="flex justify-between py-1.5 border-b border-slate-200">
+              <span className="text-slate-500">Class Format:</span>
+              <span className="font-bold text-slate-800">Interactive Micro-Batches / 1:1</span>
+            </div>
+            <div className="flex justify-between py-1.5 border-b border-slate-200">
+              <span className="text-slate-500">Curriculum Approach:</span>
+              <span className="font-bold text-slate-800">SLO & Model Papers</span>
+            </div>
+            <div className="flex justify-between py-1.5 border-b border-slate-200">
+              <span className="text-slate-500">Target Standard:</span>
+              <span className="font-bold text-[#059669]">A+ Grade (90%+ Marks)</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {/*  5. EXAM REVISION BOOTCAMP  */}
       <div id="revision" className="card-base p-8 sm:p-10 bg-white border-slate-200">
         <div className="grid lg:grid-cols-12 gap-8 items-start">
           <div className="lg:col-span-8 space-y-4">
@@ -680,6 +753,7 @@ export const Programs = () => {
               <th className="p-4">Cambridge O-Level</th>
               <th className="p-4">Cambridge IGCSE</th>
               <th className="p-4">Cambridge A-Level</th>
+              <th className="p-4">Matric Board (SSC)</th>
               <th className="p-4">Revision Bootcamp</th>
               <th className="p-4 text-[#059669]">IT & Certifications</th>
             </tr>
@@ -690,6 +764,7 @@ export const Programs = () => {
               <td className="p-4 text-slate-600">Grades 9 - 11</td>
               <td className="p-4 text-slate-600">Grades 9 - 10</td>
               <td className="p-4 text-slate-600">Grades 12 - 13 (AS/A2)</td>
+              <td className="p-4 text-slate-600">Grades 9 & 10 (SSC I/II)</td>
               <td className="p-4 text-slate-600">All Exam Candidates</td>
               <td className="p-4 text-slate-600">Students & Professionals</td>
             </tr>
@@ -697,6 +772,7 @@ export const Programs = () => {
               <td className="p-4 font-bold text-slate-900">Batch Size</td>
               <td className="p-4 text-slate-600">Max 8 Students</td>
               <td className="p-4 text-slate-600">Max 8 Students</td>
+              <td className="p-4 text-slate-600">Max 8 (or 1:1)</td>
               <td className="p-4 text-slate-600">Max 8 (or 1:1)</td>
               <td className="p-4 text-slate-600">Max 6 Students</td>
               <td className="p-4 text-slate-600">Max 8 (Interactive Labs)</td>
@@ -706,11 +782,13 @@ export const Programs = () => {
               <td className="p-4 text-slate-600">15 Years Categorized</td>
               <td className="p-4 text-slate-600">15 Years Categorized</td>
               <td className="p-4 text-slate-600">15 Years + Variant Analysis</td>
+              <td className="p-4 text-slate-600">FBISE SLOs + 10-Yr Past Papers</td>
               <td className="p-4 text-slate-600">Intensive Prediction Series</td>
               <td className="p-4 text-slate-600">Real Projects & Live Ad Spend</td>
             </tr>
             <tr>
               <td className="p-4 font-bold text-slate-900">Recorded Vault</td>
+              <td className="p-4 text-emerald-600 font-bold">✓ Included</td>
               <td className="p-4 text-emerald-600 font-bold">✓ Included</td>
               <td className="p-4 text-emerald-600 font-bold">✓ Included</td>
               <td className="p-4 text-emerald-600 font-bold">✓ Included</td>
@@ -722,6 +800,7 @@ export const Programs = () => {
               <td className="p-4 text-slate-600">Bi-weekly Audits</td>
               <td className="p-4 text-slate-600">Bi-weekly Audits</td>
               <td className="p-4 text-slate-600">Monthly + Progress Portal</td>
+              <td className="p-4 text-slate-600">Board Model Papers & Mocks</td>
               <td className="p-4 text-slate-600">Weekly Score Reports</td>
               <td className="p-4 text-emerald-600 font-bold">Verified Industry Certificate</td>
             </tr>

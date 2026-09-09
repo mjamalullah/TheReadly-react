@@ -1183,5 +1183,221 @@ export const subjectsData = [
     "duration": "12 Weeks (Lab Immersion)",
     "tutors": "Certified Information Security Architects",
     "isMain": false
+  },
+  {
+    "id": "matric-math-ssc",
+    "title": "Matric Mathematics (9th & 10th - Science)",
+    "boards": [
+      "Matriculation Board (FBISE / BISE)"
+    ],
+    "boardCategory": "matric",
+    "category": "maths",
+    "codes": [
+      "FBISE SSC-I (9th) / SSC-II (10th)",
+      "Punjab & Provincial BISE"
+    ],
+    "icon": "calculator",
+    "badgeColor": "from-blue-600 to-indigo-700",
+    "description": "Comprehensive Matriculation Science Mathematics covering Matrices, Real & Complex Numbers, Logarithms, Algebraic Expressions, Linear Equations, Trigonometry, and Practical Geometry theorems with 10-year board past paper derivations.",
+    "features": [
+      "SLO-Based Conceptual Questions & Definitions",
+      "Theorem Derivations & Board Presentation Method",
+      "10-Year Solved Past Papers (FBISE & BISE)"
+    ],
+    "duration": "6 - 9 Months",
+    "tutors": "Engr. Muhammad Tariq & Senior Matric Faculty",
+    "isMain": true
+  },
+  {
+    "id": "matric-physics-ssc",
+    "title": "Matric Physics (9th & 10th - SSC)",
+    "boards": [
+      "Matriculation Board (FBISE / BISE)"
+    ],
+    "boardCategory": "matric",
+    "category": "sciences",
+    "codes": [
+      "FBISE SSC-I (9th) / SSC-II (10th)",
+      "Physics Science Group"
+    ],
+    "icon": "atom",
+    "badgeColor": "from-cyan-600 to-blue-700",
+    "description": "In-depth Matric Physics preparation: Kinematics, Dynamics, Gravitation, Work & Energy, Heat & Waves, Geometrical Optics, Electrostatics, Current Electricity, and Electromagnetism with numerical formula mastery and practical theory.",
+    "features": [
+      "Step-by-Step Numerical Formula & Units Technique",
+      "Complete Board Long Question Derivations",
+      "Objective MCQs & Short Conceptual Reasoning"
+    ],
+    "duration": "6 - 9 Months",
+    "tutors": "Prof. Asif Raza (12+ Yrs FBISE/BISE Exp)",
+    "isMain": true
+  },
+  {
+    "id": "matric-chem-ssc",
+    "title": "Matric Chemistry (9th & 10th - SSC)",
+    "boards": [
+      "Matriculation Board (FBISE / BISE)"
+    ],
+    "boardCategory": "matric",
+    "category": "sciences",
+    "codes": [
+      "FBISE SSC-I & II",
+      "Chemistry Science Group"
+    ],
+    "icon": "flask-conical",
+    "badgeColor": "from-teal-600 to-emerald-700",
+    "description": "Fundamentals of Chemistry, Atomic Structure, Periodic Table periodicity, Chemical Bonding, States of Matter, Solutions, Electrochemistry, Chemical Reactivity, Organic Chemistry, and Hydrocarbons with balanced chemical equations.",
+    "features": [
+      "Balanced Chemical Equations & Reaction Mechanisms",
+      "Structure of Atoms & Periodic Trends",
+      "Practical-Based Conceptual Board Questions"
+    ],
+    "duration": "6 - 9 Months",
+    "tutors": "Dr. Farhan Siddiqui (PhD Chemistry)",
+    "isMain": true
+  },
+  {
+    "id": "matric-bio-ssc",
+    "title": "Matric Biology (9th & 10th - SSC)",
+    "boards": [
+      "Matriculation Board (FBISE / BISE)"
+    ],
+    "boardCategory": "matric",
+    "category": "sciences",
+    "codes": [
+      "FBISE SSC-I (9th) / SSC-II (10th)",
+      "Biology Science Group"
+    ],
+    "icon": "dna",
+    "badgeColor": "from-emerald-600 to-green-800",
+    "description": "Master Cell Biology, Enzymes, Bioenergetics, Nutrition, Gaseous Exchange, Homeostasis, Coordination & Control, Reproduction, and Genetics with labeled scientific diagram drawing techniques and examiner-certified keywords.",
+    "features": [
+      "Scientific Labeled Diagrams & Terminology Drills",
+      "Differentiated Short Questions & Reasoning",
+      "SLO Past Paper Question Banks"
+    ],
+    "duration": "6 - 9 Months",
+    "tutors": "Dr. Ayesha Malik (Senior Biology Specialist)",
+    "isMain": true
+  },
+  {
+    "id": "matric-cs-ssc",
+    "title": "Matric Computer Science (9th & 10th - SSC)",
+    "boards": [
+      "Matriculation Board (FBISE / BISE)"
+    ],
+    "boardCategory": "matric",
+    "category": "technology",
+    "codes": [
+      "FBISE SSC-I & II",
+      "Computer Science Track"
+    ],
+    "icon": "code-2",
+    "badgeColor": "from-purple-600 to-indigo-800",
+    "description": "Comprehensive Computer Science: Computer Systems architecture, Problem Solving with Flowcharts & Algorithms, C Programming syntax & logic (Loops, Functions, Arrays), and Cyber Security & Data Privacy.",
+    "features": [
+      "C/C++ Programming Logic & Code Tracing",
+      "Flowchart & Algorithm Problem Solving",
+      "Hands-on Board Practical Exam Preparation"
+    ],
+    "duration": "6 - 9 Months",
+    "tutors": "Engr. Zeeshan Ali (Software Engineer)",
+    "isMain": false
+  },
+  {
+    "id": "matric-eng-ssc",
+    "title": "Matric English Compulsory (9th & 10th)",
+    "boards": [
+      "Matriculation Board (FBISE / BISE)"
+    ],
+    "boardCategory": "matric",
+    "category": "languages",
+    "codes": [
+      "FBISE SSC-I (9th) / SSC-II (10th)",
+      "English Compulsory"
+    ],
+    "icon": "languages",
+    "badgeColor": "from-amber-600 to-rose-700",
+    "description": "Complete Matric English syllabus: Prose comprehension, Poetry summary & paraphrase, Active/Passive Voice, Direct/Indirect speech, Sentence correction, Essay & letter composition, and Urdu-to-English translation mastery.",
+    "features": [
+      "Grammar Rules, Voices & Narration Precision",
+      "Paragraph, Essay & Formal Letter Writing",
+      "Passage Translation & Unseen Comprehension"
+    ],
+    "duration": "6 - 9 Months",
+    "tutors": "Prof. M. Rizwan (Senior English Lecturer)",
+    "isMain": true
+  },
+  {
+    "id": "matric-urdu-ssc",
+    "title": "Matric Urdu Lazmi (9th & 10th - SSC)",
+    "boards": [
+      "Matriculation Board (FBISE / BISE)"
+    ],
+    "boardCategory": "matric",
+    "category": "languages",
+    "codes": [
+      "FBISE SSC-I (9th) / SSC-II (10th)",
+      "Urdu Lazmi Compulsory"
+    ],
+    "icon": "book-open",
+    "badgeColor": "from-emerald-700 to-teal-900",
+    "description": "Full Matric Urdu syllabus coverage: Hissa Nasr (Sabaq ka Khulasa wa Siaq-o-Sabaq), Hissa Nazm & Ghazal Ash'aar Tashreeh, Khatoot, Darkhwastein, Mazmoon Nawesi, and Qawaid-o-Insha presentation for maximum board marks.",
+    "features": [
+      "Ash'aar ki Jamay Tashreeh & Hawala-e-Kalam",
+      "Sabaq ka Khulasa & Markazi Khayal Writing",
+      "Qawaid-o-Insha & Board Presentation Tactics"
+    ],
+    "duration": "6 - 9 Months",
+    "tutors": "Sohail Anjum (15+ Yrs Board & CAIE Exp)",
+    "isMain": false
+  },
+  {
+    "id": "matric-pakstudy-ssc",
+    "title": "Matric Pakistan Studies (Mutalia-e-Pakistan)",
+    "boards": [
+      "Matriculation Board (FBISE / BISE)"
+    ],
+    "boardCategory": "matric",
+    "category": "humanities",
+    "codes": [
+      "FBISE SSC-I (9th) / SSC-II (10th)",
+      "Pakistan Studies Compulsory"
+    ],
+    "icon": "landmark",
+    "badgeColor": "from-green-700 to-emerald-900",
+    "description": "Historical Foundations of Pakistan, Ideology, Pakistan Movement (1906–1947), Land & Climate, Constitution, Foreign Policy, and Economic Development with structured heading-based answers.",
+    "features": [
+      "Heading-wise Long Question Structuring",
+      "Maps, Dates & Important Historical Chronology",
+      "Past 10 Years Solved Board Model Papers"
+    ],
+    "duration": "5 - 7 Months",
+    "tutors": "Prof. Tariq Hashmi (Senior Social Sciences Faculty)",
+    "isMain": false
+  },
+  {
+    "id": "matric-islamiyat-ssc",
+    "title": "Matric Islamiyat Lazmi (Compulsory)",
+    "boards": [
+      "Matriculation Board (FBISE / BISE)"
+    ],
+    "boardCategory": "matric",
+    "category": "humanities",
+    "codes": [
+      "FBISE SSC-I (9th) / SSC-II (10th)",
+      "Islamiyat Compulsory"
+    ],
+    "icon": "book-open",
+    "badgeColor": "from-teal-700 to-slate-900",
+    "description": "Selected Quranic Surahs translation & explanation, Selected Ahadith-e-Nabawi (SAW) context & application, Seerat-un-Nabi (SAW), and Core Islamic Ethics with proper Arabic text references and mark scheme methodology.",
+    "features": [
+      "Surah Translation & Ayat-by-Ayat Tashreeh",
+      "Ahadith-e-Mubaraka with Practical Implementation",
+      "Faraz-o-Wajibaat & Islamic Ethics Presentation"
+    ],
+    "duration": "5 - 7 Months",
+    "tutors": "Qari & Scholar Hafiz Abdul Rehman",
+    "isMain": false
   }
 ];

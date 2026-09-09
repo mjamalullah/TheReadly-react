@@ -408,6 +408,7 @@ export const Contact = () => {
                     <option>Cambridge O-Level</option>
                     <option>Cambridge IGCSE</option>
                     <option>Cambridge A-Level</option>
+                    <option>Matriculation Board (SSC Part I & II)</option>
                     <option>Pearson Edexcel</option>
                     <option>IT & Professional Certifications</option>
                     <option>Revision Crash Course</option>

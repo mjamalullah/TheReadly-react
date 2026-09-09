@@ -21,7 +21,7 @@ export const Footer = () => {
               />
             </Link>
             <p className="text-xs leading-relaxed" style={{ color: '#E2E8F0' }}>
-              Premier live online academy for Cambridge Assessment International Education (O-Level, IGCSE & A-Level), Pearson Edexcel, and Industry IT Certifications. Mentoring students across Pakistan, UAE, Saudi Arabia, the UK, and overseas to straight A* academic distinctions.
+              Premier live online academy for Cambridge Assessment International Education (O-Level, IGCSE & A-Level), Matriculation Board (FBISE & BISE), Pearson Edexcel, and Industry IT Certifications. Mentoring students across Pakistan, UAE, Saudi Arabia, the UK, and overseas to straight A* academic distinctions.
             </p>
             <div className="flex items-center gap-2 text-xs text-emerald-400 font-semibold">
               <ShieldCheck className="w-4 h-4 text-[#C59B4B]" />
@@ -50,6 +50,9 @@ export const Footer = () => {
               </li>
               <li>
                 <Link to="/programs" className="hover:text-white transition-colors">Cambridge International AS & A-Level</Link>
+              </li>
+              <li>
+                <Link to="/programs#matric" className="hover:text-white transition-colors">Matriculation Board (SSC Part I & II)</Link>
               </li>
               <li>
                 <Link to="/programs" className="hover:text-white transition-colors">Pearson Edexcel International GCSE</Link>
