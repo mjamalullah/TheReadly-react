@@ -1,10 +1,24 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
+import React, { useEffect } from 'react';
+import { Link, useLocation } from 'react-router-dom';
 import { useModal } from '../context/ModalContext';
 import { Icon } from '../components/Icon';
 
 export const Programs = () => {
   const { openBookingModal } = useModal();
+  const location = useLocation();
+
+  useEffect(() => {
+    if (location.hash) {
+      const id = location.hash.replace('#', '');
+      const el = document.getElementById(id);
+      if (el) {
+        setTimeout(() => {
+          el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }, 150);
+      }
+    }
+  }, [location]);
+
   return (
     <div className="space-y-12">
       
@@ -99,6 +113,100 @@ export const Programs = () => {
               <span className="font-bold text-[#059669]">Monthly + Series Mocks</span>
             </div>
           </div>
+        </div>
+      </div>
+
+      {/*  1.1 SPECIAL TRACK: FULL ONLINE O-LEVEL & BATCH CLASSES (HOMESCHOOLERS & PRIVATE CANDIDATES)  */}
+      <div id="olevel-batches" className="card-base p-8 sm:p-10 bg-gradient-to-br from-emerald-50/80 via-white to-amber-50/40 border-2 border-emerald-200/90 shadow-md scroll-mt-24">
+        <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-6 pb-6 border-b border-emerald-100">
+          <div>
+            <div className="flex items-center gap-2 mb-2 flex-wrap">
+              <span className="px-3 py-1 rounded-full text-xs font-extrabold bg-[#0B4635] text-white uppercase tracking-wider">
+                Full Online Schooling Track
+              </span>
+              <span className="px-2.5 py-0.5 rounded-full text-xs font-bold bg-[#FEF9EE] text-[#936F1E] border border-[#E8D3A7]">
+                No Physical School Needed
+              </span>
+              <span className="px-2.5 py-0.5 rounded-full text-xs font-bold bg-emerald-100/70 text-[#059669]">
+                Morning & Evening Batches
+              </span>
+            </div>
+            <h3 className="text-2xl sm:text-3xl font-extrabold text-[#0B4635] font-heading">
+              Complete Online Cambridge O-Level <span className="text-[#C59B4B]">Batch Classes</span>
+            </h3>
+            <p className="text-sm text-slate-600 mt-2 max-w-3xl leading-relaxed">
+              Designed specifically for students who want to study Cambridge O-Level completely from home without going to a conventional physical school. Get structured daily classes, interactive small batches (max 6–8 students), daily topical past paper solving, and full British Council private candidate exam registration assistance.
+            </p>
+          </div>
+          <div className="shrink-0 flex flex-col sm:flex-row lg:flex-col gap-2.5">
+            <button
+              type="button"
+              onClick={() => openBookingModal({ curriculum: 'Cambridge O-Level' })}
+              className="btn btn-teal text-xs font-bold py-3 px-5 shadow-sm hover:shadow-md cursor-pointer flex items-center justify-center gap-2"
+            >
+              <span>Enrol in O-Level Batch</span>
+              <Icon name="users" className="w-4 h-4" />
+            </button>
+            <a
+              href="https://wa.me/923337221552?text=Hi%20The%20Readly%20Institute,%20I%20am%20interested%20in%20Full%20Online%20O-Level%20Batch%20Classes%20from%20home"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="btn btn-whatsapp text-xs font-bold py-2.5 px-4 flex items-center justify-center gap-2"
+            >
+              <span>Inquire on WhatsApp</span>
+            </a>
+          </div>
+        </div>
+
+        {/* Batch Structure Details Grid */}
+        <div className="grid md:grid-cols-3 gap-4 pt-6 text-xs">
+          <div className="p-4 rounded-xl bg-white border border-slate-200/90 shadow-2xs space-y-2">
+            <div className="flex items-center gap-2 text-[#0B4635] font-bold text-sm">
+              <span className="text-lg">⏰</span>
+              <h4>Flexible Daily Batch Timings</h4>
+            </div>
+            <p className="text-slate-600 text-[11px] leading-relaxed">
+              Choose between <strong>Morning Batch (9:00 AM – 1:00 PM PKT)</strong> for full-time homeschoolers, or <strong>Evening Batch (4:30 PM – 8:30 PM PKT)</strong>. Structured daily timetable covering 4 to 5 subjects systematically.
+            </p>
+          </div>
+
+          <div className="p-4 rounded-xl bg-white border border-slate-200/90 shadow-2xs space-y-2">
+            <div className="flex items-center gap-2 text-[#0B4635] font-bold text-sm">
+              <span className="text-lg">📝</span>
+              <h4>Daily Topical Past Paper Drilling</h4>
+            </div>
+            <p className="text-slate-600 text-[11px] leading-relaxed">
+              Students don't just learn theory—they solve 15 years of CAIE topical past paper questions after every concept. Daily homework is submitted online and marked according to official Cambridge marking schemes.
+            </p>
+          </div>
+
+          <div className="p-4 rounded-xl bg-white border border-slate-200/90 shadow-2xs space-y-2">
+            <div className="flex items-center gap-2 text-[#0B4635] font-bold text-sm">
+              <span className="text-lg">🎓</span>
+              <h4>Private Candidate Registration Help</h4>
+            </div>
+            <p className="text-slate-600 text-[11px] leading-relaxed">
+              We guide parents and students step-by-step through British Council private candidate exam registration for May/June and Oct/Nov series, including syllabus codes, venue selection, and statement of entry.
+            </p>
+          </div>
+        </div>
+
+        {/* Subjects Covered in Batch Track */}
+        <div className="mt-6 p-4 rounded-xl bg-emerald-50/60 border border-emerald-200/70 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 text-xs">
+          <div>
+            <span className="font-extrabold text-[#0B4635] block">Complete O-Level Subject Packages Available:</span>
+            <span className="text-slate-600 text-[11px]">
+              Mathematics (4024), Additional Maths (4037), Physics (5054), Chemistry (5070), Biology (5090), Computer Science (2210), English Language (1123), Urdu (3248), Pakistan Studies (2059), Islamiyat (2058), Accounting, Economics & Business.
+            </span>
+          </div>
+          <button
+            type="button"
+            onClick={() => openBookingModal({ curriculum: 'Cambridge O-Level' })}
+            className="shrink-0 text-xs font-bold text-[#059669] hover:underline flex items-center gap-1 cursor-pointer"
+          >
+            <span>Book 45-Min Free Trial</span>
+            <Icon name="arrow-right" className="w-3.5 h-3.5" />
+          </button>
         </div>
       </div>
 

@@ -6,6 +6,7 @@ import { X, Sparkles, Send, CheckCircle2 } from 'lucide-react';
 
 const curriculumSubjectsMap = {
   "Cambridge O-Level": [
+    "All Core Subjects (Full O-Level Batch)",
     "Urdu - First Language (3247)",
     "Urdu - Second Language (3248)",
     "Mathematics - Syllabus D (4024)",
@@ -65,7 +66,14 @@ const curriculumSubjectsMap = {
 };
 
 const curriculumGradesMap = {
-  "Cambridge O-Level": ["O-1 / Grade 9", "O-2 / Grade 10", "O-3 / Grade 11"],
+  "Cambridge O-Level": [
+    "O-1 / Grade 9 (Morning/Evening Batch)",
+    "O-2 / Grade 10 (Morning/Evening Batch)",
+    "O-3 / Grade 11 (Morning/Evening Batch)",
+    "Full Online Schooling (Homeschool Track)",
+    "Private Candidate Intensive Preparation",
+    "1-on-1 Individual Tutoring"
+  ],
   "Cambridge IGCSE": ["Year 9", "Year 10", "Year 11"],
   "Cambridge A-Level": ["AS-Level / Grade 12", "A2-Level / Grade 13"],
   "Pearson Edexcel": ["IGCSE Year 1", "IGCSE Year 2", "International AS", "International A2"],

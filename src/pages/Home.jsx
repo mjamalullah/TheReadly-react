@@ -86,24 +86,24 @@ const heroSlides = [
     }
   },
   {
-    tabLabel: "Distinction Merit",
-    badge: "Rigorous Exam Rehearsals & Distinctions",
-    badgeIcon: Award,
-    titleMain: "Prepare With",
-    titleHighlight: "Total Confidence.",
-    subtitle: "Authentic Cambridge Rubrics & A* Results",
-    description: "Develop the knowledge, analytical skills, and exam confidence needed for outstanding grades. Timed mock examinations evaluated under authentic Cambridge grading rubrics with guaranteed A* readiness.",
-    primaryBtn: { text: "Schedule Diagnostic Demo", icon: CalendarCheck, action: "modal" },
-    secondaryBtn: { text: "How It Works", icon: ArrowRight, to: "/how-it-works" },
+    tabLabel: "Online O-Level Batches",
+    badge: "Full Online Cambridge O-Level Schooling & Batches",
+    badgeIcon: Users,
+    titleMain: "Complete Online O-Level.",
+    titleHighlight: "Interactive Batch Classes.",
+    subtitle: "Ideal for Homeschoolers & Students Studying Entirely From Home",
+    description: "No physical school required. Complete Cambridge O-Level preparation with interactive small-group live batches (Morning & Evening), daily 15-year topical past paper practice, and full CAIE exam readiness across all subjects.",
+    primaryBtn: { text: "Enrol in O-Level Batch", icon: Users, action: "modal" },
+    secondaryBtn: { text: "Explore O-Level Track", icon: ArrowRight, to: "/programs#olevel-batches" },
     mobilePreview: {
-      type: "merit",
-      tag: "Verified A*",
-      subject: "Official Distinction Merit Profile",
-      topic: "Score 98.4% • Top 1% Regional Cambridge Candidates",
+      type: "batch",
+      tag: "Homeschooling Track",
+      subject: "Full Online Cambridge O-Level (Grades 9–11)",
+      topic: "Morning & Evening Live Batches • All CAIE Subjects",
       stats: [
-        { label: "Pakistan", val: "Rank #1" },
-        { label: "UAE Dubai", val: "Raw 96%" },
-        { label: "UK / KSA", val: "A* Grade" }
+        { label: "Batch Size", val: "Max 6–8" },
+        { label: "Timings", val: "Morning & Eve" },
+        { label: "Practice", val: "Daily Topical" }
       ]
     }
   }
@@ -702,88 +702,119 @@ export const Home = () => {
                 </div>
               )}
 
-              {/* SLIDE 3 DESIGN: Framed Gold Distinction Certificate & Global Merit Scorecard */}
+              {/* SLIDE 3 DESIGN: Full Online O-Level Schooling & Batch System Portal */}
               {currentSlide === 2 && (
-                <div key="slide-design-2" className="anim-certificate-stamp anim-gold-pulse relative rounded-2xl border-2 border-[#C59B4B] bg-gradient-to-b from-[#FFFDF9] via-[#FCF8EE] to-[#F7EED8] p-6 shadow-2xl shadow-[#C59B4B]/20 select-none overflow-hidden">
-                  {/* Certificate Corner Geometric Accents */}
-                  <div className="absolute top-2.5 left-2.5 w-4 h-4 border-t-2 border-l-2 border-[#C59B4B]"></div>
-                  <div className="absolute top-2.5 right-2.5 w-4 h-4 border-t-2 border-r-2 border-[#C59B4B]"></div>
-                  <div className="absolute bottom-2.5 left-2.5 w-4 h-4 border-b-2 border-l-2 border-[#C59B4B]"></div>
-                  <div className="absolute bottom-2.5 right-2.5 w-4 h-4 border-b-2 border-r-2 border-[#C59B4B]"></div>
-
-                  {/* Watermark Crest */}
-                  <div className="absolute -right-10 -bottom-10 opacity-5 pointer-events-none">
-                    <Award className="w-56 h-56 text-[#0B4635]" />
-                  </div>
-
-                  {/* Certificate Header */}
-                  <div className="text-center border-b border-[#E8D3A7] pb-3 mb-3 relative">
-                    <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#FEF9EE] border border-[#C59B4B] text-[#936F1E] text-[10px] font-extrabold uppercase tracking-widest mb-1 shadow-2xs">
-                      <Award className="w-3.5 h-3.5 text-[#C59B4B]" />
-                      <span>Official Distinction Audit Card</span>
-                    </div>
-                    <h3 className="text-sm font-extrabold text-[#0B4635] font-heading tracking-wide uppercase">
-                      The Readly Institute &bull; Merit Roll
-                    </h3>
-                    <p className="text-[11px] text-slate-600 font-serif italic">Cambridge Assessment International Series Mock Audit</p>
-                  </div>
-
-                  {/* Distinction Score Ribbon */}
-                  <div className="p-3.5 rounded-xl bg-white/95 border border-[#E8D3A7] flex items-center justify-between shadow-sm mb-3">
-                    <div>
-                      <span className="text-[10px] font-bold text-slate-500 uppercase tracking-wider block">Official Result Profile</span>
-                      <h4 className="text-xl font-extrabold text-[#0B4635] font-heading leading-tight">
-                        Grade A* Distinction
-                      </h4>
-                      <span className="text-[11px] text-[#936F1E] font-medium flex items-center gap-1">
-                        <Star className="w-3 h-3 fill-[#C59B4B] text-[#C59B4B]" />
-                        Top 1% Worldwide Candidate Profile
+                <div key="slide-design-2" className="anim-batch-portal dashboard-preview-window border border-emerald-200/90 shadow-2xl bg-white overflow-hidden rounded-2xl">
+                  {/* Header Bar */}
+                  <div className="bg-[#06251C] px-4 py-3 flex items-center justify-between border-b border-white/10">
+                    <div className="flex items-center gap-2">
+                      <span className="w-3 h-3 rounded-full bg-rose-400"></span>
+                      <span className="w-3 h-3 rounded-full bg-amber-400"></span>
+                      <span className="w-3 h-3 rounded-full bg-emerald-400"></span>
+                      <span className="text-xs font-mono font-semibold text-slate-200 ml-2">
+                        Cambridge O-Level • Full Online Schooling Portal
                       </span>
                     </div>
-                    <div className="text-right">
-                      <span className="text-2xl sm:text-3xl font-black text-[#0B4635] font-heading block">98.4%</span>
-                      <span className="text-[10px] font-bold text-[#059669] bg-[#ECFDF5] px-2 py-0.5 rounded-full border border-emerald-200">
-                        Grade Cleared
-                      </span>
+                    <div className="flex items-center gap-1.5 bg-[#0B4635] text-amber-300 border border-[#C59B4B]/30 px-2.5 py-0.5 rounded-full text-[10px] font-bold">
+                      <Users className="w-3 h-3 text-[#C59B4B]" />
+                      <span>Live Batches Open</span>
                     </div>
                   </div>
 
-                  {/* Global Student Merit Roll Pills (3 international hubs) */}
-                  <div className="space-y-1.5 mb-3">
-                    <span className="text-[10px] font-extrabold text-slate-500 uppercase tracking-wider block px-1">
-                      Global Candidate Benchmarks:
-                    </span>
-                    
-                    <div className="grid grid-cols-3 gap-2 text-center text-xs">
-                      <div className="p-2 rounded-lg bg-white/90 border border-[#E8D3A7]/80 shadow-2xs">
-                        <span className="text-sm block">🇵🇰</span>
-                        <span className="font-extrabold text-slate-900 block text-[11px]">Pakistan #1</span>
-                        <span className="text-[9px] text-slate-500">Math 4024 (Raw 98)</span>
+                  {/* Body Content */}
+                  <div className="p-5 space-y-3.5 bg-white">
+                    {/* Top Callout: Batch Options & Timings */}
+                    <div className="p-3 rounded-xl bg-gradient-to-r from-emerald-50 via-[#FEF9EE] to-amber-50/60 border border-emerald-200/80 flex items-center justify-between">
+                      <div>
+                        <div className="flex items-center gap-2">
+                          <span className="text-[10px] font-extrabold text-[#0B4635] uppercase tracking-wider">No Physical School Needed</span>
+                          <span className="text-[10px] font-bold bg-[#059669] text-white px-2 py-0.2 rounded">Homeschool Track</span>
+                        </div>
+                        <h4 className="text-sm font-extrabold text-slate-900 font-heading mt-0.5">
+                          Complete O-Level Syllabus & Topical Practice
+                        </h4>
                       </div>
-
-                      <div className="p-2 rounded-lg bg-white/90 border border-[#E8D3A7]/80 shadow-2xs">
-                        <span className="text-sm block">🇦🇪</span>
-                        <span className="font-extrabold text-slate-900 block text-[11px]">UAE (Dubai)</span>
-                        <span className="text-[9px] text-slate-500">Physics 9702 (A*)</span>
-                      </div>
-
-                      <div className="p-2 rounded-lg bg-white/90 border border-[#E8D3A7]/80 shadow-2xs">
-                        <span className="text-sm block">🇸🇦 🇬🇧</span>
-                        <span className="font-extrabold text-slate-900 block text-[11px]">KSA & UK</span>
-                        <span className="text-[9px] text-slate-500">IGCSE CS 0478 (A*)</span>
+                      <div className="text-right shrink-0">
+                        <span className="text-[10px] font-bold text-slate-500 uppercase block">Cohort Capacity</span>
+                        <span className="text-xs font-extrabold text-[#0B4635] font-mono">Max 6–8 Students</span>
                       </div>
                     </div>
-                  </div>
 
-                  {/* Verification Stamp Footer */}
-                  <div className="flex items-center justify-between pt-2 border-t border-[#E8D3A7]/80 text-[10px] text-slate-600">
-                    <div className="flex items-center gap-1.5 text-emerald-800 font-bold">
-                      <ShieldCheck className="w-4 h-4 text-[#059669]" />
-                      <span>Verified Examiner Grading Rubric</span>
+                    {/* Batch Timings Bar */}
+                    <div className="grid grid-cols-2 gap-2 text-xs">
+                      <div className="p-2 rounded-lg bg-emerald-50/70 border border-emerald-200 flex items-center gap-2">
+                        <span className="text-base">🌅</span>
+                        <div>
+                          <span className="font-extrabold text-[#0B4635] block text-[11px]">Morning Batch</span>
+                          <span className="text-[10px] text-slate-500">9:00 AM – 1:00 PM PKT</span>
+                        </div>
+                      </div>
+                      <div className="p-2 rounded-lg bg-amber-50/60 border border-amber-200 flex items-center gap-2">
+                        <span className="text-base">🌆</span>
+                        <div>
+                          <span className="font-extrabold text-[#936F1E] block text-[11px]">Evening Batch</span>
+                          <span className="text-[10px] text-slate-500">4:30 PM – 8:30 PM PKT</span>
+                        </div>
+                      </div>
                     </div>
-                    <span className="font-mono font-bold text-[#936F1E] bg-[#FEF9EE] px-2 py-0.5 rounded border border-[#E8D3A7]">
-                      REF: RDL-2026-A*
-                    </span>
+
+                    {/* 4 Subject Streams Covered */}
+                    <div className="space-y-1.5">
+                      <div className="flex justify-between items-center text-[10px] font-bold text-slate-500 uppercase tracking-wider px-1">
+                        <span>Core Subject Offerings:</span>
+                        <span className="text-[#059669]">CAIE 4000/5000/7000 Series</span>
+                      </div>
+                      <div className="grid grid-cols-2 gap-1.5 text-xs">
+                        <div className="p-2 rounded-lg bg-slate-50 border border-slate-200 hover:border-emerald-300 transition-colors">
+                          <span className="font-bold text-slate-900 block text-[11px]">📐 Mathematics (4024 / 4037)</span>
+                          <span className="text-[10px] text-slate-500">Daily Concept Breakdown & Topical Mocks</span>
+                        </div>
+                        <div className="p-2 rounded-lg bg-slate-50 border border-slate-200 hover:border-emerald-300 transition-colors">
+                          <span className="font-bold text-slate-900 block text-[11px]">🔬 Sciences (5054 / 5070 / 5090)</span>
+                          <span className="text-[10px] text-slate-500">Physics, Chemistry, Biology & ATP Paper 4</span>
+                        </div>
+                        <div className="p-2 rounded-lg bg-slate-50 border border-slate-200 hover:border-emerald-300 transition-colors">
+                          <span className="font-bold text-slate-900 block text-[11px]">📚 Humanities & Languages</span>
+                          <span className="text-[10px] text-slate-500">Pak Studies, Islamiyat, English & Urdu</span>
+                        </div>
+                        <div className="p-2 rounded-lg bg-slate-50 border border-slate-200 hover:border-emerald-300 transition-colors">
+                          <span className="font-bold text-slate-900 block text-[11px]">💼 Commerce & Computers</span>
+                          <span className="text-[10px] text-slate-500">Accounting, Economics, Business & CS 2210</span>
+                        </div>
+                      </div>
+                    </div>
+
+                    {/* 3 Key Benefits */}
+                    <div className="grid grid-cols-3 gap-2 text-center text-xs pt-0.5">
+                      <div className="p-2 rounded-lg bg-emerald-50/60 border border-emerald-100">
+                        <span className="font-extrabold text-[#059669] block text-xs">15-Year Topical</span>
+                        <span className="text-[10px] text-slate-500 font-medium">Daily Homework Marking</span>
+                      </div>
+                      <div className="p-2 rounded-lg bg-amber-50/60 border border-amber-100">
+                        <span className="font-extrabold text-[#936F1E] block text-xs">Monthly Full Mocks</span>
+                        <span className="text-[10px] text-slate-500 font-medium">Exam Simulation</span>
+                      </div>
+                      <div className="p-2 rounded-lg bg-slate-50 border border-slate-200">
+                        <span className="font-extrabold text-[#0B4635] block text-xs">CAIE Registration</span>
+                        <span className="text-[10px] text-slate-500 font-medium">British Council Support</span>
+                      </div>
+                    </div>
+
+                    {/* Enrolment Trigger Bar */}
+                    <div className="pt-1 flex items-center justify-between border-t border-slate-100">
+                      <div className="flex items-center gap-1.5 text-xs text-slate-600">
+                        <CheckCircle2 className="w-3.5 h-3.5 text-[#059669]" />
+                        <span className="text-[11px] font-medium">Free 45-min diagnostic trial batch session</span>
+                      </div>
+                      <button
+                        type="button"
+                        onClick={() => openBookingModal({ curriculum: 'Cambridge O-Level' })}
+                        className="text-[11px] font-bold text-[#0B4635] hover:text-[#059669] underline cursor-pointer"
+                      >
+                        Join O-Level Batch &rarr;
+                      </button>
+                    </div>
+
                   </div>
                 </div>
               )}
@@ -840,14 +871,17 @@ export const Home = () => {
           {/* Card 1: O-Level */}
           <div className="card-base p-6 bg-white border-slate-200 hover:border-emerald-500 hover:shadow-lg transition-all flex flex-col justify-between group">
             <div className="space-y-3">
-              <span className="px-2.5 py-1 rounded text-[10px] font-bold uppercase bg-emerald-50 text-[#059669]">CAIE</span>
+              <div className="flex items-center gap-1.5 flex-wrap">
+                <span className="px-2.5 py-1 rounded text-[10px] font-bold uppercase bg-emerald-50 text-[#059669]">CAIE</span>
+                <span className="px-2 py-0.5 rounded text-[10px] font-bold bg-[#FEF9EE] text-[#936F1E] border border-[#E8D3A7]">Online Schooling & Batches</span>
+              </div>
               <h3 className="text-base font-bold text-slate-900 font-heading group-hover:text-[#059669] transition-colors">Cambridge O-Level</h3>
               <p className="text-xs text-slate-600 leading-relaxed">
-                Comprehensive 1-on-1 tutoring covering syllabus fundamentals, topical question banks, and weekly feedback.
+                Full online schooling for homeschoolers & private candidates. Daily morning/evening interactive batches and 1-on-1 tracks with topical past paper drilling.
               </p>
             </div>
-            <Link to="/programs" className="mt-4 pt-3 border-t border-slate-100 flex items-center justify-between text-xs font-bold text-[#059669]">
-              <span>View Curriculum</span>
+            <Link to="/programs#olevel-batches" className="mt-4 pt-3 border-t border-slate-100 flex items-center justify-between text-xs font-bold text-[#059669]">
+              <span>View O-Level Batches</span>
               <ArrowRight className="w-3.5 h-3.5 transition-transform group-hover:translate-x-1" />
             </Link>
           </div>
