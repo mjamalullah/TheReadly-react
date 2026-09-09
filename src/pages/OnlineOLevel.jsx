@@ -116,18 +116,29 @@ export const OnlineOLevel = () => {
             
             {/* Left Content */}
             <div className="lg:col-span-7 space-y-5 text-left">
-              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#ECFDF5] border border-emerald-200 text-[#059669] text-xs font-bold">
-                <Users className="w-3.5 h-3.5" />
-                <span>Full Online Schooling • Cambridge O-Level (Grades 9–11)</span>
+              <div className="flex items-center gap-2 flex-wrap">
+                <span className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-gradient-to-r from-[#0B4635] to-[#043326] text-white border border-[#C59B4B] text-xs font-black shadow-xs">
+                  <GraduationCap className="w-4 h-4 text-[#C59B4B]" />
+                  <span className="tracking-wide uppercase">The Readly Virtual School • Cambridge O-Level</span>
+                </span>
+                <span className="px-3 py-1 rounded-full text-xs font-bold bg-[#FEF9EE] text-[#936F1E] border border-[#E8D3A7]">
+                  Baqaida Schooling • Grades 9, 10 & 11
+                </span>
+                <span className="px-2.5 py-1 rounded-full text-xs font-bold bg-emerald-50 text-[#059669] border border-emerald-200">
+                  Zero Physical School Needed
+                </span>
               </div>
 
-              <h1 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-[#0B4635] font-heading tracking-tight leading-tight">
-                Complete Online Cambridge O-Level.{' '}
-                <span className="text-[#C59B4B]">No Physical School Needed.</span>
+              <h1 className="text-3xl sm:text-5xl lg:text-[54px] font-black text-[#0B4635] font-heading tracking-tight leading-[1.12]">
+                Full-Fledged Online <span className="text-[#C59B4B] bg-gradient-to-r from-[#B38838] via-[#C59B4B] to-[#936F1E] bg-clip-text text-transparent underline decoration-[#C59B4B]/40 decoration-wavy underline-offset-8">Cambridge O-Level School.</span>
               </h1>
 
+              <p className="text-base sm:text-xl font-bold text-[#059669] font-heading">
+                Study Full O-Level Just Like a Regular School — Structured Daily Classes from Home
+              </p>
+
               <p className="text-slate-600 text-sm sm:text-base leading-relaxed max-w-2xl">
-                Engineered for homeschoolers, private candidates, and independent students. Complete your full Cambridge O-Level (CAIE) curriculum from the comfort of your home with structured interactive batch classes, daily 15-year topical past paper practice, and end-to-end British Council private exam registration support.
+                A complete accredited virtual school designed for homeschoolers, private candidates, and independent students. Complete your full Cambridge O-Level (CAIE) curriculum from home with structured daily timetables (Morning & Evening batches), daily 15-year topical past paper practice, weekly assessments, and end-to-end British Council private exam registration support.
               </p>
 
               {/* Action Buttons */}
@@ -137,7 +148,7 @@ export const OnlineOLevel = () => {
                   onClick={() => openBookingModal({ curriculum: 'Cambridge O-Level' })}
                   className="btn btn-teal font-bold text-xs sm:text-sm px-6 py-3.5 shadow-md hover:shadow-lg transition-all flex items-center justify-center gap-2 cursor-pointer"
                 >
-                  <span>Enrol in O-Level Batch (Free Trial)</span>
+                  <span>Enrol in Virtual School (Free Trial)</span>
                   <ArrowRight className="w-4 h-4" />
                 </button>
 

@@ -121,20 +121,24 @@ export const Programs = () => {
         <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-6 pb-6 border-b border-emerald-100">
           <div>
             <div className="flex items-center gap-2 mb-2 flex-wrap">
-              <span className="px-3 py-1 rounded-full text-xs font-extrabold bg-[#0B4635] text-white uppercase tracking-wider">
-                Full Online Schooling Track
+              <span className="px-3.5 py-1 rounded-full text-xs font-black bg-[#0B4635] text-white uppercase tracking-wider flex items-center gap-1.5 shadow-xs">
+                <Icon name="graduation-cap" className="w-4 h-4 text-[#C59B4B]" />
+                <span>Virtual Cambridge School</span>
               </span>
-              <span className="px-2.5 py-0.5 rounded-full text-xs font-bold bg-[#FEF9EE] text-[#936F1E] border border-[#E8D3A7]">
-                No Physical School Needed
+              <span className="px-3 py-1 rounded-full text-xs font-bold bg-[#FEF9EE] text-[#0B4635] border border-[#E8D3A7]">
+                Baqaida Schooling Without Physical Attendance
               </span>
-              <span className="px-2.5 py-0.5 rounded-full text-xs font-bold bg-emerald-100/70 text-[#059669]">
+              <span className="px-2.5 py-0.5 rounded-full text-xs font-bold bg-emerald-100/80 text-[#059669]">
                 Morning & Evening Batches
               </span>
             </div>
-            <h3 className="text-2xl sm:text-3xl font-extrabold text-[#0B4635] font-heading">
-              Complete Online Cambridge O-Level <span className="text-[#C59B4B]">Batch Classes</span>
+            <h3 className="text-2xl sm:text-4xl font-black text-[#0B4635] font-heading">
+              Full-Fledged Online Cambridge O-Level <span className="text-[#C59B4B]">School.</span>
             </h3>
-            <p className="text-sm text-slate-600 mt-2 max-w-3xl leading-relaxed">
+            <p className="text-sm font-bold text-[#059669] mt-1">
+              Study Full O-Level Just Like a Regular School — Complete Daily Classes & Exam Entry
+            </p>
+            <p className="text-sm text-slate-600 mt-1.5 max-w-3xl leading-relaxed">
               Designed specifically for students who want to study Cambridge O-Level completely from home without going to a conventional physical school. Get structured daily classes, interactive small batches (max 6–8 students), daily topical past paper solving, and full British Council private candidate exam registration assistance.
             </p>
           </div>

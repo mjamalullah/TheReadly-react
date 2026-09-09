@@ -86,24 +86,24 @@ const heroSlides = [
     }
   },
   {
-    tabLabel: "Online O-Level Batches",
-    badge: "Full Online Cambridge O-Level Schooling & Batches",
-    badgeIcon: Users,
-    titleMain: "Complete Online O-Level.",
-    titleHighlight: "Interactive Batch Classes.",
-    subtitle: "Ideal for Homeschoolers & Students Studying Entirely From Home",
-    description: "No physical school required. Complete Cambridge O-Level preparation with interactive small-group live batches (Morning & Evening), daily 15-year topical past paper practice, and full CAIE exam readiness across all subjects.",
-    primaryBtn: { text: "Enrol in O-Level Batch", icon: Users, action: "modal" },
-    secondaryBtn: { text: "Explore O-Level Track", icon: ArrowRight, to: "/programs#olevel-batches" },
+    tabLabel: "Full Online O-Level School",
+    badge: "Complete Virtual Cambridge School • Grades 9 to 11",
+    badgeIcon: GraduationCap,
+    titleMain: "Full Online Cambridge School.",
+    titleHighlight: "Study O-Level From Home.",
+    subtitle: "Baqaida Schooling • Daily Batches • Zero Physical School Needed",
+    description: "A complete accredited online alternative to physical schools. Study all Cambridge O-Level subjects with structured daily classes, daily 15-year topical past paper drills, weekly assessments, and end-to-end British Council private candidate exam registration.",
+    primaryBtn: { text: "Enrol in Virtual School", icon: GraduationCap, action: "modal" },
+    secondaryBtn: { text: "Explore Online School", icon: ArrowRight, to: "/programs/online-o-level" },
     mobilePreview: {
       type: "batch",
-      tag: "Homeschooling Track",
-      subject: "Full Online Cambridge O-Level (Grades 9–11)",
-      topic: "Morning & Evening Live Batches • All CAIE Subjects",
+      tag: "Virtual Cambridge School",
+      subject: "Complete Cambridge O-Level (Grades 9–11)",
+      topic: "Morning & Evening Daily Batches • Full Schooling from Home",
       stats: [
-        { label: "Batch Size", val: "Max 6–8" },
-        { label: "Timings", val: "Morning & Eve" },
-        { label: "Practice", val: "Daily Topical" }
+        { label: "Batch Cap", val: "Max 6–8" },
+        { label: "Timetable", val: "Morning / Eve" },
+        { label: "Curriculum", val: "Full CAIE" }
       ]
     }
   }
@@ -951,53 +951,56 @@ export const Home = () => {
 
       {/* ================= 3.1 FEATURED SPOTLIGHT: FULL ONLINE O-LEVEL SCHOOLING & BATCHES ================= */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="card-base p-8 sm:p-12 bg-gradient-to-br from-[#06281E] via-[#0B4635] to-[#08302A] text-white rounded-3xl border border-[#C59B4B]/40 shadow-2xl relative overflow-hidden">
+        <div className="card-base p-8 sm:p-12 bg-gradient-to-br from-[#041D15] via-[#0B4635] to-[#07261D] text-white rounded-3xl border-2 border-[#C59B4B]/70 shadow-2xl relative overflow-hidden">
           
           {/* Subtle Background Glow Elements */}
-          <div className="absolute -right-24 -top-24 w-96 h-96 bg-[#C59B4B]/10 rounded-full blur-3xl pointer-events-none"></div>
-          <div className="absolute -left-24 -bottom-24 w-96 h-96 bg-emerald-500/10 rounded-full blur-3xl pointer-events-none"></div>
+          <div className="absolute -right-24 -top-24 w-96 h-96 bg-[#C59B4B]/15 rounded-full blur-3xl pointer-events-none"></div>
+          <div className="absolute -left-24 -bottom-24 w-96 h-96 bg-emerald-400/10 rounded-full blur-3xl pointer-events-none"></div>
 
           <div className="relative z-10 grid lg:grid-cols-12 gap-8 items-center">
             
             {/* Left Content */}
             <div className="lg:col-span-7 space-y-4 text-left">
               <div className="flex items-center gap-2 flex-wrap">
-                <span className="px-3 py-1 rounded-full text-xs font-extrabold bg-[#C59B4B] text-[#06251C] uppercase tracking-wider">
-                  Featured Academic Track
+                <span className="px-3.5 py-1.5 rounded-full text-xs font-black bg-gradient-to-r from-[#C59B4B] via-[#E5C07B] to-[#C59B4B] text-[#06251C] uppercase tracking-wider shadow-md flex items-center gap-1.5">
+                  <GraduationCap className="w-4 h-4" />
+                  <span>A Complete Virtual Cambridge School</span>
                 </span>
-                <span className="px-2.5 py-0.5 rounded-full text-xs font-bold bg-white/10 text-emerald-200 border border-emerald-400/20">
-                  No Physical School Needed
+                <span className="px-3 py-1 rounded-full text-xs font-bold bg-[#FEF9EE] text-[#0B4635] border border-[#E8D3A7] shadow-xs">
+                  Baqaida Schooling • Grades 9, 10 & 11
                 </span>
-                <span className="px-2.5 py-0.5 rounded-full text-xs font-bold bg-[#FEF9EE] text-[#936F1E]">
-                  Grades 9 to 11
+                <span className="px-2.5 py-1 rounded-full text-xs font-bold bg-emerald-400/20 text-emerald-200 border border-emerald-400/30">
+                  Zero Physical School Needed
                 </span>
               </div>
 
-              <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold font-heading text-white tracking-tight leading-tight">
-                Full Online Cambridge O-Level.{' '}
-                <span className="text-[#DFBA73]">Interactive Batch Classes.</span>
+              <h2 className="text-3xl sm:text-4xl lg:text-[44px] font-black font-heading text-white tracking-tight leading-[1.14]">
+                Full Online Cambridge O-Level School.
+                <span className="block mt-1 text-[#FFE58F] drop-shadow-md">
+                  Study Full O-Level Just Like a Regular School.
+                </span>
               </h2>
 
-              <p className="text-slate-200 text-xs sm:text-sm leading-relaxed">
-                Do you want your child to study Cambridge O-Level from home without going to a physical school? Join our structured online batch schooling with daily live teacher lectures, daily 15-year topical past paper practice, and full British Council private candidate exam registration guidance.
+              <p className="text-emerald-100/90 text-sm sm:text-base leading-relaxed font-normal">
+                A formal online Cambridge school replacement. Get structured daily timetables, live interactive classes, daily 15-year topical past paper practice, homework marking, and British Council private candidate exam registration — all from home with zero physical school attendance needed.
               </p>
 
               {/* 4 Feature Badges */}
               <div className="grid sm:grid-cols-2 gap-2.5 pt-2 text-xs">
-                <div className="flex items-center gap-2 p-2 rounded-lg bg-white/5 border border-white/10">
-                  <span className="text-base">🌅</span>
+                <div className="flex items-center gap-2.5 p-2.5 rounded-xl bg-black/25 border border-emerald-400/25 text-emerald-100">
+                  <span className="text-lg">🌅</span>
                   <span><strong>Morning Batch:</strong> 9:00 AM – 1:00 PM PKT</span>
                 </div>
-                <div className="flex items-center gap-2 p-2 rounded-lg bg-white/5 border border-white/10">
-                  <span className="text-base">🌆</span>
+                <div className="flex items-center gap-2.5 p-2.5 rounded-xl bg-black/25 border border-emerald-400/25 text-emerald-100">
+                  <span className="text-lg">🌆</span>
                   <span><strong>Evening Batch:</strong> 4:30 PM – 8:30 PM PKT</span>
                 </div>
-                <div className="flex items-center gap-2 p-2 rounded-lg bg-white/5 border border-white/10">
-                  <span className="text-base">👥</span>
+                <div className="flex items-center gap-2.5 p-2.5 rounded-xl bg-black/25 border border-emerald-400/25 text-emerald-100">
+                  <span className="text-lg">👥</span>
                   <span><strong>Micro-Batches:</strong> Strictly 6 to 8 students</span>
                 </div>
-                <div className="flex items-center gap-2 p-2 rounded-lg bg-white/5 border border-white/10">
-                  <span className="text-base">🏛️</span>
+                <div className="flex items-center gap-2.5 p-2.5 rounded-xl bg-black/25 border border-emerald-400/25 text-emerald-100">
+                  <span className="text-lg">🏛️</span>
                   <span><strong>British Council:</strong> Complete exam entry support</span>
                 </div>
               </div>
@@ -1006,16 +1009,16 @@ export const Home = () => {
               <div className="flex flex-wrap items-center gap-3 pt-3">
                 <Link
                   to="/programs/online-o-level"
-                  className="btn btn-teal text-xs font-bold py-3 px-5 shadow-lg hover:scale-[1.02] transition-all flex items-center gap-2"
+                  className="btn btn-teal text-xs sm:text-sm font-extrabold py-3.5 px-6 shadow-xl hover:scale-[1.02] transition-all flex items-center gap-2 cursor-pointer"
                 >
-                  <span>Explore Dedicated O-Level Page</span>
+                  <span>Explore Dedicated O-Level School</span>
                   <ArrowRight className="w-4 h-4" />
                 </Link>
 
                 <button
                   type="button"
                   onClick={() => openBookingModal({ curriculum: 'Cambridge O-Level' })}
-                  className="px-4 py-3 rounded-xl text-xs font-bold bg-[#C59B4B] text-[#06251C] hover:bg-[#DFBA73] transition-all shadow-md flex items-center gap-2 cursor-pointer"
+                  className="px-5 py-3.5 rounded-xl text-xs sm:text-sm font-extrabold bg-gradient-to-r from-[#C59B4B] via-[#DFBA73] to-[#C59B4B] text-[#06251C] hover:shadow-lg hover:scale-[1.02] transition-all shadow-md flex items-center gap-2 cursor-pointer"
                 >
                   <Users className="w-4 h-4" />
                   <span>Join Free Trial Batch Class</span>
@@ -1025,43 +1028,43 @@ export const Home = () => {
             </div>
 
             {/* Right Card: Subject Snapshot & Registration */}
-            <div className="lg:col-span-5 bg-white/10 backdrop-blur-md p-6 rounded-2xl border border-white/15 space-y-4 text-left">
-              <div className="flex items-center justify-between border-b border-white/10 pb-3">
+            <div className="lg:col-span-5 bg-white/10 backdrop-blur-md p-6 rounded-2xl border-2 border-[#C59B4B]/40 space-y-4 text-left shadow-xl">
+              <div className="flex items-center justify-between border-b border-white/15 pb-3">
                 <div>
-                  <span className="text-[10px] font-bold text-amber-300 uppercase tracking-widest block">Available Streams</span>
-                  <h4 className="text-sm font-extrabold text-white font-heading">Full Subject Packages</h4>
+                  <span className="text-[10px] font-black text-[#FFE58F] uppercase tracking-widest block">Available Streams</span>
+                  <h4 className="text-base font-extrabold text-white font-heading">Full Schooling Subjects</h4>
                 </div>
-                <span className="text-[10px] font-bold bg-emerald-400/20 text-emerald-300 px-2 py-0.5 rounded-full border border-emerald-400/30">
+                <span className="text-[10px] font-bold bg-[#C59B4B] text-[#06251C] px-2.5 py-0.5 rounded-full font-mono">
                   2026 / 2027 Series
                 </span>
               </div>
 
               <div className="space-y-2 text-xs">
-                <div className="p-2.5 rounded-xl bg-black/20 border border-white/5 flex items-center justify-between">
+                <div className="p-2.5 rounded-xl bg-black/30 border border-white/10 flex items-center justify-between">
                   <span className="font-bold text-slate-100">Sciences (Physics, Chem, Bio)</span>
-                  <span className="text-[11px] text-amber-300 font-mono">Theory + ATP Lab</span>
+                  <span className="text-[11px] text-[#FFE58F] font-mono font-bold">Theory + ATP Lab</span>
                 </div>
-                <div className="p-2.5 rounded-xl bg-black/20 border border-white/5 flex items-center justify-between">
+                <div className="p-2.5 rounded-xl bg-black/30 border border-white/10 flex items-center justify-between">
                   <span className="font-bold text-slate-100">Mathematics (4024 / 4037)</span>
-                  <span className="text-[11px] text-emerald-300 font-mono">P1, P2 Topical Mocks</span>
+                  <span className="text-[11px] text-emerald-300 font-mono font-bold">P1, P2 Topical Mocks</span>
                 </div>
-                <div className="p-2.5 rounded-xl bg-black/20 border border-white/5 flex items-center justify-between">
+                <div className="p-2.5 rounded-xl bg-black/30 border border-white/10 flex items-center justify-between">
                   <span className="font-bold text-slate-100">Languages (English & Urdu)</span>
-                  <span className="text-[11px] text-slate-300 font-mono">Directed Writing</span>
+                  <span className="text-[11px] text-slate-200 font-mono">Directed Writing</span>
                 </div>
-                <div className="p-2.5 rounded-xl bg-black/20 border border-white/5 flex items-center justify-between">
+                <div className="p-2.5 rounded-xl bg-black/30 border border-white/10 flex items-center justify-between">
                   <span className="font-bold text-slate-100">Pak Studies (2059) & Islamiyat (2058)</span>
-                  <span className="text-[11px] text-amber-300 font-mono">Structured Rubrics</span>
+                  <span className="text-[11px] text-[#FFE58F] font-mono font-bold">Structured Rubrics</span>
                 </div>
               </div>
 
-              <div className="pt-2 border-t border-white/10 flex items-center justify-between text-xs">
-                <span className="text-slate-300 text-[11px]">Interested in batch admission?</span>
+              <div className="pt-2 border-t border-white/15 flex items-center justify-between text-xs">
+                <span className="text-slate-200 text-[11px]">Baqaida admission inquiries:</span>
                 <Link
                   to="/programs/online-o-level"
-                  className="font-bold text-amber-300 hover:text-white underline flex items-center gap-1"
+                  className="font-extrabold text-[#FFE58F] hover:text-white underline flex items-center gap-1"
                 >
-                  <span>View Details & Timetable &rarr;</span>
+                  <span>View Full Timetable &rarr;</span>
                 </Link>
               </div>
             </div>

@@ -75,10 +75,10 @@ export const Header = () => {
                     </div>
                     <div className="flex-1">
                       <div className="text-xs font-extrabold text-[#0B4635] flex items-center justify-between">
-                        <span>Online O-Level Batches</span>
-                        <span className="text-[9px] bg-[#059669] text-white px-1.5 py-0.2 rounded-full uppercase font-bold">New</span>
+                        <span>Full Online O-Level School</span>
+                        <span className="text-[9px] bg-[#059669] text-white px-1.5 py-0.2 rounded-full uppercase font-bold">School</span>
                       </div>
-                      <div className="text-[11px] text-slate-600 leading-tight mt-0.5">Full online schooling for homeschoolers (Morning/Eve)</div>
+                      <div className="text-[11px] text-slate-600 leading-tight mt-0.5">Baqaida Cambridge schooling from home (Morning/Eve batches)</div>
                     </div>
                   </Link>
 
@@ -273,9 +273,9 @@ export const Header = () => {
               <div className="flex items-center justify-between">
                 <div className="flex items-center gap-2">
                   <Users className="w-4 h-4 text-[#059669]" />
-                  <span>Online O-Level Batches</span>
+                  <span>Full Online O-Level School</span>
                 </div>
-                <span className="text-[9px] bg-[#059669] text-white px-1.5 py-0.2 rounded-full uppercase font-bold">New</span>
+                <span className="text-[9px] bg-[#059669] text-white px-1.5 py-0.2 rounded-full uppercase font-bold">School</span>
               </div>
             </NavLink>
 
