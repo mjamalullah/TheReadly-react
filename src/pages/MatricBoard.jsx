@@ -193,43 +193,45 @@ export const MatricBoard = () => {
     <div className="space-y-14 sm:space-y-20 pb-16">
       
       {/* 1. HERO SECTION */}
-      <section className="relative overflow-hidden bg-gradient-to-b from-[#0B4635] via-[#08382B] to-[#041D15] text-white pt-16 pb-20 sm:pt-20 sm:pb-28">
-        <div className="absolute inset-0 opacity-10 bg-[radial-gradient(#C59B4B_1px,transparent_1px)] [background-size:20px_20px] pointer-events-none"></div>
-
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+      <section className="relative overflow-hidden bg-gradient-to-b from-[#FEF9EE]/60 via-slate-50 to-white py-16 md:py-24 border-b border-emerald-100">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-3xl space-y-5">
             
-            <div className="flex items-center gap-2 text-xs font-semibold text-emerald-200/80 mb-2">
-              <Link to="/" className="hover:text-white transition-colors">Home</Link>
+            <div className="flex items-center gap-2 text-xs font-semibold text-slate-500 mb-2">
+              <Link to="/" className="hover:text-[#059669] transition-colors">Home</Link>
               <span>/</span>
-              <Link to="/programs" className="hover:text-white transition-colors">Programs</Link>
+              <Link to="/programs" className="hover:text-[#059669] transition-colors">Programs</Link>
               <span>/</span>
-              <span className="text-[#C59B4B] font-bold">Matriculation Board (SSC)</span>
+              <span className="text-[#0B4635] font-bold">Matriculation Board (SSC)</span>
             </div>
 
             <div className="flex items-center gap-2 flex-wrap">
-              <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-black bg-white/10 text-white border border-[#C59B4B]/50 backdrop-blur-xs">
+              <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-black bg-[#FEF9EE] text-[#0B4635] border border-[#E8D3A7]">
                 <GraduationCap className="w-4 h-4 text-[#C59B4B]" />
                 <span>Secondary School Certificate (SSC Part-I & II)</span>
               </span>
-              <span className="px-3 py-1 rounded-full text-xs font-bold bg-[#FEF9EE] text-[#0B4635] border border-[#E8D3A7]">
+              <span className="px-3 py-1 rounded-full text-xs font-bold bg-emerald-50 text-[#059669] border border-emerald-200">
                 FBISE & All Provincial BISE Boards
               </span>
             </div>
 
-            <h1 className="text-3xl sm:text-5xl lg:text-6xl font-black font-heading tracking-tight leading-[1.15]">
+            <h1 className="text-3xl sm:text-5xl lg:text-[54px] font-black text-[#0B4635] font-heading tracking-tight leading-[1.12]">
               Federal & Provincial <span className="text-[#C59B4B]">Matric Board Programs.</span>
             </h1>
 
-            <p className="text-base sm:text-lg text-slate-200 leading-relaxed max-w-2xl font-normal">
+            <p className="text-base sm:text-xl font-bold text-[#059669] font-heading">
+              Comprehensive FBISE & Provincial BISE Coaching for Class 9 & 10
+            </p>
+
+            <p className="text-slate-600 text-sm sm:text-base leading-relaxed max-w-2xl">
               Empowering Class 9 and Class 10 students across Pakistan and overseas. Master SLO-based conceptual questions, step-by-step Physics numericals, Mathematics theorems, and polished board paper presentation for top A+ positions.
             </p>
 
-            <div className="pt-2 flex flex-wrap items-center gap-4">
+            <div className="pt-2 flex flex-wrap items-center gap-3">
               <button
                 type="button"
                 onClick={() => openBookingModal({ curriculum: 'Matriculation Board (SSC)' })}
-                className="btn btn-gold text-xs sm:text-sm font-extrabold py-3.5 px-6 shadow-lg hover:shadow-xl cursor-pointer flex items-center gap-2"
+                className="btn btn-teal text-xs sm:text-sm font-bold py-3.5 px-6 shadow-sm hover:shadow-md cursor-pointer flex items-center gap-2"
               >
                 <Calendar className="w-4 h-4" />
                 <span>Book Free Diagnostic Demo</span>
@@ -237,29 +239,29 @@ export const MatricBoard = () => {
 
               <Link
                 to="/subjects"
-                className="btn btn-secondary text-xs sm:text-sm font-bold py-3.5 px-6 border-emerald-400/40 text-white hover:bg-white/10 flex items-center gap-2"
+                className="btn btn-secondary text-xs sm:text-sm font-bold py-3.5 px-6 flex items-center gap-2"
               >
-                <BookOpen className="w-4 h-4 text-[#C59B4B]" />
+                <BookOpen className="w-4 h-4 text-[#059669]" />
                 <span>View Matric Subjects</span>
               </Link>
             </div>
 
-            <div className="pt-6 grid grid-cols-2 sm:grid-cols-4 gap-4 border-t border-white/10 text-xs">
+            <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 pt-6 border-t border-slate-200 text-xs">
               <div>
-                <span className="text-xl font-black text-[#C59B4B] block">95%+</span>
-                <span className="text-slate-300">A+ Grade Target</span>
+                <span className="text-xl font-black text-[#0B4635] block">95%+</span>
+                <span className="text-slate-500 font-medium">A+ Grade Target</span>
               </div>
               <div>
-                <span className="text-xl font-black text-white block">10-Year</span>
-                <span className="text-slate-300">Solved Past Papers</span>
+                <span className="text-xl font-black text-[#0B4635] block">10-Year</span>
+                <span className="text-slate-500 font-medium">Solved Past Papers</span>
               </div>
               <div>
-                <span className="text-xl font-black text-[#C59B4B] block">SLO</span>
-                <span className="text-slate-300">Concept-Based Learning</span>
+                <span className="text-xl font-black text-[#0B4635] block">SLO</span>
+                <span className="text-slate-500 font-medium">Concept-Based Learning</span>
               </div>
               <div>
-                <span className="text-xl font-black text-white block">100% Live</span>
-                <span className="text-slate-300">Micro-Batches & 1:1</span>
+                <span className="text-xl font-black text-[#0B4635] block">100% Live</span>
+                <span className="text-slate-500 font-medium">Micro-Batches & 1:1</span>
               </div>
             </div>
 
@@ -454,16 +456,16 @@ export const MatricBoard = () => {
 
       {/* 6. BOTTOM CTA */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="card-base p-8 sm:p-12 bg-gradient-to-br from-[#0B4635] to-[#041D15] text-white text-center rounded-3xl border border-[#C59B4B]/40 shadow-xl space-y-6">
+        <div className="card-base p-8 sm:p-12 bg-gradient-to-br from-emerald-50/60 via-white to-amber-50/40 text-center rounded-2xl border border-emerald-200/80 shadow-sm space-y-6">
           <div className="max-w-2xl mx-auto space-y-3">
             <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-bold bg-[#FEF9EE] text-[#0B4635] border border-[#E8D3A7]">
               <Sparkles className="w-3.5 h-3.5 text-[#C59B4B]" />
               Federal FBISE & BISE • Free Trial Class
             </span>
-            <h2 className="text-3xl sm:text-4xl font-extrabold font-heading text-white">
+            <h2 className="text-3xl sm:text-4xl font-extrabold font-heading text-[#0B4635]">
               Ready to Secure An <span className="text-[#C59B4B]">A+ in Your Board Exams?</span>
             </h2>
-            <p className="text-slate-200 text-xs sm:text-sm leading-relaxed">
+            <p className="text-slate-600 text-xs sm:text-sm leading-relaxed">
               Book a complimentary 1-on-1 diagnostic demo session with an experienced Matric faculty mentor. Assess your numerical, theorem, and SLO reasoning skills today.
             </p>
           </div>
@@ -472,7 +474,7 @@ export const MatricBoard = () => {
             <button
               type="button"
               onClick={() => openBookingModal({ curriculum: 'Matriculation Board (SSC)' })}
-              className="btn btn-gold text-xs sm:text-sm font-extrabold py-3.5 px-6 shadow-lg hover:shadow-xl cursor-pointer flex items-center gap-2"
+              className="btn btn-teal text-xs sm:text-sm font-bold py-3.5 px-6 shadow-sm hover:shadow-md cursor-pointer flex items-center gap-2"
             >
               <Calendar className="w-4 h-4" />
               <span>Schedule Free Trial Demo</span>
