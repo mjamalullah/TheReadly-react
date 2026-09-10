@@ -204,7 +204,7 @@ export const subjectsData = [
       "Part (b) 4-Mark Evaluation Models"
     ],
     "duration": "6 - 9 Months",
-    "tutors": "Distinction Holder Faculty",
+    "tutors": "Anas Ahmed Jokhio (Master in Islamic Studies • CIES Certified)",
     "isMain": false
   },
   {
@@ -549,7 +549,7 @@ export const subjectsData = [
       "Examiner Model Answers"
     ],
     "duration": "6 - 9 Months",
-    "tutors": "Cambridge Certified Faculty",
+    "tutors": "Anas Ahmed Jokhio (Master in Islamic Studies • CIES Certified)",
     "isMain": false
   },
   {

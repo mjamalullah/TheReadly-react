@@ -11,6 +11,7 @@ export const Teachers = () => {
   const categories = [
     { id: 'all', label: 'All Faculty' },
     { id: 'languages', label: 'Languages & Urdu' },
+    { id: 'islamiyat', label: 'Islamiyat & Religious Studies' },
     { id: 'sciences', label: 'Sciences (Physics, Chem, Bio)' },
     { id: 'maths', label: 'Mathematics' },
     { id: 'technology', label: 'Computer Science' },
@@ -20,6 +21,7 @@ export const Teachers = () => {
 
   const filteredTutors = tutorsData.filter(tutor => {
     if (selectedCategory === 'all') return true;
+    if (selectedCategory === 'humanities') return tutor.category === 'humanities' || tutor.category === 'islamiyat';
     return tutor.category === selectedCategory;
   });
 

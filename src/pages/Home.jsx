@@ -201,6 +201,7 @@ export const Home = () => {
   // Filtered Tutors for Faculty Section
   const filteredTutors = tutorsData.filter(tutor => {
     if (selectedTutorCategory === 'all') return true;
+    if (selectedTutorCategory === 'humanities') return tutor.category === 'humanities' || tutor.category === 'islamiyat';
     return tutor.category === selectedTutorCategory;
   });
 
@@ -1626,6 +1627,7 @@ export const Home = () => {
           {[
             { id: 'all', label: 'All Faculty' },
             { id: 'languages', label: 'Languages & Urdu' },
+            { id: 'islamiyat', label: 'Islamiyat & Religious Studies' },
             { id: 'sciences', label: 'Sciences (Physics, Chem, Bio)' },
             { id: 'maths', label: 'Mathematics' },
             { id: 'technology', label: 'Computer Science' },

@@ -13,6 +13,19 @@ export const tutorsData = [
     image: "/images/teachers/sohail-anjum.jpg"
   },
   {
+    id: "tutor-anas-islamiat",
+    name: "Anas Ahmed Jokhio",
+    role: "O-Level Islamiat Specialist",
+    qualifications: "Master in Islamic Studies • CIES Certified Teacher",
+    level: "O-Level • IGCSE",
+    category: "islamiyat",
+    experience: "CIES Certified • Cambridge O-Level & IGCSE Specialist",
+    bio: "Dedicated Cambridge Islamiat mentor with a Master's degree in Islamic Studies and official CIES certification. Specializes in CAIE Cambridge O-Level (2058) and IGCSE (0493), guiding students through Quranic passages exposition, Seerat-un-Nabi (PBUH), Caliphate history, Hadith evaluations, and examiner-tested 10-mark and 4-mark response structures.",
+    subjects: ["O-Level Islamiyat (2058)", "Cambridge IGCSE Islamiyat (0493)", "Quranic Passages & Hadith Analysis", "10-Mark & 4-Mark Evaluation Framework"],
+    achievements: "CIES certified Cambridge mentor with a proven track record of guiding students to A* and A grades across Cambridge International centers.",
+    image: "/images/teachers/Anas-ahmed.jpeg"
+  },
+  {
     id: "tutor-sarah-maths",
     name: "Dr. Sarah Ahmed",
     role: "Mathematics Specialist",
