@@ -1,23 +1,58 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { NavLink, Link, useLocation } from 'react-router-dom';
 import { useModal } from '../context/ModalContext';
 import { READLY_CONFIG } from '../config/readlyConfig';
-import { Menu, X, PhoneCall, ChevronRight, ChevronDown, GraduationCap, Briefcase, Mail, Users, BookOpen, Award } from 'lucide-react';
+import {
+  Menu,
+  X,
+  PhoneCall,
+  ChevronRight,
+  ChevronDown,
+  GraduationCap,
+  Briefcase,
+  Mail,
+  Users,
+  BookOpen,
+  Award,
+  Layers,
+  HelpCircle,
+  FileText,
+  Info,
+  Home as HomeIcon
+} from 'lucide-react';
 
 export const Header = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const { openBookingModal, openTutorModal } = useModal();
   const location = useLocation();
 
-  const navLinks = [
-    { to: '/subjects', label: 'Subjects' },
-    { to: '/teachers', label: 'Faculty' },
-    { to: '/how-it-works', label: 'How It Works' },
-    { to: '/resources', label: 'Resources' },
-    { to: '/about', label: 'About Us' },
-  ];
-
   const isProgramsActive = location.pathname.startsWith('/programs') || location.pathname === '/online-o-level';
+  const [mobileProgramsOpen, setMobileProgramsOpen] = useState(isProgramsActive);
+  const [mobileContactOpen, setMobileContactOpen] = useState(false);
+
+  // Close mobile drawer when location/route changes
+  useEffect(() => {
+    setMobileMenuOpen(false);
+  }, [location.pathname]);
+
+  // Lock body scrolling when mobile drawer is open
+  useEffect(() => {
+    if (mobileMenuOpen) {
+      const originalOverflow = window.getComputedStyle(document.body).overflow;
+      document.body.style.overflow = 'hidden';
+      return () => {
+        document.body.style.overflow = originalOverflow;
+      };
+    }
+  }, [mobileMenuOpen]);
+
+  const navLinks = [
+    { to: '/subjects', label: 'Subjects', icon: Layers },
+    { to: '/teachers', label: 'Faculty', icon: Users },
+    { to: '/how-it-works', label: 'How It Works', icon: HelpCircle },
+    { to: '/resources', label: 'Resources', icon: FileText },
+    { to: '/about', label: 'About Us', icon: Info },
+  ];
 
   return (
     <header className="sticky top-0 z-40 bg-white/95 backdrop-blur-md border-b border-slate-200/90 shadow-xs">
@@ -259,196 +294,288 @@ export const Header = () => {
         </div>
       </div>
 
-      {/* Mobile Drawer */}
+      {/* Mobile Drawer & Backdrop */}
       {mobileMenuOpen && (
-        <div className="lg:hidden bg-white border-b border-slate-200 px-4 pt-3 pb-6 space-y-2 shadow-xl animate-fade-in">
-          <NavLink
-            to="/"
+        <>
+          {/* Backdrop overlay */}
+          <div
+            className="fixed inset-0 top-20 bg-slate-900/50 backdrop-blur-xs z-30 lg:hidden animate-fade-in"
             onClick={() => setMobileMenuOpen(false)}
-            className={({ isActive }) =>
-              `block px-3.5 py-2.5 rounded-lg text-sm font-bold transition-colors ${
-                isActive
-                  ? 'bg-[#FEF9EE] text-[#0B4635] font-bold border-l-4 border-[#C59B4B]'
-                  : 'text-slate-800 hover:bg-slate-50 hover:text-[#0B4635]'
-              }`
-            }
+            aria-hidden="true"
+          />
+
+          {/* Mobile Drawer Container */}
+          <div
+            className="relative z-40 lg:hidden bg-white border-b border-slate-200 px-4 pt-3 pb-12 space-y-2 shadow-2xl animate-fade-in max-h-[calc(100dvh-5rem)] overflow-y-auto overscroll-contain"
+            style={{ WebkitOverflowScrolling: 'touch' }}
           >
-            <div className="flex items-center justify-between">
-              <span>Home</span>
+            {/* 1. Home */}
+            <NavLink
+              to="/"
+              onClick={() => setMobileMenuOpen(false)}
+              className={({ isActive }) =>
+                `flex items-center justify-between px-3.5 py-2.5 rounded-xl text-sm font-bold transition-colors ${
+                  isActive
+                    ? 'bg-[#FEF9EE] text-[#0B4635] border border-[#E8D3A7]'
+                    : 'text-slate-800 hover:bg-slate-50 hover:text-[#0B4635]'
+                }`
+              }
+            >
+              <div className="flex items-center gap-2.5">
+                <HomeIcon className="w-4 h-4 text-[#059669]" />
+                <span>Home</span>
+              </div>
               <ChevronRight className="w-4 h-4 text-slate-400" />
+            </NavLink>
+
+            {/* 2. Academic Programs Accordion */}
+            <div className="rounded-xl border border-slate-200 overflow-hidden bg-slate-50/60">
+              <button
+                type="button"
+                onClick={() => setMobileProgramsOpen(!mobileProgramsOpen)}
+                className={`w-full flex items-center justify-between px-3.5 py-2.5 text-sm font-bold transition-colors cursor-pointer ${
+                  isProgramsActive
+                    ? 'bg-[#FEF9EE] text-[#0B4635]'
+                    : 'text-slate-800 hover:bg-slate-100 hover:text-[#0B4635]'
+                }`}
+              >
+                <div className="flex items-center gap-2.5">
+                  <BookOpen className="w-4 h-4 text-[#059669]" />
+                  <span>Academic Programs</span>
+                  <span className="text-[10px] bg-emerald-100 text-[#0B4635] px-2 py-0.5 rounded-full font-extrabold border border-emerald-200">
+                    4 Programs
+                  </span>
+                </div>
+                <ChevronDown
+                  className={`w-4 h-4 text-slate-500 transition-transform duration-200 ${
+                    mobileProgramsOpen ? 'rotate-180 text-[#059669]' : ''
+                  }`}
+                />
+              </button>
+
+              {mobileProgramsOpen && (
+                <div className="p-2 space-y-1.5 bg-white border-t border-slate-200/80 animate-fade-in">
+                  {/* Full Online O-Level School */}
+                  <NavLink
+                    to="/programs/online-o-level"
+                    onClick={() => setMobileMenuOpen(false)}
+                    className={({ isActive }) =>
+                      `flex items-start gap-2.5 p-2.5 rounded-lg text-xs font-bold transition-colors ${
+                        isActive
+                          ? 'bg-[#FEF9EE] text-[#0B4635] border border-[#E8D3A7]'
+                          : 'bg-emerald-50/80 text-[#0B4635] hover:bg-emerald-100 border border-emerald-200/80'
+                      }`
+                    }
+                  >
+                    <div className="w-7 h-7 rounded-lg bg-[#0B4635] text-[#C59B4B] flex items-center justify-center shrink-0 mt-0.5">
+                      <Users className="w-3.5 h-3.5" />
+                    </div>
+                    <div className="flex-1 min-w-0">
+                      <div className="flex items-center justify-between gap-1">
+                        <span className="truncate">Full Online O-Level School</span>
+                        <span className="text-[9px] bg-[#059669] text-white px-1.5 py-0.2 rounded-full uppercase font-bold shrink-0">School</span>
+                      </div>
+                      <p className="text-[10px] text-slate-500 font-normal truncate">Morning & Evening batches from home</p>
+                    </div>
+                  </NavLink>
+
+                  {/* Cambridge O-Level & IGCSE */}
+                  <NavLink
+                    to="/programs/cambridge-olevel-igcse"
+                    onClick={() => setMobileMenuOpen(false)}
+                    className={({ isActive }) =>
+                      `flex items-start gap-2.5 p-2.5 rounded-lg text-xs font-bold transition-colors ${
+                        isActive
+                          ? 'bg-[#FEF9EE] text-[#0B4635] border border-[#E8D3A7]'
+                          : 'hover:bg-slate-50 text-slate-800 hover:text-[#0B4635]'
+                      }`
+                    }
+                  >
+                    <div className="w-7 h-7 rounded-lg bg-emerald-50 text-[#059669] flex items-center justify-center shrink-0 mt-0.5 border border-emerald-100">
+                      <Award className="w-3.5 h-3.5" />
+                    </div>
+                    <div className="flex-1 min-w-0">
+                      <div className="flex items-center justify-between gap-1">
+                        <span className="truncate">Cambridge O-Level & IGCSE</span>
+                        <ChevronRight className="w-3.5 h-3.5 text-slate-400 shrink-0" />
+                      </div>
+                      <p className="text-[10px] text-slate-500 font-normal truncate">CAIE syllabus & 15-yr past papers</p>
+                    </div>
+                  </NavLink>
+
+                  {/* Matric Board (SSC I & II) */}
+                  <NavLink
+                    to="/programs/matric"
+                    onClick={() => setMobileMenuOpen(false)}
+                    className={({ isActive }) =>
+                      `flex items-start gap-2.5 p-2.5 rounded-lg text-xs font-bold transition-colors ${
+                        isActive
+                          ? 'bg-[#FEF9EE] text-[#0B4635] border border-[#E8D3A7]'
+                          : 'hover:bg-slate-50 text-slate-800 hover:text-[#0B4635]'
+                      }`
+                    }
+                  >
+                    <div className="w-7 h-7 rounded-lg bg-emerald-50 text-[#059669] flex items-center justify-center shrink-0 mt-0.5 border border-emerald-100">
+                      <GraduationCap className="w-3.5 h-3.5" />
+                    </div>
+                    <div className="flex-1 min-w-0">
+                      <div className="flex items-center justify-between gap-1">
+                        <span className="truncate">Matric Board (SSC I & II)</span>
+                        <ChevronRight className="w-3.5 h-3.5 text-slate-400 shrink-0" />
+                      </div>
+                      <p className="text-[10px] text-slate-500 font-normal truncate">Federal FBISE & Provincial BISE</p>
+                    </div>
+                  </NavLink>
+
+                  {/* All Academic Programs */}
+                  <NavLink
+                    to="/programs"
+                    onClick={() => setMobileMenuOpen(false)}
+                    className={({ isActive }) =>
+                      `flex items-start gap-2.5 p-2.5 rounded-lg text-xs font-bold transition-colors ${
+                        isActive && location.pathname === '/programs'
+                          ? 'bg-[#FEF9EE] text-[#0B4635] border border-[#E8D3A7]'
+                          : 'hover:bg-slate-50 text-slate-800 hover:text-[#0B4635]'
+                      }`
+                    }
+                  >
+                    <div className="w-7 h-7 rounded-lg bg-slate-100 text-slate-700 flex items-center justify-center shrink-0 mt-0.5">
+                      <BookOpen className="w-3.5 h-3.5" />
+                    </div>
+                    <div className="flex-1 min-w-0">
+                      <div className="flex items-center justify-between gap-1">
+                        <span className="truncate">All Programs Overview</span>
+                        <ChevronRight className="w-3.5 h-3.5 text-slate-400 shrink-0" />
+                      </div>
+                      <p className="text-[10px] text-slate-500 font-normal truncate">O/A-Level, Edexcel & IT matrix</p>
+                    </div>
+                  </NavLink>
+                </div>
+              )}
             </div>
-          </NavLink>
 
-          {/* Programs Section in Mobile Drawer */}
-          <div className="space-y-1 pt-1 pb-1">
-            <div className="px-3.5 text-[10px] font-extrabold uppercase tracking-wider text-slate-400">
-              Academic Curriculums
-            </div>
-            
-            <NavLink
-              to="/programs/online-o-level"
-              onClick={() => setMobileMenuOpen(false)}
-              className={({ isActive }) =>
-                `block px-3.5 py-2.5 rounded-lg text-sm font-bold transition-colors ${
-                  isActive
-                    ? 'bg-[#FEF9EE] text-[#0B4635] border-l-4 border-[#C59B4B]'
-                    : 'bg-emerald-50/60 text-[#0B4635] hover:bg-emerald-100/80'
-                }`
-              }
-            >
-              <div className="flex items-center justify-between">
-                <div className="flex items-center gap-2">
-                  <Users className="w-4 h-4 text-[#059669]" />
-                  <span>Full Online O-Level School</span>
-                </div>
-                <span className="text-[9px] bg-[#059669] text-white px-1.5 py-0.2 rounded-full uppercase font-bold">School</span>
-              </div>
-            </NavLink>
-
-            <NavLink
-              to="/programs/cambridge-olevel-igcse"
-              onClick={() => setMobileMenuOpen(false)}
-              className="block px-3.5 py-2 rounded-lg text-sm font-bold transition-colors text-slate-800 hover:bg-slate-50 hover:text-[#0B4635]"
-            >
-              <div className="flex items-center justify-between">
-                <div className="flex items-center gap-2">
-                  <Award className="w-4 h-4 text-[#059669]" />
-                  <span>Cambridge O-Level & IGCSE</span>
-                </div>
-                <ChevronRight className="w-4 h-4 text-slate-400" />
-              </div>
-            </NavLink>
-
-            <NavLink
-              to="/programs/matric"
-              onClick={() => setMobileMenuOpen(false)}
-              className="block px-3.5 py-2 rounded-lg text-sm font-bold transition-colors text-slate-800 hover:bg-slate-50 hover:text-[#0B4635]"
-            >
-              <div className="flex items-center justify-between">
-                <div className="flex items-center gap-2">
-                  <GraduationCap className="w-4 h-4 text-[#059669]" />
-                  <span>Matric Board (SSC I & II)</span>
-                </div>
-                <ChevronRight className="w-4 h-4 text-slate-400" />
-              </div>
-            </NavLink>
-
-            <NavLink
-              to="/programs"
-              onClick={() => setMobileMenuOpen(false)}
-              className={({ isActive }) =>
-                `block px-3.5 py-2 rounded-lg text-sm font-bold transition-colors ${
-                  isActive
-                    ? 'bg-[#FEF9EE] text-[#0B4635] border-l-4 border-[#C59B4B]'
-                    : 'text-slate-800 hover:bg-slate-50 hover:text-[#0B4635]'
-                }`
-              }
-            >
-              <div className="flex items-center justify-between">
-                <div className="flex items-center gap-2">
-                  <BookOpen className="w-4 h-4 text-slate-500" />
-                  <span>All Programs Overview</span>
-                </div>
-                <ChevronRight className="w-4 h-4 text-slate-400" />
-              </div>
-            </NavLink>
-          </div>
-
-          {navLinks.map((link) => (
-            <NavLink
-              key={link.to}
-              to={link.to}
-              onClick={() => setMobileMenuOpen(false)}
-              className={({ isActive }) =>
-                `block px-3.5 py-2.5 rounded-lg text-sm font-bold transition-colors ${
-                  isActive
-                    ? 'bg-[#FEF9EE] text-[#0B4635] font-bold border-l-4 border-[#C59B4B]'
-                    : 'text-slate-800 hover:bg-slate-50 hover:text-[#0B4635]'
-                }`
-              }
-            >
-              <div className="flex items-center justify-between">
-                <span>{link.label}</span>
-                <ChevronRight className="w-4 h-4 text-slate-400" />
-              </div>
-            </NavLink>
-          ))}
-
-          {/* Contact & Join Our Team in Mobile Drawer */}
-          <div className="pt-2 border-t border-slate-100 space-y-1">
-            <NavLink
-              to="/contact"
-              onClick={() => setMobileMenuOpen(false)}
-              className={({ isActive }) =>
-                `block px-3.5 py-2.5 rounded-lg text-sm font-bold transition-colors ${
-                  isActive
-                    ? 'bg-[#ECFDF5] text-[#059669]'
-                    : 'text-slate-800 hover:bg-slate-50 hover:text-[#059669]'
-                }`
-              }
-            >
-              <div className="flex items-center justify-between">
-                <div className="flex items-center gap-2">
-                  <Mail className="w-4 h-4 text-[#059669]" />
-                  <span>Contact Admissions</span>
-                </div>
-                <ChevronRight className="w-4 h-4 text-slate-400" />
-              </div>
-            </NavLink>
-
-            <NavLink
-              to="/join-our-team"
-              onClick={() => setMobileMenuOpen(false)}
-              className={({ isActive }) =>
-                `block px-3.5 py-2.5 rounded-lg text-sm font-bold transition-colors ${
-                  isActive
-                    ? 'bg-[#ECFDF5] text-[#059669]'
-                    : 'text-slate-800 hover:bg-slate-50 hover:text-[#059669]'
-                }`
-              }
-            >
-              <div className="flex items-center justify-between">
-                <div className="flex items-center gap-2">
-                  <Briefcase className="w-4 h-4 text-[#059669]" />
-                  <div className="flex items-center gap-2">
-                    <span>Join Our Team</span>
-                    <span className="text-[9px] bg-[#C59B4B] text-white px-1.5 py-0.2 rounded-full uppercase font-bold">Hiring</span>
+            {/* 3. Main Navigation Links */}
+            {navLinks.map((link) => {
+              const IconComp = link.icon;
+              return (
+                <NavLink
+                  key={link.to}
+                  to={link.to}
+                  onClick={() => setMobileMenuOpen(false)}
+                  className={({ isActive }) =>
+                    `flex items-center justify-between px-3.5 py-2.5 rounded-xl text-sm font-bold transition-colors ${
+                      isActive
+                        ? 'bg-[#FEF9EE] text-[#0B4635] border border-[#E8D3A7]'
+                        : 'text-slate-800 hover:bg-slate-50 hover:text-[#0B4635]'
+                    }`
+                  }
+                >
+                  <div className="flex items-center gap-2.5">
+                    <IconComp className="w-4 h-4 text-[#059669]" />
+                    <span>{link.label}</span>
                   </div>
+                  <ChevronRight className="w-4 h-4 text-slate-400" />
+                </NavLink>
+              );
+            })}
+
+            {/* 4. Contact & Careers Accordion */}
+            <div className="rounded-xl border border-slate-200 overflow-hidden bg-slate-50/60">
+              <button
+                type="button"
+                onClick={() => setMobileContactOpen(!mobileContactOpen)}
+                className={`w-full flex items-center justify-between px-3.5 py-2.5 text-sm font-bold transition-colors cursor-pointer ${
+                  location.pathname === '/contact' || location.pathname === '/join-our-team'
+                    ? 'bg-[#FEF9EE] text-[#0B4635]'
+                    : 'text-slate-800 hover:bg-slate-100 hover:text-[#0B4635]'
+                }`}
+              >
+                <div className="flex items-center gap-2.5">
+                  <Mail className="w-4 h-4 text-[#059669]" />
+                  <span>Contact & Careers</span>
                 </div>
-                <ChevronRight className="w-4 h-4 text-slate-400" />
-              </div>
-            </NavLink>
+                <ChevronDown
+                  className={`w-4 h-4 text-slate-500 transition-transform duration-200 ${
+                    mobileContactOpen ? 'rotate-180 text-[#059669]' : ''
+                  }`}
+                />
+              </button>
+
+              {mobileContactOpen && (
+                <div className="p-2 space-y-1 bg-white border-t border-slate-200/80 animate-fade-in">
+                  <NavLink
+                    to="/contact"
+                    onClick={() => setMobileMenuOpen(false)}
+                    className={({ isActive }) =>
+                      `flex items-center justify-between px-3 py-2 rounded-lg text-xs font-bold transition-colors ${
+                        isActive ? 'bg-[#FEF9EE] text-[#0B4635]' : 'text-slate-800 hover:bg-slate-50 hover:text-[#059669]'
+                      }`
+                    }
+                  >
+                    <div className="flex items-center gap-2">
+                      <Mail className="w-3.5 h-3.5 text-[#059669]" />
+                      <span>Contact Admissions</span>
+                    </div>
+                    <ChevronRight className="w-3.5 h-3.5 text-slate-400" />
+                  </NavLink>
+
+                  <NavLink
+                    to="/join-our-team"
+                    onClick={() => setMobileMenuOpen(false)}
+                    className={({ isActive }) =>
+                      `flex items-center justify-between px-3 py-2 rounded-lg text-xs font-bold transition-colors ${
+                        isActive ? 'bg-[#FEF9EE] text-[#0B4635]' : 'text-slate-800 hover:bg-slate-50 hover:text-[#059669]'
+                      }`
+                    }
+                  >
+                    <div className="flex items-center gap-2">
+                      <Briefcase className="w-3.5 h-3.5 text-[#059669]" />
+                      <span>Join Our Team</span>
+                      <span className="text-[9px] bg-[#C59B4B] text-white px-1.5 py-0.2 rounded-full uppercase font-bold">Hiring</span>
+                    </div>
+                    <ChevronRight className="w-3.5 h-3.5 text-slate-400" />
+                  </NavLink>
+                </div>
+              )}
+            </div>
+
+            {/* 5. Direct Action CTA Buttons */}
+            <div className="pt-3 border-t border-slate-200/80 space-y-2">
+              <button
+                type="button"
+                onClick={() => {
+                  setMobileMenuOpen(false);
+                  openBookingModal();
+                }}
+                className="btn btn-teal w-full text-xs justify-center py-3 font-bold shadow-xs cursor-pointer flex items-center gap-2"
+              >
+                <span>Schedule Free Trial Demo Class</span>
+                <ChevronRight className="w-3.5 h-3.5" />
+              </button>
+
+              <a
+                href={`https://wa.me/${READLY_CONFIG.whatsappNumber}?text=${encodeURIComponent('Hi The Readly Institute, I would like to inquire about admissions.')}`}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="btn btn-whatsapp w-full text-xs justify-center py-2.5 font-bold"
+              >
+                <span>WhatsApp Admissions Desk</span>
+              </a>
+
+              <button
+                type="button"
+                onClick={() => {
+                  setMobileMenuOpen(false);
+                  openTutorModal();
+                }}
+                className="btn btn-secondary w-full text-xs justify-center py-2.5 flex items-center gap-2 border-slate-300 font-bold"
+              >
+                <GraduationCap className="w-4 h-4 text-[#059669]" />
+                <span>Become a Tutor / Join Faculty</span>
+              </button>
+            </div>
           </div>
-          <div className="pt-4 border-t border-slate-100 space-y-2.5">
-            <button
-              onClick={() => {
-                setMobileMenuOpen(false);
-                openTutorModal();
-              }}
-              className="btn btn-secondary w-full text-xs justify-center py-2.5 flex items-center gap-2 border-slate-300 font-bold"
-            >
-              <GraduationCap className="w-4 h-4 text-[#059669]" />
-              <span>Become a Tutor / Join Faculty</span>
-            </button>
-            <button
-              onClick={() => {
-                setMobileMenuOpen(false);
-                openBookingModal();
-              }}
-              className="btn btn-teal w-full text-xs justify-center py-2.5 font-bold"
-            >
-              <span>Schedule Free Trial Demo Class</span>
-            </button>
-            <a
-              href={`https://wa.me/${READLY_CONFIG.whatsappNumber}?text=${encodeURIComponent('Hi The Readly Institute, I would like to inquire about admissions.')}`}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="btn btn-whatsapp w-full text-xs justify-center py-2.5"
-            >
-              <span>WhatsApp Desk: {READLY_CONFIG.phoneDisplay}</span>
-            </a>
-          </div>
-        </div>
+        </>
       )}
     </header>
   );
